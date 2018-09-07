@@ -31,7 +31,8 @@ class LeafletMap extends Component {
 			tileLayer: null,
 			country:null,
 			hi: 0,
-			list: 0
+			list: 0,
+			hasAlreadyUpdatedOnce: false,
 		};
 		this._mapNode = null;
 		this._onEachFeature = this._onEachFeature.bind(this);
@@ -40,7 +41,6 @@ class LeafletMap extends Component {
 		this._pointToLayer = this._pointToLayer.bind(this);
 		this.updateMarker = this.updateMarker.bind(this);
 		this._cityFilter = this._cityFilter.bind(this);
-		// this.addShades = this.addShades.bind(this);
 	}
 
 	componentDidMount() {
@@ -53,8 +53,16 @@ class LeafletMap extends Component {
 	componentDidUpdate(prevProps,prevState){
 		//Adding 
 		if(this.state.map){
-			this.addMapLayer(this.props.africaContinent, this.props.africaOne)
+			this.addMapLayer(this.props.africaContinent)
 		}
+
+		if(this.state.map && !this.state.hasAlreadyUpdatedOnce){
+			this.addDimLayer(this.props.africaOne)
+			this.setState({
+				hasAlreadyUpdatedOnce:true
+			})
+		}
+
 		var citieslist = this.citieslist = L.geoJSON(this.props.top50, { 
 			// filter: this._yearFilter,//onEachFeature: onEachFeature,
 			pointToLayer: function (feature, latlng) {
@@ -70,27 +78,21 @@ class LeafletMap extends Component {
 		if (feature.properties.Year === "a") return true
 	}
 
-
-	addShades(shades){
+	//Dimming the area outside of African continent 
+	addDimLayer(shades){
 		if(this.state.map){
 		const mapShades = L.geoJson(shades, {
 			invert:true,
 			color:"grey",
 			stroke: false,
-			fillOpacity:0.6 
+			fillOpacity:.7
 		})
 		mapShades.addTo(this.state.map);
 		}
 	}
-	//Adding Shades and Overlay to the Map
-	addMapLayer(overlay, shades){
-		const mapShades = L.geoJson(shades, {
-			invert:true,
-			color:"grey",
-			stroke: false,
-			fillOpacity:0.4
-		})
-		mapShades.addTo(this.state.map);
+
+	//Adding the interactivity layer
+	addMapLayer(overlay){
 		const mapOverlay = L.geoJson(overlay, {
 			onEachFeature: this._onEachFeature
 		})
@@ -99,6 +101,8 @@ class LeafletMap extends Component {
 			fillOpacity: 0,
 			color: 'transparent'
 		})
+
+
 	}
 
 	//Eventhandler on mouse event
@@ -120,33 +124,38 @@ class LeafletMap extends Component {
 		});
 
 		layer.on('click', () => {
-			this.updateMarker();
-			
-			this.state.map.fitBounds(layer.getBounds());
-			
-			let country =feature.properties.ISO3_CODE; 
-			this.setState({country})
-			
-			const list = L.geoJson(this.props.agglosGeo, {
-				onEachFeature: this._onCityFeature, 
-				filter: this._cityFilter,
-				pointToLayer: this._pointToLayer
-			});
 
-			this._sendISO(country)
-			this.citieslist.addLayer(list)
+			this.onClickLayer(feature, layer)
 		});
 	}
 
-	_sendISO(value){
-		this.props.onChange(value)
+	onClickLayer(feature, layer){
+		//Clear Layers
+		this.updateMarker();
+
+		//Zoom into Country
+		this.state.map.fitBounds(layer.getBounds());
+		
+		//ISO3_CODE SetState and pass to parent
+		const country =feature.properties.ISO3_CODE; 
+		this.setState({country})
+		this.props.sendISO(this.state.country)
+		
+		//City node interaction
+		const list = L.geoJson(this.props.agglosGeo, {
+			onEachFeature: this._onCityFeature, 
+			filter: this._cityFilter,
+			pointToLayer: this._pointToLayer
+		});
+
+		//add City Nodes on Click 
+		this.citieslist.addLayer(list)
 	}
 
 	updateMarker(){
 		this.citieslist.clearLayers();
 	}
 	
-
 	_cityFilter(feature){
 		if (feature.properties.ISO === this.state.country) 
 		return true
@@ -155,11 +164,9 @@ class LeafletMap extends Component {
 	_pointToLayer(feature, latlng){
 		const geojsonMarker = {
 			radius: 4,
-			fillColor: "red",
-			color: "#000",
+			fillColor: "#FFF",
+			color: "#E8AE40",
 			weight: 1,
-			opacity: 1,
-			fillOpacity: 0.8
 		};
 		return L.circleMarker(latlng, geojsonMarker);
 	}
@@ -178,7 +185,6 @@ class LeafletMap extends Component {
 		let map = L.map(id, config.params);
 		const tileLayer = L.tileLayer(config.tileLayer.uri, config.tileLayer.params).addTo(map);
 		this.setState({ map, tileLayer });
-		// this.addShades(this.props.africaOne);
   }
 
 	render() {

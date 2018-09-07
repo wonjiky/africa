@@ -37,12 +37,6 @@ class RenderNarratives extends Component{
         }
        
     }
-
-    // hello(selectedStory){
-    //     const _storyId = selectedStory;
-    //     const _story = this.props.narratives.find(s => s.id === _storyId);
-    //     console.log(_story)
-    // }
     
     _renderNarrative_Text(stories){
        

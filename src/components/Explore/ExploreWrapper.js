@@ -15,11 +15,16 @@ class ExploreWrapper extends Component {
             mixerCol: 2,
             mapCol: 4,
             fromMap: "",
-            fromContent: ''
+            fromContent: '',
+            dselect: '',
+            selectedCountry:''
+            
         };
         this._onMixerToggle = this._onMixerToggle.bind(this); 
         this._onChangeISO_CONTENT = this._onChangeISO_CONTENT.bind(this)
         this._onChangeISO_MAP = this._onChangeISO_MAP.bind(this)
+        this._onChangeISO = this._onChangeISO.bind(this)
+        this.valToContent = this.valToContent.bind(this)
     }
     componentDidMount(){
     }
@@ -31,7 +36,7 @@ class ExploreWrapper extends Component {
         });
     }
 
-    _mixerExpand(mixerToggle) {
+    _mixerExpand = (mixerToggle) => {
         return(
             mixerToggle ? this.state.mixerCol : this.state.mixerCol-1
         );
@@ -44,20 +49,41 @@ class ExploreWrapper extends Component {
     }
 
     _onChangeISO_CONTENT(e) {
-    
-        const value = this.props.countries.find(u => u.ISO  === e.target.value);
-        this.setState({
-            fromContent: value
-        });
+        // const value = this.props.countries.find(u => u.ISO  === e.target.value);
+        // this.setState({
+        //     fromContent: value
+        // });
     }
 
     _onChangeISO_MAP(e){
-         this.setState({
-            fromMap:e
+        //  this.setState({
+        //     fromMap:e,
+        //     origin: 'map' 
+        // })
+        console.log(e)
+    }
+
+    _onChangeISO(e){
+        console.log(e)
+        this.setState({
+            selectedCountry:e
         })
     }
 
+    valToContent(value){
+        const val = this.props.countries.find(u => u.ISO  === value);
+        return val
+    }
+    
+    valueConvert(value, convert){
+        const output = convert(value)
+        return output;
+    }
+
     render() {
+        const origin = this.state.origin;
+        const selected = origin === 'map' ? this.valueConvert(this.state.fromMap, this.valToContent) : this.state.fromMap;
+        
         return(
             <Grid fluid className="full-height">
                 <Row className="full-height">
@@ -67,7 +93,8 @@ class ExploreWrapper extends Component {
                             top50={this.props.top50}
                             africaContinent={this.props.africaContinent}
                             agglosGeo={this.props.agglosGeo}
-                            onChange={this._onChangeISO_MAP}
+                            sendISO={this._onChangeISO_MAP}
+                            selectedCountry={this.state.dselect}
                         />
                     </Col>
                     <Col md={this._mixerExpand(this.state.mixerToggle)} className="no-margin">
@@ -81,11 +108,13 @@ class ExploreWrapper extends Component {
                     </Col>
                     <Col md className="no-margin">
                         <ExploreContent 
-                            onChange={this._onChangeISO_CONTENT}
                             countries={this.props.countries} 
                             narratives={this.props.narratives}
                             africaContinent={this.props.africaContinent}
-                            selectedCountry={this.state.fromContent} 
+                            //Recieved from Content
+                            onChange={this._onChangeISO}
+                            //Passing to Content
+                            selectedCountry={this.state.selectedCountry}
                             />
                     </Col>
                 </Row>
@@ -97,5 +126,3 @@ class ExploreWrapper extends Component {
 }
 
 export default ExploreWrapper;
-
-							

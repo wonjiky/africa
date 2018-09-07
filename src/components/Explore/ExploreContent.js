@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Grid } from 'react-flexbox-grid';
 import  CountryInfo  from './CountryInfo';
-import { Input, Form } from 'reactstrap';
 import { Row, Col } from 'react-flexbox-grid';
 import Select from 'react-select';
 
@@ -24,8 +23,8 @@ class ExploreContent extends Component {
             ))
 
         return(
-            <Grid fluid className="exp-content">
-                <Row bottom='md' id="search-section">
+            <div>
+                <Row className="no-padding">
                     <Col md={4} mdOffset={2}>
                         <Select
                             placeholder="Select Country"
@@ -41,10 +40,11 @@ class ExploreContent extends Component {
                         />
                     </Col>
                 </Row>
+                <br/>
                 <CountryInfo 
                     selectedCountry={this.props.selectedCountry} 
                     countries={this.props.countries} />
-            </Grid>        
+            </div>
         );
     }
     
@@ -53,6 +53,8 @@ class ExploreContent extends Component {
 
 export default ExploreContent;
   
+
+// 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12)
 
 // <Col md={4} className="country-search">
 // <Form id="exampleSelect">

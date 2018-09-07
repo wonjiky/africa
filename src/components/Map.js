@@ -110,7 +110,7 @@ class LeafletMap extends Component {
 		layer.on('mouseover', () => {
 			layer.setStyle({
 			fillOpacity: 0.7,
-			color: '#fded70',
+			color: '#E8AE40',
 			stroke: false
 			});
 			});
@@ -123,14 +123,11 @@ class LeafletMap extends Component {
 		});
 
 		layer.on('click', () => {
-
 			this.onClickLayer(feature, layer)
 		});
 	}
 
 	onClickLayer(feature, layer){
-		//ISO3_CODE SetState and pass to parent
-
 		
 		//Clear Layers
 		this.updateMarker();
@@ -143,14 +140,13 @@ class LeafletMap extends Component {
 		this.setState({ISO3_NAME})
 		const pairs = { value: ISO3_CODE, label:ISO3_NAME}
 		this.props.handleISO(pairs)
+		
 		//City node interaction
 		const list = L.geoJson(this.props.agglosGeo, {
 			onEachFeature: this._onCityFeature, 
 			filter: this._cityFilter,
 			pointToLayer: this._pointToLayer
 		});
-
-
 
 		//add City Nodes on Click 
 		this.citieslist.addLayer(list)

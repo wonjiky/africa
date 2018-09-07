@@ -42,19 +42,6 @@ class HomeMixer extends Component {
         }
         else{
             return(
-                // <div className="dropDown">
-                //     <h6><MaterialIcon id="icons" icon="public" size={17} color='#FFFFFF' /> Africapolis</h6>
-                //     <div className="dropDown-content">
-                //         <ul className="list-unstyled">
-                //             <li></li>
-                //             {stories.map((story, index) => (
-                //             <li key={index}>
-                //                     {story.title}
-                //             </li>
-                //             ))}
-                //         </ul>
-                //     </div>
-                // </div>
                 <Dropdown direction="left" isOpen={this.state.storyList} toggle={() => { this.setState({ storyList: !this.state.storyList }); }}>
                 <DropdownToggle >
                 {/* <button className="dropdown-menu" type="button" aria-haspopup="true" aria-expanded="false"> */}
@@ -120,17 +107,17 @@ class HomeMixer extends Component {
         )
     }
 
-    _mixerButton(yes){
-        if(yes === true){
-            return(
-                <ChevronRight/>
-            )
-        }else{
-            return(
-                <ChevronLeft/>
-            )
-        }
-    }
+    // _mixerButton(yes){
+    //     if(yes === true){
+    //         return(
+    //             <ChevronRight/>
+    //         )
+    //     }else{
+    //         return(
+    //             <ChevronLeft/>
+    //         )
+    //     }
+    // }
 
     render() {
         return(
@@ -151,11 +138,11 @@ class HomeMixer extends Component {
                         </Col>
                     </Col>
                 </Col>
-                <div id="mixerToggle">
+                {/* <div id="mixerToggle">
                     <Button color="primary" onClick={this.props.onMixerToggle} aria-label="Add">
                         {this._mixerButton(this.props.collapseNav)}
                     </Button>
-                </div>
+                </div> */}
             </Grid>
         );
     }

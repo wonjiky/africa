@@ -31,10 +31,7 @@ class MainWrapper extends Component {
 
 		};
 	}
-	
-	componentDidMount(){
-	}
-    
+
 	render() {
 
 		return (   

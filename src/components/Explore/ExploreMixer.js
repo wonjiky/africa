@@ -27,17 +27,17 @@ class ExploreMixer extends Component {
         )
     }
 
-    _mixerButton(yes){
-        if(yes === true){
-            return(
-                <ChevronRight/>
-            )
-        }else{
-            return(
-                <ChevronLeft/>
-            )
-        }
-    }
+    // _mixerButton(yes){
+    //     if(yes === true){
+    //         return(
+    //             <ChevronRight/>
+    //         )
+    //     }else{
+    //         return(
+    //             <ChevronLeft/>
+    //         )
+    //     }
+    // }
 
     render() {
         return(
@@ -69,11 +69,12 @@ class ExploreMixer extends Component {
                         </Col>
                     </Col>
                 </Col>
-                <div id="mixerToggle">
+                
+                {/* <div id="mixerToggle">
                     <Button color="primary" onClick={this.props.onMixerToggle} aria-label="Add">
                         {this._mixerButton(this.props.collapseNav)}
                     </Button>
-                </div>
+                </div> */}
             </Grid>
         );
     }

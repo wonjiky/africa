@@ -23,7 +23,7 @@ class CountryGraph extends Component {
             <Grid fluid className="graph-content">
                 <Row>
                     <Col md={12} className="keyfigures">
-                        <h3>Key Figures</h3>
+                        <h6>Key Figures</h6>
                         <hr/>
                     </Col>
                     <Col md={6} className="select-country">

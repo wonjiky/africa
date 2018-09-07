@@ -13,7 +13,7 @@ class Search extends Component {
             isSearchable: true,
         };
     }
-    
+
     // countryChange( e ) {
     //     const toInt = parseInt(e.target.value, 10);
     //     //Match the id from Map & countries.js
@@ -23,7 +23,7 @@ class Search extends Component {
     //         selectedCountry: value
     //     });
     // }
-
+    
     list(continentList){
         return (
             <Form id="exampleSelect">
@@ -36,14 +36,19 @@ class Search extends Component {
         )
     }
 
-    onChange = d => {
-        if(d === null){
-            this.setState({d:''})    
-        }else{
-        this.props.onChange(d.value)     
-        }
-    }
+    // onChange = d => {
+    //     if(d === null){
+    //         this.setState({d:''})    
+    //     }else{
+    //     this.props.onChange(d.value)     
+    //     }
+    //     console.log(d)
+    // }
 
+
+    handleISO(e){
+        this.props.handleISO(e);
+    }
 
     render() {
         
@@ -61,7 +66,7 @@ class Search extends Component {
                             placeholder="Select Country"
                             isClearable={this.state.isClearable}
                             isSearchable={this.state.isSearchable}
-                            onChange={this.onChange}
+                            onChange={this.handleISO.bind(this)}
                             options={list}
                         />
                     </Col>

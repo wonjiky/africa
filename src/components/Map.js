@@ -29,7 +29,6 @@ class LeafletMap extends Component {
 		this.state = {
 			map: null,
 			tileLayer: null,
-			country:null,
 			hi: 0,
 			list: 0,
 			hasAlreadyUpdatedOnce: false,
@@ -130,23 +129,28 @@ class LeafletMap extends Component {
 	}
 
 	onClickLayer(feature, layer){
+		//ISO3_CODE SetState and pass to parent
+
+		
 		//Clear Layers
 		this.updateMarker();
 
 		//Zoom into Country
 		this.state.map.fitBounds(layer.getBounds());
-		
-		//ISO3_CODE SetState and pass to parent
-		const country =feature.properties.ISO3_CODE; 
-		this.setState({country})
-		this.props.sendISO(this.state.country)
-		
+		const ISO3_CODE = feature.properties.ISO3_CODE; 
+		this.setState({ISO3_CODE})
+		const ISO3_NAME = feature.properties.NAME_EN;
+		this.setState({ISO3_NAME})
+		const pairs = { value: ISO3_CODE, label:ISO3_NAME}
+		this.props.handleISO(pairs)
 		//City node interaction
 		const list = L.geoJson(this.props.agglosGeo, {
 			onEachFeature: this._onCityFeature, 
 			filter: this._cityFilter,
 			pointToLayer: this._pointToLayer
 		});
+
+
 
 		//add City Nodes on Click 
 		this.citieslist.addLayer(list)
@@ -157,7 +161,7 @@ class LeafletMap extends Component {
 	}
 	
 	_cityFilter(feature){
-		if (feature.properties.ISO === this.state.country) 
+		if (feature.properties.ISO === this.state.ISO3_CODE) 
 		return true
 	}
 

@@ -421,7 +421,7 @@ class CountryInfo extends Component {
     }
 
     renderInfo(selectedCountry){
-		const list = this.props.countries.find(u => u.ISO  === selectedCountry);
+		const list = this.props.countries.find(u => u.ISO  === selectedCountry.value);
 		if(list === undefined){
 			return <div></div>
 		}else{

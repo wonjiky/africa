@@ -21,13 +21,13 @@ class ExploreWrapper extends Component {
             
         };
         this._onMixerToggle = this._onMixerToggle.bind(this); 
-        this._onChangeISO_CONTENT = this._onChangeISO_CONTENT.bind(this)
-        this._onChangeISO_MAP = this._onChangeISO_MAP.bind(this)
-        this._onChangeISO = this._onChangeISO.bind(this)
-        this.valToContent = this.valToContent.bind(this)
+        this.fromMap_toSearch = this.fromMap_toSearch.bind(this)
+        this.fromSearch_toMap = this.fromSearch_toMap.bind(this)
+        this.handleValueFromMap = this.handleValueFromMap.bind(this)
+        this.handleValueFromSearch = this.handleValueFromSearch.bind(this)
+
     }
-    componentDidMount(){
-    }
+    
     _onMixerToggle() {
         this.setState({
             mixerToggle: !this.state.mixerToggle,
@@ -48,42 +48,65 @@ class ExploreWrapper extends Component {
         );
     }
 
-    _onChangeISO_CONTENT(e) {
-        // const value = this.props.countries.find(u => u.ISO  === e.target.value);
-        // this.setState({
-        //     fromContent: value
-        // });
-    }
+    // _onChangeISO_CONTENT(e) {
+    //     // const value = this.props.countries.find(u => u.ISO  === e.target.value);
+    //     // this.setState({
+    //     //     fromContent: value
+    //     // });
+    // }
 
-    _onChangeISO_MAP(e){
-        //  this.setState({
-        //     fromMap:e,
-        //     origin: 'map' 
-        // })
-        console.log(e)
-    }
+    // _onChangeISO_MAP(e){
+    //     //  this.setState({
+    //     //     fromMap:e,
+    //     //     origin: 'map' 
+    //     // })
+    //     console.log(e)
+    // }
 
-    _onChangeISO(e){
-        console.log(e)
-        this.setState({
-            selectedCountry:e
-        })
-    }
+    // _onChangeISO(e){
+    //     console.log(e)
+    //     // this.setState({
+    //     //     selectedCountry:e
+    //     // })
+    // }
 
-    valToContent(value){
-        const val = this.props.countries.find(u => u.ISO  === value);
-        return val
+    fromSearch_toMap(value){
+        // const val = this.props.countries.find(u => u.ISO  === value);
+        return value
     }
     
+    fromMap_toSearch(value){
+        // const val = this.props.countries.find(u => u.ISO  === value);
+        return value
+    }
+
     valueConvert(value, convert){
         const output = convert(value)
         return output;
     }
 
+    handleValueFromSearch(selectedCountry){
+        console.log(selectedCountry)
+        this.setState({
+            origin:'search',
+            selectedCountry
+        })
+    }
+
+    handleValueFromMap(selectedCountry){
+        console.log(selectedCountry)
+        this.setState({
+            origin:'map',
+            selectedCountry
+        })
+    }
+
     render() {
         const origin = this.state.origin;
-        const selected = origin === 'map' ? this.valueConvert(this.state.fromMap, this.valToContent) : this.state.fromMap;
-        
+        const selectedCountry = this.state.selectedCountry;
+        const valueForSearch = origin === 'map' ? this.valueConvert(selectedCountry, this.fromMap_toSearch) : selectedCountry;
+        const valueForMap = origin === 'search' ? this.valueConvert(selectedCountry, this.fromSearch_toMap) : selectedCountry;
+
         return(
             <Grid fluid className="full-height">
                 <Row className="full-height">
@@ -93,8 +116,9 @@ class ExploreWrapper extends Component {
                             top50={this.props.top50}
                             africaContinent={this.props.africaContinent}
                             agglosGeo={this.props.agglosGeo}
-                            sendISO={this._onChangeISO_MAP}
-                            selectedCountry={this.state.dselect}
+
+                            handleISO={this.handleValueFromMap}
+                            selectedCountry={valueForMap}
                         />
                     </Col>
                     <Col md={this._mixerExpand(this.state.mixerToggle)} className="no-margin">
@@ -111,10 +135,9 @@ class ExploreWrapper extends Component {
                             countries={this.props.countries} 
                             narratives={this.props.narratives}
                             africaContinent={this.props.africaContinent}
-                            //Recieved from Content
-                            onChange={this._onChangeISO}
-                            //Passing to Content
-                            selectedCountry={this.state.selectedCountry}
+
+                            handleISO={this.handleValueFromSearch}
+                            selectedCountry={valueForSearch}
                             />
                     </Col>
                 </Row>

@@ -67,8 +67,11 @@ class LeafletMap extends Component {
 			pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng);} //, geojsonMarkerOptions);}
 			})
-			this.clearList(prevProps);
+			//this.clearList(prevProps);
+			
 			citieslist.addTo(this.state.map);	
+			
+			
 			
 	}
 
@@ -81,9 +84,11 @@ class LeafletMap extends Component {
 			fillOpacity: 0,
 			color: 'transparent'
 		})
+		
+			
 	}
 
-
+	
 
 	
 	clearList(prevProps){
@@ -94,12 +99,10 @@ class LeafletMap extends Component {
 		// }
 		// prevCountry = country
 
-		if(prevProps.selectedCountry.value !== null){
-			this.citieslist.clearLayers();
+		//if(prevProps.selectedCountry.value !== null){
 			// this.state.map.removeLayer(this.citieslist)
-			
 			// this.citieslist.addLayer(list);
-		}
+		//}
 	}
 
 	
@@ -160,9 +163,24 @@ class LeafletMap extends Component {
 		layer.on('click', (e) => {
 			this.onClickLayer(feature, layer)
 		});
-
+		
+		layer._leaflet_id = feature.properties.ID;
+		console.log(layer._leaflet_id);
+		
+		
+		
 	}
 
+	
+	clickOnMapItem(map){
+			const id = parseInt(33);
+			//get target layer by it's id
+			const layer = map.getLayer(id);
+			//fire event 'click' on target layer 
+			layer.fireEvent('click');  
+										}
+										
+										
 	onClickLayer(feature, layer){
 		//Clear Layers
 		this.updateMarker();
@@ -185,6 +203,7 @@ class LeafletMap extends Component {
 
 		//add City Nodes on Click 
 		this.citieslist.addLayer(list)
+		
 	}
 
 	updateMarker(){
@@ -196,7 +215,7 @@ class LeafletMap extends Component {
 		return true
 	}
 
-	
+
 
 
 	_pointToLayer(feature, latlng){

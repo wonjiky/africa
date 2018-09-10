@@ -83,31 +83,26 @@ class LeafletMap extends Component {
 		})
 	}
 
-	// if (e.feature === undefined){ //Do nothing on title
-	// 	return;
-	// }
-	// console.log(JSON.stringify(e.feature))
-	// var country = L.geoJson(e.feature);
-	// if (this.previousCountry != null){
-	// 	map.removeLayer(this.previousCountry);
-	// }
-	// this.previousCountry = country;
 
-	// map.addLayer(country);
-	// map.fitBounds(country.getBounds());
-	// console.log(JSON.stringify(e.feature))
 
+	
 	clearList(prevProps){
+		// const prevCountry = prevProps.selectedCountry.value;
 		
+		// if( prevCountry !== null ){
+		// 	this.state.map.removeLayer(this.citieslist)
+		// }
+		// prevCountry = country
+
 		if(prevProps.selectedCountry.value !== null){
 			this.citieslist.clearLayers();
 			// this.state.map.removeLayer(this.citieslist)
 			
-		
 			// this.citieslist.addLayer(list);
 		}
 	}
 
+	
 	//Year filter for citieslist
 	_yearFilter(feature) {
 		if (feature.properties.Year === "a") return true

@@ -5,13 +5,14 @@ import './data/leaflet.snogylop.js';
 import './data/Leaflet.CountrySelect.js';
 import "../../node_modules/leaflet/dist/leaflet.css";
 
-const southWest = L.latLng(-28.739134, -25.058270);
-const northEast = L.latLng(32.157281, 50.089421);
+const southWest = L.latLng(-48.739134, -19.058270);
+const northEast = L.latLng(42.157281, 51.089421);
 const mybounds = L.latLngBounds(southWest, northEast);
 let config = {};
 config.params = {
-	center: [1.46,13.3],
+	center: [1.46,18.3],
 	zoom: 3,
+	zoomSnap: 1.2,
 	minZoom: 3,
 	maxBounds:mybounds,
 	opacity:0

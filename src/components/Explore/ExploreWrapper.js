@@ -3,7 +3,7 @@ import ExploreContent from './ExploreContent';
 import ExploreMixer from './ExploreMixer';
 import Map from '../Map';
 import '../../css/explore.css';
-import { Grid, Row, Col } from 'react-flexbox-grid';
+import { Row, Col } from 'react-flexbox-grid';
 
 class ExploreWrapper extends Component {
     constructor(props){
@@ -60,7 +60,6 @@ class ExploreWrapper extends Component {
             { value: a.properties.ISO3_CODE, label: a.properties.NAME_EN }
             ))
         // const value = this.props.africaContinent[0].features.find(u => u.properties === )
-            console.log(selectedCountry)
         this.setState({
             origin:'search',
             selectedCountry

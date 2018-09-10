@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Grid, Col } from 'react-flexbox-grid';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import MaterialIcon from 'material-icons-react';
-import Button from '@material-ui/core/Button';
-import ChevronRight from '@material-ui/icons/ChevronRight';
-import ChevronLeft from '@material-ui/icons/ChevronLeft';
+// import Button from '@material-ui/core/Button';
+// import ChevronRight from '@material-ui/icons/ChevronRight';
+// import ChevronLeft from '@material-ui/icons/ChevronLeft';
 
 class HomeMixer extends Component {
 

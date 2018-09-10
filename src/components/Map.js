@@ -2,7 +2,6 @@ import React from 'react';
 import { Component } from 'react';
 import  L  from 'leaflet';
 import './data/leaflet.snogylop.js';
-import './data/Leaflet.CountrySelect.js';
 import "../../node_modules/leaflet/dist/leaflet.css";
 
 const southWest = L.latLng(-48.739134, -19.058270);
@@ -44,6 +43,7 @@ class LeafletMap extends Component {
 		this.updateMarker = this.updateMarker.bind(this);
 		this._cityFilter = this._cityFilter.bind(this);
 		this.onClickLayer = this.onClickLayer.bind(this);
+		this.clearList = this.clearList.bind(this);
 	}
 
 	componentDidMount() {
@@ -52,7 +52,7 @@ class LeafletMap extends Component {
 		}
 	}
 
-	//re-render on update
+	//re-render on updatef
 	componentDidUpdate(prevProps,prevState){
 
 		if(this.state.map && !this.state.hasAlreadyUpdatedOnce){
@@ -60,15 +60,52 @@ class LeafletMap extends Component {
 			this.setState({
 				hasAlreadyUpdatedOnce:true
 			})
+			this.addLayer(this.props.africaContinent)
 		}
-		var citieslist = this.citieslist = L.geoJSON(this.props.top50, { 
-			// filter: this._yearFilter,//onEachFeature: onEachFeature,
+		const citieslist = this.citieslist = L.geoJSON(this.props.top50, { 
+			filter: this._yearFilter,//onEachFeature: onEachFeature,
 			pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng);} //, geojsonMarkerOptions);}
 			})
+			this.clearList(prevProps);
 			citieslist.addTo(this.state.map);	
 			
-			this.updateMarker();
+	}
+
+	addLayer(africaContinent){
+		const mapOverlay = L.geoJson(africaContinent, {
+			onEachFeature: this._onEachFeature,
+		})
+		mapOverlay.addTo(this.state.map);
+		mapOverlay.setStyle({
+			fillOpacity: 0,
+			color: 'transparent'
+		})
+	}
+
+	// if (e.feature === undefined){ //Do nothing on title
+	// 	return;
+	// }
+	// console.log(JSON.stringify(e.feature))
+	// var country = L.geoJson(e.feature);
+	// if (this.previousCountry != null){
+	// 	map.removeLayer(this.previousCountry);
+	// }
+	// this.previousCountry = country;
+
+	// map.addLayer(country);
+	// map.fitBounds(country.getBounds());
+	// console.log(JSON.stringify(e.feature))
+
+	clearList(prevProps){
+		
+		if(prevProps.selectedCountry.value !== null){
+			this.citieslist.clearLayers();
+			// this.state.map.removeLayer(this.citieslist)
+			
+		
+			// this.citieslist.addLayer(list);
+		}
 	}
 
 	//Year filter for citieslist
@@ -94,43 +131,19 @@ class LeafletMap extends Component {
 		let map = L.map(id, config.params);
 		const tileLayer = L.tileLayer(config.tileLayer.uri, config.tileLayer.params).addTo(map);
 		
-		let select = L.countrySelect();
-		select.addTo(map);
-		
+	
 		this.setState({ map, tileLayer });
 
-		select.on('change', (d) => {
-			// select.setStyle({
-			// 	fillOpacity: 0.6,
-			// 	color: '#E8AE40',
-			// 	stroke: false
-			// });
-			if (d.feature === undefined){ //Do nothing on title
-				return;
-			}
-			console.log(JSON.stringify(d.feature))
-			var country = L.geoJson(d.feature);
-			console.log(country)
-			if (this.previousCountry != null){
-				map.removeLayer(this.previousCountry);
-			}
-			this.previousCountry = country;
-
-			map.addLayer(country);
-			map.fitBounds(country.getBounds());
-			
-		});
-		
-		if(map){
-			const mapOverlay = L.geoJson(this.props.africaContinent, {
-				onEachFeature: this._onEachFeature,
-			})
-			mapOverlay.addTo(map);
-			mapOverlay.setStyle({
-				fillOpacity: 0,
-				color: 'transparent'
-			})
-		}
+		// if(map){
+		// 	const mapOverlay = L.geoJson(this.props.africaContinent, {
+		// 		onEachFeature: this._onEachFeature,
+		// 	})
+		// 	mapOverlay.addTo(map);
+		// 	mapOverlay.setStyle({
+		// 		fillOpacity: 0,
+		// 		color: 'transparent'
+		// 	})
+		// }
 	}
 
 	//Eventhandler on mouse event
@@ -142,24 +155,14 @@ class LeafletMap extends Component {
 			stroke: false
 			});
 		});
-
 		layer.on('mouseout', () => {
 			layer.setStyle({
 			fillOpacity: 0.0,
 			color: 'transparent'
 			});
 		});
-		// layer.on('click', (e) => {
-		// 	console.log(JSON.stringify(feature))
-		// 	this.onClickLayer(feature, layer)
-		// 	// console.log(e.target.feature.properties.ISO3_CODE)
-		// });
-		layer.on('change', (e) => {
-			console.log( e, 'change TRIGGERED')
-		})
 		
 		layer.on('click', (e) => {
-			// console.log(L.geoJSON(e.feature))
 			this.onClickLayer(feature, layer)
 		});
 
@@ -175,6 +178,7 @@ class LeafletMap extends Component {
 		const ISO3_NAME = feature.properties.NAME_EN;
 		this.setState({ISO3_NAME})
 		const pairs = { value: ISO3_CODE, label:ISO3_NAME}
+		
 		this.props.handleISO(pairs)
 		
 		//City node interaction
@@ -193,9 +197,12 @@ class LeafletMap extends Component {
 	}
 	
 	_cityFilter(feature){
-		if (feature.properties.ISO === this.state.ISO3_CODE) 
+		if (feature.properties.ISO === this.state.ISO3_CODE)
 		return true
 	}
+
+	
+
 
 	_pointToLayer(feature, latlng){
 		const geojsonMarker = {

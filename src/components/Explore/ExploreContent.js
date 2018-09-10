@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Grid } from 'react-flexbox-grid';
 import  CountryInfo  from './CountryInfo';
 import { Row, Col } from 'react-flexbox-grid';
 import Select from 'react-select';
@@ -41,9 +40,9 @@ class ExploreContent extends Component {
                     </Col>
                 </Row>
                 <br/>
-                <CountryInfo 
+                {/* <CountryInfo 
                     selectedCountry={this.props.selectedCountry} 
-                    countries={this.props.countries} />
+                    countries={this.props.countries} /> */}
             </div>
         );
     }

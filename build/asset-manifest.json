@@ -1,11 +1,15 @@
 {
-  "main.css": "static/css/main.7827f486.css",
-  "main.css.map": "static/css/main.7827f486.css.map",
-  "main.js": "static/js/main.b451a2ef.js",
-  "main.js.map": "static/js/main.b451a2ef.js.map",
-  "static/media/fontawesome-webfont.eot": "static/media/fontawesome-webfont.674f50d2.eot",
-  "static/media/fontawesome-webfont.svg?v=4.7.0": "static/media/fontawesome-webfont.912ec66d.svg",
-  "static/media/fontawesome-webfont.ttf?v=4.7.0": "static/media/fontawesome-webfont.b06871f2.ttf",
-  "static/media/fontawesome-webfont.woff2?v=4.7.0": "static/media/fontawesome-webfont.af7ae505.woff2",
-  "static/media/fontawesome-webfont.woff?v=4.7.0": "static/media/fontawesome-webfont.fee66e71.woff"
+  "main.css": "static/css/main.ce8a8924.css",
+  "main.css.map": "static/css/main.ce8a8924.css.map",
+  "main.js": "static/js/main.a260158f.js",
+  "main.js.map": "static/js/main.a260158f.js.map",
+  "static\\media\\africa_continent.geojson": "static/media/africa_continent.76def646.geojson",
+  "static\\media\\africa_one.geojson": "static/media/africa_one.a524c57f.geojson",
+  "static\\media\\agglos_geo.geojson": "static/media/agglos_geo.2f2125bc.geojson",
+  "static\\media\\fontawesome-webfont.eot": "static/media/fontawesome-webfont.674f50d2.eot",
+  "static\\media\\fontawesome-webfont.svg?v=4.7.0": "static/media/fontawesome-webfont.912ec66d.svg",
+  "static\\media\\fontawesome-webfont.ttf?v=4.7.0": "static/media/fontawesome-webfont.b06871f2.ttf",
+  "static\\media\\fontawesome-webfont.woff2?v=4.7.0": "static/media/fontawesome-webfont.af7ae505.woff2",
+  "static\\media\\fontawesome-webfont.woff?v=4.7.0": "static/media/fontawesome-webfont.fee66e71.woff",
+  "static\\media\\top50.geojson": "static/media/top50.3ea87fa7.geojson"
 }

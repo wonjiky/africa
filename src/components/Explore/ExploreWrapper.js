@@ -46,7 +46,6 @@ class ExploreWrapper extends Component {
     }
     
     fromMap_toSearch(value){
-        console.log(value)
         return value
     }
 

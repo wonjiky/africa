@@ -42,7 +42,6 @@ class LeafletMap extends Component {
 		this._pointToLayer = this._pointToLayer.bind(this);
 		this.updateMarker = this.updateMarker.bind(this);
 		this._cityFilter = this._cityFilter.bind(this);
-		this.onClickLayer = this.onClickLayer.bind(this);
 		this.clearList = this.clearList.bind(this);
 	}
 
@@ -60,49 +59,110 @@ class LeafletMap extends Component {
 			this.setState({
 				hasAlreadyUpdatedOnce:true
 			})
-			this.addLayer(this.props.africaContinent)
 		}
-		const citieslist = this.citieslist = L.geoJSON(this.props.top50, { 
-			filter: this._yearFilter,//onEachFeature: onEachFeature,
-			pointToLayer: function (feature, latlng) {
-			return L.circleMarker(latlng);} //, geojsonMarkerOptions);}
-			})
-			this.clearList(prevProps);
-			citieslist.addTo(this.state.map);	
-			
-	}
 
-	addLayer(africaContinent){
-		const mapOverlay = L.geoJson(africaContinent, {
+		const agglos = this.agglos = L.geoJson(this.props.agglosGeo, {
+			onEachFeature: this._onCityFeature, 
+			filter: this._cityFilter,
+			pointToLayer: this._pointToLayer
+		});
+
+		const mapOverlay = L.geoJson(prevProps.africaContinent, {
 			onEachFeature: this._onEachFeature,
 		})
-		mapOverlay.addTo(this.state.map);
-		mapOverlay.setStyle({
-			fillOpacity: 0,
-			color: 'transparent'
+			mapOverlay.addTo(this.state.map);
+			mapOverlay.setStyle({
+				fillOpacity: 0,
+				color: 'transparent'
 		})
+
+		this.clearList(prevProps);
 	}
 
 
 
-	
 	clearList(prevProps){
-		// const prevCountry = prevProps.selectedCountry.value;
-		
-		// if( prevCountry !== null ){
-		// 	this.state.map.removeLayer(this.citieslist)
-		// }
-		// prevCountry = country
 
-		if(prevProps.selectedCountry.value !== null){
-			this.citieslist.clearLayers();
+		if (prevProps.selectedCountry.value !== null) {
+
+			const agglos2 = L.geoJson(this.props.agglosGeo, {
+				onEachFeature: this._onCityFeature, 
+				filter: (feature) => {
+					if (feature.properties.ISO === this.props.selectedCountry.value)
+						return true
+				},
+				pointToLayer: this._pointToLayer
+			});
+
+			if( prevProps.selectedCountry.value !== undefined ){
+				this.state.map.removeLayer(agglos2);
+			}
+			// this.state.map.removeLayer(agglos2);
+			console.log(prevProps.selectedCountry.value, 'cleared')
 			// this.state.map.removeLayer(this.citieslist)
-			
+			this.state.map.addLayer(agglos2)
 			// this.citieslist.addLayer(list);
+			}
 		}
-	}
 
 	
+	_onEachFeature(feature, layer) {
+		layer.on('mouseover', () => {
+			layer.setStyle({
+			fillOpacity: 0.6,
+			color: '#E8AE40',
+			stroke: false
+			});
+		});
+		layer.on('mouseout', () => {
+			layer.setStyle({
+			fillOpacity: 0.0,
+			color: 'transparent'
+			});
+		});
+		
+		layer.on('change', (e) => {
+			console.log(this.props.selectedCountry)
+		});
+
+		layer.on('click', (e) => {
+			if(this.agglos !== undefined) {
+				this.state.map.removeLayer(this.agglos)
+			}
+
+			//Zoom into Country
+			this.state.map.fitBounds(layer.getBounds());
+			const ISO3_CODE = feature.properties.ISO3_CODE; 
+			this.setState({ISO3_CODE})
+			const ISO3_NAME = feature.properties.NAME_EN;
+			this.setState({ISO3_NAME})
+			const pairs = { value: ISO3_CODE, label:ISO3_NAME}
+			this.props.handleISO(pairs)
+
+			this.state.map.addLayer(this.agglos)
+		});
+	}
+
+	// componentWillUpdate(nextProps, nextState) {
+	// 	console.log(nextProps)
+	// }
+
+	// componentWillReceiveProps(nextProps) {
+	// 	console.log(nextProps.selectedCountry.value)
+	// }
+
+
+	// addLayer(africaContinent){
+	// 	const mapOverlay = L.geoJson(africaContinent, {
+	// 		onEachFeature: this._onEachFeature,
+	// 	})
+	// 	mapOverlay.addTo(this.state.map);
+	// 	mapOverlay.setStyle({
+	// 		fillOpacity: 0,
+	// 		color: 'transparent'
+	// 	})
+	// }
+
 	//Year filter for citieslist
 	_yearFilter(feature) {
 		if (feature.properties.Year === "a") return true
@@ -141,63 +201,15 @@ class LeafletMap extends Component {
 		// }
 	}
 
-	//Eventhandler on mouse event
-	_onEachFeature(feature, layer) {
-		layer.on('mouseover', () => {
-			layer.setStyle({
-			fillOpacity: 0.6,
-			color: '#E8AE40',
-			stroke: false
-			});
-		});
-		layer.on('mouseout', () => {
-			layer.setStyle({
-			fillOpacity: 0.0,
-			color: 'transparent'
-			});
-		});
-		
-		layer.on('click', (e) => {
-			this.onClickLayer(feature, layer)
-		});
-
-	}
-
-	onClickLayer(feature, layer){
-		//Clear Layers
-		this.updateMarker();
-		//Zoom into Country
-		this.state.map.fitBounds(layer.getBounds());
-		const ISO3_CODE = feature.properties.ISO3_CODE; 
-		this.setState({ISO3_CODE})
-		const ISO3_NAME = feature.properties.NAME_EN;
-		this.setState({ISO3_NAME})
-		const pairs = { value: ISO3_CODE, label:ISO3_NAME}
-		
-		this.props.handleISO(pairs)
-		
-		//City node interaction
-		const list = L.geoJson(this.props.agglosGeo, {
-			onEachFeature: this._onCityFeature, 
-			filter: this._cityFilter,
-			pointToLayer: this._pointToLayer
-		});
-
-		//add City Nodes on Click 
-		this.citieslist.addLayer(list)
-	}
-
 	updateMarker(){
 		this.citieslist.clearLayers();
 	}
 	
+
 	_cityFilter(feature){
 		if (feature.properties.ISO === this.state.ISO3_CODE)
 		return true
 	}
-
-	
-
 
 	_pointToLayer(feature, latlng){
 		const geojsonMarker = {

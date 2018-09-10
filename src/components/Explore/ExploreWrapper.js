@@ -46,6 +46,7 @@ class ExploreWrapper extends Component {
     }
     
     fromMap_toSearch(value){
+        console.log(value)
         return value
     }
 
@@ -55,7 +56,11 @@ class ExploreWrapper extends Component {
     }
 
     handleValueFromSearch(selectedCountry){
-        console.log(selectedCountry)
+        const list = this.props.africaContinent[0].features.map((a) => (
+            { value: a.properties.ISO3_CODE, label: a.properties.NAME_EN }
+            ))
+        // const value = this.props.africaContinent[0].features.find(u => u.properties === )
+            console.log(selectedCountry)
         this.setState({
             origin:'search',
             selectedCountry
@@ -63,7 +68,6 @@ class ExploreWrapper extends Component {
     }
 
     handleValueFromMap(selectedCountry){
-        console.log(selectedCountry)
         this.setState({
             origin:'map',
             selectedCountry
@@ -85,6 +89,7 @@ class ExploreWrapper extends Component {
                             top50={this.props.top50}
                             africaContinent={this.props.africaContinent}
                             agglosGeo={this.props.agglosGeo}
+                          
                             handleISO={this.handleValueFromMap}
                             selectedCountry={valueForMap}
                         />
@@ -104,6 +109,7 @@ class ExploreWrapper extends Component {
                             countries={this.props.countries} 
                             narratives={this.props.narratives}
                             africaContinent={this.props.africaContinent}
+                           
                             handleISO={this.handleValueFromSearch}
                             selectedCountry={valueForSearch}
                             />

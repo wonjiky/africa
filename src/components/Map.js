@@ -2,6 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import  L  from 'leaflet';
 import './data/leaflet.snogylop.js';
+import './data/Leaflet.CountrySelect.js';
 import "../../node_modules/leaflet/dist/leaflet.css";
 
 const southWest = L.latLng(-28.739134, -25.058270);
@@ -23,6 +24,7 @@ config.tileLayer = {
 	}
 };
 
+
 class LeafletMap extends Component {
 	constructor(props){
 		super(props)
@@ -40,6 +42,7 @@ class LeafletMap extends Component {
 		this._pointToLayer = this._pointToLayer.bind(this);
 		this.updateMarker = this.updateMarker.bind(this);
 		this._cityFilter = this._cityFilter.bind(this);
+		this.onClickLayer = this.onClickLayer.bind(this);
 	}
 
 	componentDidMount() {
@@ -50,10 +53,6 @@ class LeafletMap extends Component {
 
 	//re-render on update
 	componentDidUpdate(prevProps,prevState){
-		//Adding 
-		if(this.state.map){
-			this.addMapLayer(this.props.africaContinent)
-		}
 
 		if(this.state.map && !this.state.hasAlreadyUpdatedOnce){
 			this.addDimLayer(this.props.africaOne)
@@ -61,17 +60,16 @@ class LeafletMap extends Component {
 				hasAlreadyUpdatedOnce:true
 			})
 		}
-
 		var citieslist = this.citieslist = L.geoJSON(this.props.top50, { 
 			// filter: this._yearFilter,//onEachFeature: onEachFeature,
 			pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng);} //, geojsonMarkerOptions);}
 			})
 			citieslist.addTo(this.state.map);	
-
+			
 			this.updateMarker();
 	}
-	
+
 	//Year filter for citieslist
 	_yearFilter(feature) {
 		if (feature.properties.Year === "a") return true
@@ -84,36 +82,65 @@ class LeafletMap extends Component {
 			invert:true,
 			color:"grey",
 			stroke: false,
-			fillOpacity:.7
+			fillOpacity:0.8
 		})
 		mapShades.addTo(this.state.map);
 		}
 	}
 
-	//Adding the interactivity layer
-	addMapLayer(overlay){
-		const mapOverlay = L.geoJson(overlay, {
-			onEachFeature: this._onEachFeature
-		})
-		mapOverlay.addTo(this.state.map);
-		mapOverlay.setStyle({
-			fillOpacity: 0,
-			color: 'transparent'
-		})
+	init(id){
+		if (this.state.map) return;
+		let map = L.map(id, config.params);
+		const tileLayer = L.tileLayer(config.tileLayer.uri, config.tileLayer.params).addTo(map);
+		
+		let select = L.countrySelect();
+		select.addTo(map);
+		
+		this.setState({ map, tileLayer });
 
+		select.on('change', (d) => {
+			// select.setStyle({
+			// 	fillOpacity: 0.6,
+			// 	color: '#E8AE40',
+			// 	stroke: false
+			// });
+			if (d.feature === undefined){ //Do nothing on title
+				return;
+			}
+			console.log(JSON.stringify(d.feature))
+			var country = L.geoJson(d.feature);
+			console.log(country)
+			if (this.previousCountry != null){
+				map.removeLayer(this.previousCountry);
+			}
+			this.previousCountry = country;
 
+			map.addLayer(country);
+			map.fitBounds(country.getBounds());
+			
+		});
+		
+		if(map){
+			const mapOverlay = L.geoJson(this.props.africaContinent, {
+				onEachFeature: this._onEachFeature,
+			})
+			mapOverlay.addTo(map);
+			mapOverlay.setStyle({
+				fillOpacity: 0,
+				color: 'transparent'
+			})
+		}
 	}
 
 	//Eventhandler on mouse event
 	_onEachFeature(feature, layer) {
-
 		layer.on('mouseover', () => {
 			layer.setStyle({
-			fillOpacity: 0.7,
+			fillOpacity: 0.6,
 			color: '#E8AE40',
 			stroke: false
 			});
-			});
+		});
 
 		layer.on('mouseout', () => {
 			layer.setStyle({
@@ -121,17 +148,25 @@ class LeafletMap extends Component {
 			color: 'transparent'
 			});
 		});
-
-		layer.on('click', () => {
+		// layer.on('click', (e) => {
+		// 	console.log(JSON.stringify(feature))
+		// 	this.onClickLayer(feature, layer)
+		// 	// console.log(e.target.feature.properties.ISO3_CODE)
+		// });
+		layer.on('change', (e) => {
+			console.log( e, 'change TRIGGERED')
+		})
+		
+		layer.on('click', (e) => {
+			// console.log(L.geoJSON(e.feature))
 			this.onClickLayer(feature, layer)
 		});
+
 	}
 
 	onClickLayer(feature, layer){
-		
 		//Clear Layers
 		this.updateMarker();
-
 		//Zoom into Country
 		this.state.map.fitBounds(layer.getBounds());
 		const ISO3_CODE = feature.properties.ISO3_CODE; 
@@ -179,18 +214,10 @@ class LeafletMap extends Component {
 		layer.bindPopup(popupContent).openPopup();
 	}
 
-	//Initialize Map
-	init(id){
-		if (this.state.map) return;
-		let map = L.map(id, config.params);
-		const tileLayer = L.tileLayer(config.tileLayer.uri, config.tileLayer.params).addTo(map);
-		this.setState({ map, tileLayer });
-  }
 
 	render() {
 		return (
-				<div ref={(node) => this._mapNode = node} id="map" />
-				
+			<div ref={(node) => this._mapNode = node} id="map" />
 		)
 	}
 }

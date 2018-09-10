@@ -30,6 +30,8 @@ class MainWrapper extends Component {
 			agglos_geo: agglos_geo,
 
 		};
+		window.countrydata = africa_continent;
+
 	}
 
 	render() {

@@ -16,15 +16,12 @@ class ExploreContent extends Component {
         this.props.handleISO(e)
     }
 
-    componentDidUpdate(){
-        console.log( 'RECEIVED VALUE FROM MAP', this.props.selectedCountry)
-    }
-
     render() {
         const list = this.props.africaContinent[0].features.map((a,i) => (
             { value: a.properties.ID, label: a.properties.NAME_EN }
             ))
-
+        
+        
         return(
             <div>
                 <Row className="no-padding">
@@ -33,7 +30,7 @@ class ExploreContent extends Component {
                             placeholder="Select Country"
                             isClearable={this.state.isClearable}
                             isSearchable={this.state.isSearchable}
-                            value={this.props.selectedCountry}
+                            value={this.props.selectedValue}
                             onChange={this.handleChange.bind(this)}
                             options={list}
                         />
@@ -45,13 +42,11 @@ class ExploreContent extends Component {
                 </Row>
                 <br/>
                 {/* <CountryInfo 
-                    selectedCountry={this.props.selectedCountry} 
+                    selectedCountryInfo={this.props.selectedValue} 
                     countries={this.props.countries} /> */}
             </div>
         );
     }
-    
-
 }
 
 export default ExploreContent;

@@ -15,8 +15,9 @@ class ExploreWrapper extends Component {
             // mixerCol: 2,
             // mapCol: 4,
             // selectedCountryFromMap:'',
-            selectedCountry: '',
-            origin: 'map',
+            selectedCountry: null,
+            selectedValue: '',
+            origin: '',
             
         };
         // this._onMixerToggle = this._onMixerToggle.bind(this); 
@@ -24,7 +25,6 @@ class ExploreWrapper extends Component {
         this.fromSearch_toMap = this.fromSearch_toMap.bind(this)
         this.handleValueFromMap = this.handleValueFromMap.bind(this)
         this.handleValueFromSearch = this.handleValueFromSearch.bind(this)
-        // this.valueConvert = this.valueConvert.bind(this);
     }
     
     // _onMixerToggle() {
@@ -43,15 +43,6 @@ class ExploreWrapper extends Component {
     //     return(mapToggle ? this.state.mapCol : this.state.mapCol+3);
     // }
 
-    // componentWillUpdate(){
-    //     console.log('componentWillUpdate from Explore Wrapper')
-    // }
-    // componentDidUpdate(){
-    //     console.log('componentDidUpdate from Explore Wrapper')
-    // }
-
-
-
     fromSearch_toMap(value){
         return value
     }
@@ -60,74 +51,63 @@ class ExploreWrapper extends Component {
         return value
     }
 
-    handleValueFromSearch(selectedCountry){
+    handleValueFromSearch(valueFromSearch){
         this.setState({
             origin:'search',
-            selectedCountry
+            selectedCountry: valueFromSearch.value,
+            selectedValue: valueFromSearch,
         })
-        console.log('selectedCountry from SEARCH becomes state :',this.state.selectedCountry)
+        console.log(this.state.selectedValue);
+        // console.log('VALUE FROM SEARCH :', this.state.selectedCountry, this.state.origin)
     }
 
-    handleValueFromMap(selectedCountry){
+    handleValueFromMap(valueFromMap){
         this.setState({
             origin:'map',
-            selectedCountry
+            selectedCountry: valueFromMap.value,
+            selectedValue: valueFromMap,
         })
-        console.log('selectedCountry from MAP becomes state :',this.state.selectedCountry)
-    }
-    
-    valueConvert(value, convert, origin){
-        const output = convert(value)
-        if(origin === 'map'){
-            console.log('VALUE FROM MAP valueConverted :', output)
-        }else if(origin === 'search'){
-            console.log('VALUE FROM SEARCH valueConverted :', output)
-        }
-        return output;
+        console.log(this.state.selectedValue);
+        // console.log('VALUE FROM MAP :', this.state.selectedCountry, this.state.origin)
     }
 
     render() {
-        const origin = this.state.origin;
-        const selectedCountry = this.state.selectedCountry;
-        const valueForSearch = origin === 'map' ? this.valueConvert(selectedCountry, this.fromMap_toSearch, origin) : selectedCountry;
-        const valueForMap = origin === 'search' ? this.valueConvert(selectedCountry, this.fromSearch_toMap, origin) : selectedCountry;
-
         return(
-                <Row className="full-height">
-                    <Col md={4} className="no-margin">
-                    {/* {this._mapExpand(this.state.mapToggle)} */}
-                        <Map 
-                            africaOne={this.props.africaOne}
-                            top50={this.props.top50}
-                            africaContinent={this.props.africaContinent}
-                            agglosGeo={this.props.agglosGeo}
-                            
-                            handleISO={this.handleValueFromMap}
-                            // selectedCountry={valueForMap}
+            <Row className="full-height">
+                <Col md={4} className="no-margin">
+                {/* {this._mapExpand(this.state.mapToggle)} */}
+                    <Map 
+                        africaOne={this.props.africaOne}
+                        top50={this.props.top50}
+                        africaContinent={this.props.africaContinent}
+                        agglosGeo={this.props.agglosGeo}
+                        
+                        handleISO={this.handleValueFromMap}
+                        selectedCountry={this.state.selectedCountry}
+                    />
+                </Col>
+                <Col md={2} className="no-margin">
+                {/* {this._mixerExpand(this.state.mixerToggle)} */}
+                    <ExploreMixer 
+                        narratives={this.props.narratives} 
+                        collapseNav={this.state.collapseNav}
+                        onMixerToggle={this._onMixerToggle} 
+                        mixerToggle={this._mixerToggle} 
+                        mapToggle={this._mapToggle}
                         />
-                    </Col>
-                    <Col md={2} className="no-margin">
-                    {/* {this._mixerExpand(this.state.mixerToggle)} */}
-                        <ExploreMixer 
-                            narratives={this.props.narratives} 
-                            collapseNav={this.state.collapseNav}
-                            onMixerToggle={this._onMixerToggle} 
-                            mixerToggle={this._mixerToggle} 
-                            mapToggle={this._mapToggle}
-                            />
-                    </Col>
+                </Col>
 
-                    <Col md className=" exp-content">
-                        <ExploreContent 
-                            countries={this.props.countries} 
-                            narratives={this.props.narratives}
-                            africaContinent={this.props.africaContinent}
-                           
-                            handleISO={this.handleValueFromSearch}
-                            selectedCountry={valueForSearch}
-                            />
-                    </Col>
-                </Row>
+                <Col md className=" exp-content">
+                    <ExploreContent 
+                        countries={this.props.countries} 
+                        narratives={this.props.narratives}
+                        africaContinent={this.props.africaContinent}
+                        
+                        handleISO={this.handleValueFromSearch}
+                        selectedValue={this.state.selectedValue}
+                        />
+                </Col>
+            </Row>
         );
 
     }

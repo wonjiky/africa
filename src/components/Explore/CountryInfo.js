@@ -17,7 +17,7 @@ class CountryInfo extends Component {
     }
 
     renderInfo(selectedCountry){
-		
+		console.log('selectedCountry');
 		const list = this.props.countries.find(u => u.x  === selectedCountry.value);
 		if(list === undefined){
 			return <div></div>
@@ -46,11 +46,11 @@ class CountryInfo extends Component {
     }
 
     render() {
-        if(this.props.selectedCountry){
+        if(this.props.selectedCountryInfo){
 			return(
 				<Row className="explore-row">
 					<Col md={8} mdOffset={2} className="country-style">
-						{this.renderInfo(this.props.selectedCountry)}
+						{this.renderInfo(this.props.selectedCountryInfo)}
 					</Col>
 					<Col md={8} mdOffset={2} className="graph-style graphcontent">
 						<CountryGraph countries={this.props.countries}/>

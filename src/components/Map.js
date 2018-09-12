@@ -1,3 +1,4 @@
+// UPDATES TWICES WHEN SELECT CHANGE;
 import React from 'react';
 import { Component } from 'react';
 import  L  from 'leaflet';
@@ -14,6 +15,7 @@ config.params = {
 	zoomSnap: 1.2,
 	minZoom: 3,
 	maxBounds:mybounds,
+	hasAlreadyUpdatedOnce: false,
 	opacity:0
 };
 config.tileLayer = {
@@ -23,7 +25,6 @@ config.tileLayer = {
 		id: '',
 	}
 };
-
 
 class LeafletMap extends Component {
 	constructor(props){
@@ -35,78 +36,57 @@ class LeafletMap extends Component {
 			list: 0,
 			hasAlreadyUpdatedOnce: false,
 		};
-		this._mapNode = null;
-		this._onEachFeature = this._onEachFeature.bind(this);
-		this._onCityFeature = this._onCityFeature.bind(this);
-		this._yearFilter = this._yearFilter.bind(this);
-		this._pointToLayer = this._pointToLayer.bind(this);
-		this.updateMarker = this.updateMarker.bind(this);
-		this._cityFilter = this._cityFilter.bind(this);
-		this.clearList = this.clearList.bind(this);
+
+		this.onEachFeature = this.onEachFeature.bind(this);
+		this.agglos_onEachFeature = this.agglos_onEachFeature.bind(this);
+		this.agglos_pointToLayer = this.agglos_pointToLayer.bind(this);
+		this.agglos_cityFilter = this.agglos_cityFilter.bind(this);
+		this.placeHolder_filter = this.placeHolder_filter.bind(this);
+		this.clickOnMapItem = this.clickOnMapItem.bind(this);
 	}
 
 	componentDidMount() {
-		if (!this.state.map) {
-			this.init(this._mapNode);
-		}
-	}
-
-	//re-render on updatef
-	componentDidUpdate(prevProps,prevState){
-
-		if(this.state.map && !this.state.hasAlreadyUpdatedOnce){
-			this.addDimLayer(this.props.africaOne)
-			this.setState({
-				hasAlreadyUpdatedOnce:true
+		let map = L.map('map', config.params);
+		const tileLayer = L.tileLayer(config.tileLayer.uri, config.tileLayer.params).addTo(map);
+		this.setState({ map, tileLayer });
+		
+		//Shading outisde border
+		this.mapShades = L.geoJson(this.props.africaOne, {
+			invert:true,
+			color:"grey",
+			stroke: false,
+			fillOpacity:0.8
+		})
+		this.mapShades.addTo(map);
+		
+		//PlaceHolder Layer
+		this.placeHolder = L.geoJSON(this.props.top50, { 
+			filter: this.placeHolder_filter,
+			pointToLayer: function (feature, latlng) {
+			return L.circleMarker(latlng);}
 			})
-		}
-
-		const agglos = this.agglos = L.geoJson(this.props.agglosGeo, {
-			onEachFeature: this._onCityFeature, 
-			filter: this._cityFilter,
-			pointToLayer: this._pointToLayer
-		});
-
-		const mapOverlay = L.geoJson(prevProps.africaContinent, {
-			onEachFeature: this._onEachFeature,
+			this.placeHolder.addTo(map);
+			console.log('PLACEHOLDER ADDED')	
+		
+		//Overlay + Interaction
+		this.mapOverlay = L.geoJson(this.props.africaContinent, {
+			onEachFeature:this.onEachFeature,
 		})
-			mapOverlay.addTo(this.state.map);
-			mapOverlay.setStyle({
-				fillOpacity: 0,
-				color: 'transparent'
+		this.mapOverlay.addTo(map);
+		this.mapOverlay.setStyle({
+			fillOpacity: 0,
+			color: 'transparent'
 		})
+		
+		// this.agglos = L.geoJson(this.props.agglosGeo, {
+		// 	onEachFeature: this.agglos_onEachFeature, 
+		// 	filter: this.agglos_cityFilter,
+		// 	pointToLayer: this.agglos_pointToLayer
+		// });
 
-		this.clearList(prevProps);
 	}
 
-
-
-	clearList(prevProps){
-
-		if (prevProps.selectedCountry.value !== null) {
-
-			const agglos2 = L.geoJson(this.props.agglosGeo, {
-				onEachFeature: this._onCityFeature, 
-				filter: (feature) => {
-					if (feature.properties.ISO === this.props.selectedCountry.value)
-						return true
-				},
-				pointToLayer: this._pointToLayer
-			});
-
-			if( prevProps.selectedCountry.value !== undefined ){
-				this.state.map.removeLayer(agglos2);
-			}
-			// this.state.map.removeLayer(agglos2);
-			console.log(prevProps.selectedCountry.value, 'cleared')
-			// this.state.map.removeLayer(this.citieslist)
-			this.state.map.addLayer(agglos2)
-			// this.citieslist.addLayer(list);
-			}
-		}
-
-	
-	_onEachFeature(feature, layer) {
+	onEachFeature(feature, layer){
 		layer.on('mouseover', () => {
 			layer.setStyle({
 			fillOpacity: 0.6,
@@ -114,104 +94,80 @@ class LeafletMap extends Component {
 			stroke: false
 			});
 		});
+
 		layer.on('mouseout', () => {
 			layer.setStyle({
 			fillOpacity: 0.0,
 			color: 'transparent'
 			});
 		});
-		
-		layer.on('change', (e) => {
-			console.log(this.props.selectedCountry)
-		});
 
-		layer.on('click', (e) => {
-			if(this.agglos !== undefined) {
-				this.state.map.removeLayer(this.agglos)
+		layer.on('click', () => {
+			console.log('CLCICKED')
+			if(this.agglos !== undefined){
+				console.log('CLEAR LAYERS');
+				this.state.map.removeLayer(this.agglos)//.clearLayers();
 			}
-
-			//Zoom into Country
-			this.state.map.fitBounds(layer.getBounds());
-			const ISO3_CODE = feature.properties.ISO3_CODE; 
-			this.setState({ISO3_CODE})
+			
+			const ISO3_ID = feature.properties.ID;
 			const ISO3_NAME = feature.properties.NAME_EN;
-			this.setState({ISO3_NAME})
-			const pairs = { value: ISO3_CODE, label:ISO3_NAME}
+			const pairs = { value: ISO3_ID, label:ISO3_NAME}
+			this.setState({ISO3_NAME,ISO3_ID})
+			console.log('SEND CLICKED VALUE FROM MAP');
 			this.props.handleISO(pairs)
 
-			this.state.map.addLayer(this.agglos)
+			// this.agglos = L.geoJson(this.props.agglosGeo, {
+			// 	onEachFeature: this.agglos_onEachFeature, 
+			// 	filter: this.agglos_cityFilter,
+			// 	pointToLayer: this.agglos_pointToLayer
+			// });
+
+			this.state.map.fitBounds(layer.getBounds());
+			const ISO3_CODE = feature.properties.ISO3_CODE; 
+			this.setState({ISO3_CODE});
+		
+
+			this.state.map.addLayer(this.agglos);
 		});
+
+		layer._leaflet_id = feature.properties.ID;
+
 	}
 
-	// componentWillUpdate(nextProps, nextState) {
-	// 	console.log(nextProps)
-	// }
+	componentDidUpdate(prevProps){
+		
+		this.agglos = L.geoJson(this.props.agglosGeo, {
+			onEachFeature: this.agglos_onEachFeature, 
+			filter: this.agglos_cityFilter,
+			pointToLayer: this.agglos_pointToLayer
+		});
 
-	// componentWillReceiveProps(nextProps) {
-	// 	console.log(nextProps.selectedCountry.value)
-	// }
-
-
-	// addLayer(africaContinent){
-	// 	const mapOverlay = L.geoJson(africaContinent, {
-	// 		onEachFeature: this._onEachFeature,
-	// 	})
-	// 	mapOverlay.addTo(this.state.map);
-	// 	mapOverlay.setStyle({
-	// 		fillOpacity: 0,
-	// 		color: 'transparent'
-	// 	})
-	// }
-
-	//Year filter for citieslist
-	_yearFilter(feature) {
-		if (feature.properties.Year === "a") return true
-	}
-
-	//Dimming the area outside of African continent 
-	addDimLayer(shades){
-		if(this.state.map){
-		const mapShades = L.geoJson(shades, {
-			invert:true,
-			color:"grey",
-			stroke: false,
-			fillOpacity:0.8
-		})
-		mapShades.addTo(this.state.map);
+		if(this.props.selectedCountry){
+			let currValue = this.props.selectedCountry.value;
+			let prevValue = prevProps.selectedCountry.value;
+			console.log('PROPS RECEIVED FROM WRAPPER/SEARCH')
+			var layer = this.mapOverlay.getLayer(currValue);
+			this.clickOnMapItem(layer, prevValue, currValue)
 		}
 	}
 
-	init(id){
-		if (this.state.map) return;
-		let map = L.map(id, config.params);
-		const tileLayer = L.tileLayer(config.tileLayer.uri, config.tileLayer.params).addTo(map);
-		
-	
-		this.setState({ map, tileLayer });
-
-		// if(map){
-		// 	const mapOverlay = L.geoJson(this.props.africaContinent, {
-		// 		onEachFeature: this._onEachFeature,
-		// 	})
-		// 	mapOverlay.addTo(map);
-		// 	mapOverlay.setStyle({
-		// 		fillOpacity: 0,
-		// 		color: 'transparent'
-		// 	})
-		// }
+	clickOnMapItem(layer, prevValue, currValue){
+		if(currValue && prevValue !== currValue){
+			layer.fireEvent('click');
+		}
 	}
 
-	updateMarker(){
-		this.citieslist.clearLayers();
+	//Year filter for citieslist
+	placeHolder_filter(feature) {
+		if (feature.properties.Year === "a") return true
 	}
-	
 
-	_cityFilter(feature){
+	agglos_cityFilter(feature){
 		if (feature.properties.ISO === this.state.ISO3_CODE)
 		return true
 	}
 
-	_pointToLayer(feature, latlng){
+	agglos_pointToLayer(feature, latlng){
 		const geojsonMarker = {
 			radius: 4,
 			fillColor: "#FFF",
@@ -221,7 +177,7 @@ class LeafletMap extends Component {
 		return L.circleMarker(latlng, geojsonMarker);
 	}
 
-	_onCityFeature(feature, layer) {
+	agglos_onEachFeature(feature, layer) {
 		let popupContent = "<table class='tooltip-table'>";
 		popupContent += "<tr><td class='title'>Name:</td><td class='data'>" + feature.properties.NAME + "</td></tr>";
 		popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.PTA2015 + "</td></tr>";
@@ -229,12 +185,12 @@ class LeafletMap extends Component {
 		layer.bindPopup(popupContent).openPopup();
 	}
 
-
 	render() {
 		return (
-			<div ref={(node) => this._mapNode = node} id="map" />
+			<div id="map" />
 		)
 	}
 }
 
 export default LeafletMap;
+

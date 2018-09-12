@@ -17,7 +17,8 @@ class CountryInfo extends Component {
     }
 
     renderInfo(selectedCountry){
-		const list = this.props.countries.find(u => u.ISO  === selectedCountry.value);
+		
+		const list = this.props.countries.find(u => u.x  === selectedCountry.value);
 		if(list === undefined){
 			return <div></div>
 		}else{
@@ -40,19 +41,6 @@ class CountryInfo extends Component {
 						</ExpansionPanelDetails>
 					</ExpansionPanel>
 				</div>
-				// <ul className="list-unstyled ">
-				// 	<li>
-				// 		<h3>{list.name}</h3>
-				// 		<br/>
-				// 	</li>
-				// 	<li>
-				// 		<h5><span>Capital: </span>{list.Biggestcity_name}</h5>
-				// 		<h5 className="pop-area"><span>Population: </span>{list.Upop}</h5>
-				// 		<h5 className="pop-area"><span>Area: </span>{list.Usurfacekm}</h5>
-				// 		<br />
-				// 		<p>{list.description} </p>
-				// 	</li>
-				// </ul>
 			)
 		}
     }

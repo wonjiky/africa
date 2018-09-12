@@ -16,9 +16,13 @@ class ExploreContent extends Component {
         this.props.handleISO(e)
     }
 
+    componentDidUpdate(){
+        console.log( 'RECEIVED VALUE FROM MAP', this.props.selectedCountry)
+    }
+
     render() {
         const list = this.props.africaContinent[0].features.map((a,i) => (
-            { value: a.properties.ISO3_CODE, label: a.properties.NAME_EN }
+            { value: a.properties.ID, label: a.properties.NAME_EN }
             ))
 
         return(

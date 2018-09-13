@@ -282,9 +282,7 @@ class LeafletMap extends Component {
 		let prevValue = prevProps.selectedCountry;
 		var layer = this.mapOverlay.getLayer(currValue);
 		if(currValue !== prevValue){
-			// console.log(prevValue, currValue);
-			layer.fireEvent('clicked')
-			// console.log(layer)
+			layer.fireEvent('clicked', currValue)
 		}
 	}
 
@@ -311,18 +309,22 @@ class LeafletMap extends Component {
 			this.props.handleISO(e);
 		});
 
-		layer.on('clicked', () => {
+		layer.on('clicked', (e) => {
+			console.log(e)
+			
 			// console.log('clearLayers');
 			this.placeHolder.clearLayers();
-			// this.onChangeCountry(feature, layer);
+			
 			this.state.map.fitBounds(layer.getBounds());
-			// console.log('set Agglos Info');
+
 			this.agglos = L.geoJson(this.props.agglosGeo, {
 				onEachFeature: this.agglos_onEachFeature, 
 				filter: this.agglos_cityFilter,
 				pointToLayer: this.agglos_pointToLayer
 			});
+
 			this.placeHolder.clearLayers();
+			
 			this.ISO3_CODE = feature.properties.ISO3_CODE; 
 			this.placeHolder.addLayer(this.agglos);
 		});

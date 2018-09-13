@@ -1,4 +1,3 @@
-// // UPDATES TWICES WHEN SELECT CHANGE;
 // import React from 'react';
 // import { Component } from 'react';
 // import  L  from 'leaflet';
@@ -42,7 +41,7 @@
 // 		this.agglos_pointToLayer = this.agglos_pointToLayer.bind(this);
 // 		this.agglos_cityFilter = this.agglos_cityFilter.bind(this);
 // 		this.placeHolder_filter = this.placeHolder_filter.bind(this);
-// 		this.clickOnMapItem = this.clickOnMapItem.bind(this);
+// 		this.onChangeCountry = this.onChangeCountry.bind(this);
 // 	}
 
 // 	componentDidMount() {
@@ -65,7 +64,7 @@
 // 			pointToLayer: function (feature, latlng) {
 // 			return L.circleMarker(latlng);}
 // 			})
-// 			this.placeHolder.addTo(map);
+// 		this.placeHolder.addTo(map);
 // 	}
 
 // 	componentDidUpdate(prevProps){
@@ -77,15 +76,17 @@
 // 			fillOpacity: 0,
 // 			color: 'transparent'
 // 		})
-
-// 		if(this.props.selectedCountry !== prevProps.selectedCountry){
-// 			console.log('selectedCountry from SEARCH has been read :', this.props.selectedCountry);
-// 			let currValue = this.props.selectedCountry.value;
-// 			let prevValue = prevProps.selectedCountry.value;
-// 			var layer = this.mapOverlay.getLayer(currValue);
-// 			console.log(layer);
-// 			this.clickOnMapItem(layer, prevValue, currValue)
-// 		}
+// 		// console.log('selectedCountry :',this.props.selectedCountry);
+// 		// // if(prevValue !== currValue){
+// 		// let currValue = this.props.selectedCountry;
+// 		// let prevValue = prevProps.selectedCountry;
+// 		// var layer = this.mapOverlay.getLayer(currValue);
+// 		// if(currValue !== prevValue){
+		
+// 		// 	console.log(prevValue, currValue);
+// 		// 	layer.fireEvent('change')
+// 		// 	console.log(layer)
+// 		// }
 // 	}
 
 // 	onEachFeature(feature, layer){
@@ -105,48 +106,59 @@
 // 		});
 
 // 		layer.on('click', () => {
+// 			// const ISO3_ID = feature.properties.ID;
+// 			// const ISO3_NAME = feature.properties.NAME_EN;
+// 			// const e = { value: ISO3_ID, label:ISO3_NAME}
+// 			// this.props.handleISO(e);
 
-// 			// if(this.agglos !== undefined){
-// 				console.log('@@@@@@@@@@@@@@@PLACEHOLDER IS CLEARED@@@@@@@@@@@@@@@')
-// 				this.placeHolder.clearLayers();
-// 			// }
-			
+// 			this.placeHolder.clearLayers();
+// 			console.log('clearLayers');
+// 			// this.onChangeCountry(feature, layer);
 // 			this.state.map.fitBounds(layer.getBounds());
-			
-// 			const ISO3_CODE = feature.properties.ISO3_CODE; 
-// 			this.setState({ISO3_CODE});
-			
-
+// 			console.log('set Agglos Info');
 // 			this.agglos = L.geoJson(this.props.agglosGeo, {
 // 				onEachFeature: this.agglos_onEachFeature, 
 // 				filter: this.agglos_cityFilter,
 // 				pointToLayer: this.agglos_pointToLayer
 // 			});
-
-
-			
-// 			console.log('1111111111111111 NEW PLACEHOLDER IS ADDED 1111111111111111')
-			
+// 			const ISO3_CODE = feature.properties.ISO3_CODE; 
+// 			this.setState({ISO3_CODE});
+// 			console.log('addLayer');
 // 			this.placeHolder.addLayer(this.agglos);
-// 			console.log('222222222222222222 NEW PLACEHOLDER IS ADDED 222222222222222222')
-			
-// 			const ISO3_ID = feature.properties.ID;
-// 			const ISO3_NAME = feature.properties.NAME_EN;
-// 			const pairs = { value: ISO3_ID, label:ISO3_NAME}
-// 			console.log('SEND SELECTEDCOUNTRY FROM MAP TO WRAPPER');
-// 			this.props.handleISO(pairs);
 // 		});
-		
+
+// 		layer.on('change', () => {
+// 			console.log('clearLayers');
+// 			// this.onChangeCountry(feature, layer);
+// 			this.state.map.fitBounds(layer.getBounds());
+// 			console.log('set Agglos Info');
+// 			this.agglos = L.geoJson(this.props.agglosGeo, {
+// 				onEachFeature: this.agglos_onEachFeature, 
+// 				filter: this.agglos_cityFilter,
+// 				pointToLayer: this.agglos_pointToLayer
+// 			});
+// 			this.placeHolder.clearLayers();
+// 			const ISO3_CODE = feature.properties.ISO3_CODE; 
+// 			this.setState({ISO3_CODE});
+// 			console.log('addLayer');
+// 			this.placeHolder.addLayer(this.agglos);
+// 		});
 // 		layer._leaflet_id = feature.properties.ID;
-	
 // 	}
 
-// 	clickOnMapItem(layer, prevValue, currValue){
-// 		if(currValue && prevValue !== currValue){
-// 			console.log('####################FIREEVENT TRIGGERD####################')
-// 			layer.fireEvent('click');
-// 		}
+// 	onChangeCountry(feature, layer){
+// 		this.state.map.fitBounds(layer.getBounds());
+// 		this.agglos = L.geoJson(this.props.agglosGeo, {
+// 			onEachFeature: this.agglos_onEachFeature, 
+// 			filter: this.agglos_cityFilter,
+// 			pointToLayer: this.agglos_pointToLayer
+// 		});
+// 		this.placeHolder.clearLayers();
+// 		const ISO3_CODE = feature.properties.ISO3_CODE; 
+// 		this.setState({ISO3_CODE});
+// 		this.placeHolder.addLayer(this.agglos);
 // 	}
+
 
 // 	//Year filter for citieslist
 // 	placeHolder_filter(feature) {
@@ -186,7 +198,6 @@
 // export default LeafletMap;
 
 
-// UPDATES TWICES WHEN SELECT CHANGE;
 import React from 'react';
 import { Component } from 'react';
 import  L  from 'leaflet';
@@ -230,6 +241,7 @@ class LeafletMap extends Component {
 		this.agglos_pointToLayer = this.agglos_pointToLayer.bind(this);
 		this.agglos_cityFilter = this.agglos_cityFilter.bind(this);
 		this.placeHolder_filter = this.placeHolder_filter.bind(this);
+		this.onChangeCountry = this.onChangeCountry.bind(this);
 	}
 
 	componentDidMount() {
@@ -264,15 +276,15 @@ class LeafletMap extends Component {
 			fillOpacity: 0,
 			color: 'transparent'
 		})
-
+		console.log('selectedCountry :',this.props.selectedCountry);
+		// if(prevValue !== currValue){
 		let currValue = this.props.selectedCountry;
 		let prevValue = prevProps.selectedCountry;
 		var layer = this.mapOverlay.getLayer(currValue);
-		
-		console.log(this.props.selectedCountry);
-		if(prevValue !== currValue){
-			console.log(prevValue, currValue);
-			layer.fireEvent('change');
+		if(currValue !== prevValue){
+			// console.log(prevValue, currValue);
+			layer.fireEvent('clicked')
+			// console.log(layer)
 		}
 	}
 
@@ -299,25 +311,37 @@ class LeafletMap extends Component {
 			this.props.handleISO(e);
 		});
 
-		layer.on('change', () => {
-			console.log('clearLayers');
+		layer.on('clicked', () => {
+			// console.log('clearLayers');
 			this.placeHolder.clearLayers();
+			// this.onChangeCountry(feature, layer);
 			this.state.map.fitBounds(layer.getBounds());
-			console.log('set Agglos Info');
+			// console.log('set Agglos Info');
 			this.agglos = L.geoJson(this.props.agglosGeo, {
 				onEachFeature: this.agglos_onEachFeature, 
 				filter: this.agglos_cityFilter,
 				pointToLayer: this.agglos_pointToLayer
 			});
-			const ISO3_CODE = feature.properties.ISO3_CODE; 
-			this.setState({ISO3_CODE});
-			console.log('addLayer');
+			this.placeHolder.clearLayers();
+			this.ISO3_CODE = feature.properties.ISO3_CODE; 
 			this.placeHolder.addLayer(this.agglos);
 		});
-
 		layer._leaflet_id = feature.properties.ID;
-
 	}
+
+	onChangeCountry(feature, layer){
+		this.state.map.fitBounds(layer.getBounds());
+		this.agglos = L.geoJson(this.props.agglosGeo, {
+			onEachFeature: this.agglos_onEachFeature, 
+			filter: this.agglos_cityFilter,
+			pointToLayer: this.agglos_pointToLayer
+		});
+		this.placeHolder.clearLayers();
+		const ISO3_CODE = feature.properties.ISO3_CODE; 
+		this.setState({ISO3_CODE});
+		this.placeHolder.addLayer(this.agglos);
+	}
+
 
 	//Year filter for citieslist
 	placeHolder_filter(feature) {
@@ -325,8 +349,9 @@ class LeafletMap extends Component {
 	}
 
 	agglos_cityFilter(feature){
-		if (feature.properties.ISO === this.state.ISO3_CODE)
-		return true
+		if (feature.properties.ISO === this.ISO3_CODE){
+			return true
+		}
 	}
 
 	agglos_pointToLayer(feature, latlng){
@@ -355,3 +380,4 @@ class LeafletMap extends Component {
 }
 
 export default LeafletMap;
+

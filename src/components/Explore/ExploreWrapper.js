@@ -21,8 +21,6 @@ class ExploreWrapper extends Component {
             
         };
         // this._onMixerToggle = this._onMixerToggle.bind(this); 
-        this.fromMap_toSearch = this.fromMap_toSearch.bind(this)
-        this.fromSearch_toMap = this.fromSearch_toMap.bind(this)
         this.handleValueFromMap = this.handleValueFromMap.bind(this)
         this.handleValueFromSearch = this.handleValueFromSearch.bind(this)
     }
@@ -42,23 +40,12 @@ class ExploreWrapper extends Component {
     // _mapExpand(mapToggle) {
     //     return(mapToggle ? this.state.mapCol : this.state.mapCol+3);
     // }
-
-    fromSearch_toMap(value){
-        return value
-    }
-    
-    fromMap_toSearch(value){
-        return value
-    }
-
     handleValueFromSearch(valueFromSearch){
         this.setState({
             origin:'search',
             selectedCountry: valueFromSearch.value,
             selectedValue: valueFromSearch,
         })
-        console.log(this.state.selectedValue);
-        // console.log('VALUE FROM SEARCH :', this.state.selectedCountry, this.state.origin)
     }
 
     handleValueFromMap(valueFromMap){
@@ -67,10 +54,8 @@ class ExploreWrapper extends Component {
             selectedCountry: valueFromMap.value,
             selectedValue: valueFromMap,
         })
-        console.log(this.state.selectedValue);
-        // console.log('VALUE FROM MAP :', this.state.selectedCountry, this.state.origin)
     }
-
+    
     render() {
         return(
             <Row className="full-height">

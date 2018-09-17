@@ -46,10 +46,11 @@ padding: 30px !important;
 
 .explore-row h6{
   font-family:'Oswald';
-  font-weight: 300;
+  font-weight: 400;
+  text-transform: uppercase;
   padding:0;
   margin:0;
-  color:#313131
+  color:#E8AE40
 }
 
 
@@ -146,10 +147,10 @@ padding: 30px !important;
 }
 
 .graph-content span{
-  font-weight:700;
+  /* font-family:'Merriweather'; */
+  font-weight:400;
   font-size: 13px;
-  color: #004F7D;
-  letter-spacing: 0-px;
+  color: #313131;
 }
 
 .graph-content hr{
@@ -184,14 +185,17 @@ padding: 30px !important;
 }
 
 .select-country{
-  /* background-color: lightblue; */
   display : flex;
   justify-content : bottom;
-  padding:15px;
+  padding:0px 15px 0px 15px;
 }
 
 .histogram{
-  width:100%;
+  display : flex;
+  justify-content : flex-end;
+  align-items:right;
+  padding:10px 15px 10px 15px;
+  float: right;
 }
 
 .select-city{

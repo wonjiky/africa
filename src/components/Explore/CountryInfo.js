@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-flexbox-grid';
-import CountryGraph from './CountryGraph';
+import KeyFigures from './KeyFigures';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -17,8 +17,7 @@ class CountryInfo extends Component {
     }
 
     renderInfo(selectedCountry){
-		console.log('selectedCountry');
-		const list = this.props.countries.find(u => u.x  === selectedCountry.value);
+		const list = this.props.countryData.find(u => u.ID  === selectedCountry.value);
 		if(list === undefined){
 			return <div></div>
 		}else{
@@ -31,9 +30,9 @@ class CountryInfo extends Component {
 						<ExpansionPanelDetails>
 						<ul className="list-unstyled ">
 							<li>
-								<h5><span>Capital: </span>{list.Biggestcity_name}</h5>
+								<h5><span>Capital: </span>{list.Capital}</h5>
 								<h5 className="pop-area"><span>Population: </span>{list.Upop}</h5>
-								<h5 className="pop-area"><span>Area: </span>{list.Usurfacekm}</h5>
+								<h5 className="pop-area"><span>Area: </span>{list.Surface}</h5>
 								<br />
 								<p>{list.description} </p>
 							</li>
@@ -46,14 +45,16 @@ class CountryInfo extends Component {
     }
 
     render() {
-        if(this.props.selectedCountryInfo){
+        if(this.props.selectedValue){
 			return(
 				<Row className="explore-row">
 					<Col md={8} mdOffset={2} className="country-style">
-						{this.renderInfo(this.props.selectedCountryInfo)}
+						{this.renderInfo(this.props.selectedValue)}
 					</Col>
 					<Col md={8} mdOffset={2} className="graph-style graphcontent">
-						<CountryGraph countries={this.props.countries}/>
+						<KeyFigures 
+							countryData={this.props.countryData}
+							selectedValue={this.props.selectedValue}/>
 					</Col>
 				</Row>  
 			);

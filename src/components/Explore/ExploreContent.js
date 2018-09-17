@@ -9,19 +9,29 @@ class ExploreContent extends Component {
         this.state = {
             isClearable: true,
             isSearchable: true,
+            agglosList: ''
         };
+        // this.populateAgglosList = this.populateAgglosList.bind(this);
+        // this.filterAgglos = this.filterAgglos.bind(this);
     }
 
     handleChange(e){
         this.props.handleISO(e)
     }
 
+    filterAgglos(value){
+        const agglosArray = this.props.agglos[0].features.map((u) => (u.properties))
+        const agglosValue = agglosArray.filter(u => (u.ID === value.value))
+        return (agglosValue.map((a,i) => ({ value: a.Countryin_ID, label: a.NAME})))
+    }
+
     render() {
-        const list = this.props.africaContinent[0].features.map((a,i) => (
-            { value: a.properties.ID, label: a.properties.NAME_EN }
+        const countryList = this.props.africaContinent[0].features.map((c,i) => (
+            { value: c.properties.ID, label: c.properties.NAME_EN }
             ))
-        
-        
+
+        const agglosList = this.filterAgglos(this.props.selectedValue);
+
         return(
             <div>
                 <Row className="no-padding">
@@ -32,18 +42,25 @@ class ExploreContent extends Component {
                             isSearchable={this.state.isSearchable}
                             value={this.props.selectedValue}
                             onChange={this.handleChange.bind(this)}
-                            options={list}
+                            options={countryList}
                         />
                     </Col>
                     <Col md={4}>
                         <Select
+                           placeholder="Select City"
+                           isClearable={this.state.isClearable}
+                           isSearchable={this.state.isSearchable}
+                        //    value={this.props.selectedValue}
+                        //    onChange={this.handleChange.bind(this)}
+                           options={agglosList}
+                           isDisabled={!this.props.selectedValue}
                         />
                     </Col>
                 </Row>
                 <br/>
                 <CountryInfo 
-                    selectedCountryInfo={this.props.selectedValue} 
-                    countries={this.props.countries} />
+                    selectedValue={this.props.selectedValue} 
+                    countryData={this.props.countryData} />
             </div>
         );
     }

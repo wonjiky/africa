@@ -76,13 +76,12 @@ class LeafletMap extends Component {
 			fillOpacity: 0,
 			color: 'transparent'
 		})
-		console.log('selectedCountry :',this.props.selectedCountry);
-		// if(prevValue !== currValue){
+
 		let currValue = this.props.selectedCountry;
 		let prevValue = prevProps.selectedCountry;
 		if(currValue !== prevValue){
 			var layer = this.mapOverlay.getLayer(currValue);
-			layer.fireEvent('clicked', currValue)
+			layer.fireEvent('change', currValue)
 		}
 	}
 
@@ -109,10 +108,8 @@ class LeafletMap extends Component {
 			this.props.handleISO(e);
 		});
 
-		layer.on('clicked', (e) => {
-			console.log(e)
-			
-			// console.log('clearLayers');
+		layer.on('change', (e) => {
+
 			this.placeHolder.clearLayers();
 			
 			this.state.map.fitBounds(layer.getBounds());
@@ -131,25 +128,33 @@ class LeafletMap extends Component {
 
 	onChangeCountry(feature, layer){
 		this.state.map.fitBounds(layer.getBounds());
+		
 		this.agglos = L.geoJson(this.props.agglosGeo, {
 			onEachFeature: this.agglos_onEachFeature, 
 			filter: this.agglos_cityFilter,
 			pointToLayer: this.agglos_pointToLayer
 		});
+
+
 		this.placeHolder.clearLayers();
 		const ISO3_CODE = feature.properties.ISO3_CODE; 
 		this.setState({ISO3_CODE});
 		this.placeHolder.addLayer(this.agglos);
 	}
 
-
 	//Year filter for citieslist
 	placeHolder_filter(feature) {
-		if (feature.properties.Year === "a") return true
+		if (feature.properties.Year === "a") {
+			return true
+		}
 	}
 
 	agglos_cityFilter(feature){
 		if (feature.properties.ISO === this.ISO3_CODE){
+			const AGGLOS_ID = feature.properties.ISO;
+			const AGGLOS_NAME = feature.properties.NAME;
+			const AGGLOS = { value: AGGLOS_ID, label: AGGLOS_NAME}
+			this.props.handleAgglos(AGGLOS);
 			return true
 		}
 	}

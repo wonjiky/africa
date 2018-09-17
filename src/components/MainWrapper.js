@@ -23,17 +23,17 @@ class MainWrapper extends Component {
 		*/
 		this.state = {
 			narratives: NARRATIVES,
-			countries: COUNTRIES,
+			countryData: COUNTRIES,
 			africa_one: africa_one,
 			top50: top50,
 			africa_continent: africa_continent,
 			agglos_geo: agglos_geo,
-
 		};
 		window.countrydata = africa_continent;
 
 	}
-
+    componentDidMount(){
+    }
 	render() {
 
 		return (   
@@ -50,12 +50,11 @@ class MainWrapper extends Component {
 							/>}/>
 					<Route exact path="/explore" component={() => 
 						<ExploreWrapper 
-							narratives={this.state.narratives} 
-							countries={this.state.countries}
 							africaOne={this.state.africa_one}
 							top50={this.state.top50}
 							africaContinent={this.state.africa_continent}
-							agglosGeo={this.state.agglos_geo} 
+							agglosGeo={this.state.agglos_geo}
+							countryData={this.state.countryData}
 							/> } />
 					<Redirect to="/home" />
 				</Switch>

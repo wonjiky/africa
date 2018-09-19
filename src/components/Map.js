@@ -7,6 +7,7 @@ import "../../node_modules/leaflet/dist/leaflet.css";
 const southWest = L.latLng(-48.739134, -19.058270);
 const northEast = L.latLng(42.157281, 51.089421);
 const mybounds = L.latLngBounds(southWest, northEast);
+
 let config = {};
 config.params = {
 	center: [1.46,18.3],
@@ -48,7 +49,7 @@ class LeafletMap extends Component {
 		let map = L.map('map', config.params);
 		const tileLayer = L.tileLayer(config.tileLayer.uri, config.tileLayer.params).addTo(map);
 		this.setState({ map, tileLayer });
-		
+
 		//Shading outisde border
 		this.mapShades = L.geoJson(this.props.africaOne, {
 			invert:true,
@@ -57,9 +58,9 @@ class LeafletMap extends Component {
 			fillOpacity:0.8
 		})
 		this.mapShades.addTo(map);
-		
+
 		//PlaceHolder Layer
-		this.placeHolder = L.geoJSON(this.props.top50, { 
+		this.placeHolder = L.geoJSON(this.props.top50, {
 			filter: this.placeHolder_filter,
 			pointToLayer: function (feature, latlng) {
 			return L.circleMarker(latlng);}
@@ -85,13 +86,23 @@ class LeafletMap extends Component {
 		}
 	}
 
+
+
 	onEachFeature(feature, layer){
 		layer.on('mouseover', () => {
 			layer.setStyle({
 			fillOpacity: 0.6,
 			color: '#E8AE40',
-			stroke: false
+			weight: 0
+
 			});
+			if(feature.properties.clicked==true){layer.setStyle({
+				weight : 2,
+									color : 'black',
+									fillColor : 'yellow',
+									fillOpacity : 0.03,
+
+				});}
 		});
 
 		layer.on('mouseout', () => {
@@ -99,45 +110,63 @@ class LeafletMap extends Component {
 			fillOpacity: 0.0,
 			color: 'transparent'
 			});
+			if(feature.properties.clicked==true){layer.setStyle({
+				weight : 2,
+									color : 'black',
+									fillColor : 'yellow',
+									fillOpacity : 0.03,
+
+				});}
 		});
 
 		layer.on('click', () => {
+
+
 			const ISO3_ID = feature.properties.ID;
 			const ISO3_NAME = feature.properties.NAME_EN;
 			const e = { value: ISO3_ID, label:ISO3_NAME}
+			feature.properties.clicked=true;
 			this.props.handleISO(e);
+			layer.setStyle({
+				weight : 2,
+                    color : 'black',
+                    fillColor : 'yellow',
+                    fillOpacity : 0.03,
+
+			});
 		});
 
 		layer.on('change', (e) => {
 
 			this.placeHolder.clearLayers();
-			
+
 			this.state.map.fitBounds(layer.getBounds());
-			this.ISO3_CODE = feature.properties.ISO3_CODE; 
+			this.ISO3_CODE = feature.properties.ISO3_CODE;
 
 			this.agglos = L.geoJson(this.props.agglosGeo, {
-				onEachFeature: this.agglos_onEachFeature, 
+				onEachFeature: this.agglos_onEachFeature,
 				filter: this.agglos_cityFilter,
 				pointToLayer: this.agglos_pointToLayer
 			});
 
 			this.placeHolder.addLayer(this.agglos);
+
 		});
 		layer._leaflet_id = feature.properties.ID;
 	}
 
 	onChangeCountry(feature, layer){
 		this.state.map.fitBounds(layer.getBounds());
-		
+
 		this.agglos = L.geoJson(this.props.agglosGeo, {
-			onEachFeature: this.agglos_onEachFeature, 
+			onEachFeature: this.agglos_onEachFeature,
 			filter: this.agglos_cityFilter,
 			pointToLayer: this.agglos_pointToLayer
 		});
 
 
 		this.placeHolder.clearLayers();
-		const ISO3_CODE = feature.properties.ISO3_CODE; 
+		const ISO3_CODE = feature.properties.ISO3_CODE;
 		this.setState({ISO3_CODE});
 		this.placeHolder.addLayer(this.agglos);
 	}
@@ -185,4 +214,3 @@ class LeafletMap extends Component {
 }
 
 export default LeafletMap;
-

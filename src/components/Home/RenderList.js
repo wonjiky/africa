@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import { Grid, Col } from 'react-flexbox-grid';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import MaterialIcon from 'material-icons-react';
 
 
 class RenderList extends Component {
-
-    constructor(props){
-        super(props)
-    }
 
     _renderStoryList(stories){
         return(

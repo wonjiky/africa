@@ -5,10 +5,7 @@ import RenderTreemap from './RenderTreemap';
 class RenderNarratives extends Component{
     
     _renderNarratives(selectedStory, selectedTreemap){
-        console.log(selectedTreemap);
-        console.log(selectedStory);
-        const _story = 
-            this.props.narratives.find(s => s.id === selectedStory);
+        const _story = this.props.narratives.find(s => s.id === selectedStory);
         if(_story.id === 0){
             return(
                 <Col md={6} mdOffset={2} className="overview-wrapper">

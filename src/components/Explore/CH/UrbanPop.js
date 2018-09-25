@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { Element } from 'react-faux-dom';
 import * as d3 from "d3";
 

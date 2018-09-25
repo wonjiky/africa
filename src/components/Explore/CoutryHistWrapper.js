@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import CountryHistogram from './CountryHistogram';
 import UrbanPop from './CH/UrbanPop';
-import UrbanLevel from './CH/UrbanLevel';
-import NumAgglos from './CH/NumAgglos';
 import { Row, Col} from 'react-flexbox-grid';
 
 class CoutryHistWrapper extends Component {
@@ -15,9 +12,6 @@ class CoutryHistWrapper extends Component {
     }
 
     render() {
-        const aId = this.props.countryData.map(u => u.ID);
-        const aUPop = this.props.countryData.map(pop => pop.Upop_Scaled);
-
         return(
             <Row className="no-padding">
                 <Col md={12} className="select-country"><span>Urban Population</span></Col>

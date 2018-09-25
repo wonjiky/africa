@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import  L  from 'leaflet';
-import './data/leaflet.snogylop.js';
+import '../shared/leaflet.snogylop.js';
 import "../../node_modules/leaflet/dist/leaflet.css";
 
 const southWest = L.latLng(-48.739134, -19.058270);

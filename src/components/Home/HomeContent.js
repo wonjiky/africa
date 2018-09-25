@@ -19,9 +19,9 @@ class HomeContent extends Component {
             </div>
         )
     }
-
-
+    
     render() {
+        console.log(this.props.selectedTreemap);
         return(
             <Grid fluid className="content">
                 <Row className="content-row">
@@ -29,11 +29,12 @@ class HomeContent extends Component {
                     <RenderNarratives 
                     narratives={this.props.narratives} 
                     selectedStory={this.props.selectedStory}
+                    selectedTreemap={this.props.selectedTreemap}
                     />
                 </Row>
             </Grid>
         );
-    
+
     }
 }
 

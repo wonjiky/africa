@@ -17,7 +17,8 @@ class HomeWrapper extends Component {
             selectedStory: 0
         };
         // this._onMixerToggle = this._onMixerToggle.bind(this); 
-        this._storyList = this._storyList.bind(this)
+        this._storyList = this._storyList.bind(this);
+        this._treemapList = this._treemapList.bind(this);
     }
 
     //Exapnd and Shrink Map
@@ -39,10 +40,12 @@ class HomeWrapper extends Component {
         })
     }
 
-    handleISO(){
-
+    _treemapList(e){
+        this.setState({
+            selectedTreemap: e.ID
+        })
     }
-    
+
     render() {
         const story = this.props.narratives.map((narrative) => {
             return(narrative);
@@ -56,7 +59,6 @@ class HomeWrapper extends Component {
                         <Map 
                            africaOne={this.props.africaOne}
                            top50={this.props.top50}
-                           africaContinent={this.props.africaContinent}
                            agglosGeo={this.props.agglosGeo}
                            handleISO={this.handleISO}
                         />
@@ -65,17 +67,20 @@ class HomeWrapper extends Component {
                     {/* {this._mixerExpand(this.state.mixerToggle)} */}
                         <HomeMixer 
                         narratives={story} 
+                        treemap={this.props.treemap}
                         // onMixerToggle={this._onMixerToggle} 
                         collapseNav={this.state.collapseNav}
-                        onClick={this._storyList}
+                        narrativeClick={this._storyList}
+                        treemapClick={this._treemapList}
                         selectedStory={this.state.selectedStory} 
                         />
                     </Col>
                     <Col md className="no-margin">
                         <HomeContent 
-                        narratives={story} 
-                        collapseNav={this.state.collapseNav}
-                        selectedStory={this.state.selectedStory} 
+                        narratives={story}
+                        // collapseNav={this.state.collapseNav}
+                        selectedStory={this.state.selectedStory}
+                        selectedTreemap={this.state.selectedTreemap} 
                         />
                     </Col>
                 </Row>

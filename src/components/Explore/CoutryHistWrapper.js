@@ -14,33 +14,33 @@ class CoutryHistWrapper extends Component {
         })
     }
 
-    
     render() {
-        return(
-           
+        const aId = this.props.countryData.map(u => u.ID);
+        const aUPop = this.props.countryData.map(pop => pop.Upop_Scaled);
 
-        <Row className="no-padding">
-            <Col md={12} className="select-country"><span>Urban Population</span></Col>
-            <Col md={12}className="histogram">
-                <UrbanPop 
-                    selectedValue={this.props.selectedValue}
-                    countryData={this.props.countryData}
-                    /></Col>
-            <hr/>
-            <Col md={12} className="select-country"><span>Level of Urbanisation</span></Col>
-            <Col md={12}className="histogram">
-                <UrbanLevel 
-                    selectedValue={this.props.selectedValue}
-                    countryData={this.props.countryData}
-                    /></Col>
-                     <hr/>
-            <Col md={12} className="select-country"><span>Number of Urban Agglomerations</span></Col>
-            <Col md={12}className="histogram">
-                <NumAgglos 
-                    selectedValue={this.props.selectedValue}
-                    countryData={this.props.countryData}
-                    /></Col>
-        </Row>
+        return(
+            <Row className="no-padding">
+                <Col md={12} className="select-country"><span>Urban Population</span></Col>
+                <Col md={12}className="histogram">
+                    <UrbanPop 
+                        selectedValue={this.props.selectedValue}
+                        countryData={this.props.countryData}
+                        /></Col>
+                {/* <hr/>
+                <Col md={12} className="select-country"><span>Level of Urbanisation</span></Col>
+                <Col md={12}className="histogram">
+                    <UrbanLevel 
+                        selectedValue={this.props.selectedValue}
+                        countryData={this.props.countryData}
+                        /></Col>
+                        <hr/>
+                <Col md={12} className="select-country"><span>Number of Urban Agglomerations</span></Col>
+                <Col md={12}className="histogram">
+                    <NumAgglos 
+                        selectedValue={this.props.selectedValue}
+                        countryData={this.props.countryData}
+                        /></Col> */}
+            </Row>
         );
     }
     

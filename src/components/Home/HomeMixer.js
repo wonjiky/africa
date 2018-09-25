@@ -15,8 +15,13 @@ class HomeMixer extends Component {
         };
     }
 
-    _handleClick(story){
-        this.props.onClick(story);
+    _narrativeSelect(story){
+        this.props.narrativeClick(story);
+    }
+
+    _treemapSelect(treemap){
+        console.log(treemap);
+        this.props.treemapClick(treemap);
     }
     
     // _mixerButton(yes){
@@ -34,8 +39,11 @@ class HomeMixer extends Component {
     render() {
         return(
           <RenderList 
-            handleClick={this._handleClick.bind(this)} 
+            handleNarrative={this._narrativeSelect.bind(this)} 
+            handleTreemap={this._treemapSelect.bind(this)} 
             narratives={this.props.narratives}
+            
+            treemap={this.props.treemap}
             selectedStory={this.props.selectedStory}     
         />
         );

@@ -3,6 +3,7 @@ import HomeWrapper from './Home/HomeWrapper';
 import ExploreWrapper from './Explore/ExploreWrapper';
 import Header from './Header';
 import { NARRATIVES } from '../shared/narratives';
+import { TREEMAP } from '../shared/treemap';
 import { COUNTRIES } from '../shared/countrydata';
 import africa_one from '../shared/africa_one.geojson';
 import africa_continent from '../shared/africa_continent.geojson';
@@ -28,6 +29,7 @@ class MainWrapper extends Component {
 			top50: top50,
 			africa_continent: africa_continent,
 			agglos_geo: agglos_geo,
+			treemap: TREEMAP
 		};
 		window.countrydata = africa_continent;
 
@@ -43,6 +45,7 @@ class MainWrapper extends Component {
 					<Route path="/home" component={() => 
 						<HomeWrapper 
 							narratives={this.state.narratives}
+							treemap={this.state.treemap}
 							africaOne={this.state.africa_one}
 							top50={this.state.top50}
 							africaContinent={this.state.africa_continent}

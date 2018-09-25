@@ -60,16 +60,6 @@ class ExploreWrapper extends Component {
     componentDidMount(){
     }
 
-    // filterCity(selectedCountry){
-    //     this.props.agglosGeo[0].features.map((a,i) => {
-    //         // console.log(a.properties, selectedCountry.value);
-    //     })
-
-    //     this.props.africaContinent[0].features.map((t,i) => {
-    //         // console.log(t.properties)
-    //     })
-    // }
-
     handleAgglosFromMap(e){
         // console.log(e)
         // this.setState({

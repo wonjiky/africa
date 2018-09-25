@@ -31,19 +31,17 @@ class MainWrapper extends Component {
 			agglos_geo: agglos_geo,
 			treemap: TREEMAP
 		};
-		window.countrydata = africa_continent;
+		// window.countrydata = africa_continent;
 
 	}
-    componentDidMount(){
-    }
+    
 	render() {
 
 		return (   
 			<div>
 				<Header />
 				<Switch>
-					<Route path="/home" component={() => 
-						<HomeWrapper 
+					<Route path="/" component={() => <HomeWrapper 
 							narratives={this.state.narratives}
 							treemap={this.state.treemap}
 							africaOne={this.state.africa_one}
@@ -51,15 +49,14 @@ class MainWrapper extends Component {
 							africaContinent={this.state.africa_continent}
 							agglosGeo={this.state.agglos_geo}
 							/>}/>
-					<Route exact path="/explore" component={() => 
-						<ExploreWrapper 
+					<Route exact path={`/explore`} component={() => <ExploreWrapper 
 							africaOne={this.state.africa_one}
 							top50={this.state.top50}
 							africaContinent={this.state.africa_continent}
 							agglosGeo={this.state.agglos_geo}
 							countryData={this.state.countryData}
 							/> } />
-					<Redirect to="/home" />
+					<Redirect to="/" />
 				</Switch>
 			</div>
 		);

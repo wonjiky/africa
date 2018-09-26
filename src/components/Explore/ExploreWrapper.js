@@ -77,7 +77,6 @@ class ExploreWrapper extends Component {
                 {/* {this._mapExpand(this.state.mapToggle)} */}
                     <Map 
                         africaOne={this.props.africaOne}
-                        top50={this.props.top50}
                         africaContinent={this.props.africaContinent}
                         agglosGeo={this.props.agglosGeo}
 

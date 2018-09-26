@@ -207,11 +207,11 @@ module.exports = {
             include: [paths.appSrc, paths.appNodeModules],
             loader: 'json'
           },
-          {
-            test: /\.geojson$/,
-            include: [paths.appSrc, paths.appNodeModules],
-            loader: 'json-loader'
-          },
+          // {
+          //   test: /\.geojson$/,
+          //   include: [paths.appSrc, paths.appNodeModules],
+          //   loader: 'json-loader'
+          // },
           {
             // Exclude `js` files to keep "css" loader working as it injects
             // its runtime that would otherwise processed through "file" loader.

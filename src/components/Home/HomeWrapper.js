@@ -58,7 +58,6 @@ class HomeWrapper extends Component {
                     {/* {this._mapExpand(this.state.mapToggle)} */}
                         <Map 
                            africaOne={this.props.africaOne}
-                           top50={this.props.top50}
                            agglosGeo={this.props.agglosGeo}
                            handleISO={this.handleISO}
                         />

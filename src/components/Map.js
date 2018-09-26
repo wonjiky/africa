@@ -4,7 +4,7 @@ import  L  from 'leaflet';
 import './data/leaflet.snogylop.js';
 import "../../node_modules/leaflet/dist/leaflet.css";
 
-const southWest = L.latLng(-48.739134, -19.058270);
+const southWest = L.latLng(-48.739134, -29.058270);
 const northEast = L.latLng(42.157281, 51.089421);
 const mybounds = L.latLngBounds(southWest, northEast);
 
@@ -94,7 +94,7 @@ class LeafletMap extends Component {
 		this.mapOverlay = L.geoJson(this.props.africaContinent, {
 			style: () => {return {color: 'transparent'}},
 			onEachFeature: (feature, layer) => {
-				
+
 				layer.on('mouseover', () => {
 					layer.setStyle(this.hoverStyle());
 					//@@ INHOI @@//
@@ -102,10 +102,10 @@ class LeafletMap extends Component {
 					// 	layer.setStyle(this.selectedStyle());
 					// }
 				});
-		
+
 				layer.on('mouseout', (e) => {
 					this.mapOverlay.resetStyle(e.target);
-					
+
 					//@@ INHOI @@//
 					// if(feature.properties.hasFocus === true){
 					// 	layer.setStyle(this.selectedStyle());
@@ -121,7 +121,7 @@ class LeafletMap extends Component {
 						filter: this.agglos_cityFilter,
 						pointToLayer: this.agglos_pointToLayer
 					});
-					
+
 
 					//@@ INHOI @@//
 					// feature.properties.hasFocus = true;
@@ -136,7 +136,7 @@ class LeafletMap extends Component {
 					const e = { value: ISO3_ID, label:ISO3_NAME}
 					this.props.handleISO(e);
 				});
-		
+
 				layer._leaflet_id = feature.properties.ID;
 			}
 		})
@@ -157,7 +157,7 @@ class LeafletMap extends Component {
 	// 		weight: 2
 	// 		});
 	// 	});
-		
+
 	// 	layer.on('mouseout', () => {
 	// 		layer.setStyle({
 	// 		fillOpacity: 0.0,
@@ -174,7 +174,7 @@ class LeafletMap extends Component {
 
 	// 	layer.on('change', (e) => {
 	// 		this.placeHolder.clearLayers();
-			
+
 	// 		this.state.map.fitBounds(layer.getBounds());
 	// 		this.ISO3_CODE = feature.properties.ISO3_CODE;
 

@@ -9,13 +9,14 @@ class KeyFigures extends Component {
     constructor(props){
         super(props);
         this.state = {
-
         };
     }
 
+    valueFromCountryHistogram(value){
+        this.props.valueFromCountryHistogram(value);
+    }
+
     render() {
-
-
         return(
             <Grid fluid className="graph-content">
                 <Row>
@@ -27,6 +28,7 @@ class KeyFigures extends Component {
                         <CoutryHistWrapper 
                             selectedValue={this.props.selectedValue}
                             countryData={this.props.countryData}
+                            valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}
                             />
                     </Col>
                     <Col md={6} className="select-city" >

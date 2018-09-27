@@ -135,7 +135,7 @@ class LeafletMap extends Component {
 					const ISO3_ID = feature.properties.ID;
 					const ISO3_NAME = feature.properties.NAME_EN;
 					const e = { value: ISO3_ID, label:ISO3_NAME}
-					this.props.handleISO(e);
+					this.props.sendValueToContent(e);
 				});
 		
 				layer._leaflet_id = feature.properties.ID;
@@ -158,10 +158,6 @@ class LeafletMap extends Component {
 
 	agglos_cityFilter(feature){
 		if (feature.properties.ID === this.ID){
-			// const AGGLOS_ID = feature.properties.ID;
-			// const AGGLOS_NAME = feature.properties.NAME;
-			// const AGGLOS = { value: AGGLOS_ID, label: AGGLOS_NAME}
-			// this.props.handleAgglos(AGGLOS);
 			return true
 		}
 	}
@@ -203,8 +199,8 @@ class LeafletMap extends Component {
 		})
 
 		let popupContent = "<table class='tooltip-table'>";
-		popupContent += "<tr><td class='title'>Name:</td><td class='data'>" + feature.properties.NAME + "</td></tr>";
-		popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.PTA2015 + "</td></tr>";
+		popupContent += "<tr><td class='title'>Name:</td><td class='data'>" + feature.properties.cityName + "</td></tr>";
+		popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
 		popupContent += "</table>";
 		layer.bindPopup(popupContent).openPopup();
 	}

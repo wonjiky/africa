@@ -11,24 +11,22 @@ class ExploreContent extends Component {
             isSearchable: true,
             agglosList: ''
         };
-        // this.populateAgglosList = this.populateAgglosList.bind(this);
-        // this.filterAgglos = this.filterAgglos.bind(this);
     }
 
-    handleChange(e){
-        this.props.handleISO(e)
+    sendValueToMap(e){
+        this.props.handleValueFromContent(e)
     }
 
     filterAgglos(value){
         const agglosArray = this.props.agglos[0].features.map((u) => (u.properties))
         const agglosValue = agglosArray.filter(u => (u.ID === value.value))
-        return (agglosValue.map((a,i) => ({ value: a.Countryin_ID, label: a.NAME})))
+        const hi = agglosValue.map((a,i) => ({value: a.ID, label: a.cityName}))
+        return (hi)
     }
 
     render() {
         const countryList = this.props.africaContinent[0].features.map((c,i) => (
-            { value: c.properties.ID, label: c.properties.NAME_EN }
-            ))
+            { value: c.properties.ID, label: c.properties.NAME_EN }))
 
         const agglosList = this.filterAgglos(this.props.selectedValue);
 
@@ -41,7 +39,7 @@ class ExploreContent extends Component {
                             isClearable={this.state.isClearable}
                             isSearchable={this.state.isSearchable}
                             value={this.props.selectedValue}
-                            onChange={this.handleChange.bind(this)}
+                            onChange={this.sendValueToMap.bind(this)}
                             options={countryList}
                         />
                     </Col>
@@ -60,7 +58,9 @@ class ExploreContent extends Component {
                 <br/>
                 <CountryInfo 
                     selectedValue={this.props.selectedValue} 
-                    countryData={this.props.countryData} />
+                    countryData={this.props.countryData}
+                    valueFromCountryHistogram={this.sendValueToMap.bind(this)}
+                    />
             </div>
         );
     }

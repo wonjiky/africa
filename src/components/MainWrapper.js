@@ -4,10 +4,10 @@ import ExploreWrapper from './Explore/ExploreWrapper';
 import Header from './Header';
 import { NARRATIVES } from '../shared/narratives';
 import { TREEMAP } from '../shared/treemap';
-import { COUNTRIES } from '../shared/countrydata';
-import { AFRICA_ONE } from '../shared/africa_one';
-import { AFRICA_CONTINENT } from '../shared/africa_continent';
-import { AGGLOS } from '../shared/agglos';
+import { COUNTRYINFO } from '../shared/info_country';
+import { AFRICA_ONE } from '../shared/geo_shades';
+import { AFRICA_CONTINENT } from '../shared/geo_country';
+import { AGGLOS } from '../shared/geo_agglomeration';
 import { }from 'react-fontawesome';
 import '../css/main.css';
 import {Switch, Route, Redirect } from 'react-router-dom';
@@ -19,10 +19,10 @@ class MainWrapper extends Component {
 		super(props);
 		this.state = {
 			narratives: NARRATIVES,
-			countryData: COUNTRIES,
-			africa_one: AFRICA_ONE,
-			africa_continent: AFRICA_CONTINENT,
-			agglos_geo: AGGLOS,
+			countryData: COUNTRYINFO,
+			geo_shades: AFRICA_ONE,
+			geo_country: AFRICA_CONTINENT,
+			geo_agglomeration: AGGLOS,
 			treemap: TREEMAP
 		};
 		// window.countrydata = africa_continent;
@@ -37,15 +37,14 @@ class MainWrapper extends Component {
 					<Route path="/home" component={() => <HomeWrapper 
 							narratives={this.state.narratives}
 							treemap={this.state.treemap}
-							africaOne={this.state.africa_one}
-							africaContinent={this.state.africa_continent}
-							agglosGeo={this.state.agglos_geo}
+							africaOne={this.state.geo_shades}
+							africaContinent={this.state.geo_country}
+							agglosGeo={this.state.geo_agglomeration}
 							/>}/>
 					<Route exact path={`/explore`} component={() => <ExploreWrapper 
-							africaOne={this.state.africa_one}
-							top50={this.state.top50}
-							africaContinent={this.state.africa_continent}
-							agglosGeo={this.state.agglos_geo}
+							africaOne={this.state.geo_shades}
+							africaContinent={this.state.geo_country}
+							agglosGeo={this.state.geo_agglomeration}
 							countryData={this.state.countryData}
 							/> } />
 					<Redirect to="/home" />

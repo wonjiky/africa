@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import UrbanPop from './CH/UrbanPop';
-import { Row, Col} from 'react-flexbox-grid';
+import Histogram from './CountryHistogram';
 
 class CoutryHistWrapper extends Component {
     constructor(props){
@@ -11,30 +10,14 @@ class CoutryHistWrapper extends Component {
         })
     }
 
+    valueFromCountryHistogram(value){
+        // console.log(value);
+        this.props.valueFromCountryHistogram(value);
+    }
+
     render() {
         return(
-            <Row className="no-padding">
-                <Col md={12} className="select-country"><span>Urban Population</span></Col>
-                <Col md={12}className="histogram">
-                    <UrbanPop 
-                        selectedValue={this.props.selectedValue}
-                        countryData={this.props.countryData}
-                        /></Col>
-                {/* <hr/>
-                <Col md={12} className="select-country"><span>Level of Urbanisation</span></Col>
-                <Col md={12}className="histogram">
-                    <UrbanLevel 
-                        selectedValue={this.props.selectedValue}
-                        countryData={this.props.countryData}
-                        /></Col>
-                        <hr/>
-                <Col md={12} className="select-country"><span>Number of Urban Agglomerations</span></Col>
-                <Col md={12}className="histogram">
-                    <NumAgglos 
-                        selectedValue={this.props.selectedValue}
-                        countryData={this.props.countryData}
-                        /></Col> */}
-            </Row>
+            <Histogram selectedValue={this.props.selectedValue} countryData={this.props.countryData} valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}/>
         );
     }
     

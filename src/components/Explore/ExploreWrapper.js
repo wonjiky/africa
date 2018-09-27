@@ -24,7 +24,6 @@ class ExploreWrapper extends Component {
         // this._onMixerToggle = this._onMixerToggle.bind(this); 
         this.handleValueFromMap = this.handleValueFromMap.bind(this);
         this.handleValueFromSearch = this.handleValueFromSearch.bind(this);
-        this.handleAgglosFromMap = this.handleAgglosFromMap.bind(this);
     }
     
     // _onMixerToggle() {
@@ -57,31 +56,25 @@ class ExploreWrapper extends Component {
             selectedValue: valueFromMap,
         })
     }
-    componentDidMount(){
-    }
-
-    handleAgglosFromMap(e){
-        // console.log(e)
-        // this.setState({
-        //     agglosGroup:e
-        // })
-        // console.log('AGGLOS :', this.state.agglosGroup);
+    componentDidUpdate(){
+        console.log()
     }
     
     render() {
-        // const agglosGroup = this.state.selectedCountry ? this.filterCity(this.state.selectedValue) : '';
 
         return(
             <Row className="full-height">
                 <Col md={4} className="no-margin">
                 {/* {this._mapExpand(this.state.mapToggle)} */}
                     <Map 
+                        //data to Map
                         africaOne={this.props.africaOne}
                         africaContinent={this.props.africaContinent}
                         agglosGeo={this.props.agglosGeo}
 
-                        handleAgglos={this.handleAgglosFromMap}
-                        handleISO={this.handleValueFromMap}
+                        //data from Map
+                        // filteredAgglosToSearch={this.handleAgglosFromMap}
+                        sendValueToContent={this.handleValueFromMap}
                         selectedCountry={this.state.selectedCountry}
                     />
                 </Col>
@@ -89,22 +82,24 @@ class ExploreWrapper extends Component {
                 {/* {this._mixerExpand(this.state.mixerToggle)} */}
                     <ExploreMixer 
                         narratives={this.props.narratives} 
-                        collapseNav={this.state.collapseNav}
-                        onMixerToggle={this._onMixerToggle} 
-                        mixerToggle={this._mixerToggle} 
-                        mapToggle={this._mapToggle}
+                        // collapseNav={this.state.collapseNav}
+                        // onMixerToggle={this._onMixerToggle} 
+                        // mixerToggle={this._mixerToggle} 
+                        // mapToggle={this._mapToggle}
                         />
                 </Col>
 
                 <Col md className=" exp-content">
                     <ExploreContent 
+                        //data to Content
                         countryData={this.props.countryData} 
                         africaContinent={this.props.africaContinent}
                         agglos={this.props.agglosGeo}
-
-                        handleISO={this.handleValueFromSearch}
                         selectedValue={this.state.selectedValue}
                         agglosGroup={this.state.agglosGroup}
+
+                        //data from Content
+                        handleValueFromContent={this.handleValueFromSearch}
                         />
                 </Col>
             </Row>

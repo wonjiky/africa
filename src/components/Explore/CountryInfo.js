@@ -5,8 +5,6 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
-
   
 class CountryInfo extends Component {
     constructor(props){
@@ -42,7 +40,11 @@ class CountryInfo extends Component {
 				</div>
 			)
 		}
-    }
+	}
+	
+	valueFromCountryHistogram(value){
+		this.props.valueFromCountryHistogram(value);
+	}
 
     render() {
         if(this.props.selectedValue){
@@ -54,7 +56,8 @@ class CountryInfo extends Component {
 					<Col md={8} mdOffset={2} className="graph-style graphcontent">
 						<KeyFigures 
 							countryData={this.props.countryData}
-							selectedValue={this.props.selectedValue}/>
+							selectedValue={this.props.selectedValue}
+							valueFromCountryHistogram = {this.valueFromCountryHistogram.bind(this)}/>
 					</Col>
 				</Row>  
 			);

@@ -62,6 +62,7 @@
     "react-swipeable-views": "^0.12.16",
     "react-vis": "^1.10.4",
     "reactstrap": "^6.3.1",
+    "recharts": "^1.2.0",
     "resolve": "1.6.0",
     "sass-loader": "^7.1.0",
     "style-loader": "0.19.0",

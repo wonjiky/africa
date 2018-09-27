@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {Grid, Row, Col} from 'react-flexbox-grid';
-
-import CoutryHistWrapper from './CoutryHistWrapper';
-import CityHistWrapper from './CitiyHistWrapper';
+import CountryHistogram from './CountryHistogram';
+import CityHistogram from './CityHistogram';
 
 
 class KeyFigures extends Component {
@@ -18,21 +17,25 @@ class KeyFigures extends Component {
 
     render() {
         return(
-            <Grid fluid className="graph-content">
+            <Grid fluid className="keyFigure">
                 <Row>
-                    <Col md={12} className="keyfigures">
+                    <Col md={12}>
                         <h6>Key Figures</h6>
                         <hr/>
                     </Col>
-                    <Col md={6} className="select-country">
-                        <CoutryHistWrapper 
-                            selectedValue={this.props.selectedValue}
-                            countryData={this.props.countryData}
+                    <Col md={6} className="countryHistogram-Wrapper">
+                        <CountryHistogram 
+                            selectedValue={this.props.selectedValue} 
+                            countryData={this.props.countryData} 
                             valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}
                             />
                     </Col>
-                    <Col md={6} className="select-city" >
-                       <CityHistWrapper/>
+                    <Col md={6} className="cityHistogram-Wrapper" >
+                       <CityHistogram 
+                            selectedValue={this.props.selectedValue} 
+                            countryData={this.props.countryData} 
+                            valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}
+                        />
                     </Col>
                 </Row>
             </Grid>

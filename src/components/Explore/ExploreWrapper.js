@@ -89,7 +89,7 @@ class ExploreWrapper extends Component {
                         />
                 </Col>
 
-                <Col md className=" exp-content">
+                <Col md className="exp-content">
                     <ExploreContent 
                         //data to Content
                         countryData={this.props.countryData} 

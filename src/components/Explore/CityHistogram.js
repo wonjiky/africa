@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import {Row, Col} from 'react-flexbox-grid';
 import { BarChart, Cell, Bar, Tooltip } from 'recharts'; 
-import { Row, Col} from 'react-flexbox-grid';
 
-class CountryHistogram extends Component {
+class CityHistogram extends Component {
     constructor(props){
         super(props);
         this.state={
@@ -181,7 +181,7 @@ class CountryHistogram extends Component {
         const { selectedValue } = this.props;
         return(
             <Row className="no-padding">
-                <Col md={12} className="histogramTitle">country</Col>
+                <Col md={12} className="histogramTitle">city</Col>
                 <Col md={12} className="countryKeyfigure"><span>Urban Population</span></Col><br/>
                 <Col md={3} className="rankingWrapper">{this.renderRanking(urbanPopulationData)}</Col>
                 <Col md={9}className="histogram">{this.renderUrbanPopulation(urbanPopulationData, selectedValue.value)}</Col>
@@ -209,4 +209,9 @@ class CountryHistogram extends Component {
         );
     }
 }
-export default CountryHistogram;
+
+export default CityHistogram;
+
+
+
+

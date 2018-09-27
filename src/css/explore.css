@@ -30,31 +30,17 @@
 /*@@@@@@@@@@ EXPLORE CONTENT @@@@@@@@@@*/
 .explore-row{
   overflow-y: scroll;
-  /* top: 100px; */
   position: relative;
   margin:0px;
 }
 
-.MuiExpansionPanelSummary-root-31.MuiExpansionPanelSummary-expanded-32, 
+/* .MuiExpansionPanelSummary-root-31.MuiExpansionPanelSummary-expanded-32, 
 .MuiExpansionPanelSummary-root-31, 
 .MuiExpansionPanelSummary-root-95 {
-  background-color: #E8AE40 !important;
-}
+} */
 .MuiExpansionPanelDetails-root-64{
 padding: 30px !important;
 }
-
-.explore-row h6{
-  font-family:'Oswald';
-  font-weight: 400;
-  font-size:16px;
-  text-transform: uppercase;
-  padding:0;
-  letter-spacing:.6px;
-  margin:0;
-  color:#E8AE40
-}
-
 
 .treemap-row{
   margin:0px 0px 0px 0px;
@@ -94,30 +80,7 @@ padding: 30px !important;
   width:100%;
 }
 
-.hello{
-  color: blue;
-}
-
-
-.country-style{
-  display : flex;
-  align-items : top;
-  color: #313131;
-  line-height: 26px;
-  font-size: 14px;
-  font-weight:400;
-  padding: 20px 8px 20px 8px;
-}
-
-
-
-.country-style h5{
-  font-family: 'Oswald';
-  font-weight:300;
-  color: #E8AE40;
-}
-
-.treemap-style{
+.countryUnselected{
   display : flex;
   top: 100px;
   justify-content : center;
@@ -126,9 +89,6 @@ padding: 30px !important;
   text-transform: uppercase;
   color: #E8AE40;
   font-weight:300;
-  /* align-items : top; */
-  /* padding-top: 50px; */
-  /* height:70%; */
 }
 
 .treemap-text{
@@ -150,8 +110,12 @@ padding: 30px !important;
   line-height: 23px;
 }
 
-.graph-content span{
-  /* font-family:'Merriweather'; */
+.keyFigure hr{
+  margin:30px 0px 30px 0px;
+  border-top: 1px solid #d6d6d6;
+}
+
+.keyFigure span{
   font-weight:400;
   font-size: 14px;
   color: #2C2C2C;
@@ -189,26 +153,54 @@ padding: 30px !important;
   margin:0;
 }
 
-.graph-content hr{
-  margin:30px 0px 30px 0px;
-  border-top: 1px solid #d6d6d6;
+.countrySelected{
+  display : flex;
+  align-items : top;
+  color: #313131;
+  line-height: 26px;
+  font-size: 14px;
+  font-weight:400;
+  padding: 20px 8px 20px 8px;
 }
 
+.countrySelected h5{
+  font-family: 'Oswald';
+  font-weight:300;
+  color: #E8AE40;
+}
 
-.graph-style{
+.keyFigure-Wrapper{
   display : flex;
-  /* justify-content : center;
-  align-items : center; */
   color: #2d2d2d;
-  /* height: 100%; */
-  /* letter-spacing: .8px; */
   font-size: 13px;
   font-weight:300;
   padding: 20px 32px 20px 32px;
+  margin-bottom: 100px;
 }
 
-.graphcontent{
-  height:1400px;
+.countryKeyfigure{
+  display : flex;
+  justify-content : bottom;
+  padding:0px 10px 0px 10px;
+  margin: 0 0 10px 0;
+}
+
+.explore-row h6{
+  font-family:'Oswald';
+  font-weight: 400;
+  font-size:16px;
+  text-transform: uppercase;
+  padding:0;
+  letter-spacing:.6px;
+  margin:0;
+  color:#E8AE40
+}
+
+.countryHistogram-Wrapper{
+  border-right: 1px solid #d6d6d6;
+}
+
+.cityHistogram-Wrapper{
 }
 
 .vr{
@@ -220,13 +212,6 @@ padding: 30px !important;
 
 }
 
-.countryKeyfigure{
-  display : flex;
-  justify-content : bottom;
-  padding:0px 10px 0px 10px;
-  margin: 0 0 10px 0;
-}
-
 .histogram{
   display : flex;
   justify-content : flex-end;
@@ -235,17 +220,10 @@ padding: 30px !important;
   float: right;
 }
 
-.select-city{
-  background-color:rgba(156, 207, 233, 0.151);
+.cityHistogram-Wrapper{
   display : flex;
   justify-content : center;
   align-items: center;
-}
-
-.keyfigures h3{
-  font-family: 'Oswald';
-  font-weight:300;
-  color: #004F7D;
 }
 
 .download{
@@ -347,7 +325,6 @@ padding: 30px !important;
     border: 1px solid #004F7D;
 
   }
-    
   .input-range__slider:focus {
     box-shadow: 0 0 0 5px rgba(63, 81, 181, 0.2); }
   .input-range--disabled .input-range__slider {
@@ -393,47 +370,4 @@ padding: 30px !important;
 .plotss{
   margin-top:20px;
   margin-left:25px;
-}
-
-/*@@@@@@@@@@ D3PLUS @@@@@@@@@@*/
-
-#viz{
-  width:100%;
-  height:500px;
-}
-
-.tooltip-table {
-  width: 100%;
-}
-
-.tooltip-table .data {
-  text-align: right;
-}
-
-.tooltip-footer {
-  opacity: 0.5;
-}
-
-.bar {
-shape-rendering: crispEdges;
-}
-
-.bar-label{
-fill: #000;
-text-anchor: middle;
-font-size: 18px;
-}
-
-.axis path,
-.axis line {
-fill: none;
-stroke: #000;
-shape-rendering: crispEdges;
-}
-
-.gridline path,
-.gridline line{
-fill: none;
-stroke: #ccc;
-shape-rendering: crispEdges;
 }

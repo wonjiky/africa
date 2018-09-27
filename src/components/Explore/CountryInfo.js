@@ -50,10 +50,10 @@ class CountryInfo extends Component {
         if(this.props.selectedValue){
 			return(
 				<Row className="explore-row">
-					<Col md={8} mdOffset={2} className="country-style">
+					<Col md={8} mdOffset={2} className="countrySelected">
 						{this.renderInfo(this.props.selectedValue)}
 					</Col>
-					<Col md={8} mdOffset={2} className="graph-style graphcontent">
+					<Col md={8} mdOffset={2} className="keyFigure-Wrapper">
 						<KeyFigures 
 							countryData={this.props.countryData}
 							selectedValue={this.props.selectedValue}
@@ -63,7 +63,7 @@ class CountryInfo extends Component {
 			);
 		}else{
 			return(
-				<Col md={8} mdOffset={2} className="treemap-style">
+				<Col md={8} mdOffset={2} className="countryUnselected">
 					Start by selecting country or city from search box or map
 				</Col>
 				

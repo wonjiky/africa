@@ -4,7 +4,7 @@ import  L  from 'leaflet';
 import '../shared/leaflet.snogylop.js';
 import "../../node_modules/leaflet/dist/leaflet.css";
 
-const southWest = L.latLng(-48.739134, -19.058270);
+const southWest = L.latLng(-48.739134, -29.058270);
 const northEast = L.latLng(42.157281, 51.089421);
 const mybounds = L.latLngBounds(southWest, northEast);
 
@@ -94,7 +94,7 @@ class LeafletMap extends Component {
 		this.mapOverlay = L.geoJson(this.props.africaContinent, {
 			style: () => {return {color: 'transparent'}},
 			onEachFeature: (feature, layer) => {
-				
+
 				layer.on('mouseover', () => {
 					layer.setStyle(this.hoverStyle());
 					//@@ INHOI @@//
@@ -102,10 +102,10 @@ class LeafletMap extends Component {
 					// 	layer.setStyle(this.selectedStyle());
 					// }
 				});
-		
+
 				layer.on('mouseout', (e) => {
 					this.mapOverlay.resetStyle(e.target);
-					
+
 					//@@ INHOI @@//
 					// if(feature.properties.hasFocus === true){
 					// 	layer.setStyle(this.selectedStyle());
@@ -122,7 +122,7 @@ class LeafletMap extends Component {
 						filter: this.agglos_cityFilter,
 						pointToLayer: this.agglos_pointToLayer
 					});
-					
+
 
 					//@@ INHOI @@//
 					// feature.properties.hasFocus = true;
@@ -137,7 +137,7 @@ class LeafletMap extends Component {
 					const e = { value: ISO3_ID, label:ISO3_NAME}
 					this.props.sendValueToContent(e);
 				});
-		
+
 				layer._leaflet_id = feature.properties.ID;
 			}
 		})
@@ -149,6 +149,51 @@ class LeafletMap extends Component {
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	// onEachFeature(feature, layer){
+	// 	layer.on('mouseover', () => {
+	// 		layer.setStyle({
+	// 		fillOpacity: 0.6,
+	// 		color: '#E8AE40',
+	// 		stroke: 2,
+	// 		weight: 2
+	// 		});
+	// 	});
+
+	// 	layer.on('mouseout', () => {
+	// 		layer.setStyle({
+	// 		fillOpacity: 0.0,
+	// 		color: 'transparent'
+	// 		});
+	// 	});
+
+	// 	layer.on('click', () => {
+	// 		const ISO3_ID = feature.properties.ID;
+	// 		const ISO3_NAME = feature.properties.NAME_EN;
+	// 		const e = { value: ISO3_ID, label:ISO3_NAME}
+	// 		this.props.handleISO(e);
+	// 	});
+
+	// 	layer.on('change', (e) => {
+	// 		this.placeHolder.clearLayers();
+
+	// 		this.state.map.fitBounds(layer.getBounds());
+	// 		this.ISO3_CODE = feature.properties.ISO3_CODE;
+
+	// 		this.agglos = L.geoJson(this.props.agglosGeo, {
+	// 			onEachFeature: this.agglos_onEachFeature,
+	// 			filter: this.agglos_cityFilter,
+	// 			pointToLayer: this.agglos_pointToLayer
+	// 		});
+
+	// 		this.placeHolder.addLayer(this.agglos);
+	// 	});
+
+	// 	layer._leaflet_id = feature.properties.ID;
+	// }
+
+>>>>>>> 7541e022e5c48b2459e0f4eb0fee409ca3b58a28
 	//Year filter for citieslist
 	placeHolder_filter(feature) {
 		if (feature.properties.Year === "a") {

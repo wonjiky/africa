@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
   "homepage": "http://wonjiky.gitlab.io/africapolis",
   "name": "africapolis",
+=======
+  "homepage": "https://mkmdivy.github.io/africapolis",
+  "name": "swac-africapolis",
+>>>>>>> 7541e022e5c48b2459e0f4eb0fee409ca3b58a28
   "version": "0.1.0",
   "private": true,
   "dependencies": {

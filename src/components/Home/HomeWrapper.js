@@ -14,35 +14,37 @@ class HomeWrapper extends Component {
             collapseNav: true,
             mixerCol: 2,
             mapCol: 4,
-            selectedStory: 0
+            homeWrapperIsMounted: true,
+            selectedContent:0,
+            contentFilter:'narrative',
+
         };
-        // this._onMixerToggle = this._onMixerToggle.bind(this); 
-        this._storyList = this._storyList.bind(this);
-        this._treemapList = this._treemapList.bind(this);
+        this.handleValueFromMixer = this.handleValueFromMixer.bind(this);
+        this.handleValueFromMap = this.handleValueFromMap.bind(this);
+        this.handleValueFromSearch = this.handleValueFromSearch.bind(this);
     }
 
-    //Exapnd and Shrink Map
-
-    // _onMixerToggle() {
-    //     this.setState({
-    //         mapToggle: !this.state.mapToggle,
-    //         mixerToggle: !this.state.mixerToggle,
-    //         collapseNav: !this.state.collapseNav
-    //     });
-    // }
-    
-    // _mixerExpand(mixerToggle) {return(mixerToggle ? this.state.mixerCol : this.state.mixerCol-1);}
-    // _mapExpand(mapToggle) {return(mapToggle ? this.state.mapCol : this.state.mapCol+3);}
-
-    _storyList(e){
+    handleValueFromMixer(e){
+  
         this.setState({
-            selectedStory: e.id
+            selectedContent: e.ID,
+            contentFilter: e.content
         })
     }
 
-    _treemapList(e){
+    handleValueFromSearch(valueFromSearch){
         this.setState({
-            selectedTreemap: e.ID
+            origin:'search',
+            selectedCountry: valueFromSearch.value,
+            selectedValue: valueFromSearch,
+        })
+    }
+
+    handleValueFromMap(valueFromMap){
+        this.setState({
+            origin:'map',
+            selectedCountry: valueFromMap.value,
+            selectedValue: valueFromMap,
         })
     }
 
@@ -57,9 +59,12 @@ class HomeWrapper extends Component {
                     <Col md={4} className="no-margin">
                     {/* {this._mapExpand(this.state.mapToggle)} */}
                         <Map 
-                           africaOne={this.props.africaOne}
-                           agglosGeo={this.props.agglosGeo}
-                           handleISO={this.handleISO}
+                            africaOne={this.props.africaOne}
+                            africaContinent={this.props.africaContinent}
+                            agglosGeo={this.props.agglosGeo}
+                            
+                            homeWrapperIsMounted={this.state.homeWrapperIsMounted}
+                            sendValueToContent={this.handleValueFromMap}
                         />
                     </Col>
                     <Col md={2} className="no-margin">
@@ -68,18 +73,18 @@ class HomeWrapper extends Component {
                         narratives={story} 
                         treemap={this.props.treemap}
                         // onMixerToggle={this._onMixerToggle} 
-                        collapseNav={this.state.collapseNav}
-                        narrativeClick={this._storyList}
-                        treemapClick={this._treemapList}
-                        selectedStory={this.state.selectedStory} 
+                        // collapseNav={this.state.collapseNav}
+                        contentSelect={this.handleValueFromMixer}
+                        selectedContent={this.state.selectedContent}
+                        contentFilter={this.state.contentFilter} 
                         />
                     </Col>
                     <Col md className="no-margin">
                         <HomeContent 
                         narratives={story}
-                        // collapseNav={this.state.collapseNav}
-                        selectedStory={this.state.selectedStory}
-                        selectedTreemap={this.state.selectedTreemap} 
+                        treemap={this.props.treemap}
+                        selectedContent={this.state.selectedContent}
+                        contentFilter={this.state.contentFilter} 
                         />
                     </Col>
                 </Row>

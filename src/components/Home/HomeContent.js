@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Row } from 'react-flexbox-grid';
-import RenderNarratives from './RenderNarratives';
+import RenderContent from './RenderContent';
 import ChevronRight from '@material-ui/icons/ChevronRight';
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
 import Button from '@material-ui/core/Button';
@@ -21,15 +21,15 @@ class HomeContent extends Component {
     }
     
     render() {
-        console.log(this.props.selectedTreemap);
         return(
             <Grid fluid className="content">
                 <Row className="content-row">
                     {this._storyButtons()}
-                    <RenderNarratives 
-                    narratives={this.props.narratives} 
-                    selectedStory={this.props.selectedStory}
-                    selectedTreemap={this.props.selectedTreemap}
+                    <RenderContent 
+                        narratives={this.props.narratives}
+                        treemap={this.props.treemap} 
+                        selectedContent={this.props.selectedContent}
+                        contentFilter={this.props.contentFilter} 
                     />
                 </Row>
             </Grid>

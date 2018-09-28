@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import  CountryInfo  from './CountryInfo';
+import  InfoWrapper  from './InfoWrapper';
 import { Row, Col } from 'react-flexbox-grid';
 import Select from 'react-select';
 
@@ -13,8 +13,12 @@ class ExploreContent extends Component {
         };
     }
 
-    sendValueToMap(e){
-        this.props.handleValueFromContent(e)
+    sendCountryValueToMap(e){
+        this.props.handleCountryValueFromMap(e);
+    }
+
+    sendAgglosValueToMap(e){
+        this.props.handleAgglosValueFromMap(e);
     }
 
     filterAgglos(value){
@@ -27,8 +31,7 @@ class ExploreContent extends Component {
     render() {
         const countryList = this.props.africaContinent[0].features.map((c,i) => (
             { value: c.properties.ID, label: c.properties.NAME_EN }))
-
-        const agglosList = this.filterAgglos(this.props.selectedValue);
+        const agglosList = this.filterAgglos(this.props.selectedCountryValue);
 
         return(
             <div>
@@ -38,8 +41,8 @@ class ExploreContent extends Component {
                             placeholder="Select Country"
                             isClearable={this.state.isClearable}
                             isSearchable={this.state.isSearchable}
-                            value={this.props.selectedValue}
-                            onChange={this.sendValueToMap.bind(this)}
+                            value={this.props.selectedCountryValue}
+                            onChange={this.sendCountryValueToMap.bind(this)}
                             options={countryList}
                         />
                     </Col>
@@ -48,18 +51,19 @@ class ExploreContent extends Component {
                            placeholder="Select City"
                            isClearable={this.state.isClearable}
                            isSearchable={this.state.isSearchable}
-                        //    value={this.props.selectedValue}
-                        //    onChange={this.handleChange.bind(this)}
+                           value={this.props.selectedAgglos}
+                           onChange={this.sendAgglosValueToMap.bind(this)}
                            options={agglosList}
-                           isDisabled={!this.props.selectedValue}
+                           isDisabled={!this.props.selectedCountryValue}
                         />
                     </Col>
                 </Row>
                 <br/>
-                <CountryInfo 
-                    selectedValue={this.props.selectedValue} 
+                <InfoWrapper 
+                    selectedCountryValue={this.props.selectedCountryValue} 
+                    selectedAgglosValue={this.props.selectedAgglosValue}
                     countryData={this.props.countryData}
-                    valueFromCountryHistogram={this.sendValueToMap.bind(this)}
+                    valueFromCountryHistogram={this.sendCountryValueToMap.bind(this)}
                     />
             </div>
         );

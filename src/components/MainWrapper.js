@@ -5,6 +5,7 @@ import Header from './Header';
 import { NARRATIVES } from '../shared/narratives';
 import { TREEMAP } from '../shared/treemap';
 import { COUNTRYINFO } from '../shared/info_country';
+// import { AGGLOMERATIONINFO } from '../shared/info_agglomeration'
 import { AFRICA_ONE } from '../shared/geo_shades';
 import { AFRICA_CONTINENT } from '../shared/geo_country';
 import { AGGLOS } from '../shared/geo_agglomeration';
@@ -20,10 +21,11 @@ class MainWrapper extends Component {
 		this.state = {
 			narratives: NARRATIVES,
 			countryData: COUNTRYINFO,
+			// agglosData: AGGLOMERATIONINFO,
 			geo_shades: AFRICA_ONE,
 			geo_country: AFRICA_CONTINENT,
 			geo_agglomeration: AGGLOS,
-			treemap: TREEMAP
+			treemap: TREEMAP,
 		};
 		// window.countrydata = africa_continent;
 	}

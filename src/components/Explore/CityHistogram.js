@@ -98,7 +98,7 @@ class CityHistogram extends Component {
 
 
     check(e){
-        return(e === this.props.selectedValue.value)     
+        return(e === this.props.selectedCountryValue.value)     
     }    
 
     renderRanking(data){
@@ -178,33 +178,33 @@ class CityHistogram extends Component {
 
         
 
-        const { selectedValue } = this.props;
+        const { selectedCountryValue } = this.props;
         return(
             <Row className="no-padding">
                 <Col md={12} className="histogramTitle">city</Col>
                 <Col md={12} className="countryKeyfigure"><span>Urban Population</span></Col><br/>
                 <Col md={3} className="rankingWrapper">{this.renderRanking(urbanPopulationData)}</Col>
-                <Col md={9}className="histogram">{this.renderUrbanPopulation(urbanPopulationData, selectedValue.value)}</Col>
+                <Col md={9}className="histogram">{this.renderUrbanPopulation(urbanPopulationData, selectedCountryValue.value)}</Col>
                 <hr/>
                 <Col md={12} className="countryKeyfigure"><span>Urbanisation Level</span></Col><br/>
                 <Col md={3} className="rankingWrapper">{this.renderRanking(urbanizationLevelData)}</Col>
-                <Col md={9}className="histogram">{this.renderUrbanizationLevel(urbanizationLevelData, selectedValue.value)}</Col>
+                <Col md={9}className="histogram">{this.renderUrbanizationLevel(urbanizationLevelData, selectedCountryValue.value)}</Col>
                 <hr/>
                 <Col md={12} className="countryKeyfigure"><span>Number of Agglomerations</span></Col><br/>
                 <Col md={3} className="rankingWrapper">{this.renderRanking(agglomerationData)}</Col>
-                <Col md={9}className="histogram">{this.renderAgglos(agglomerationData, selectedValue.value)}</Col>
+                <Col md={9}className="histogram">{this.renderAgglos(agglomerationData, selectedCountryValue.value)}</Col>
                 <hr/>
                 <Col md={12} className="countryKeyfigure"><span>Metropolitan Population</span></Col><br/>
                 <Col md={3} className="rankingWrapper">{this.renderRanking(metroPolitanData)}</Col>
-                <Col md={9}className="histogram">{this.renderMetropolitan(metroPolitanData, selectedValue.value)}</Col>
+                <Col md={9}className="histogram">{this.renderMetropolitan(metroPolitanData, selectedCountryValue.value)}</Col>
                 <hr/>
                 <Col md={12} className="countryKeyfigure"><span>Average Distance between Agglomerations</span></Col><br/>
                 <Col md={3} className="rankingWrapper">{this.renderRanking(averageDistData)}</Col>
-                <Col md={9}className="histogram">{this.renderAvgDist(averageDistData, selectedValue.value)}</Col>
+                <Col md={9}className="histogram">{this.renderAvgDist(averageDistData, selectedCountryValue.value)}</Col>
                 <hr/>
                 <Col md={12} className="countryKeyfigure"><span>Urban Land Cover</span></Col><br/>
                 <Col md={3} className="rankingWrapper">{this.renderRanking(urbanSurfData)}</Col>
-                <Col md={9}className="histogram">{this.renderUrbanSurf(urbanSurfData, selectedValue.value)}</Col>
+                <Col md={9}className="histogram">{this.renderUrbanSurf(urbanSurfData, selectedCountryValue.value)}</Col>
             </Row>
         );
     }

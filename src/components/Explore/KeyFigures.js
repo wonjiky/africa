@@ -15,6 +15,9 @@ class KeyFigures extends Component {
         this.props.valueFromCountryHistogram(value);
     }
 
+    componentDidUpdate(){
+        console.log(this.props.selectedAgglosValue)
+    }
     render() {
         return(
             <Grid fluid className="keyFigure">
@@ -25,14 +28,15 @@ class KeyFigures extends Component {
                     </Col>
                     <Col md={6} className="countryHistogram-Wrapper">
                         <CountryHistogram 
-                            selectedValue={this.props.selectedValue} 
+                            selectedCountryValue={this.props.selectedCountryValue} 
                             countryData={this.props.countryData} 
                             valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}
                             />
                     </Col>
                     <Col md={6} className="cityHistogram-Wrapper" >
                        <CityHistogram 
-                            selectedValue={this.props.selectedValue} 
+                            selectedCountryValue={this.props.selectedCountryValue}
+                            selectedAgglosValue={this.props.selectedAgglosValue} 
                             countryData={this.props.countryData} 
                             valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}
                         />

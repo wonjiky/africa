@@ -5,22 +5,35 @@ import MaterialIcon from 'material-icons-react';
 
 class RenderList extends Component {
 
-    _renderStoryList(stories){
+    list(stories, treemap, selectedContent, filter){
         return(
-            <div >
-                <h6><i className="material-icons" id="icon-size">public</i> Africapolis</h6>
+            <section>
                 <ul className="list-unstyled">
-                    {stories.map((story, i) => (
+                    <h6><i className="material-icons" id="icon-size">public</i> Africapolis</h6>
+                        {stories.map((story, i) => (
+                            <li 
+                            key={i} 
+                            id={selectedContent === story.ID && filter === story.content ? 'clicked' : ' '}
+                            onClick={() => this.props.contentSelect(story)}>
+                                <MaterialIcon icon="arrow_forward" size={15} color='#FFFFFF' />
+                                {story.title}
+                            </li>
+                        ))}
+                    <hr />    
+                    
+                    <h6><i className="material-icons" id="icon-size">public</i>Data Driven Stories</h6>
+                    {treemap.map((treemap, i) => (
                         <li 
                         key={i} 
-                        id={this.props.selectedStory === story.id ? 'clicked' : ' '}
-                        onClick={() => this.props.handleNarrative(story)}>
+                        id={selectedContent === treemap.ID && filter === treemap.content ? 'clicked' : ' '}
+                        onClick={() => this.props.contentSelect(treemap)}>
                             <MaterialIcon icon="arrow_forward" size={15} color='#FFFFFF' />
-                            {story.title}
+                            {treemap.title}
                         </li>
                     ))}
                 </ul>
-            </div>
+
+            </section>
         );
     }
 
@@ -33,22 +46,6 @@ class RenderList extends Component {
                             <li key={index}>
                                 <MaterialIcon icon="arrow_forward" size={15} color='#FFFFFF' />
                                 {hello.whatsnew}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            );
-        }
-
-    _renderTreemap(treemap) {
-            return(
-                <div >
-                    <h6><MaterialIcon id="icons" icon="filter_none" size={17} color='#FFFFFF' /> Data Driven Stories</h6>
-                    <ul className="list-unstyled">
-                        {treemap.map((s, index) => (
-                            <li key={index} onClick={() => this.props.handleTreemap(s)}>
-                                <MaterialIcon icon="arrow_forward" size={15} color='#FFFFFF' />
-                                {s.title}
                             </li>
                         ))}
                     </ul>
@@ -71,9 +68,7 @@ class RenderList extends Component {
         return(
             <Grid fluid id="mixer">
                     <Col className={this.props.collapseNav ? "home-mixer-list" : "home-mixer-list"} >
-                        {this._renderStoryList(this.props.narratives)}
-                        <hr/>
-                        {this._renderTreemap(this.props.treemap)}
+                        {this.list(this.props.narratives, this.props.treemap, this.props.selectedContent, this.props.contentFilter)}
                         <hr/>
                         {this._renderWhatsNew(this.props.narratives)}
                     </Col>

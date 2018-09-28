@@ -6,7 +6,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
   
-class CountryInfo extends Component {
+class InfoWrapper extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -14,6 +14,10 @@ class CountryInfo extends Component {
         this.renderInfo = this.renderInfo.bind(this);
     }
 
+
+	componentDidUpdate(){
+		console.log(this.props.selectedAgglosValue);
+	}
     renderInfo(selectedCountry){
 		const list = this.props.countryData.find(u => u.ID  === selectedCountry.value);
 		if(list === undefined){
@@ -47,16 +51,17 @@ class CountryInfo extends Component {
 	}
 
     render() {
-        if(this.props.selectedValue){
+        if(this.props.selectedCountryValue){
 			return(
 				<Row className="explore-row">
 					<Col md={8} mdOffset={2} className="countrySelected">
-						{this.renderInfo(this.props.selectedValue)}
+						{this.renderInfo(this.props.selectedCountryValue)}
 					</Col>
 					<Col md={8} mdOffset={2} className="keyFigure-Wrapper">
 						<KeyFigures 
 							countryData={this.props.countryData}
-							selectedValue={this.props.selectedValue}
+							selectedCountryValue={this.props.selectedCountryValue}
+							selectedAgglosValue = {this.props.selectedAgglosValue}
 							valueFromCountryHistogram = {this.valueFromCountryHistogram.bind(this)}/>
 					</Col>
 				</Row>  
@@ -72,4 +77,4 @@ class CountryInfo extends Component {
     }
 }
 
-export default CountryInfo;
+export default InfoWrapper;

@@ -15,36 +15,20 @@ class HomeMixer extends Component {
         };
     }
 
-    _narrativeSelect(story){
-        this.props.narrativeClick(story);
-    }
-
-    _treemapSelect(treemap){
-        console.log(treemap);
-        this.props.treemapClick(treemap);
+    contentSelect(e){
+        this.props.contentSelect(e);
     }
     
-    // _mixerButton(yes){
-    //     if(yes === true){
-    //         return(
-    //             <ChevronRight/>
-    //         )
-    //     }else{
-    //         return(
-    //             <ChevronLeft/>
-    //         )
-    //     }
-    // }
-
     render() {
         return(
           <RenderList 
-            handleNarrative={this._narrativeSelect.bind(this)} 
-            handleTreemap={this._treemapSelect.bind(this)} 
+            contentSelect={this.contentSelect.bind(this)} 
             narratives={this.props.narratives}
-            
             treemap={this.props.treemap}
-            selectedStory={this.props.selectedStory}     
+
+            selectedContent={this.props.selectedContent}   
+            contentFilter={this.props.contentFilter} 
+  
         />
         );
     }

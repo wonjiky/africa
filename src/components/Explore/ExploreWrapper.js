@@ -9,59 +9,56 @@ class ExploreWrapper extends Component {
     constructor(props){
         super(props);
         this.state = {
-            // mixerToggle: true,
-            // mapToggle: true,
-            // collapseNav: true,
-            // mixerCol: 2,
-            // mapCol: 4,
-            // selectedCountryFromMap:'',
             selectedCountry: null,
-            selectedValue: '',
+            selectedCountryValue: '',
             agglosGroup: '',
             origin: '',
+            exploreWrapperIsMounted: true
             
         };
-        // this._onMixerToggle = this._onMixerToggle.bind(this); 
-        this.handleValueFromMap = this.handleValueFromMap.bind(this);
-        this.handleValueFromSearch = this.handleValueFromSearch.bind(this);
+        this.handleCountryValueFromMap = this.handleCountryValueFromMap.bind(this);
+        this.handleCountryValueFromSearch = this.handleCountryValueFromSearch.bind(this);
+        this.handleAgglosValueFromMap = this.handleAgglosValueFromMap.bind(this);
+        this.handleAgglosValueFromSearch = this.handleAgglosValueFromSearch.bind(this)
     }
-    
-    // _onMixerToggle() {
-    //     this.setState({
-    //         mixerToggle: !this.state.mixerToggle,
-    //         mapToggle: !this.state.mapToggle,
-    //         collapseNav: !this.state.collapseNav
-    //     });
-    // }
 
-    // _mixerExpand = (mixerToggle) => {
-    //     return(mixerToggle ? this.state.mixerCol : this.state.mixerCol-1);
-    // }
-    
-    // _mapExpand(mapToggle) {
-    //     return(mapToggle ? this.state.mapCol : this.state.mapCol+3);
-    // }
-    handleValueFromSearch(valueFromSearch){
+    handleCountryValueFromSearch(countryValueFromSearch){
+        if(countryValueFromSearch === null ){
+            return;
+        }
         this.setState({
             origin:'search',
-            selectedCountry: valueFromSearch.value,
-            selectedValue: valueFromSearch,
+            selectedCountry: countryValueFromSearch.value,
+            selectedCountryValue: countryValueFromSearch,
         })
     }
 
-    handleValueFromMap(valueFromMap){
+    handleCountryValueFromMap(countryValueFromMap){
         this.setState({
             origin:'map',
-            selectedCountry: valueFromMap.value,
-            selectedValue: valueFromMap,
+            selectedCountry: countryValueFromMap.value,
+            selectedCountryValue: countryValueFromMap,
         })
     }
-    componentDidUpdate(){
-        console.log()
+    
+    handleAgglosValueFromMap(agglosValueFromMap){
+        this.setState({
+            origin:'map',
+            selectedAgglos: agglosValueFromMap.value,
+            selectedAgglosValue: agglosValueFromMap,
+        })
     }
+
+    handleAgglosValueFromSearch(agglosValueFromSearch){
+        this.setState({
+            origin:'map',
+            selectedAgglos: agglosValueFromSearch.value,
+            selectedAgglosValue: agglosValueFromSearch,
+        })
+    }
+
     
     render() {
-
         return(
             <Row className="full-height">
                 <Col md={4} className="no-margin">
@@ -72,20 +69,18 @@ class ExploreWrapper extends Component {
                         africaContinent={this.props.africaContinent}
                         agglosGeo={this.props.agglosGeo}
 
-                        //data from Map
-                        // filteredAgglosToSearch={this.handleAgglosFromMap}
-                        sendValueToContent={this.handleValueFromMap}
+                        //values to Map
                         selectedCountry={this.state.selectedCountry}
+                        exploreWrapperIsMounted={this.state.exploreWrapperIsMounted}
+
+                        //data from Map
+                        sendCountryValueToContent={this.handleCountryValueFromMap}
+                        sendAgglosValueToContent={this.handleAgglosValueFromMap}
                     />
                 </Col>
                 <Col md={2} className="no-margin">
-                {/* {this._mixerExpand(this.state.mixerToggle)} */}
                     <ExploreMixer 
                         narratives={this.props.narratives} 
-                        // collapseNav={this.state.collapseNav}
-                        // onMixerToggle={this._onMixerToggle} 
-                        // mixerToggle={this._mixerToggle} 
-                        // mapToggle={this._mapToggle}
                         />
                 </Col>
 
@@ -95,11 +90,17 @@ class ExploreWrapper extends Component {
                         countryData={this.props.countryData} 
                         africaContinent={this.props.africaContinent}
                         agglos={this.props.agglosGeo}
-                        selectedValue={this.state.selectedValue}
                         agglosGroup={this.state.agglosGroup}
 
+                        //values to Content
+                        selectedCountryValue={this.state.selectedCountryValue}
+                        selectedAgglos={this.state.selectedAgglosValue}
+                        selectedAgglosValue={this.state.selectedAgglos}
+
+
                         //data from Content
-                        handleValueFromContent={this.handleValueFromSearch}
+                        handleCountryValueFromMap={this.handleCountryValueFromSearch}
+                        handleAgglosValueFromMap={this.handleAgglosValueFromSearch}
                         />
                 </Col>
             </Row>

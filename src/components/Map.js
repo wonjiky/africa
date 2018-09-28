@@ -84,72 +84,76 @@ class LeafletMap extends Component {
 	}
 
 	componentDidUpdate(prevProps){
-		let currValue = this.props.selectedCountry;
-		let prevValue = prevProps.selectedCountry;
-		if(currValue){
-			this.currLayer = this.mapOverlay.getLayer(currValue);
-			this.prevLayer = this.mapOverlay.getLayer(prevValue);
-		}
 
-		this.mapOverlay = L.geoJson(this.props.africaContinent, {
-			style: () => {return {color: 'transparent'}},
-			onEachFeature: (feature, layer) => {
+		// If Explore Wrapper is Mounted :
+		if (this.props.exploreWrapperIsMounted === true){
+			let currValue = this.props.selectedCountry;
+			let prevValue = prevProps.selectedCountry;
+			if(currValue){
+				this.currLayer = this.mapOverlay.getLayer(currValue);
+				this.prevLayer = this.mapOverlay.getLayer(prevValue);
+			}
 
-				layer.on('mouseover', () => {
-					layer.setStyle(this.hoverStyle());
-					//@@ INHOI @@//
-					// if(feature.properties.hasFocus === true){
-					// 	layer.setStyle(this.selectedStyle());
-					// }
-				});
+			this.mapOverlay = L.geoJson(this.props.africaContinent, {
+				style: () => {return {color: 'transparent'}},
+				onEachFeature: (feature, layer) => {
 
-				layer.on('mouseout', (e) => {
-					this.mapOverlay.resetStyle(e.target);
-
-					//@@ INHOI @@//
-					// if(feature.properties.hasFocus === true){
-					// 	layer.setStyle(this.selectedStyle());
-					// }
-				});
-
-				layer.on('change', (e) => {
-					this.placeHolder.clearLayers();
-					this.state.map.fitBounds(layer.getBounds());
-					// this.ISO3_CODE = feature.properties.ISO3_CODE;
-					this.ID = feature.properties.ID;
-					this.agglos = L.geoJson(this.props.agglosGeo, {
-						onEachFeature: this.agglos_onEachFeature,
-						filter: this.agglos_cityFilter,
-						pointToLayer: this.agglos_pointToLayer
+					layer.on('mouseover', () => {
+						layer.setStyle(this.hoverStyle());
 					});
 
+					layer.on('mouseout', (e) => {
+						this.mapOverlay.resetStyle(e.target);
+					});
 
-					//@@ INHOI @@//
-					// feature.properties.hasFocus = true;
-					// this.currLayer.setStyle(this.selectedStyle());
+					layer.on('change', (e) => {
+						this.placeHolder.clearLayers();
+						this.state.map.fitBounds(layer.getBounds());
+						this.ID = feature.properties.ID;
+						this.agglos = L.geoJson(this.props.agglosGeo, {
+							onEachFeature: this.agglos_onEachFeature,
+							filter: this.agglos_cityFilter,
+							pointToLayer: this.agglos_pointToLayer
+						});
+						this.placeHolder.addLayer(this.agglos);
+					});
 
-					this.placeHolder.addLayer(this.agglos);
-				});
+					layer.on('click', () => {
+						const ISO3_ID = feature.properties.ID;
+						const ISO3_NAME = feature.properties.NAME_EN;
+						const e = { value: ISO3_ID, label:ISO3_NAME}
+						this.props.sendCountryValueToContent(e);
+					});
 
-				layer.on('click', () => {
-					const ISO3_ID = feature.properties.ID;
-					const ISO3_NAME = feature.properties.NAME_EN;
-					const e = { value: ISO3_ID, label:ISO3_NAME}
-					this.props.sendValueToContent(e);
-				});
+					layer._leaflet_id = feature.properties.ID;
+				}
+			})
+			this.mapOverlay.addTo(this.state.map);
 
-				layer._leaflet_id = feature.properties.ID;
+			if(currValue !== prevValue){
+				let layer = this.mapOverlay.getLayer(currValue);
+				layer.fire('change')
 			}
-		})
-		this.mapOverlay.addTo(this.state.map);
 
-		if(currValue !== prevValue){
-			let layer = this.mapOverlay.getLayer(currValue);
-			layer.fire('change')
+		// If Home Wrapper is Mounted :	
+		} else if(this.props.homeWrapperIsMounted) {
+			this.mapOverlay = L.geoJson(this.props.africaContinent, {
+				style: () => {return {color: 'transparent'}},
+				onEachFeature: (feature, layer) => {
+
+					layer.on('mouseover', () => {
+						layer.setStyle(this.hoverStyle());
+					});
+
+					layer.on('mouseout', (e) => {
+						this.mapOverlay.resetStyle(e.target);
+					});
+				}
+			})
+			this.mapOverlay.addTo(this.state.map);
 		}
 	}
 
-	//Year filter for citieslist
 	placeHolder_filter(feature) {
 		if (feature.properties.Year === "a") {
 			return true
@@ -194,8 +198,17 @@ class LeafletMap extends Component {
 			e.target.setStyle(this.defaultAgglosStyle())
 		})
 
+		layer.on('change', (e) => {
+
+		})
+
 		layer.on('click', (e) => {
 			e.target.setStyle(this.highlightAgglosStyle())
+			const ID = feature.properties.ID;
+			const cityID = feature.properties.cityID;
+			const cityName = feature.properties.cityName;
+			const a = { value:cityID, label:cityName}
+			this.props.sendAgglosValueToContent(a);
 		})
 
 		let popupContent = "<table class='tooltip-table'>";

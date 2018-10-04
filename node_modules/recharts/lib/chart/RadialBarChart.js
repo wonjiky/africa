@@ -1,41 +1,38 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _propTypes = require('prop-types');
+var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _propTypes2 = _interopRequireDefault(_propTypes);
+var _generateCategoricalChart = _interopRequireDefault(require("./generateCategoricalChart"));
 
-var _generateCategoricalChart = require('./generateCategoricalChart');
+var _PolarAngleAxis = _interopRequireDefault(require("../polar/PolarAngleAxis"));
 
-var _generateCategoricalChart2 = _interopRequireDefault(_generateCategoricalChart);
+var _PolarRadiusAxis = _interopRequireDefault(require("../polar/PolarRadiusAxis"));
 
-var _PolarAngleAxis = require('../polar/PolarAngleAxis');
+var _PolarUtils = require("../util/PolarUtils");
 
-var _PolarAngleAxis2 = _interopRequireDefault(_PolarAngleAxis);
-
-var _PolarRadiusAxis = require('../polar/PolarRadiusAxis');
-
-var _PolarRadiusAxis2 = _interopRequireDefault(_PolarRadiusAxis);
-
-var _PolarUtils = require('../util/PolarUtils');
-
-var _RadialBar = require('../polar/RadialBar');
-
-var _RadialBar2 = _interopRequireDefault(_RadialBar);
+var _RadialBar = _interopRequireDefault(require("../polar/RadialBar"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * @fileOverview Radar Bar Chart
  */
-exports.default = (0, _generateCategoricalChart2.default)({
+var _default = (0, _generateCategoricalChart.default)({
   chartName: 'RadialBarChart',
-  GraphicalChild: _RadialBar2.default,
+  GraphicalChild: _RadialBar.default,
   legendContent: 'children',
-  axisComponents: [{ axisType: 'angleAxis', AxisComp: _PolarAngleAxis2.default }, { axisType: 'radiusAxis', AxisComp: _PolarRadiusAxis2.default }],
+  axisComponents: [{
+    axisType: 'angleAxis',
+    AxisComp: _PolarAngleAxis.default
+  }, {
+    axisType: 'radiusAxis',
+    AxisComp: _PolarRadiusAxis.default
+  }],
   formatAxisMap: _PolarUtils.formatAxisMap,
   defaultProps: {
     layout: 'radial',
@@ -47,12 +44,14 @@ exports.default = (0, _generateCategoricalChart2.default)({
     outerRadius: '80%'
   },
   propTypes: {
-    layout: _propTypes2.default.oneOf(['radial']),
-    startAngle: _propTypes2.default.number,
-    endAngle: _propTypes2.default.number,
-    cx: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]),
-    cy: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]),
-    innerRadius: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]),
-    outerRadius: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string])
+    layout: _propTypes.default.oneOf(['radial']),
+    startAngle: _propTypes.default.number,
+    endAngle: _propTypes.default.number,
+    cx: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]),
+    cy: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]),
+    innerRadius: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string]),
+    outerRadius: _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.string])
   }
 });
+
+exports.default = _default;

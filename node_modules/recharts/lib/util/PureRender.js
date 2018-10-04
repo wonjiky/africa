@@ -5,6 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.shallowEqual = shallowEqual;
 exports.default = pureRenderDecorator;
+
 function shallowEqual(a, b) {
   /* eslint-disable no-restricted-syntax */
   for (var key in a) {
@@ -12,11 +13,13 @@ function shallowEqual(a, b) {
       return false;
     }
   }
+
   for (var _key in b) {
     if ({}.hasOwnProperty.call(b, _key) && !{}.hasOwnProperty.call(a, _key)) {
       return false;
     }
   }
+
   return true;
 }
 

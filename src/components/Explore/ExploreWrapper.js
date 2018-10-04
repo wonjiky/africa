@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ExploreContent from './ExploreContent';
-import ExploreMixer from './ExploreMixer';
 import Map from '../Map';
 import '../../css/explore.css';
 import { Row, Col } from 'react-flexbox-grid';
@@ -13,7 +12,7 @@ class ExploreWrapper extends Component {
             selectedCountryValue: '',
             agglosGroup: '',
             origin: '',
-            exploreWrapperIsMounted: true
+            exploreWrapperIsMounted: true,
             
         };
         this.handleCountryValueFromMap = this.handleCountryValueFromMap.bind(this);
@@ -23,13 +22,32 @@ class ExploreWrapper extends Component {
     }
 
     handleCountryValueFromSearch(countryValueFromSearch){
-        if(countryValueFromSearch === null ){
-            return;
+        let selected = countryValueFromSearch === null ? '' : countryValueFromSearch.value
+        let value = countryValueFromSearch === null ? '' : countryValueFromSearch
+        let selectedIsArray = selected === null ? false : value.constructor === Array
+      
+        if(selectedIsArray === true){
+            this.setState({
+                origin:'search',
+                selectedCountry: '',
+                selectedCountryValue: '',
+            })
+        }else{
+            this.setState({
+                origin:'search',
+                selectedCountry: selected,
+                selectedCountryValue: value,
+            })
         }
+    }
+
+    handleAgglosValueFromSearch(agglosValueFromSearch){
+        let selected = agglosValueFromSearch === null ? '' : agglosValueFromSearch.value
+        let selectedValue = agglosValueFromSearch === null ? '' : agglosValueFromSearch
         this.setState({
             origin:'search',
-            selectedCountry: countryValueFromSearch.value,
-            selectedCountryValue: countryValueFromSearch,
+            selectedAgglos: selected,
+            selectedAgglosValue: selectedValue,
         })
     }
 
@@ -49,15 +67,6 @@ class ExploreWrapper extends Component {
         })
     }
 
-    handleAgglosValueFromSearch(agglosValueFromSearch){
-        this.setState({
-            origin:'map',
-            selectedAgglos: agglosValueFromSearch.value,
-            selectedAgglosValue: agglosValueFromSearch,
-        })
-    }
-
-    
     render() {
         return(
             <Row className="full-height">
@@ -71,6 +80,7 @@ class ExploreWrapper extends Component {
 
                         //values to Map
                         selectedCountry={this.state.selectedCountry}
+                        selectedAgglos={this.state.selectedAgglos}
                         exploreWrapperIsMounted={this.state.exploreWrapperIsMounted}
 
                         //data from Map
@@ -78,13 +88,8 @@ class ExploreWrapper extends Component {
                         sendAgglosValueToContent={this.handleAgglosValueFromMap}
                     />
                 </Col>
-                <Col md={2} className="no-margin">
-                    <ExploreMixer 
-                        narratives={this.props.narratives} 
-                        />
-                </Col>
-
-                <Col md className="exp-content">
+                <Col md={8} className="no-margin">
+                {/* className="exp-content"> */}
                     <ExploreContent 
                         //data to Content
                         countryData={this.props.countryData} 
@@ -96,7 +101,6 @@ class ExploreWrapper extends Component {
                         selectedCountryValue={this.state.selectedCountryValue}
                         selectedAgglos={this.state.selectedAgglosValue}
                         selectedAgglosValue={this.state.selectedAgglos}
-
 
                         //data from Content
                         handleCountryValueFromMap={this.handleCountryValueFromSearch}

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import HomeContent from './HomeContent';
-import HomeMixer from './HomeMixer';
 import Map from '../Map';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
@@ -22,10 +21,10 @@ class HomeWrapper extends Component {
         this.handleValueFromMixer = this.handleValueFromMixer.bind(this);
         this.handleValueFromMap = this.handleValueFromMap.bind(this);
         this.handleValueFromSearch = this.handleValueFromSearch.bind(this);
+        this.handleValueFromTreemap = this.handleValueFromTreemap.bind(this);
     }
 
     handleValueFromMixer(e){
-  
         this.setState({
             selectedContent: e.ID,
             contentFilter: e.content
@@ -48,6 +47,12 @@ class HomeWrapper extends Component {
         })
     }
 
+    handleValueFromTreemap(e){
+        this.setState({
+            treemapSelect: e
+        })
+    }
+
     render() {
         const story = this.props.narratives.map((narrative) => {
             return(narrative);
@@ -59,32 +64,29 @@ class HomeWrapper extends Component {
                     <Col md={4} className="no-margin">
                     {/* {this._mapExpand(this.state.mapToggle)} */}
                         <Map 
+                            //Receving
                             africaOne={this.props.africaOne}
                             africaContinent={this.props.africaContinent}
                             agglosGeo={this.props.agglosGeo}
-                            
-                            homeWrapperIsMounted={this.state.homeWrapperIsMounted}
+                            treemap_buildup={this.props.treemap_buildup}
                             sendValueToContent={this.handleValueFromMap}
+                            
+                            //Sending
+                            treemapValue={this.state.selectedContent}                            
+                            homeWrapperIsMounted={this.state.homeWrapperIsMounted}
+                            treemapFilter={this.state.contentFilter}
+                            treemapSelect={this.state.treemapSelect}
+
                         />
                     </Col>
-                    <Col md={2} className="no-margin">
-                    {/* {this._mixerExpand(this.state.mixerToggle)} */}
-                        <HomeMixer 
-                        narratives={story} 
-                        treemap={this.props.treemap}
-                        // onMixerToggle={this._onMixerToggle} 
-                        // collapseNav={this.state.collapseNav}
-                        contentSelect={this.handleValueFromMixer}
-                        selectedContent={this.state.selectedContent}
-                        contentFilter={this.state.contentFilter} 
-                        />
-                    </Col>
-                    <Col md className="no-margin">
+                    <Col md={8} className="no-margin">
                         <HomeContent 
-                        narratives={story}
-                        treemap={this.props.treemap}
-                        selectedContent={this.state.selectedContent}
-                        contentFilter={this.state.contentFilter} 
+                            narratives={story} 
+                            treemap={this.props.treemap}
+                            contentSelect={this.handleValueFromMixer}
+                            selectedContent={this.state.selectedContent}
+                            valueFromTreemap={this.handleValueFromTreemap}
+                            contentFilter={this.state.contentFilter} 
                         />
                     </Col>
                 </Row>

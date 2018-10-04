@@ -5,8 +5,9 @@ import Header from './Header';
 import { NARRATIVES } from '../shared/narratives';
 import { TREEMAP } from '../shared/treemap';
 import { COUNTRYINFO } from '../shared/info_country';
-// import { AGGLOMERATIONINFO } from '../shared/info_agglomeration'
+import { TREEMAP_BUILDUP } from '../shared/treemap_buildup'
 import { AFRICA_ONE } from '../shared/geo_shades';
+// import { AGGLOMERATIONINFO } from '../shared/info_agglomeration';
 import { AFRICA_CONTINENT } from '../shared/geo_country';
 import { AGGLOS } from '../shared/geo_agglomeration';
 import { }from 'react-fontawesome';
@@ -21,11 +22,12 @@ class MainWrapper extends Component {
 		this.state = {
 			narratives: NARRATIVES,
 			countryData: COUNTRYINFO,
-			// agglosData: AGGLOMERATIONINFO,
 			geo_shades: AFRICA_ONE,
 			geo_country: AFRICA_CONTINENT,
 			geo_agglomeration: AGGLOS,
+			// info_agglomeration: AGGLOMERATIONINFO,
 			treemap: TREEMAP,
+			treemap_buildup: TREEMAP_BUILDUP
 		};
 		// window.countrydata = africa_continent;
 	}
@@ -42,6 +44,7 @@ class MainWrapper extends Component {
 							africaOne={this.state.geo_shades}
 							africaContinent={this.state.geo_country}
 							agglosGeo={this.state.geo_agglomeration}
+							treemap_buildup={this.state.treemap_buildup}
 							/>}/>
 					<Route exact path={`/explore`} component={() => <ExploreWrapper 
 							africaOne={this.state.geo_shades}

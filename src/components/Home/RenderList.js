@@ -9,25 +9,26 @@ class RenderList extends Component {
         return(
             <section>
                 <ul className="list-unstyled">
-                    <h6><i className="material-icons" id="icon-size">public</i> Africapolis</h6>
+                {/* <i className="material-icons" id="icon-size">public</i> */}
+                    <h6> Africapolis</h6>
                         {stories.map((story, i) => (
                             <li 
                             key={i} 
                             id={selectedContent === story.ID && filter === story.content ? 'clicked' : ' '}
                             onClick={() => this.props.contentSelect(story)}>
-                                <MaterialIcon icon="arrow_forward" size={15} color='#FFFFFF' />
+                                <MaterialIcon icon="arrow_forward" size={15} color='#585858' />
                                 {story.title}
                             </li>
                         ))}
                     <hr />    
-                    
-                    <h6><i className="material-icons" id="icon-size">public</i>Data Driven Stories</h6>
+                    {/* <i className="material-icons" id="icon-size">public</i> */}
+                    <h6>Data Driven Stories</h6>
                     {treemap.map((treemap, i) => (
                         <li 
                         key={i} 
                         id={selectedContent === treemap.ID && filter === treemap.content ? 'clicked' : ' '}
                         onClick={() => this.props.contentSelect(treemap)}>
-                            <MaterialIcon icon="arrow_forward" size={15} color='#FFFFFF' />
+                            <MaterialIcon icon="arrow_forward" size={15} color='#585858' />
                             {treemap.title}
                         </li>
                     ))}
@@ -40,11 +41,12 @@ class RenderList extends Component {
     _renderWhatsNew(stories) {
             return(
                 <div >
-                    <h6><MaterialIcon id="icons" icon="filter_none" size={17} color='#FFFFFF' /> What's New?</h6>
+                    {/* <MaterialIcon id="icons" icon="filter_none" size={17} color='#585858' />  */}
+                    <h6>What's New?</h6>
                     <ul className="list-unstyled">
                         {stories.map((hello, index) => (
                             <li key={index}>
-                                <MaterialIcon icon="arrow_forward" size={15} color='#FFFFFF' />
+                                <MaterialIcon icon="arrow_forward" size={15} color='#585858' />
                                 {hello.whatsnew}
                             </li>
                         ))}
@@ -67,21 +69,14 @@ class RenderList extends Component {
     render(){
         return(
             <Grid fluid id="mixer">
-                    <Col className={this.props.collapseNav ? "home-mixer-list" : "home-mixer-list"} >
+                    <Col className="home-mixer-list" >
                         {this.list(this.props.narratives, this.props.treemap, this.props.selectedContent, this.props.contentFilter)}
                         <hr/>
                         {this._renderWhatsNew(this.props.narratives)}
                     </Col>
                     <Col md={12} className="mixer-download">
-                        <hr />
-                        <Col md={12} className="mixer-download-wrapper">
-                            <Col md={6} className="mixer-download-item">
-                                {this._renderDownloadFullData()}
-                            </Col>
-                            <Col md={6} className="mixer-download-item">
-                                {this._renderDownloadFullData()}
-                            </Col>
-                        </Col>
+                            <img src="assets/images/swac-oecd.png" width="100%"
+                            alt="Africapolis Visualise Urbanisation in Africa"/>
                     </Col>
                 </Grid>
         )

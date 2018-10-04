@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Treemap } from 'd3plus-react';
 import { Col, Row } from 'react-flexbox-grid';
 
-
 class RenderTreemap extends Component {
   render() {
     const data = this.props.data;
@@ -12,9 +11,11 @@ class RenderTreemap extends Component {
 					],
 			data: data,
 			size: d => d.value,
-			on: {click: d => this.props.receiveValue(d.City_ID),mouseover: d => this.props.receiveValue(d.ID)},
+			on: {click:  d => this.props.receiveValue(d.City_ID), mouseover: d => this.props.receiveValue(d.City_ID)},
 			tooltip: true,
-			tooltipConfig: {body: d=>d.value+" Kilometre Square"},
+      tooltipConfig: {body: d=>d.value+" Kilometre Square"},
+      legend: false,
+      shapeConfig: {fill:d => d.Color},
 			label: d => d.NAME
 		};
 		return(
@@ -26,13 +27,13 @@ class RenderTreemap extends Component {
               <hr/> 
             </li>
             <li id="tree-text">
-              Stick to 50 sinceit can give a coherent impression how the histogram look like. And already with 50 it’s well distributed like following. Stick to 50 sinceit can give a coherent impression how the histogram look like. And already with 50 it’s well distributed like following. Over the past 60 years, urbanisation and cities have fundamentally transformed the social, economic and political geography of West Africa. The number of people living in cities
+              Stick to 50 sinceit can give a coherent impression how the histogram look like. And already with 50 it’s well distributed like following. Stick to 50 sinceit can give a coherent impression how the histogram look like. And already with 50 it’s well distributed like following.
             </li>
           </ul>
         </Col>
-        <Col md={7} mdOffset={2}>
-          <div id="viz">
-            <Treemap config={build}/>
+        <Col md={7} mdOffset={2} className="treemap">
+          <div id="viz" className="treemap">
+            <Treemap config={build} className="treemap"/>
           </div>                       
         </Col>
       </Row>  

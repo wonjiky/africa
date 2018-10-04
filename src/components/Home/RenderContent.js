@@ -6,7 +6,6 @@ class RenderContent extends Component{
     
     _renderNarratives(contentID, filter, narratives, treemaps){
         const storyList = narratives.find(s => s.ID === contentID);
-        console.log(contentID);
         if(storyList.ID === 0 && filter === 'narrative'){
             return(
                 <Col md={6} mdOffset={2} className="overview-wrapper">
@@ -41,15 +40,16 @@ class RenderContent extends Component{
             return(
                 <RenderTreemap
                     data={data}
-                    receiveValue={this.receiveValue}
+                    receiveValue={this.receiveValue.bind(this)}
                 />
             )
         }
     }
 
     receiveValue(e){
-        console.log(e);
+        this.props.valueFromTreemap(e);
     }
+    
 
     _renderNarrative_Text(stories){
         return(
@@ -65,7 +65,7 @@ class RenderContent extends Component{
 
     render(){
         return(
-            <div>
+            <div className="renderContentWrapper">
                 {this._renderNarratives(this.props.selectedContent, this.props.contentFilter, this.props.narratives, this.props.treemap)}
             </div>
         )

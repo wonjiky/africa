@@ -42,6 +42,8 @@ class LeafletMap extends Component {
 		this.placeHolder_filter = this.placeHolder_filter.bind(this);
 		this.hoverStyle = this.hoverStyle.bind(this);
 		this.selectedStyle = this.selectedStyle.bind(this);
+		this.treemap_pointToLayer = this.treemap_pointToLayer.bind(this);
+		this.treemap_onEachFeature = this.treemap_onEachFeature.bind(this);
 	}
 
 	componentDidMount() {
@@ -59,8 +61,6 @@ class LeafletMap extends Component {
 
 		this.placeHolder = L.geoJSON(this.props.africa_one, {
 			filter: this.placeHolder_filter,
-			// pointToLayer: function (feature, latlng) {
-			// return L.circleMarker(latlng);}
 			})
 		this.placeHolder.addTo(map);
 	}
@@ -84,16 +84,14 @@ class LeafletMap extends Component {
 	}
 
 	componentDidUpdate(prevProps){
-
 		// If Explore Wrapper is Mounted :
 		if (this.props.exploreWrapperIsMounted === true){
-			let currValue = this.props.selectedCountry;
-			let prevValue = prevProps.selectedCountry;
-			if(currValue){
-				this.currLayer = this.mapOverlay.getLayer(currValue);
-				this.prevLayer = this.mapOverlay.getLayer(prevValue);
-			}
-
+			console.log(this.agglos);
+			let currCountryValue = this.props.selectedCountry;
+			let prevCountryValue = prevProps.selectedCountry;
+			let currAgglosValue = this.props.selectedAgglos;
+			let prevAgglosValue = prevProps.selectedAgglos;
+			
 			this.mapOverlay = L.geoJson(this.props.africaContinent, {
 				style: () => {return {color: 'transparent'}},
 				onEachFeature: (feature, layer) => {
@@ -111,47 +109,136 @@ class LeafletMap extends Component {
 						this.state.map.fitBounds(layer.getBounds());
 						this.ID = feature.properties.ID;
 						this.agglos = L.geoJson(this.props.agglosGeo, {
-							onEachFeature: this.agglos_onEachFeature,
+							onEachFeature: (feature, layer) => {
+								layer.on('mouseover', (e) => {
+									e.target.setStyle(this.highlightAgglosStyle())
+								})
+								feature.properties._leaflet_id = feature.properties.cityID;
+								layer.on('mouseout', (e) => {
+									e.target.setStyle(this.defaultAgglosStyle())
+								})
+								layer.on('change', (e) => {
+									
+								})
+								layer.on('click', (e) => {
+									console.log(layer);
+									e.target.setStyle(this.highlightAgglosStyle())
+									const cityID = feature.properties.cityID;
+									const cityName = feature.properties.cityName;
+									const a = { value:cityID, label:cityName}
+									this.props.sendAgglosValueToContent(a);
+
+									let popupContent = "<table class='tooltip-table'>";
+									popupContent += "<tr><td class='title'>Name:</td><td class='data'>" + feature.properties.cityName + "</td></tr>";
+									popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
+									popupContent += "</table>";
+									layer.bindPopup(popupContent).openPopup();
+								})
+								// feature.properties._leaflet_id = feature.properties.cityID;
+							},
 							filter: this.agglos_cityFilter,
 							pointToLayer: this.agglos_pointToLayer
 						});
 						this.placeHolder.addLayer(this.agglos);
 					});
-
 					layer.on('click', () => {
 						const ISO3_ID = feature.properties.ID;
 						const ISO3_NAME = feature.properties.NAME_EN;
 						const e = { value: ISO3_ID, label:ISO3_NAME}
 						this.props.sendCountryValueToContent(e);
 					});
-
 					layer._leaflet_id = feature.properties.ID;
 				}
 			})
 			this.mapOverlay.addTo(this.state.map);
-
-			if(currValue !== prevValue){
-				let layer = this.mapOverlay.getLayer(currValue);
+			console.log(this.agglos);
+			if(currCountryValue !== prevCountryValue && currCountryValue !== ''){
+				let layer = this.mapOverlay.getLayer(currCountryValue);
 				layer.fire('change')
+			} else if (currCountryValue !== prevCountryValue && currCountryValue === ''){
+				this.placeHolder.clearLayers();
 			}
 
+			if(currAgglosValue && currAgglosValue !== prevAgglosValue && currAgglosValue !== ''){
+				let agglosLayer = this.agglos.getLayer(currAgglosValue);
+				// console.log(agglosLayer.feature._leaflet_id)
+				// console.log(agglosLayer.feature.properties.cityID);
+				// agglosLayer.fire('change');
+			}
+			
 		// If Home Wrapper is Mounted :	
 		} else if(this.props.homeWrapperIsMounted) {
-			this.mapOverlay = L.geoJson(this.props.africaContinent, {
-				style: () => {return {color: 'transparent'}},
-				onEachFeature: (feature, layer) => {
+			if(this.props.treemapFilter === 'treemap' && this.props.treemapValue === 0){
+				this.treemap = L.geoJson(this.props.treemap_buildup, {
+					onEachFeature: this.treemap_onEachFeature,
+					pointToLayer: this.treemap_pointToLayer})
+				this.treemap.addTo(this.state.map);			
+			}
+			
+			let treemapcurrValue = this.props.treemapSelect;
+			let treemapprevValue = prevProps.treemapSelect;
+			
+			if (treemapcurrValue){
+				this.currLayer = this.treemap.getLayer(treemapcurrValue);
+				this.prevLayer = this.treemap.getLayer(treemapprevValue);
+			}
 
-					layer.on('mouseover', () => {
-						layer.setStyle(this.hoverStyle());
-					});
-
-					layer.on('mouseout', (e) => {
-						this.mapOverlay.resetStyle(e.target);
-					});
-				}
-			})
-			this.mapOverlay.addTo(this.state.map);
+			if(treemapcurrValue !== treemapprevValue){
+				let layer = this.treemap.getLayer(treemapcurrValue);
+				layer.fire('mouseover')
+				if(treemapprevValue){
+				let layerprev = this.treemap.getLayer(treemapprevValue);
+				layerprev.fire('mouseout')}
+			}
 		}
+	}
+
+	treemap_onEachFeature(feature,layer){
+		layer.on('mouseover', (e) => {
+			e.target.setStyle(this.treemapHighlightStyle(feature))
+		})
+
+		layer.on('mouseout', (e) => {
+			e.target.setStyle(this.treemapAgglosStyle(feature))
+		})
+
+		layer.on('click', (e) => {
+			e.target.setStyle(this.treemapHighlightStyle())
+		})
+
+		let popupContent = "<table class='tooltip-table'>";
+		popupContent += "<tr><td class='title'>Name:</td><td class='data'>" + feature.properties.NAME + "</td></tr>";
+		popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.value + "</td></tr>";
+		popupContent += "</table>";
+		layer.bindPopup(popupContent).openPopup();
+		layer._leaflet_id = feature.properties.City_ID;
+	}
+
+	treemapHighlightStyle(feature){
+		return({
+			radius: 13,
+			fillOpacity: .9,
+			weight: 0,
+			stroke: true,
+			color: feature.properties.Color,
+			weight: 1,
+		})
+	}
+
+	treemapAgglosStyle(feature){
+		return({
+			radius: 4,
+			fillColor: feature.properties.Color,
+			fillOpacity: 0.4,
+			stroke: true,
+			color: feature.properties.Color,
+			weight: 1,
+		})
+	}
+
+	treemap_pointToLayer(feature, latlng){
+		const geojsonMarker = this.treemapAgglosStyle(feature);
+		return L.circleMarker(latlng, geojsonMarker);
 	}
 
 	placeHolder_filter(feature) {
@@ -174,17 +261,21 @@ class LeafletMap extends Component {
 	highlightAgglosStyle(){
 		return({
 			radius: 10,
-			fillOpacity: 1,
-			fillColor: "red",
-			weight: 0,
+			fillColor: '#E8AE40',
+			fillOpacity: 0.4,
+			stroke: true,
+			color: '#E8AE40',
+			weight: 1,
 		})
 	}
 
 	defaultAgglosStyle(){
 		return({
-			radius: 4,
-			fillColor: "#FFF",
-			color: "#E8AE40",
+			radius: 5,
+			fillColor: '#E8AE40',
+			fillOpacity: 0.4,
+			stroke: true,
+			color: '#E8AE40',
 			weight: 1,
 		})
 	}
@@ -199,23 +290,22 @@ class LeafletMap extends Component {
 		})
 
 		layer.on('change', (e) => {
-
+			let popupContent = "<table class='tooltip-table'>";
+			popupContent += "<tr><td class='title'>Name:</td><td class='data'>" + feature.properties.cityName + "</td></tr>";
+			popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
+			popupContent += "</table>";
+			layer.bindPopup(popupContent).openPopup();
 		})
 
 		layer.on('click', (e) => {
 			e.target.setStyle(this.highlightAgglosStyle())
-			const ID = feature.properties.ID;
 			const cityID = feature.properties.cityID;
 			const cityName = feature.properties.cityName;
 			const a = { value:cityID, label:cityName}
 			this.props.sendAgglosValueToContent(a);
 		})
-
-		let popupContent = "<table class='tooltip-table'>";
-		popupContent += "<tr><td class='title'>Name:</td><td class='data'>" + feature.properties.cityName + "</td></tr>";
-		popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
-		popupContent += "</table>";
-		layer.bindPopup(popupContent).openPopup();
+		// layer._leaflet_id = feature.properties.ID;
+		
 	}
 
 	render() {

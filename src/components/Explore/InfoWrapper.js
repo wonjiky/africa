@@ -16,7 +16,6 @@ class InfoWrapper extends Component {
 
 
 	componentDidUpdate(){
-		console.log(this.props.selectedAgglosValue);
 	}
     renderInfo(selectedCountry){
 		const list = this.props.countryData.find(u => u.ID  === selectedCountry.value);
@@ -53,11 +52,11 @@ class InfoWrapper extends Component {
     render() {
         if(this.props.selectedCountryValue){
 			return(
-				<Row className="explore-row">
-					<Col md={8} mdOffset={2} className="countrySelected">
+				<Row className="keyFigure-row">
+					<Col md={9} mdOffset={1} className="countrySelected">
 						{this.renderInfo(this.props.selectedCountryValue)}
 					</Col>
-					<Col md={8} mdOffset={2} className="keyFigure-Wrapper">
+					<Col md={9} mdOffset={1} className="keyFigure-Wrapper">
 						<KeyFigures 
 							countryData={this.props.countryData}
 							selectedCountryValue={this.props.selectedCountryValue}
@@ -68,7 +67,7 @@ class InfoWrapper extends Component {
 			);
 		}else{
 			return(
-				<Col md={8} mdOffset={2} className="countryUnselected">
+				<Col md={9} mdOffset={1} className="countryUnselected">
 					Start by selecting country or city from search box or map
 				</Col>
 				

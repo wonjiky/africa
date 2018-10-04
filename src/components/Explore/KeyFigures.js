@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 import CountryHistogram from './CountryHistogram';
-import CityHistogram from './CityHistogram';
 
 
 class KeyFigures extends Component {
@@ -16,31 +15,30 @@ class KeyFigures extends Component {
     }
 
     componentDidUpdate(){
-        console.log(this.props.selectedAgglosValue)
     }
     render() {
         return(
             <Grid fluid className="keyFigure">
                 <Row>
-                    <Col md={12}>
+                    {/* <Col md={12}>
                         <h6>Key Figures</h6>
-                        <hr/>
-                    </Col>
-                    <Col md={6} className="countryHistogram-Wrapper">
+                        <br/>
+                    </Col> */}
+                    <Col md={12} className="countryHistogram-Wrapper">
                         <CountryHistogram 
                             selectedCountryValue={this.props.selectedCountryValue} 
                             countryData={this.props.countryData} 
                             valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}
                             />
                     </Col>
-                    <Col md={6} className="cityHistogram-Wrapper" >
+                    {/* <Col md={6} className="cityHistogram-Wrapper" >
                        <CityHistogram 
                             selectedCountryValue={this.props.selectedCountryValue}
                             selectedAgglosValue={this.props.selectedAgglosValue} 
                             countryData={this.props.countryData} 
                             valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}
                         />
-                    </Col>
+                    </Col> */}
                 </Row>
             </Grid>
             

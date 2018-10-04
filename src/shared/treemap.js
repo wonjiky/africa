@@ -6,305 +6,356 @@ export const TREEMAP = [
         "description": "Stick to 50 sinceit can give a coherent impression how the histogram look like. And already with 50 it’s well distributed like following. Stick to 50 sinceit can give a coherent impression how the histogram look like. And already with 50 it’s well distributed like following. Over the past 60 years, urbanisation and cities have fundamentally transformed the social, economic and political geography of West Africa. The number of people living in cities",
         "data":[
             {
-                "NAME": "al-Jawf",
-                "value": 473008,
-                "ID": 24,
-                "City_ID": 1762
+              "ID": 22,
+              "NAME": "Kisumu aggl.",
+              "value": 5862.59,
+              "City_ID": 11,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Faya",
-                "value": 370216,
-                "ID": 42,
-                "City_ID": 1540
+              "ID": 22,
+              "NAME": "Kisii aggl.",
+              "value": 5000.77,
+              "City_ID": 21,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Bordj Badji Mokhtar",
-                "value": 323371,
-                "ID": 12,
-                "City_ID": 3797
+              "ID": 33,
+              "NAME": "Onitsha",
+              "value": 2866.69,
+              "City_ID": 3,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Tindouf",
-                "value": 302344,
-                "ID": 12,
-                "City_ID": 1232
+              "ID": 47,
+              "NAME": "Johannesburg",
+              "value": 2214.06,
+              "City_ID": 4,
+              "Color": "#e1b400"
             },
             {
-                "NAME": "Marzuq",
-                "value": 274083,
-                "ID": 24,
-                "City_ID": 3686
+              "ID": 15,
+              "NAME": "Sodo Town",
+              "value": 1929.53,
+              "City_ID": 35,
+              "Color": "#32a674"
             },
             {
-                "NAME": "Tamanrasset",
-                "value": 244991,
-                "ID": 12,
-                "City_ID": 593
+              "ID": 8,
+              "NAME": "Bafoussam",
+              "value": 1888.53,
+              "City_ID": 60,
+              "Color": "#0b68af"
             },
             {
-                "NAME": "Zoueiratt",
-                "value": 218704,
-                "ID": 29,
-                "City_ID": 1591
+              "ID": 13,
+              "NAME": "al-Qahira",
+              "value": 1774.41,
+              "City_ID": 1,
+              "Color": "#719e24"
             },
             {
-                "NAME": "Illizi",
-                "value": 203899,
-                "ID": 12,
-                "City_ID": 4525
+              "ID": 24,
+              "NAME": "Tripoli",
+              "value": 1745.38,
+              "City_ID": 44,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Jalu",
-                "value": 184380,
-                "ID": 24,
-                "City_ID": 5890
+              "ID": 22,
+              "NAME": "Embu aggl.",
+              "value": 1554.74,
+              "City_ID": 41,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Nema",
-                "value": 176788,
-                "ID": 29,
-                "City_ID": 3325
+              "ID": 22,
+              "NAME": "Bomet aggl.",
+              "value": 1503.97,
+              "City_ID": 93,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Tinoulef",
-                "value": 172219,
-                "ID": 12,
-                "City_ID": 6944
+              "ID": 22,
+              "NAME": "Nairobi aggl.",
+              "value": 1340.26,
+              "City_ID": 8,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Mut",
-                "value": 171540,
-                "ID": 13,
-                "City_ID": 3261
+              "ID": 15,
+              "NAME": "Hawassa City",
+              "value": 1301.78,
+              "City_ID": 39,
+              "Color": "#32a674"
             },
             {
-                "NAME": "N'Guigmi",
-                "value": 171265,
-                "ID": 32,
-                "City_ID": 3069
+              "ID": 18,
+              "NAME": "Accra",
+              "value": 1197.69,
+              "City_ID": 13,
+              "Color": "#993484"
             },
             {
-                "NAME": "Fada",
-                "value": 169110,
-                "ID": 42,
-                "City_ID": 3248
+              "ID": 46,
+              "NAME": "Mbale [UGA]",
+              "value": 1065.58,
+              "City_ID": 36,
+              "Color": "#0f8fd9"
             },
             {
-                "NAME": "Arlit",
-                "value": 158495,
-                "ID": 32,
-                "City_ID": 1411
+              "ID": 45,
+              "NAME": "Dar es Salaam",
+              "value": 1065.11,
+              "City_ID": 9,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Tombouctou",
-                "value": 157475,
-                "ID": 27,
-                "City_ID": 1099
+              "ID": 33,
+              "NAME": "Uyo",
+              "value": 997.34,
+              "City_ID": 34,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Djanet",
-                "value": 147527,
-                "ID": 12,
-                "City_ID": 2631
+              "ID": 1,
+              "NAME": "Luanda",
+              "value": 964.85,
+              "City_ID": 6,
+              "Color": "#e1b400"
             },
             {
-                "NAME": "Siwa",
-                "value": 140107,
-                "ID": 13,
-                "City_ID": 3655
+              "ID": 12,
+              "NAME": "Alger",
+              "value": 952.76,
+              "City_ID": 16,
+              "Color": "#32a674"
             },
             {
-                "NAME": "In Salah",
-                "value": 135705,
-                "ID": 12,
-                "City_ID": 3270
+              "ID": 22,
+              "NAME": "Maua aggl.",
+              "value": 943.26,
+              "City_ID": 82,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Tidjikja",
-                "value": 134532,
-                "ID": 29,
-                "City_ID": 6698
+              "ID": 33,
+              "NAME": "Lagos",
+              "value": 937.93,
+              "City_ID": 2,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Kidal",
-                "value": 133542,
-                "ID": 27,
-                "City_ID": 2458
+              "ID": 46,
+              "NAME": "Kampala",
+              "value": 896.73,
+              "City_ID": 17,
+              "Color": "#0f8fd9"
             },
             {
-                "NAME": "Ghanzi",
-                "value": 131586,
-                "ID": 5,
-                "City_ID": 4835
+              "ID": 34,
+              "NAME": "Kigali",
+              "value": 863.08,
+              "City_ID": 37,
+              "Color": "#719e24"
             },
             {
-                "NAME": "GhYt",
-                "value": 128705,
-                "ID": 24,
-                "City_ID": 6747
+              "ID": 40,
+              "NAME": "Khartum",
+              "value": 810.99,
+              "City_ID": 10,
+              "Color": "#0f8fd9"
             },
             {
-                "NAME": "Keetmanshoop",
-                "value": 124473,
-                "ID": 31,
-                "City_ID": 3551
+              "ID": 28,
+              "NAME": "Cidade de Maputo",
+              "value": 805.87,
+              "City_ID": 28,
+              "Color": "#0b68af"
             },
             {
-                "NAME": "Agadez",
-                "value": 120787,
-                "ID": 32,
-                "City_ID": 587
+              "ID": 47,
+              "NAME": "Durban",
+              "value": 790.39,
+              "City_ID": 23,
+              "Color": "#e1b400"
             },
             {
-                "NAME": "Wadi Halfa",
-                "value": 109404,
-                "ID": 40,
-                "City_ID": 4669
+              "ID": 33,
+              "NAME": "Aba",
+              "value": 754.18,
+              "City_ID": 48,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Rundu",
-                "value": 106255,
-                "ID": 31,
-                "City_ID": 1020
+              "ID": 50,
+              "NAME": "Harare",
+              "value": 712.21,
+              "City_ID": 33,
+              "Color": "#993484"
             },
             {
-                "NAME": "Salal",
-                "value": 105908,
-                "ID": 42,
-                "City_ID": 5154
+              "ID": 33,
+              "NAME": "Nsukka",
+              "value": 698.6,
+              "City_ID": 54,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Hassi Messaoud",
-                "value": 104920,
-                "ID": 12,
-                "City_ID": 1256
+              "ID": 47,
+              "NAME": "Cape Town",
+              "value": 628.66,
+              "City_ID": 20,
+              "Color": "#e1b400"
             },
             {
-                "NAME": "Oure Cassoni camp",
-                "value": 103988,
-                "ID": 42,
-                "City_ID": 2067
+              "ID": 49,
+              "NAME": "Lusaka",
+              "value": 621.98,
+              "City_ID": 31,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Upington",
-                "value": 100702,
-                "ID": 47,
-                "City_ID": 1054
+              "ID": 33,
+              "NAME": "Ibadan",
+              "value": 607.78,
+              "City_ID": 24,
+              "Color": "#df521e"
             },
             {
-                "NAME": "EsSemara",
-                "value": 100333,
-                "ID": 26,
-                "City_ID": 1266
+              "ID": 18,
+              "NAME": "Kumasi",
+              "value": 554.62,
+              "City_ID": 26,
+              "Color": "#993484"
             },
             {
-                "NAME": "Maun",
-                "value": 94530,
-                "ID": 5,
-                "City_ID": 1112
+              "ID": 15,
+              "NAME": "Addis Ababa City",
+              "value": 530.85,
+              "City_ID": 19,
+              "Color": "#32a674"
             },
             {
-                "NAME": "El Menea",
-                "value": 94222,
-                "ID": 12,
-                "City_ID": 1097
+              "ID": 26,
+              "NAME": "Casablanca",
+              "value": 527.05,
+              "City_ID": 22,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Nalut",
-                "value": 92596,
-                "ID": 24,
-                "City_ID": 4807
+              "ID": 27,
+              "NAME": "Bamako",
+              "value": 499.32,
+              "City_ID": 27,
+              "Color": "#e1b400"
             },
             {
-                "NAME": "Waddan",
-                "value": 86984,
-                "ID": 24,
-                "City_ID": 6195
+              "ID": 22,
+              "NAME": "Meru aggl.",
+              "value": 498.65,
+              "City_ID": 136,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Beni Abbes",
-                "value": 86700,
-                "ID": 12,
-                "City_ID": 6172
+              "ID": 33,
+              "NAME": "Abuja",
+              "value": 488.85,
+              "City_ID": 43,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Raga",
-                "value": 85504,
-                "ID": 35,
-                "City_ID": 1725
+              "ID": 45,
+              "NAME": "Mbomai",
+              "value": 439.66,
+              "City_ID": 149,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Gobabis",
-                "value": 85027,
-                "ID": 31,
-                "City_ID": 3822
+              "ID": 22,
+              "NAME": "Kikima aggl.",
+              "value": 437.98,
+              "City_ID": 232,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Akokan",
-                "value": 83556,
-                "ID": 32,
-                "City_ID": 2754
+              "ID": 33,
+              "NAME": "Benin City",
+              "value": 437.64,
+              "City_ID": 50,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Awbari",
-                "value": 80899,
-                "ID": 24,
-                "City_ID": 3296
+              "ID": 22,
+              "NAME": "Kehancha aggl.",
+              "value": 431.23,
+              "City_ID": 292,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Adrar",
-                "value": 80494,
-                "ID": 12,
-                "City_ID": 987
+              "ID": 48,
+              "NAME": "Kinshasa",
+              "value": 429.58,
+              "City_ID": 5,
+              "Color": "#32a674"
             },
             {
-                "NAME": "Vredendal North",
-                "value": 77923,
-                "ID": 47,
-                "City_ID": 7201
+              "ID": 4,
+              "NAME": "Ouagadougou",
+              "value": 405.69,
+              "City_ID": 32,
+              "Color": "#719e24"
             },
             {
-                "NAME": "Abu Hamad",
-                "value": 77788,
-                "ID": 40,
-                "City_ID": 5622
+              "ID": 13,
+              "NAME": "Alexandrie",
+              "value": 391.74,
+              "City_ID": 7,
+              "Color": "#719e24"
             },
             {
-                "NAME": "Mariental",
-                "value": 76581,
-                "ID": 31,
-                "City_ID": 5780
+              "ID": 7,
+              "NAME": "Abidjan",
+              "value": 391.35,
+              "City_ID": 12,
+              "Color": "#0f8fd9"
             },
             {
-                "NAME": "al-Shallatin",
-                "value": 76336,
-                "ID": 13,
-                "City_ID": 5685
+              "ID": 22,
+              "NAME": "Kericho aggl.",
+              "value": 381.59,
+              "City_ID": 143,
+              "Color": "#E73741"
             },
             {
-                "NAME": "al-Bawiti",
-                "value": 74980,
-                "ID": 13,
-                "City_ID": 3703
+              "ID": 47,
+              "NAME": "Soshanguve",
+              "value": 380.07,
+              "City_ID": 56,
+              "Color": "#e1b400"
             },
             {
-                "NAME": "Zagora",
-                "value": 74864,
-                "ID": 26,
-                "City_ID": 1887
+              "ID": 44,
+              "NAME": "Tunis",
+              "value": 376.07,
+              "City_ID": 30,
+              "Color": "#0b68af"
             },
             {
-                "NAME": "Mavinga",
-                "value": 74856,
-                "ID": 1,
-                "City_ID": 6497
+              "ID": 33,
+              "NAME": "Port Harcourt",
+              "value": 368.01,
+              "City_ID": 45,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Mellit",
-                "value": 74158,
-                "ID": 40,
-                "City_ID": 1407
-            }]
+              "ID": 22,
+              "NAME": "Runyenjes aggl.",
+              "value": 355.98,
+              "City_ID": 182,
+              "Color": "#E73741"
+            }
+          ]
     },
    {
         "ID": 1,
@@ -313,305 +364,356 @@ export const TREEMAP = [
         "description": "Stick to 50 sinceit can give a coherent impression how the histogram look like. And already with 50 it’s well distributed like following. Stick to 50 sinceit can give a coherent impression how the histogram look like. And already with 50 it’s well distributed like following. Over the past 60 years, urbanisation and cities have fundamentally transformed the social, economic and political geography of West Africa. The number of people living in cities",
         "data":[
             {
-                "NAME": "al-Jawf",
-                "value": 473008,
-                "ID": 24,
-                "City_ID": 1762
+              "ID": 22,
+              "NAME": "Kisumu aggl.",
+              "value": 5862.59,
+              "City_ID": 11,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Faya",
-                "value": 370216,
-                "ID": 42,
-                "City_ID": 1540
+              "ID": 22,
+              "NAME": "Kisii aggl.",
+              "value": 5000.77,
+              "City_ID": 21,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Bordj Badji Mokhtar",
-                "value": 323371,
-                "ID": 12,
-                "City_ID": 3797
+              "ID": 33,
+              "NAME": "Onitsha",
+              "value": 2866.69,
+              "City_ID": 3,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Tindouf",
-                "value": 302344,
-                "ID": 12,
-                "City_ID": 1232
+              "ID": 47,
+              "NAME": "Johannesburg",
+              "value": 2214.06,
+              "City_ID": 4,
+              "Color": "#e1b400"
             },
             {
-                "NAME": "Marzuq",
-                "value": 274083,
-                "ID": 24,
-                "City_ID": 3686
+              "ID": 15,
+              "NAME": "Sodo Town",
+              "value": 1929.53,
+              "City_ID": 35,
+              "Color": "#32a674"
             },
             {
-                "NAME": "Tamanrasset",
-                "value": 244991,
-                "ID": 12,
-                "City_ID": 593
+              "ID": 8,
+              "NAME": "Bafoussam",
+              "value": 1888.53,
+              "City_ID": 60,
+              "Color": "#0b68af"
             },
             {
-                "NAME": "Zoueiratt",
-                "value": 218704,
-                "ID": 29,
-                "City_ID": 1591
+              "ID": 13,
+              "NAME": "al-Qahira",
+              "value": 1774.41,
+              "City_ID": 1,
+              "Color": "#719e24"
             },
             {
-                "NAME": "Illizi",
-                "value": 203899,
-                "ID": 12,
-                "City_ID": 4525
+              "ID": 24,
+              "NAME": "Tripoli",
+              "value": 1745.38,
+              "City_ID": 44,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Jalu",
-                "value": 184380,
-                "ID": 24,
-                "City_ID": 5890
+              "ID": 22,
+              "NAME": "Embu aggl.",
+              "value": 1554.74,
+              "City_ID": 41,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Nema",
-                "value": 176788,
-                "ID": 29,
-                "City_ID": 3325
+              "ID": 22,
+              "NAME": "Bomet aggl.",
+              "value": 1503.97,
+              "City_ID": 93,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Tinoulef",
-                "value": 172219,
-                "ID": 12,
-                "City_ID": 6944
+              "ID": 22,
+              "NAME": "Nairobi aggl.",
+              "value": 1340.26,
+              "City_ID": 8,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Mut",
-                "value": 171540,
-                "ID": 13,
-                "City_ID": 3261
+              "ID": 15,
+              "NAME": "Hawassa City",
+              "value": 1301.78,
+              "City_ID": 39,
+              "Color": "#32a674"
             },
             {
-                "NAME": "N'Guigmi",
-                "value": 171265,
-                "ID": 32,
-                "City_ID": 3069
+              "ID": 18,
+              "NAME": "Accra",
+              "value": 1197.69,
+              "City_ID": 13,
+              "Color": "#993484"
             },
             {
-                "NAME": "Fada",
-                "value": 169110,
-                "ID": 42,
-                "City_ID": 3248
+              "ID": 46,
+              "NAME": "Mbale [UGA]",
+              "value": 1065.58,
+              "City_ID": 36,
+              "Color": "#0f8fd9"
             },
             {
-                "NAME": "Arlit",
-                "value": 158495,
-                "ID": 32,
-                "City_ID": 1411
+              "ID": 45,
+              "NAME": "Dar es Salaam",
+              "value": 1065.11,
+              "City_ID": 9,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Tombouctou",
-                "value": 157475,
-                "ID": 27,
-                "City_ID": 1099
+              "ID": 33,
+              "NAME": "Uyo",
+              "value": 997.34,
+              "City_ID": 34,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Djanet",
-                "value": 147527,
-                "ID": 12,
-                "City_ID": 2631
+              "ID": 1,
+              "NAME": "Luanda",
+              "value": 964.85,
+              "City_ID": 6,
+              "Color": "#e1b400"
             },
             {
-                "NAME": "Siwa",
-                "value": 140107,
-                "ID": 13,
-                "City_ID": 3655
+              "ID": 12,
+              "NAME": "Alger",
+              "value": 952.76,
+              "City_ID": 16,
+              "Color": "#32a674"
             },
             {
-                "NAME": "In Salah",
-                "value": 135705,
-                "ID": 12,
-                "City_ID": 3270
+              "ID": 22,
+              "NAME": "Maua aggl.",
+              "value": 943.26,
+              "City_ID": 82,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Tidjikja",
-                "value": 134532,
-                "ID": 29,
-                "City_ID": 6698
+              "ID": 33,
+              "NAME": "Lagos",
+              "value": 937.93,
+              "City_ID": 2,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Kidal",
-                "value": 133542,
-                "ID": 27,
-                "City_ID": 2458
+              "ID": 46,
+              "NAME": "Kampala",
+              "value": 896.73,
+              "City_ID": 17,
+              "Color": "#0f8fd9"
             },
             {
-                "NAME": "Ghanzi",
-                "value": 131586,
-                "ID": 5,
-                "City_ID": 4835
+              "ID": 34,
+              "NAME": "Kigali",
+              "value": 863.08,
+              "City_ID": 37,
+              "Color": "#719e24"
             },
             {
-                "NAME": "GhYt",
-                "value": 128705,
-                "ID": 24,
-                "City_ID": 6747
+              "ID": 40,
+              "NAME": "Khartum",
+              "value": 810.99,
+              "City_ID": 10,
+              "Color": "#0f8fd9"
             },
             {
-                "NAME": "Keetmanshoop",
-                "value": 124473,
-                "ID": 31,
-                "City_ID": 3551
+              "ID": 28,
+              "NAME": "Cidade de Maputo",
+              "value": 805.87,
+              "City_ID": 28,
+              "Color": "#0b68af"
             },
             {
-                "NAME": "Agadez",
-                "value": 120787,
-                "ID": 32,
-                "City_ID": 587
+              "ID": 47,
+              "NAME": "Durban",
+              "value": 790.39,
+              "City_ID": 23,
+              "Color": "#e1b400"
             },
             {
-                "NAME": "Wadi Halfa",
-                "value": 109404,
-                "ID": 40,
-                "City_ID": 4669
+              "ID": 33,
+              "NAME": "Aba",
+              "value": 754.18,
+              "City_ID": 48,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Rundu",
-                "value": 106255,
-                "ID": 31,
-                "City_ID": 1020
+              "ID": 50,
+              "NAME": "Harare",
+              "value": 712.21,
+              "City_ID": 33,
+              "Color": "#993484"
             },
             {
-                "NAME": "Salal",
-                "value": 105908,
-                "ID": 42,
-                "City_ID": 5154
+              "ID": 33,
+              "NAME": "Nsukka",
+              "value": 698.6,
+              "City_ID": 54,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Hassi Messaoud",
-                "value": 104920,
-                "ID": 12,
-                "City_ID": 1256
+              "ID": 47,
+              "NAME": "Cape Town",
+              "value": 628.66,
+              "City_ID": 20,
+              "Color": "#e1b400"
             },
             {
-                "NAME": "Oure Cassoni camp",
-                "value": 103988,
-                "ID": 42,
-                "City_ID": 2067
+              "ID": 49,
+              "NAME": "Lusaka",
+              "value": 621.98,
+              "City_ID": 31,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Upington",
-                "value": 100702,
-                "ID": 47,
-                "City_ID": 1054
+              "ID": 33,
+              "NAME": "Ibadan",
+              "value": 607.78,
+              "City_ID": 24,
+              "Color": "#df521e"
             },
             {
-                "NAME": "EsSemara",
-                "value": 100333,
-                "ID": 26,
-                "City_ID": 1266
+              "ID": 18,
+              "NAME": "Kumasi",
+              "value": 554.62,
+              "City_ID": 26,
+              "Color": "#993484"
             },
             {
-                "NAME": "Maun",
-                "value": 94530,
-                "ID": 5,
-                "City_ID": 1112
+              "ID": 15,
+              "NAME": "Addis Ababa City",
+              "value": 530.85,
+              "City_ID": 19,
+              "Color": "#32a674"
             },
             {
-                "NAME": "El Menea",
-                "value": 94222,
-                "ID": 12,
-                "City_ID": 1097
+              "ID": 26,
+              "NAME": "Casablanca",
+              "value": 527.05,
+              "City_ID": 22,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Nalut",
-                "value": 92596,
-                "ID": 24,
-                "City_ID": 4807
+              "ID": 27,
+              "NAME": "Bamako",
+              "value": 499.32,
+              "City_ID": 27,
+              "Color": "#e1b400"
             },
             {
-                "NAME": "Waddan",
-                "value": 86984,
-                "ID": 24,
-                "City_ID": 6195
+              "ID": 22,
+              "NAME": "Meru aggl.",
+              "value": 498.65,
+              "City_ID": 136,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Beni Abbes",
-                "value": 86700,
-                "ID": 12,
-                "City_ID": 6172
+              "ID": 33,
+              "NAME": "Abuja",
+              "value": 488.85,
+              "City_ID": 43,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Raga",
-                "value": 85504,
-                "ID": 35,
-                "City_ID": 1725
+              "ID": 45,
+              "NAME": "Mbomai",
+              "value": 439.66,
+              "City_ID": 149,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Gobabis",
-                "value": 85027,
-                "ID": 31,
-                "City_ID": 3822
+              "ID": 22,
+              "NAME": "Kikima aggl.",
+              "value": 437.98,
+              "City_ID": 232,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Akokan",
-                "value": 83556,
-                "ID": 32,
-                "City_ID": 2754
+              "ID": 33,
+              "NAME": "Benin City",
+              "value": 437.64,
+              "City_ID": 50,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Awbari",
-                "value": 80899,
-                "ID": 24,
-                "City_ID": 3296
+              "ID": 22,
+              "NAME": "Kehancha aggl.",
+              "value": 431.23,
+              "City_ID": 292,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Adrar",
-                "value": 80494,
-                "ID": 12,
-                "City_ID": 987
+              "ID": 48,
+              "NAME": "Kinshasa",
+              "value": 429.58,
+              "City_ID": 5,
+              "Color": "#32a674"
             },
             {
-                "NAME": "Vredendal North",
-                "value": 77923,
-                "ID": 47,
-                "City_ID": 7201
+              "ID": 4,
+              "NAME": "Ouagadougou",
+              "value": 405.69,
+              "City_ID": 32,
+              "Color": "#719e24"
             },
             {
-                "NAME": "Abu Hamad",
-                "value": 77788,
-                "ID": 40,
-                "City_ID": 5622
+              "ID": 13,
+              "NAME": "Alexandrie",
+              "value": 391.74,
+              "City_ID": 7,
+              "Color": "#719e24"
             },
             {
-                "NAME": "Mariental",
-                "value": 76581,
-                "ID": 31,
-                "City_ID": 5780
+              "ID": 7,
+              "NAME": "Abidjan",
+              "value": 391.35,
+              "City_ID": 12,
+              "Color": "#0f8fd9"
             },
             {
-                "NAME": "al-Shallatin",
-                "value": 76336,
-                "ID": 13,
-                "City_ID": 5685
+              "ID": 22,
+              "NAME": "Kericho aggl.",
+              "value": 381.59,
+              "City_ID": 143,
+              "Color": "#E73741"
             },
             {
-                "NAME": "al-Bawiti",
-                "value": 74980,
-                "ID": 13,
-                "City_ID": 3703
+              "ID": 47,
+              "NAME": "Soshanguve",
+              "value": 380.07,
+              "City_ID": 56,
+              "Color": "#e1b400"
             },
             {
-                "NAME": "Zagora",
-                "value": 74864,
-                "ID": 26,
-                "City_ID": 1887
+              "ID": 44,
+              "NAME": "Tunis",
+              "value": 376.07,
+              "City_ID": 30,
+              "Color": "#0b68af"
             },
             {
-                "NAME": "Mavinga",
-                "value": 74856,
-                "ID": 1,
-                "City_ID": 6497
+              "ID": 33,
+              "NAME": "Port Harcourt",
+              "value": 368.01,
+              "City_ID": 45,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Mellit",
-                "value": 74158,
-                "ID": 40,
-                "City_ID": 1407
-            }]
+              "ID": 22,
+              "NAME": "Runyenjes aggl.",
+              "value": 355.98,
+              "City_ID": 182,
+              "Color": "#E73741"
+            }
+          ]
     },
     {
         "ID": 2,
@@ -620,191 +722,356 @@ export const TREEMAP = [
         "description": "Stick to 50 sinceit can give a coherent impression how the histogram look like. And already with 50 it’s well distributed like following. Stick to 50 sinceit can give a coherent impression how the histogram look like. And already with 50 it’s well distributed like following. Over the past 60 years, urbanisation and cities have fundamentally transformed the social, economic and political geography of West Africa. The number of people living in cities",
         "data":[
             {
-                "NAME": "al-Jawf",
-                "value": 473008,
-                "ID": 24,
-                "City_ID": 1762
+              "ID": 22,
+              "NAME": "Kisumu aggl.",
+              "value": 5862.59,
+              "City_ID": 11,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Faya",
-                "value": 370216,
-                "ID": 42,
-                "City_ID": 1540
+              "ID": 22,
+              "NAME": "Kisii aggl.",
+              "value": 5000.77,
+              "City_ID": 21,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Bordj Badji Mokhtar",
-                "value": 323371,
-                "ID": 12,
-                "City_ID": 3797
+              "ID": 33,
+              "NAME": "Onitsha",
+              "value": 2866.69,
+              "City_ID": 3,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Tindouf",
-                "value": 302344,
-                "ID": 12,
-                "City_ID": 1232
+              "ID": 47,
+              "NAME": "Johannesburg",
+              "value": 2214.06,
+              "City_ID": 4,
+              "Color": "#e1b400"
             },
             {
-                "NAME": "Marzuq",
-                "value": 274083,
-                "ID": 24,
-                "City_ID": 3686
+              "ID": 15,
+              "NAME": "Sodo Town",
+              "value": 1929.53,
+              "City_ID": 35,
+              "Color": "#32a674"
             },
             {
-                "NAME": "Tamanrasset",
-                "value": 244991,
-                "ID": 12,
-                "City_ID": 593
+              "ID": 8,
+              "NAME": "Bafoussam",
+              "value": 1888.53,
+              "City_ID": 60,
+              "Color": "#0b68af"
             },
             {
-                "NAME": "Zoueiratt",
-                "value": 218704,
-                "ID": 29,
-                "City_ID": 1591
+              "ID": 13,
+              "NAME": "al-Qahira",
+              "value": 1774.41,
+              "City_ID": 1,
+              "Color": "#719e24"
             },
             {
-                "NAME": "Illizi",
-                "value": 203899,
-                "ID": 12,
-                "City_ID": 4525
+              "ID": 24,
+              "NAME": "Tripoli",
+              "value": 1745.38,
+              "City_ID": 44,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Jalu",
-                "value": 184380,
-                "ID": 24,
-                "City_ID": 5890
+              "ID": 22,
+              "NAME": "Embu aggl.",
+              "value": 1554.74,
+              "City_ID": 41,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Nema",
-                "value": 176788,
-                "ID": 29,
-                "City_ID": 3325
+              "ID": 22,
+              "NAME": "Bomet aggl.",
+              "value": 1503.97,
+              "City_ID": 93,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Tinoulef",
-                "value": 172219,
-                "ID": 12,
-                "City_ID": 6944
+              "ID": 22,
+              "NAME": "Nairobi aggl.",
+              "value": 1340.26,
+              "City_ID": 8,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Mut",
-                "value": 171540,
-                "ID": 13,
-                "City_ID": 3261
+              "ID": 15,
+              "NAME": "Hawassa City",
+              "value": 1301.78,
+              "City_ID": 39,
+              "Color": "#32a674"
             },
             {
-                "NAME": "N'Guigmi",
-                "value": 171265,
-                "ID": 32,
-                "City_ID": 3069
+              "ID": 18,
+              "NAME": "Accra",
+              "value": 1197.69,
+              "City_ID": 13,
+              "Color": "#993484"
             },
             {
-                "NAME": "Fada",
-                "value": 169110,
-                "ID": 42,
-                "City_ID": 3248
+              "ID": 46,
+              "NAME": "Mbale [UGA]",
+              "value": 1065.58,
+              "City_ID": 36,
+              "Color": "#0f8fd9"
             },
             {
-                "NAME": "Arlit",
-                "value": 158495,
-                "ID": 32,
-                "City_ID": 1411
+              "ID": 45,
+              "NAME": "Dar es Salaam",
+              "value": 1065.11,
+              "City_ID": 9,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Tombouctou",
-                "value": 157475,
-                "ID": 27,
-                "City_ID": 1099
+              "ID": 33,
+              "NAME": "Uyo",
+              "value": 997.34,
+              "City_ID": 34,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Djanet",
-                "value": 147527,
-                "ID": 12,
-                "City_ID": 2631
+              "ID": 1,
+              "NAME": "Luanda",
+              "value": 964.85,
+              "City_ID": 6,
+              "Color": "#e1b400"
             },
             {
-                "NAME": "Siwa",
-                "value": 140107,
-                "ID": 13,
-                "City_ID": 3655
+              "ID": 12,
+              "NAME": "Alger",
+              "value": 952.76,
+              "City_ID": 16,
+              "Color": "#32a674"
             },
             {
-                "NAME": "In Salah",
-                "value": 135705,
-                "ID": 12,
-                "City_ID": 3270
+              "ID": 22,
+              "NAME": "Maua aggl.",
+              "value": 943.26,
+              "City_ID": 82,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Tidjikja",
-                "value": 134532,
-                "ID": 29,
-                "City_ID": 6698
+              "ID": 33,
+              "NAME": "Lagos",
+              "value": 937.93,
+              "City_ID": 2,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Kidal",
-                "value": 133542,
-                "ID": 27,
-                "City_ID": 2458
+              "ID": 46,
+              "NAME": "Kampala",
+              "value": 896.73,
+              "City_ID": 17,
+              "Color": "#0f8fd9"
             },
             {
-                "NAME": "Ghanzi",
-                "value": 131586,
-                "ID": 5,
-                "City_ID": 4835
+              "ID": 34,
+              "NAME": "Kigali",
+              "value": 863.08,
+              "City_ID": 37,
+              "Color": "#719e24"
             },
             {
-                "NAME": "GhYt",
-                "value": 128705,
-                "ID": 24,
-                "City_ID": 6747
+              "ID": 40,
+              "NAME": "Khartum",
+              "value": 810.99,
+              "City_ID": 10,
+              "Color": "#0f8fd9"
             },
             {
-                "NAME": "Keetmanshoop",
-                "value": 124473,
-                "ID": 31,
-                "City_ID": 3551
+              "ID": 28,
+              "NAME": "Cidade de Maputo",
+              "value": 805.87,
+              "City_ID": 28,
+              "Color": "#0b68af"
             },
             {
-                "NAME": "Agadez",
-                "value": 120787,
-                "ID": 32,
-                "City_ID": 587
+              "ID": 47,
+              "NAME": "Durban",
+              "value": 790.39,
+              "City_ID": 23,
+              "Color": "#e1b400"
             },
             {
-                "NAME": "Wadi Halfa",
-                "value": 109404,
-                "ID": 40,
-                "City_ID": 4669
+              "ID": 33,
+              "NAME": "Aba",
+              "value": 754.18,
+              "City_ID": 48,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Rundu",
-                "value": 106255,
-                "ID": 31,
-                "City_ID": 1020
+              "ID": 50,
+              "NAME": "Harare",
+              "value": 712.21,
+              "City_ID": 33,
+              "Color": "#993484"
             },
             {
-                "NAME": "Salal",
-                "value": 105908,
-                "ID": 42,
-                "City_ID": 5154
+              "ID": 33,
+              "NAME": "Nsukka",
+              "value": 698.6,
+              "City_ID": 54,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Hassi Messaoud",
-                "value": 104920,
-                "ID": 12,
-                "City_ID": 1256
+              "ID": 47,
+              "NAME": "Cape Town",
+              "value": 628.66,
+              "City_ID": 20,
+              "Color": "#e1b400"
             },
             {
-                "NAME": "Oure Cassoni camp",
-                "value": 103988,
-                "ID": 42,
-                "City_ID": 2067
+              "ID": 49,
+              "NAME": "Lusaka",
+              "value": 621.98,
+              "City_ID": 31,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Upington",
-                "value": 100702,
-                "ID": 47,
-                "City_ID": 1054
-            }]
+              "ID": 33,
+              "NAME": "Ibadan",
+              "value": 607.78,
+              "City_ID": 24,
+              "Color": "#df521e"
+            },
+            {
+              "ID": 18,
+              "NAME": "Kumasi",
+              "value": 554.62,
+              "City_ID": 26,
+              "Color": "#993484"
+            },
+            {
+              "ID": 15,
+              "NAME": "Addis Ababa City",
+              "value": 530.85,
+              "City_ID": 19,
+              "Color": "#32a674"
+            },
+            {
+              "ID": 26,
+              "NAME": "Casablanca",
+              "value": 527.05,
+              "City_ID": 22,
+              "Color": "#df521e"
+            },
+            {
+              "ID": 27,
+              "NAME": "Bamako",
+              "value": 499.32,
+              "City_ID": 27,
+              "Color": "#e1b400"
+            },
+            {
+              "ID": 22,
+              "NAME": "Meru aggl.",
+              "value": 498.65,
+              "City_ID": 136,
+              "Color": "#E73741"
+            },
+            {
+              "ID": 33,
+              "NAME": "Abuja",
+              "value": 488.85,
+              "City_ID": 43,
+              "Color": "#df521e"
+            },
+            {
+              "ID": 45,
+              "NAME": "Mbomai",
+              "value": 439.66,
+              "City_ID": 149,
+              "Color": "#df521e"
+            },
+            {
+              "ID": 22,
+              "NAME": "Kikima aggl.",
+              "value": 437.98,
+              "City_ID": 232,
+              "Color": "#E73741"
+            },
+            {
+              "ID": 33,
+              "NAME": "Benin City",
+              "value": 437.64,
+              "City_ID": 50,
+              "Color": "#df521e"
+            },
+            {
+              "ID": 22,
+              "NAME": "Kehancha aggl.",
+              "value": 431.23,
+              "City_ID": 292,
+              "Color": "#E73741"
+            },
+            {
+              "ID": 48,
+              "NAME": "Kinshasa",
+              "value": 429.58,
+              "City_ID": 5,
+              "Color": "#32a674"
+            },
+            {
+              "ID": 4,
+              "NAME": "Ouagadougou",
+              "value": 405.69,
+              "City_ID": 32,
+              "Color": "#719e24"
+            },
+            {
+              "ID": 13,
+              "NAME": "Alexandrie",
+              "value": 391.74,
+              "City_ID": 7,
+              "Color": "#719e24"
+            },
+            {
+              "ID": 7,
+              "NAME": "Abidjan",
+              "value": 391.35,
+              "City_ID": 12,
+              "Color": "#0f8fd9"
+            },
+            {
+              "ID": 22,
+              "NAME": "Kericho aggl.",
+              "value": 381.59,
+              "City_ID": 143,
+              "Color": "#E73741"
+            },
+            {
+              "ID": 47,
+              "NAME": "Soshanguve",
+              "value": 380.07,
+              "City_ID": 56,
+              "Color": "#e1b400"
+            },
+            {
+              "ID": 44,
+              "NAME": "Tunis",
+              "value": 376.07,
+              "City_ID": 30,
+              "Color": "#0b68af"
+            },
+            {
+              "ID": 33,
+              "NAME": "Port Harcourt",
+              "value": 368.01,
+              "City_ID": 45,
+              "Color": "#df521e"
+            },
+            {
+              "ID": 22,
+              "NAME": "Runyenjes aggl.",
+              "value": 355.98,
+              "City_ID": 182,
+              "Color": "#E73741"
+            }
+          ]
     },
     {
         "ID": 3,
@@ -813,226 +1080,355 @@ export const TREEMAP = [
         "description": "Stick to 50 sinceit can give a coherent impression how the histogram look like. And already with 50 it’s well distributed like following. Stick to 50 sinceit can give a coherent impression how the histogram look like. And already with 50 it’s well distributed like following. Over the past 60 years, urbanisation and cities have fundamentally transformed the social, economic and political geography of West Africa. The number of people living in cities",
         "data":[
             {
-                "NAME": "al-Jawf",
-                "value": 473008,
-                "ID": 24,
-                "City_ID": 1762
+              "ID": 22,
+              "NAME": "Kisumu aggl.",
+              "value": 5862.59,
+              "City_ID": 11,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Faya",
-                "value": 370216,
-                "ID": 42,
-                "City_ID": 1540
+              "ID": 22,
+              "NAME": "Kisii aggl.",
+              "value": 5000.77,
+              "City_ID": 21,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Bordj Badji Mokhtar",
-                "value": 323371,
-                "ID": 12,
-                "City_ID": 3797
+              "ID": 33,
+              "NAME": "Onitsha",
+              "value": 2866.69,
+              "City_ID": 3,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Djanet",
-                "value": 147527,
-                "ID": 12,
-                "City_ID": 2631
+              "ID": 47,
+              "NAME": "Johannesburg",
+              "value": 2214.06,
+              "City_ID": 4,
+              "Color": "#e1b400"
             },
             {
-                "NAME": "Siwa",
-                "value": 140107,
-                "ID": 13,
-                "City_ID": 3655
+              "ID": 15,
+              "NAME": "Sodo Town",
+              "value": 1929.53,
+              "City_ID": 35,
+              "Color": "#32a674"
             },
             {
-                "NAME": "In Salah",
-                "value": 135705,
-                "ID": 12,
-                "City_ID": 3270
+              "ID": 8,
+              "NAME": "Bafoussam",
+              "value": 1888.53,
+              "City_ID": 60,
+              "Color": "#0b68af"
             },
             {
-                "NAME": "Tidjikja",
-                "value": 134532,
-                "ID": 29,
-                "City_ID": 6698
+              "ID": 13,
+              "NAME": "al-Qahira",
+              "value": 1774.41,
+              "City_ID": 1,
+              "Color": "#719e24"
             },
             {
-                "NAME": "Kidal",
-                "value": 133542,
-                "ID": 27,
-                "City_ID": 2458
+              "ID": 24,
+              "NAME": "Tripoli",
+              "value": 1745.38,
+              "City_ID": 44,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Ghanzi",
-                "value": 131586,
-                "ID": 5,
-                "City_ID": 4835
+              "ID": 22,
+              "NAME": "Embu aggl.",
+              "value": 1554.74,
+              "City_ID": 41,
+              "Color": "#E73741"
             },
             {
-                "NAME": "GhYt",
-                "value": 128705,
-                "ID": 24,
-                "City_ID": 6747
+              "ID": 22,
+              "NAME": "Bomet aggl.",
+              "value": 1503.97,
+              "City_ID": 93,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Keetmanshoop",
-                "value": 124473,
-                "ID": 31,
-                "City_ID": 3551
+              "ID": 22,
+              "NAME": "Nairobi aggl.",
+              "value": 1340.26,
+              "City_ID": 8,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Agadez",
-                "value": 120787,
-                "ID": 32,
-                "City_ID": 587
+              "ID": 15,
+              "NAME": "Hawassa City",
+              "value": 1301.78,
+              "City_ID": 39,
+              "Color": "#32a674"
             },
             {
-                "NAME": "Wadi Halfa",
-                "value": 109404,
-                "ID": 40,
-                "City_ID": 4669
+              "ID": 18,
+              "NAME": "Accra",
+              "value": 1197.69,
+              "City_ID": 13,
+              "Color": "#993484"
             },
             {
-                "NAME": "Rundu",
-                "value": 106255,
-                "ID": 31,
-                "City_ID": 1020
+              "ID": 46,
+              "NAME": "Mbale [UGA]",
+              "value": 1065.58,
+              "City_ID": 36,
+              "Color": "#0f8fd9"
             },
             {
-                "NAME": "Salal",
-                "value": 105908,
-                "ID": 42,
-                "City_ID": 5154
+              "ID": 45,
+              "NAME": "Dar es Salaam",
+              "value": 1065.11,
+              "City_ID": 9,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Hassi Messaoud",
-                "value": 104920,
-                "ID": 12,
-                "City_ID": 1256
+              "ID": 33,
+              "NAME": "Uyo",
+              "value": 997.34,
+              "City_ID": 34,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Oure Cassoni camp",
-                "value": 103988,
-                "ID": 42,
-                "City_ID": 2067
+              "ID": 1,
+              "NAME": "Luanda",
+              "value": 964.85,
+              "City_ID": 6,
+              "Color": "#e1b400"
             },
             {
-                "NAME": "Upington",
-                "value": 100702,
-                "ID": 47,
-                "City_ID": 1054
+              "ID": 12,
+              "NAME": "Alger",
+              "value": 952.76,
+              "City_ID": 16,
+              "Color": "#32a674"
             },
             {
-                "NAME": "EsSemara",
-                "value": 100333,
-                "ID": 26,
-                "City_ID": 1266
+              "ID": 22,
+              "NAME": "Maua aggl.",
+              "value": 943.26,
+              "City_ID": 82,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Maun",
-                "value": 94530,
-                "ID": 5,
-                "City_ID": 1112
+              "ID": 33,
+              "NAME": "Lagos",
+              "value": 937.93,
+              "City_ID": 2,
+              "Color": "#df521e"
             },
             {
-                "NAME": "El Menea",
-                "value": 94222,
-                "ID": 12,
-                "City_ID": 1097
+              "ID": 46,
+              "NAME": "Kampala",
+              "value": 896.73,
+              "City_ID": 17,
+              "Color": "#0f8fd9"
             },
             {
-                "NAME": "Nalut",
-                "value": 92596,
-                "ID": 24,
-                "City_ID": 4807
+              "ID": 34,
+              "NAME": "Kigali",
+              "value": 863.08,
+              "City_ID": 37,
+              "Color": "#719e24"
             },
             {
-                "NAME": "Waddan",
-                "value": 86984,
-                "ID": 24,
-                "City_ID": 6195
+              "ID": 40,
+              "NAME": "Khartum",
+              "value": 810.99,
+              "City_ID": 10,
+              "Color": "#0f8fd9"
             },
             {
-                "NAME": "Beni Abbes",
-                "value": 86700,
-                "ID": 12,
-                "City_ID": 6172
+              "ID": 28,
+              "NAME": "Cidade de Maputo",
+              "value": 805.87,
+              "City_ID": 28,
+              "Color": "#0b68af"
             },
             {
-                "NAME": "Raga",
-                "value": 85504,
-                "ID": 35,
-                "City_ID": 1725
+              "ID": 47,
+              "NAME": "Durban",
+              "value": 790.39,
+              "City_ID": 23,
+              "Color": "#e1b400"
             },
             {
-                "NAME": "Gobabis",
-                "value": 85027,
-                "ID": 31,
-                "City_ID": 3822
+              "ID": 33,
+              "NAME": "Aba",
+              "value": 754.18,
+              "City_ID": 48,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Akokan",
-                "value": 83556,
-                "ID": 32,
-                "City_ID": 2754
+              "ID": 50,
+              "NAME": "Harare",
+              "value": 712.21,
+              "City_ID": 33,
+              "Color": "#993484"
             },
             {
-                "NAME": "Awbari",
-                "value": 80899,
-                "ID": 24,
-                "City_ID": 3296
+              "ID": 33,
+              "NAME": "Nsukka",
+              "value": 698.6,
+              "City_ID": 54,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Adrar",
-                "value": 80494,
-                "ID": 12,
-                "City_ID": 987
+              "ID": 47,
+              "NAME": "Cape Town",
+              "value": 628.66,
+              "City_ID": 20,
+              "Color": "#e1b400"
             },
             {
-                "NAME": "Vredendal North",
-                "value": 77923,
-                "ID": 47,
-                "City_ID": 7201
+              "ID": 49,
+              "NAME": "Lusaka",
+              "value": 621.98,
+              "City_ID": 31,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Abu Hamad",
-                "value": 77788,
-                "ID": 40,
-                "City_ID": 5622
+              "ID": 33,
+              "NAME": "Ibadan",
+              "value": 607.78,
+              "City_ID": 24,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Mariental",
-                "value": 76581,
-                "ID": 31,
-                "City_ID": 5780
+              "ID": 18,
+              "NAME": "Kumasi",
+              "value": 554.62,
+              "City_ID": 26,
+              "Color": "#993484"
             },
             {
-                "NAME": "al-Shallatin",
-                "value": 76336,
-                "ID": 13,
-                "City_ID": 5685
+              "ID": 15,
+              "NAME": "Addis Ababa City",
+              "value": 530.85,
+              "City_ID": 19,
+              "Color": "#32a674"
             },
             {
-                "NAME": "al-Bawiti",
-                "value": 74980,
-                "ID": 13,
-                "City_ID": 3703
+              "ID": 26,
+              "NAME": "Casablanca",
+              "value": 527.05,
+              "City_ID": 22,
+              "Color": "#df521e"
             },
             {
-                "NAME": "Zagora",
-                "value": 74864,
-                "ID": 26,
-                "City_ID": 1887
+              "ID": 27,
+              "NAME": "Bamako",
+              "value": 499.32,
+              "City_ID": 27,
+              "Color": "#e1b400"
             },
             {
-                "NAME": "Mavinga",
-                "value": 74856,
-                "ID": 1,
-                "City_ID": 6497
+              "ID": 22,
+              "NAME": "Meru aggl.",
+              "value": 498.65,
+              "City_ID": 136,
+              "Color": "#E73741"
             },
             {
-                "NAME": "Mellit",
-                "value": 74158,
-                "ID": 40,
-                "City_ID": 1407
-            }]
+              "ID": 33,
+              "NAME": "Abuja",
+              "value": 488.85,
+              "City_ID": 43,
+              "Color": "#df521e"
+            },
+            {
+              "ID": 45,
+              "NAME": "Mbomai",
+              "value": 439.66,
+              "City_ID": 149,
+              "Color": "#df521e"
+            },
+            {
+              "ID": 22,
+              "NAME": "Kikima aggl.",
+              "value": 437.98,
+              "City_ID": 232,
+              "Color": "#E73741"
+            },
+            {
+              "ID": 33,
+              "NAME": "Benin City",
+              "value": 437.64,
+              "City_ID": 50,
+              "Color": "#df521e"
+            },
+            {
+              "ID": 22,
+              "NAME": "Kehancha aggl.",
+              "value": 431.23,
+              "City_ID": 292,
+              "Color": "#E73741"
+            },
+            {
+              "ID": 48,
+              "NAME": "Kinshasa",
+              "value": 429.58,
+              "City_ID": 5,
+              "Color": "#32a674"
+            },
+            {
+              "ID": 4,
+              "NAME": "Ouagadougou",
+              "value": 405.69,
+              "City_ID": 32,
+              "Color": "#719e24"
+            },
+            {
+              "ID": 13,
+              "NAME": "Alexandrie",
+              "value": 391.74,
+              "City_ID": 7,
+              "Color": "#719e24"
+            },
+            {
+              "ID": 7,
+              "NAME": "Abidjan",
+              "value": 391.35,
+              "City_ID": 12,
+              "Color": "#0f8fd9"
+            },
+            {
+              "ID": 22,
+              "NAME": "Kericho aggl.",
+              "value": 381.59,
+              "City_ID": 143,
+              "Color": "#E73741"
+            },
+            {
+              "ID": 47,
+              "NAME": "Soshanguve",
+              "value": 380.07,
+              "City_ID": 56,
+              "Color": "#e1b400"
+            },
+            {
+              "ID": 44,
+              "NAME": "Tunis",
+              "value": 376.07,
+              "City_ID": 30,
+              "Color": "#0b68af"
+            },
+            {
+              "ID": 33,
+              "NAME": "Port Harcourt",
+              "value": 368.01,
+              "City_ID": 45,
+              "Color": "#df521e"
+            },
+            {
+              "ID": 22,
+              "NAME": "Runyenjes aggl.",
+              "value": 355.98,
+              "City_ID": 182,
+              "Color": "#E73741"
+            }
+          ]
     },
 ];

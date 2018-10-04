@@ -7,7 +7,7 @@ import { TREEMAP } from '../shared/treemap';
 import { COUNTRYINFO } from '../shared/info_country';
 import { TREEMAP_BUILDUP } from '../shared/treemap_buildup'
 import { AFRICA_ONE } from '../shared/geo_shades';
-// import { AGGLOMERATIONINFO } from '../shared/info_agglomeration';
+import { AGGLOMERATIONINFO } from '../shared/info_agglomeration';
 import { AFRICA_CONTINENT } from '../shared/geo_country';
 import { AGGLOS } from '../shared/geo_agglomeration';
 import { }from 'react-fontawesome';
@@ -25,7 +25,7 @@ class MainWrapper extends Component {
 			geo_shades: AFRICA_ONE,
 			geo_country: AFRICA_CONTINENT,
 			geo_agglomeration: AGGLOS,
-			// info_agglomeration: AGGLOMERATIONINFO,
+			info_agglomeration: AGGLOMERATIONINFO,
 			treemap: TREEMAP,
 			treemap_buildup: TREEMAP_BUILDUP
 		};
@@ -33,7 +33,7 @@ class MainWrapper extends Component {
 	}
     
 	render() {
-
+		console.log(AGGLOMERATIONINFO[7000]);
 		return (   
 			<div>
 				<Header />

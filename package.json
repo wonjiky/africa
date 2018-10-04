@@ -79,7 +79,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "predeploy": "npm run build",
-    "fix-memory-limit": "cross-env LIMIT=2048 increase-memory-limit",
+    "fix-memory-limit": "cross-env LIMIT=8192 increase-memory-limit",
     "deploy": "gh-pages -d build"
   },
   "jest": {

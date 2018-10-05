@@ -43,7 +43,7 @@ class ExploreContent extends Component {
                     <Col md={3} className="mixers">
                         <RenderFilter/>   
                     </Col>
-                    <Col md={9} className="exp-content">ff
+                    <Col md={9} className="exp-content">
                         <Col md={9} mdOffset={1} className="searchPadding">
                             <Select
                                 placeholder="Select Country"

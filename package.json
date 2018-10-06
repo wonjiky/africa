@@ -75,7 +75,7 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start": "node scripts/start.js",
+    "start": "node --max_old_space_size=8192 scripts/start.js",
     "build": "node --max_old_space_size=8192 scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "predeploy": "npm run build",

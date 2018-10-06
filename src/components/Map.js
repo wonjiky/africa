@@ -40,6 +40,7 @@ class LeafletMap extends Component {
 		this.agglos_pointToLayer = this.agglos_pointToLayer.bind(this);
 		this.agglos_cityFilter = this.agglos_cityFilter.bind(this);
 		this.placeHolder_filter = this.placeHolder_filter.bind(this);
+		this.treemap_filter = this.treemap_filter.bind(this);
 		this.hoverStyle = this.hoverStyle.bind(this);
 		this.selectedStyle = this.selectedStyle.bind(this);
 		this.treemap_pointToLayer = this.treemap_pointToLayer.bind(this);
@@ -91,7 +92,7 @@ class LeafletMap extends Component {
 			let prevCountryValue = prevProps.selectedCountry;
 			let currAgglosValue = this.props.selectedAgglos;
 			let prevAgglosValue = prevProps.selectedAgglos;
-			
+
 			this.mapOverlay = L.geoJson(this.props.africaContinent, {
 				style: () => {return {color: 'transparent'}},
 				onEachFeature: (feature, layer) => {
@@ -118,7 +119,7 @@ class LeafletMap extends Component {
 									e.target.setStyle(this.defaultAgglosStyle())
 								})
 								layer.on('change', (e) => {
-									
+
 								})
 								layer.on('click', (e) => {
 									console.log(layer);
@@ -165,19 +166,21 @@ class LeafletMap extends Component {
 				// console.log(agglosLayer.feature.properties.cityID);
 				// agglosLayer.fire('change');
 			}
-			
-		// If Home Wrapper is Mounted :	
+
+		// If Home Wrapper is Mounted :
 		} else if(this.props.homeWrapperIsMounted) {
-			if(this.props.treemapFilter === 'treemap' && this.props.treemapValue === 0){
+			if(this.props.treemapFilter === 'treemap'){ // && this.props.treemapValue === 0){
+				if(this.treemap){this.treemap.clearLayers(this.treemap);}
 				this.treemap = L.geoJson(this.props.treemap_buildup, {
+					filter: this.treemap_filter,
 					onEachFeature: this.treemap_onEachFeature,
 					pointToLayer: this.treemap_pointToLayer})
-				this.treemap.addTo(this.state.map);			
+				this.state.map.addLayer(this.treemap);
 			}
-			
+
 			let treemapcurrValue = this.props.treemapSelect;
 			let treemapprevValue = prevProps.treemapSelect;
-			
+
 			if (treemapcurrValue){
 				this.currLayer = this.treemap.getLayer(treemapcurrValue);
 				this.prevLayer = this.treemap.getLayer(treemapprevValue);
@@ -203,7 +206,7 @@ class LeafletMap extends Component {
 		})
 
 		layer.on('click', (e) => {
-			e.target.setStyle(this.treemapHighlightStyle())
+			e.target.setStyle(this.treemapHighlightStyle(feature))
 		})
 
 		let popupContent = "<table class='tooltip-table'>";
@@ -211,7 +214,7 @@ class LeafletMap extends Component {
 		popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.value + "</td></tr>";
 		popupContent += "</table>";
 		layer.bindPopup(popupContent).openPopup();
-		layer._leaflet_id = feature.properties.City_ID;
+		//layer._leaflet_id = feature.properties.City_ID;
 	}
 
 	treemapHighlightStyle(feature){
@@ -243,6 +246,12 @@ class LeafletMap extends Component {
 
 	placeHolder_filter(feature) {
 		if (feature.properties.Year === "a") {
+			return true
+		}
+	}
+
+	treemap_filter(feature) {
+		if (feature.properties.treemap_ID === this.props.treemapValue ) {
 			return true
 		}
 	}
@@ -304,8 +313,8 @@ class LeafletMap extends Component {
 			const a = { value:cityID, label:cityName}
 			this.props.sendAgglosValueToContent(a);
 		})
-		// layer._leaflet_id = feature.properties.ID;
-		
+		layer._leaflet_id = feature.properties.ID;
+
 	}
 
 	render() {

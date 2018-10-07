@@ -5,7 +5,7 @@ import '../shared/leaflet.snogylop.js';
 import "../../node_modules/leaflet/dist/leaflet.css";
 
 const southWest = L.latLng(-48.739134, -29.058270);
-const northEast = L.latLng(42.157281, 51.089421);
+const northEast = L.latLng(42.157281, 52);
 const mybounds = L.latLngBounds(southWest, northEast);
 
 let config = {};

@@ -5,7 +5,6 @@ import RenderList from './RenderList';
 import ChevronRight from '@material-ui/icons/ChevronRight';
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
 import Button from '@material-ui/core/Button';
-import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 class HomeContent extends Component {
 

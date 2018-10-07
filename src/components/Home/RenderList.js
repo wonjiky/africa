@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { Grid, Col } from 'react-flexbox-grid';
 import MaterialIcon from 'material-icons-react';
-import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Link, Events, scroller } from 'react-scroll'
 
 
 class RenderList extends Component {
 
     componentDidMount() {
         Events.scrollEvent.register('begin', function() {
-            // console.log("begin", arguments);
+            console.log("begin", arguments);
         });
 
         Events.scrollEvent.register('end', function() {
-            // console.log("end", arguments);
+            console.log("end", arguments);
         });
     }
     
@@ -25,19 +25,22 @@ class RenderList extends Component {
         })
       } 
 
-
     list(stories, treemap, selectedContent, filter, overview){
         return(
             <section>
                 <ul className="list-unstyled">
                 {/* <i className="material-icons" id="icon-size">public</i> */}
-                    <h6> Africapolis</h6>
-                    <li><Link containerId="scroll-container" activeClass="selectedContent" to="overview" spy={true} smooth={true} duration={500}>
+                    <h6>What is Africapolis</h6>
+                    <li>
+                        <Link onClick={() => this.props.contentSelect('overview')} containerId="scroll-container" activeClass="selectedContent" to="overview" spy={true} smooth={true} duration={500}>
                         <MaterialIcon icon="arrow_forward" size={15} color='#585858' />{overview.title}</Link>
                     </li>
+                    <hr />    
+                    <h6>Engaging Narratives</h6>
                     {stories.map((story, i) => (
-                        <li>
-                            <Link containerId="scroll-container" activeClass="selectedContent" to={'story-'+i}  spy={true} smooth={true} duration={500}>
+                        <li key={'story-'+i}>
+                        {/* this.props.contentSelect(story)}> */}
+                            <Link onClick={() => this.props.contentSelect(story)} containerId="scroll-container" activeClass="selectedContent" to={'story-'+i}  spy={true} smooth={true} duration={500}>
                                 <MaterialIcon icon="arrow_forward" size={15} color='#585858' />
                                 {story.title}
                             </Link>
@@ -89,12 +92,6 @@ class RenderList extends Component {
         )
     }
 
-    abc(){
-        <div>
-            hi
-        </div>
-    }
-
     render(){
         return(
             <Grid fluid id="mixer">
@@ -107,7 +104,6 @@ class RenderList extends Component {
                             this.props.overview)}
                         <hr/>
                         {this.renderWhatsNew(this.props.narratives)}
-                        {this.abc()}
                     </Col>
                     <Col md={12} className="mixer-download">
                             <img src="assets/images/swac-oecd.png" width="100%"

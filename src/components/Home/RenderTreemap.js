@@ -15,8 +15,7 @@ class RenderTreemap extends Component {
 			tooltip: true,
       tooltipConfig: {body: d=>d.value+" Kilometre Square",anchor:"top center"},
       legend: false,
-      shapeConfig: {fill:d => d.Color},
-			label: d => d.NAME
+      shapeConfig: {fill:d => d.Color,labelConfig:{fontResize:false,fontSize:12,width:100,height:3000,padding:3,overflow:10}}
 		};
 		return(
       <Row className="explore-content-row">

@@ -197,7 +197,11 @@ class LeafletMap extends Component {
 	}
 
 	treemap_onEachFeature(feature,layer){
-		layer.on('mouseover', (e) => {
+		if(feature.geometry.type==="MultiPolygon"){
+			layer.bringToFront();
+			layer.setStyle({fillColor: feature.properties.Color,color:feature.properties.Color})
+		}
+		else {layer.on('mouseover', (e) => {
 			e.target.setStyle(this.treemapHighlightStyle(feature))
 		})
 
@@ -216,6 +220,7 @@ class LeafletMap extends Component {
 		layer.bindPopup(popupContent).openPopup();
 		//layer._leaflet_id = feature.properties.City_ID;
 	}
+}
 
 	treemapHighlightStyle(feature){
 		return({
@@ -240,9 +245,12 @@ class LeafletMap extends Component {
 	}
 
 	treemap_pointToLayer(feature, latlng){
+		if(feature.geometry.type==="MultiPolygon"){
+		feature.setstyle({fillColor: feature.properties.Color})
+		} else {
 		const geojsonMarker = this.treemapAgglosStyle(feature);
 		return L.circleMarker(latlng, geojsonMarker);
-	}
+	}}
 
 	placeHolder_filter(feature) {
 		if (feature.properties.Year === "a") {

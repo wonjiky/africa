@@ -69,8 +69,8 @@ html, body{
   height: 100vh;
 }
 
-::-webkit-scrollbar { 
-  display: none; 
+::-webkit-scrollbar {
+  display: none;
 }
 
 .no-margin{
@@ -111,7 +111,7 @@ hr{
   height: calc(100vh - 86px);
 }
 
-.col-md-1, .col-md-2, .col-md-3, .col-md-4, 
+.col-md-1, .col-md-2, .col-md-3, .col-md-4,
 .col-md-5, .col-md-6, .col-md-7, .col-md-8,
 .col-md-9, .col-md-10, .col-md-11, .col-md-12{
   transition: all 400ms ease-in-out;
@@ -146,10 +146,10 @@ hr{
   margin-top:42px;
 }
 
-/* .navbar-dark .navbar-nav .nav-link:focus, 
+/* .navbar-dark .navbar-nav .nav-link:focus,
 .navbar-dark .navbar-nav .nav-link:hover {
   color: white !important;
-  
+
 } */
 
 /*@@@@@@@@@@ MAP @@@@@@@@@@*/
@@ -174,7 +174,7 @@ hr{
   height : inherit;
   color :white;
   padding:0;
-} 
+}
 
 /*@@@@@@@@@@ MIXER @@@@@@@@@@*/
 
@@ -483,7 +483,7 @@ height:100%;
   font-weight:300;
 }
 
-.narrative-wrapper h2, 
+.narrative-wrapper h2,
 .overview-wrapper h2{
   font-family: 'Oswald', sans-serif;
   font-size: 2.5rem;
@@ -511,4 +511,18 @@ height:100%;
 #viz{
   height: 500px;
   /* width: 500px; */
+}
+
+/*@@@@@@@@@@ D3-plus @@@@@@@@@@*/
+
+.tooltip-table {
+  width: 100%;
+}
+
+.tooltip-table .data {
+  text-align: right;
+}
+
+.tooltip-footer {
+  opacity: 0.5;
 }

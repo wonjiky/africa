@@ -198,8 +198,7 @@ class LeafletMap extends Component {
 
 	treemap_onEachFeature(feature,layer){
 		if(feature.geometry.type==="MultiPolygon"){
-			layer.bringToFront();
-			layer.setStyle({fillColor: feature.properties.Color,color:feature.properties.Color})
+			layer.setStyle({fillColor: feature.properties.Color,color:feature.properties.Color,weight:0.5})
 		}
 		else {layer.on('mouseover', (e) => {
 			e.target.setStyle(this.treemapHighlightStyle(feature))

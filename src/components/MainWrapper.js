@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import HomeWrapper from './Home/HomeWrapper';
 import ExploreWrapper from './Explore/ExploreWrapper';
 import Header from './Header';
-import { NARRATIVES } from '../shared/narratives';
+import { NARRATIVES, OVERVIEW } from '../shared/narratives';
 import { TREEMAP } from '../shared/treemap';
 import { COUNTRYINFO } from '../shared/info_country';
 import { TREEMAP_BUILDUP } from '../shared/treemap_buildup'
@@ -21,6 +21,7 @@ class MainWrapper extends Component {
 		super(props);
 		this.state = {
 			narratives: NARRATIVES,
+			overview: OVERVIEW,
 			countryData: COUNTRYINFO,
 			geo_shades: AFRICA_ONE,
 			geo_country: AFRICA_CONTINENT,
@@ -33,13 +34,13 @@ class MainWrapper extends Component {
 	}
     
 	render() {
-		console.log(AGGLOMERATIONINFO[7000]);
 		return (   
 			<div>
 				<Header />
 				<Switch>
 					<Route path="/home" component={() => <HomeWrapper 
 							narratives={this.state.narratives}
+							overview={this.state.overview}
 							treemap={this.state.treemap}
 							africaOne={this.state.geo_shades}
 							africaContinent={this.state.geo_country}

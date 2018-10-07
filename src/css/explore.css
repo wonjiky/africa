@@ -55,7 +55,7 @@ p{
   position: relative;
   margin:0px;
   height: calc(100vh - 86px);
-  /* z-index:400; */
+  z-index:400;
   box-shadow: 1px 4px 10px rgb(0,0,0,0.3);
 }
 
@@ -222,12 +222,6 @@ padding: 30px !important;
   color:#E8AE40
 }
 
-.countryHistogram-Wrapper{
-  /* border-right: 1px solid #d6d6d6; */
-}
-
-.cityHistogram-Wrapper{
-}
 
 .vr{
   /* border-left:1px solid #000;

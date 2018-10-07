@@ -5,6 +5,7 @@ import RenderList from './RenderList';
 import ChevronRight from '@material-ui/icons/ChevronRight';
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
 import Button from '@material-ui/core/Button';
+import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 class HomeContent extends Component {
 
@@ -20,7 +21,7 @@ class HomeContent extends Component {
             </div>
         )
     }
-    
+
     valueFromTreemap(e){
         this.props.valueFromTreemap(e);
     }
@@ -34,7 +35,8 @@ class HomeContent extends Component {
             <Grid fluid className="content">
                 <Row className="content-row">
                     <Col md={3} className="mixers">
-                        <RenderList 
+                        <RenderList
+                            overview={this.props.overview}
                             contentSelect={this.contentSelect.bind(this)} 
                             narratives={this.props.narratives}
                             treemap={this.props.treemap}
@@ -42,12 +44,15 @@ class HomeContent extends Component {
                             contentFilter={this.props.contentFilter} 
                         />                
                     </Col>
-                    <Col md={9} className="homeContent">
+                    <Col md={9} className="homeContent" id="scroll-container">
                         <RenderContent 
+                            //Sending
+                            overview={this.props.overview}
                             narratives={this.props.narratives}
                             treemap={this.props.treemap} 
                             selectedContent={this.props.selectedContent}
                             contentFilter={this.props.contentFilter} 
+                            //Receiving
                             valueFromTreemap={this.valueFromTreemap.bind(this)}
                         />
                     </Col>

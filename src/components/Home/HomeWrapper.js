@@ -57,30 +57,29 @@ class HomeWrapper extends Component {
         const story = this.props.narratives.map((narrative) => {
             return(narrative);
         })
-        
         return(
             <Grid fluid className="full-height">
                 <Row className="full-height">
                     <Col md={4} className="no-margin">
                     {/* {this._mapExpand(this.state.mapToggle)} */}
                         <Map 
+                            //Check Home or Explore
+                            homeWrapperIsMounted={this.state.homeWrapperIsMounted}
                             //Receving
                             africaOne={this.props.africaOne}
                             africaContinent={this.props.africaContinent}
                             agglosGeo={this.props.agglosGeo}
                             treemap_buildup={this.props.treemap_buildup}
                             sendValueToContent={this.handleValueFromMap}
-                            
                             //Sending
                             treemapValue={this.state.selectedContent}                            
-                            homeWrapperIsMounted={this.state.homeWrapperIsMounted}
                             treemapFilter={this.state.contentFilter}
                             treemapSelect={this.state.treemapSelect}
-
                         />
                     </Col>
                     <Col md={8} className="no-margin">
                         <HomeContent 
+                            overview={this.props.overview}
                             narratives={story} 
                             treemap={this.props.treemap}
                             contentSelect={this.handleValueFromMixer}

@@ -7,6 +7,11 @@
   cursor: pointer;
 }
 
+.hi{
+  width: 800px;
+  height:800px;
+}
+
 colors{
 /* Chart Background */
 color: #DDE9EF;
@@ -66,7 +71,7 @@ address{
 html, body{
   font-family: 'Merriweather', serif !important;
   overflow: hidden;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 ::-webkit-scrollbar {
@@ -155,10 +160,7 @@ hr{
 /*@@@@@@@@@@ MAP @@@@@@@@@@*/
 
 .homeContent{
-    /* box-shadow: 1px 4px 10px rgb(0,0,0,1); */
-    /* background-color:black; */
-    /* height:500px; */
-
+    padding:0;
     overflow-y: scroll;
 }
 
@@ -435,7 +437,7 @@ button:focus{
   bottom:0px;
 }
 
-#clicked{
+.selectedContent{
   font-weight:600;
 }
 
@@ -443,8 +445,6 @@ button:focus{
 
 .narrative-wrapper{
   display : flex;
-  /* justify-content : center; */
-  /* align-items : center; */
   color: #2d2d2d;
   height: inherit;
   letter-spacing: 0px;
@@ -455,25 +455,46 @@ button:focus{
 }
 
 .treemap{
-  z-index:9999;
+  z-index:100;
 }
 
 .renderContentWrapper{
-height:100%;
-
-}
-.overview-wrapper{
-  display : flex;
-  justify-content : center;
+  display: flex;
   height:100%;
-  align-items : center;
+}
+
+.content-wrapper{
+  display : flex;
+  height:100%;
+  /* overflow:auto; */
+  flex-direction: column;
   color: #2d2d2d;
   height: inherit;
   letter-spacing: 0px;
   font-size: 13px;
   font-weight:300;
-  /* padding: 20px; */
   line-height:23px;
+}
+
+.content-narratives{
+  padding-top: 100px;
+}
+
+.content-wrapper ul{
+  padding: 0px;
+}
+.content-overview{
+  display:flex;
+  flex-direction: column;
+  justify-content : center;
+  min-height:100%;
+}
+
+.hehe{
+  display:flex;
+  flex-direction: column;
+  padding-top: 100px;
+  min-height:100%;
 }
 
 #n_h6{
@@ -484,7 +505,7 @@ height:100%;
 }
 
 .narrative-wrapper h2,
-.overview-wrapper h2{
+.content-wrapper h2{
   font-family: 'Oswald', sans-serif;
   font-size: 2.5rem;
   text-transform: uppercase;
@@ -492,7 +513,7 @@ height:100%;
   color: #313131;
 }
 
-.narrative-wrapper h4{
+.content-wrapper h4{
   font-family: 'Merriweather', sans-serif;
   font-size: 1rem;
   margin-bottom:30px;

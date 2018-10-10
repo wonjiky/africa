@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Col } from 'react-flexbox-grid';
 import RenderTreemap from './RenderTreemap';
+import { Events } from 'react-scroll'
 
 class RenderContent extends Component{
 
-    renderContent(contentID, filter, narratives, treemaps, overview){
-
+    renderContent(visibility, filter, narratives, treemaps, overview, treemapID){
         if(filter === 'overview'){
             return(
                 <Col md={6} mdOffset={2} id="scroll-container" className="content-wrapper">
@@ -16,7 +16,7 @@ class RenderContent extends Component{
                     </div>
                 </Col>
             )
-        }else if(filter === 'narrative' && filter !== 'treemap' || 'overview'){
+        }else if(filter === 'narrative' && filter !== 'treemap' && filter !== 'overview'){
             return(
                 <Col md={6} mdOffset={2} id="scroll-container" className="content-wrapper">
                     <ul>
@@ -32,16 +32,33 @@ class RenderContent extends Component{
                     {/* <RenderTreemap data={data} receiveValue={this.receiveValue.bind(this)}/> */}
                 </Col>
             )
-        }else if(filter === 'treemap' && filter !== 'narrative' || 'overview'){
-            const treemapList = treemaps.find(t => t.ID === contentID);
-            const data = treemapList.data;
+        }else if(filter === 'treemap' && filter !== 'narrative' && filter !== 'overview'){
+            const population = treemaps[0];
+            const buildup = treemaps[1];
+            const density = treemaps[2];
+            const voronoi = treemaps[3];
             return(
-                <RenderTreemap
-                    data={data}
-                    receiveValue={this.receiveValue.bind(this)}
-                />
+                <div>
+                    <RenderTreemap
+                        data={population}
+                        receiveValue={this.receiveValue.bind(this)}
+                    />
+                    <RenderTreemap
+                        data={buildup}
+                        receiveValue={this.receiveValue.bind(this)}
+                    /> 
+                    <RenderTreemap
+                        data={density}
+                        receiveValue={this.receiveValue.bind(this)}
+                    />
+                    <RenderTreemap
+                        data={voronoi}
+                        receiveValue={this.receiveValue.bind(this)}
+                    /> 
+                </div>
             )
         }
+        
 
         // if(storyList.ID === 0 && filter === 'narrative'){
         //     return(
@@ -83,6 +100,11 @@ class RenderContent extends Component{
         // }
     }
 
+    componentWillUnmount() {
+        Events.scrollEvent.remove('begin');
+        Events.scrollEvent.remove('end');
+      }
+
     receiveValue(e){
         this.props.valueFromTreemap(e);
     }
@@ -103,11 +125,12 @@ class RenderContent extends Component{
         return(
             <div className="renderContentWrapper">
                 {this.renderContent(
-                    this.props.selectedContent, 
+                    this.props.visibility,
                     this.props.contentFilter, 
                     this.props.narratives, 
                     this.props.treemap,
-                    this.props.overview
+                    this.props.overview,
+                    this.props.selectedContent
                     )}
             </div>
         )

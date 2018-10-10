@@ -8,11 +8,11 @@ class RenderList extends Component {
 
     componentDidMount() {
         Events.scrollEvent.register('begin', function() {
-            console.log("begin", arguments);
+            // console.log("begin", arguments);
         });
 
         Events.scrollEvent.register('end', function() {
-            console.log("end", arguments);
+            // console.log("end", arguments);
         });
     }
     
@@ -24,6 +24,10 @@ class RenderList extends Component {
           smooth: 'easeInOutQuart'
         })
       } 
+    
+    handleSetActive(e){
+        console.log(e)
+    }
 
     list(stories, treemap, selectedContent, filter, overview){
         return(
@@ -40,7 +44,7 @@ class RenderList extends Component {
                     {stories.map((story, i) => (
                         <li key={'story-'+i}>
                         {/* this.props.contentSelect(story)}> */}
-                            <Link onClick={() => this.props.contentSelect(story)} containerId="scroll-container" activeClass="selectedContent" to={'story-'+i}  spy={true} smooth={true} duration={500}>
+                            <Link onClick={() => this.props.contentSelect(story)} onSetActive={this.handleSetActive} containerId="scroll-container" activeClass="selectedContent" to={'story-'+i} spy={true} smooth={true} duration={500}>
                                 <MaterialIcon icon="arrow_forward" size={15} color='#585858' />
                                 {story.title}
                             </Link>

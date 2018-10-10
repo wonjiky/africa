@@ -112,101 +112,102 @@ class CityHistogram extends Component {
     }
 
     render() {
-        const data = this.props.countryData.map((d, i) => (
-            { 
-                "ID":d.ID, 
-                "ISO":d.ISO, 
-                "Country": d.Country,
-                "urbanPopulation":d.Upop, 
-                "urbanPopulationScaled":d.Upop_Scaled,
-            }
-        ))
+        // const data = this.props.countryData.map((d, i) => (
+        //     { 
+        //         "ID":d.ID, 
+        //         "ISO":d.ISO, 
+        //         "Country": d.Country,
+        //         "urbanPopulation":d.Upop, 
+        //         "urbanPopulationScaled":d.Upop_Scaled,
+        //     }
+        // ))
 
-        const dataUrbanizationLevel = this.props.countryData.map((d, i) => (
-            { 
-                "ID":d.ID, 
-                "ISO":d.ISO, 
-                "Country": d.Country,
-                "urbanizationLevel": d.Ulvl_Scaled,
-            }
-        ))
+        // const dataUrbanizationLevel = this.props.countryData.map((d, i) => (
+        //     { 
+        //         "ID":d.ID, 
+        //         "ISO":d.ISO, 
+        //         "Country": d.Country,
+        //         "urbanizationLevel": d.Ulvl_Scaled,
+        //     }
+        // ))
 
-        const dataAgglomerations = this.props.countryData.map((d, i) => (
-            { 
-                "ID":d.ID, 
-                "ISO":d.ISO, 
-                "Country": d.Country,
-                "urbanAgglos": d.NumAgglos,
-                "urbanAgglosScaled": d.NumAgglos_Scaled,
-            }
-        ))
+        // const dataAgglomerations = this.props.countryData.map((d, i) => (
+        //     { 
+        //         "ID":d.ID, 
+        //         "ISO":d.ISO, 
+        //         "Country": d.Country,
+        //         "urbanAgglos": d.NumAgglos,
+        //         "urbanAgglosScaled": d.NumAgglos_Scaled,
+        //     }
+        // ))
 
-        const dataMetropolitan = this.props.countryData.map((d, i) => (
-            { 
-                "ID":d.ID, 
-                "ISO":d.ISO, 
-                "Country": d.Country,
-                "metropolitanPop": d.Mpop,
-            }
-        ))
+        // const dataMetropolitan = this.props.countryData.map((d, i) => (
+        //     { 
+        //         "ID":d.ID, 
+        //         "ISO":d.ISO, 
+        //         "Country": d.Country,
+        //         "metropolitanPop": d.Mpop,
+        //     }
+        // ))
 
-        const dataAverageDist = this.props.countryData.map((d, i) => (
-            { 
-                "ID":d.ID, 
-                "ISO":d.ISO, 
-                "Country": d.Country,
-                "AverageDist": d.ADBC,
-                "AverageDistScaled": d.ADBC_Scaled,
-            }
-        ))
+        // const dataAverageDist = this.props.countryData.map((d, i) => (
+        //     { 
+        //         "ID":d.ID, 
+        //         "ISO":d.ISO, 
+        //         "Country": d.Country,
+        //         "AverageDist": d.ADBC,
+        //         "AverageDistScaled": d.ADBC_Scaled,
+        //     }
+        // ))
 
-        const dataUrbanSurf = this.props.countryData.map((d, i) => (
-            { 
-                "ID":d.ID, 
-                "ISO":d.ISO, 
-                "Country": d.Country,
-                "urbanSurface": d.Usurf,
-            }
-        ))
+        // const dataUrbanSurf = this.props.countryData.map((d, i) => (
+        //     { 
+        //         "ID":d.ID, 
+        //         "ISO":d.ISO, 
+        //         "Country": d.Country,
+        //         "urbanSurface": d.Usurf,
+        //     }
+        // ))
 
-        const urbanPopulationData = data.sort((a,b) => a.urbanPopulationScaled - b.urbanPopulationScaled);
-        const urbanizationLevelData = dataUrbanizationLevel.sort((a,b) => a.urbanizationLevel - b.urbanizationLevel);
-        const agglomerationData = dataAgglomerations.sort((a,b) => a.urbanAgglos - b.urbanAgglos);
-        const metroPolitanData = dataMetropolitan.sort((a,b) => a.metropolitanPop - b.metropolitanPop);
-        const averageDistData = dataAverageDist.sort((a,b) => a.AverageDistScaled - b.AverageDistScaled);
-        const urbanSurfData = dataUrbanSurf.sort((a,b) => a.urbanSurface - b.urbanSurface);
+        // const urbanPopulationData = data.sort((a,b) => a.urbanPopulationScaled - b.urbanPopulationScaled);
+        // const urbanizationLevelData = dataUrbanizationLevel.sort((a,b) => a.urbanizationLevel - b.urbanizationLevel);
+        // const agglomerationData = dataAgglomerations.sort((a,b) => a.urbanAgglos - b.urbanAgglos);
+        // const metroPolitanData = dataMetropolitan.sort((a,b) => a.metropolitanPop - b.metropolitanPop);
+        // const averageDistData = dataAverageDist.sort((a,b) => a.AverageDistScaled - b.AverageDistScaled);
+        // const urbanSurfData = dataUrbanSurf.sort((a,b) => a.urbanSurface - b.urbanSurface);
 
         
-
-        const { selectedCountryValue } = this.props;
+        const { agglosValueForSearch } = this.props;
+        console.log(agglosValueForSearch.value);
         return(
-            <Row className="no-padding">
-                <Col md={12} className="histogramTitle">city</Col>
-                <Col md={12} className="countryKeyfigure"><span>Urban Population</span></Col><br/>
-                <Col md={3} className="rankingWrapper">{this.renderRanking(urbanPopulationData)}</Col>
-                <Col md={9}className="histogram">{this.renderUrbanPopulation(urbanPopulationData, selectedCountryValue.value)}</Col>
-                <hr/>
-                <Col md={12} className="countryKeyfigure"><span>Urbanisation Level</span></Col><br/>
-                <Col md={3} className="rankingWrapper">{this.renderRanking(urbanizationLevelData)}</Col>
-                <Col md={9}className="histogram">{this.renderUrbanizationLevel(urbanizationLevelData, selectedCountryValue.value)}</Col>
-                <hr/>
-                <Col md={12} className="countryKeyfigure"><span>Number of Agglomerations</span></Col><br/>
-                <Col md={3} className="rankingWrapper">{this.renderRanking(agglomerationData)}</Col>
-                <Col md={9}className="histogram">{this.renderAgglos(agglomerationData, selectedCountryValue.value)}</Col>
-                <hr/>
-                <Col md={12} className="countryKeyfigure"><span>Metropolitan Population</span></Col><br/>
-                <Col md={3} className="rankingWrapper">{this.renderRanking(metroPolitanData)}</Col>
-                <Col md={9}className="histogram">{this.renderMetropolitan(metroPolitanData, selectedCountryValue.value)}</Col>
-                <hr/>
-                <Col md={12} className="countryKeyfigure"><span>Average Distance between Agglomerations</span></Col><br/>
-                <Col md={3} className="rankingWrapper">{this.renderRanking(averageDistData)}</Col>
-                <Col md={9}className="histogram">{this.renderAvgDist(averageDistData, selectedCountryValue.value)}</Col>
-                <hr/>
-                <Col md={12} className="countryKeyfigure"><span>Urban Land Cover</span></Col><br/>
-                <Col md={3} className="rankingWrapper">{this.renderRanking(urbanSurfData)}</Col>
-                <Col md={9}className="histogram">{this.renderUrbanSurf(urbanSurfData, selectedCountryValue.value)}</Col>
-            </Row>
-        );
+            // <Row className="no-padding">
+            //     <Col md={12} className="histogramTitle">city</Col>
+            //     <Col md={12} className="countryKeyfigure"><span>Urban Population</span></Col><br/>
+            //     <Col md={3} className="rankingWrapper">{this.renderRanking(urbanPopulationData)}</Col>
+            //     <Col md={9}className="histogram">{this.renderUrbanPopulation(urbanPopulationData, selectedCountryValue.value)}</Col>
+            //     <hr/>
+            //     <Col md={12} className="countryKeyfigure"><span>Urbanisation Level</span></Col><br/>
+            //     <Col md={3} className="rankingWrapper">{this.renderRanking(urbanizationLevelData)}</Col>
+            //     <Col md={9}className="histogram">{this.renderUrbanizationLevel(urbanizationLevelData, selectedCountryValue.value)}</Col>
+            //     <hr/>
+            //     <Col md={12} className="countryKeyfigure"><span>Number of Agglomerations</span></Col><br/>
+            //     <Col md={3} className="rankingWrapper">{this.renderRanking(agglomerationData)}</Col>
+            //     <Col md={9}className="histogram">{this.renderAgglos(agglomerationData, selectedCountryValue.value)}</Col>
+            //     <hr/>
+            //     <Col md={12} className="countryKeyfigure"><span>Metropolitan Population</span></Col><br/>
+            //     <Col md={3} className="rankingWrapper">{this.renderRanking(metroPolitanData)}</Col>
+            //     <Col md={9}className="histogram">{this.renderMetropolitan(metroPolitanData, selectedCountryValue.value)}</Col>
+            //     <hr/>
+            //     <Col md={12} className="countryKeyfigure"><span>Average Distance between Agglomerations</span></Col><br/>
+            //     <Col md={3} className="rankingWrapper">{this.renderRanking(averageDistData)}</Col>
+            //     <Col md={9}className="histogram">{this.renderAvgDist(averageDistData, selectedCountryValue.value)}</Col>
+            //     <hr/>
+            //     <Col md={12} className="countryKeyfigure"><span>Urban Land Cover</span></Col><br/>
+            //     <Col md={3} className="rankingWrapper">{this.renderRanking(urbanSurfData)}</Col>
+            //     <Col md={9}className="histogram">{this.renderUrbanSurf(urbanSurfData, selectedCountryValue.value)}</Col>
+            // </Row>
+            <div></div>
+            );
     }
 }
 

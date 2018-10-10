@@ -7,7 +7,12 @@ import ChevronLeft from '@material-ui/icons/ChevronLeft';
 import Button from '@material-ui/core/Button';
 
 class HomeContent extends Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+          scrollTop: 0,
+        };
+      }
     _storyButtons(){
         return(
             <div>
@@ -29,6 +34,20 @@ class HomeContent extends Component {
         this.props.contentSelect(e);
     }
     
+    normalize(num, in_min, in_max, out_min, out_max){
+        return (num-in_min) * (out_max-out_min) / (in_max-in_min) + out_min;
+    }
+
+    handleScroll = event => {
+        let num = event.target.scrollTop
+        let number = this.normalize(num, 0, 16293, 0, 1)        
+        let value = Math.round(number * 1000) / 1000;
+        this.setState({
+          scrollTop: value,
+        });
+      };
+
+
     render() {
         return(
             <Grid fluid className="content">
@@ -43,9 +62,10 @@ class HomeContent extends Component {
                             contentFilter={this.props.contentFilter} 
                         />                
                     </Col>
-                    <Col md={9} className="homeContent" id="scroll-container">
+                    <Col md={9} className="homeContent" id="scroll-container" onScroll={this.handleScroll}>
                         <RenderContent 
                             //Sending
+                            visibility={this.state.scrollTop}
                             overview={this.props.overview}
                             narratives={this.props.narratives}
                             treemap={this.props.treemap} 

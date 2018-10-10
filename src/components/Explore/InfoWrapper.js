@@ -14,10 +14,7 @@ class InfoWrapper extends Component {
         this.renderInfo = this.renderInfo.bind(this);
     }
 
-
-	componentDidUpdate(){
-	}
-    renderInfo(selectedCountry){
+	renderInfo(selectedCountry){
 		const list = this.props.countryData.find(u => u.ID  === selectedCountry.value);
 		if(list === undefined){
 			return <div></div>
@@ -50,17 +47,18 @@ class InfoWrapper extends Component {
 	}
 
     render() {
-        if(this.props.selectedCountryValue){
+		const { selectedCountry } = this.props;
+        if(this.props.selectedCountry){
 			return(
 				<Row className="keyFigure-row">
 					<Col md={9} mdOffset={1} className="countrySelected">
-						{this.renderInfo(this.props.selectedCountryValue)}
+						{this.renderInfo(selectedCountry)}
 					</Col>
 					<Col md={9} mdOffset={1} className="keyFigure-Wrapper">
 						<KeyFigures 
 							countryData={this.props.countryData}
-							selectedCountryValue={this.props.selectedCountryValue}
-							selectedAgglosValue = {this.props.selectedAgglosValue}
+							selectedCountry={selectedCountry}
+							agglosValueForSearch = {this.props.agglosValueForSearch}
 							valueFromCountryHistogram = {this.valueFromCountryHistogram.bind(this)}/>
 					</Col>
 				</Row>  

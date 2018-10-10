@@ -29,6 +29,7 @@ class HomeWrapper extends Component {
             selectedContent: e.ID,
             contentFilter: e.content
         })
+        console.log(this.state.contentFilter, this.state.selectedContent);
     }
 
     handleValueFromSearch(valueFromSearch){

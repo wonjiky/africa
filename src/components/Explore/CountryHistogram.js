@@ -100,7 +100,7 @@ class CountryHistogram extends Component {
 
 
     check(e){
-        return(e === this.props.selectedCountryValue.value)     
+        return(e === this.props.selectedCountry)     
     }    
 
     renderRanking(data){
@@ -219,17 +219,16 @@ class CountryHistogram extends Component {
         const metroPolitanData = dataMetropolitan.sort((a,b) => a.metropolitanPop - b.metropolitanPop);
         const averageDistData = dataAverageDist.sort((a,b) => a.AverageDistScaled - b.AverageDistScaled);
         const urbanSurfData = dataUrbanSurf.sort((a,b) => a.urbanSurface - b.urbanSurface);
-
-        const { selectedCountryValue } = this.props;
+        const { selectedCountry } = this.props;
         return(
             <Row className="no-padding">
                 <Col md={12} className="histogram-wrapper">
                     <Paper square={true}>
                         <Row>
                             <Col md={4} className="keyfigureTitle"><p>Urban Population</p></Col>
-                            <Col md={3} className="country-histogram-value"> {this.population(urbanPopulationData, selectedCountryValue.value)}</Col>
+                            <Col md={3} className="country-histogram-value"> {this.population(urbanPopulationData, selectedCountry)}</Col>
                             <Col md={1} className="rankingWrapper">{this.renderRanking(urbanPopulationData)}</Col>
-                            <Col md={4} className="country-histogram-wrapper"> {this.renderUrbanPopulation(urbanPopulationData, selectedCountryValue.value)} </Col>
+                            <Col md={4} className="country-histogram-wrapper"> {this.renderUrbanPopulation(urbanPopulationData, selectedCountry)} </Col>
                         </Row>
                     </Paper>
                 </Col>
@@ -237,9 +236,9 @@ class CountryHistogram extends Component {
                     <Paper square={true}>
                         <Row>
                             <Col md={4} className="keyfigureTitle"><p>Urbanisation Level</p></Col>
-                            <Col md={3} className="country-histogram-value"> {this.urbanisationlevel(urbanizationLevelData, selectedCountryValue.value)}</Col>
+                            <Col md={3} className="country-histogram-value"> {this.urbanisationlevel(urbanizationLevelData, selectedCountry)}</Col>
                             <Col md={1} className="rankingWrapper">{this.renderRanking(urbanizationLevelData)}</Col>
-                            <Col md={4}className="country-histogram-wrapper">{this.renderUrbanizationLevel(urbanizationLevelData, selectedCountryValue.value)}</Col>
+                            <Col md={4}className="country-histogram-wrapper">{this.renderUrbanizationLevel(urbanizationLevelData, selectedCountry)}</Col>
                         </Row>
                     </Paper>
                 </Col> 
@@ -247,9 +246,9 @@ class CountryHistogram extends Component {
                     <Paper square={true}>
                         <Row>
                             <Col md={4} className="keyfigureTitle"><p>Number of Agglomerations</p></Col>
-                            <Col md={3} className="country-histogram-value"> {this.numofagglomeration(agglomerationData, selectedCountryValue.value)}</Col>
+                            <Col md={3} className="country-histogram-value"> {this.numofagglomeration(agglomerationData, selectedCountry)}</Col>
                             <Col md={1} className="rankingWrapper">{this.renderRanking(agglomerationData)}</Col>
-                            <Col md={4}className="country-histogram-wrapper">{this.renderAgglos(agglomerationData, selectedCountryValue.value)}</Col>
+                            <Col md={4}className="country-histogram-wrapper">{this.renderAgglos(agglomerationData, selectedCountry)}</Col>
                         </Row>
                     </Paper>
                 </Col>
@@ -257,9 +256,9 @@ class CountryHistogram extends Component {
                     <Paper square={true}>
                         <Row>
                             <Col md={4} className="keyfigureTitle"><p>Metropolitan Population</p></Col>
-                            <Col md={3} className="country-histogram-value"> {this.metropolitan(metroPolitanData, selectedCountryValue.value)}</Col>
+                            <Col md={3} className="country-histogram-value"> {this.metropolitan(metroPolitanData, selectedCountry)}</Col>
                             <Col md={1} className="rankingWrapper">{this.renderRanking(metroPolitanData)}</Col>
-                            <Col md={4}className="country-histogram-wrapper">{this.renderMetropolitan(metroPolitanData, selectedCountryValue.value)}</Col>
+                            <Col md={4}className="country-histogram-wrapper">{this.renderMetropolitan(metroPolitanData, selectedCountry)}</Col>
                         </Row>
                     </Paper>
                 </Col>
@@ -267,9 +266,9 @@ class CountryHistogram extends Component {
                     <Paper square={true}>
                         <Row>
                             <Col md={4} className="keyfigureTitle"><p>Average Distance between Agglomerations</p></Col>
-                            <Col md={3} className="country-histogram-value"> {this.averagedist(averageDistData, selectedCountryValue.value)}</Col>
+                            <Col md={3} className="country-histogram-value"> {this.averagedist(averageDistData, selectedCountry)}</Col>
                             <Col md={1} className="rankingWrapper">{this.renderRanking(averageDistData)}</Col>
-                            <Col md={4}className="country-histogram-wrapper">{this.renderAvgDist(averageDistData, selectedCountryValue.value)}</Col>
+                            <Col md={4}className="country-histogram-wrapper">{this.renderAvgDist(averageDistData, selectedCountry)}</Col>
                         </Row>
                     </Paper>
                 </Col>
@@ -277,9 +276,9 @@ class CountryHistogram extends Component {
                     <Paper square={true}>
                         <Row>
                             <Col md={4} className="keyfigureTitle"><p>Urban Land Cover</p></Col>
-                            <Col md={3} className="country-histogram-value"> {this.urbanland(urbanSurfData, selectedCountryValue.value)}</Col>
+                            <Col md={3} className="country-histogram-value"> {this.urbanland(urbanSurfData, selectedCountry)}</Col>
                             <Col md={1} className="rankingWrapper">{this.renderRanking(urbanSurfData)}</Col>
-                            <Col md={4}className="country-histogram-wrapper">{this.renderUrbanSurf(urbanSurfData, selectedCountryValue.value)}</Col>
+                            <Col md={4}className="country-histogram-wrapper">{this.renderUrbanSurf(urbanSurfData, selectedCountry)}</Col>
                         </Row>
                     </Paper>
                 </Col>

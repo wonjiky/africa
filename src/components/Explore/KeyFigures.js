@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 import CountryHistogram from './CountryHistogram';
-
+import CityHistogram from './CityHistogram';
 
 class KeyFigures extends Component {
     constructor(props){
@@ -14,9 +14,9 @@ class KeyFigures extends Component {
         this.props.valueFromCountryHistogram(value);
     }
 
-    componentDidUpdate(){
-    }
+    
     render() {
+        const { selectedCountry, countryData, agglosValueForSearch } = this.props;
         return(
             <Grid fluid className="keyFigure">
                 <Row>
@@ -26,19 +26,19 @@ class KeyFigures extends Component {
                     </Col> */}
                     <Col md={12} className="countryHistogram-Wrapper">
                         <CountryHistogram 
-                            selectedCountryValue={this.props.selectedCountryValue} 
-                            countryData={this.props.countryData} 
+                            selectedCountry={selectedCountry} 
+                            countryData={countryData} 
                             valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}
                             />
                     </Col>
-                    {/* <Col md={6} className="cityHistogram-Wrapper" >
+                    <Col md={12} className="countryHistogram-Wrapper" >
                        <CityHistogram 
-                            selectedCountryValue={this.props.selectedCountryValue}
-                            selectedAgglosValue={this.props.selectedAgglosValue} 
-                            countryData={this.props.countryData} 
-                            valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}
+                            agglosValueForSearch={agglosValueForSearch}
+                            // selectedAgglosValue={this.props.selectedAgglosValue} 
+                            // countryData={this.props.countryData} 
+                            // valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}
                         />
-                    </Col> */}
+                    </Col>
                 </Row>
             </Grid>
             

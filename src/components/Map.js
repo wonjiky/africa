@@ -111,7 +111,7 @@ class LeafletMap extends Component {
 						this.agglos = L.geoJson(this.props.agglosGeo, {
 							onEachFeature: (feature, layer) => {
 								
-								// layer._leaflet_id = feature.properties.city_ID;
+								layer._leaflet_id = feature.properties.city_ID;
 
 								layer.on('mouseover', (e) => {
 									e.target.setStyle(this.highlightAgglosStyle())
@@ -299,14 +299,24 @@ class LeafletMap extends Component {
 
 	defaultAgglosStyle(feature){
 		return({
-			// radius: feature.properties.Size*2,
-			radius: 10,
-			fillColor: '#E8AE40',
+			radius: feature.properties.Size*2,
+			fillColor: this.getColor(feature.properties.Size),
 			fillOpacity: 0.4,
 			stroke: true,
-			color: '#E8AE40',
+			color:  this.getColor(feature.properties.Size),
 			weight: 1,
 		})
+	}
+
+	getColor(d){
+		return(
+			d === 6 ? '#E73741' :
+			d === 5 ? '#df521e' :
+			d === 4 ? '#e1b400' :
+			d === 3 ? '#32a674' :
+			d === 2 ? '#0b68af' :
+			d === 1 ? '#993484' : 'black'
+		)
 	}
 
 	agglos_onEachFeature(feature, layer) {

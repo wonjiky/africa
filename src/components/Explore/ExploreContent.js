@@ -122,6 +122,7 @@ class ExploreContent extends Component {
                                 // isMulti={true}
                             />
                         </Col>
+                        
                         <Col md={9} mdOffset={1}>
                             <Select
                                 placeholder="Select City"

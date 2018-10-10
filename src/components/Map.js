@@ -111,15 +111,14 @@ class LeafletMap extends Component {
 						this.agglos = L.geoJson(this.props.agglosGeo, {
 							onEachFeature: (feature, layer) => {
 								
-								layer._leaflet_id = feature.properties.city_ID;
+								// layer._leaflet_id = feature.properties.city_ID;
 
 								layer.on('mouseover', (e) => {
 									e.target.setStyle(this.highlightAgglosStyle())
 								})
 
 								layer.on('mouseout', (e) => {
-									e.target.setStyle(this.defaultAgglosStyle())
-									
+									e.target.setStyle(this.defaultAgglosStyle(feature))
 								})
 
 								layer.on('change', () => {
@@ -220,7 +219,7 @@ class LeafletMap extends Component {
 		popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.value + "</td></tr>";
 		popupContent += "</table>";
 		layer.bindPopup(popupContent).openPopup();
-		//layer._leaflet_id = feature.properties.City_ID;
+		layer._leaflet_id = feature.properties.City_ID;
 	}
 }
 
@@ -271,8 +270,8 @@ class LeafletMap extends Component {
 		}
 	}
 
-	agglos_pointToLayer(geoJsonPoint, latlng){
-		const geojsonMarker = this.defaultAgglosStyle();
+	agglos_pointToLayer(feature, latlng){
+		const geojsonMarker = this.defaultAgglosStyle(feature);
 		return L.circleMarker(latlng, geojsonMarker);
 	}
 
@@ -288,7 +287,6 @@ class LeafletMap extends Component {
 	}
 
 	selectedAgglosStyle(){
-		console.log('helo');
 		return({
 			radius: 20,
 			fillColor: 'red',
@@ -299,9 +297,10 @@ class LeafletMap extends Component {
 		})
 	}
 
-	defaultAgglosStyle(){
+	defaultAgglosStyle(feature){
 		return({
-			radius: 5,
+			// radius: feature.properties.Size*2,
+			radius: 10,
 			fillColor: '#E8AE40',
 			fillOpacity: 0.4,
 			stroke: true,
@@ -316,7 +315,7 @@ class LeafletMap extends Component {
 		})
 
 		layer.on('mouseout', (e) => {
-			e.target.setStyle(this.defaultAgglosStyle())
+			e.target.setStyle(this.defaultAgglosStyle(feature))
 		})
 
 		layer.on('change', (e) => {

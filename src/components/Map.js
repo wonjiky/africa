@@ -18,6 +18,7 @@ config.params = {
 	opacity:0,
 };
 config.tileLayer = {
+	//Original:
 	uri: 'https://api.mapbox.com/styles/v1/mkmd/cjj041lbo07vo2rphltlukpya/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
 	params: {
 		maxZoom: 18,
@@ -114,7 +115,7 @@ class LeafletMap extends Component {
 								layer._leaflet_id = feature.properties.city_ID;
 
 								layer.on('mouseover', (e) => {
-									e.target.setStyle(this.highlightAgglosStyle())
+									e.target.setStyle(this.highlightAgglosStyle(feature))
 								})
 
 								layer.on('mouseout', (e) => {
@@ -278,13 +279,13 @@ class LeafletMap extends Component {
 		return L.circleMarker(latlng, geojsonMarker);
 	}
 
-	highlightAgglosStyle(){
+	highlightAgglosStyle(feature){
 		return({
-			radius: 10,
-			fillColor: '#E8AE40',
-			fillOpacity: 0.4,
+			radius: this.getRadius(feature.properties.size),
+			// fillColor: '#E8AE40',
+			fillOpacity: 1,
 			stroke: true,
-			color: '#E8AE40',
+			// color: '#E8AE40',
 			weight: 1,
 		})
 	}
@@ -302,13 +303,24 @@ class LeafletMap extends Component {
 
 	defaultAgglosStyle(feature){
 		return({
-			radius: feature.properties.Size*2,
+			radius: this.getRadius(feature.properties.Size),
 			fillColor: this.getColor(feature.properties.Size),
 			fillOpacity: 0.4,
 			stroke: true,
-			color:  this.getColor(feature.properties.Size),
+			color: this.getColor(feature.properties.Size),
 			weight: 1,
 		})
+	}
+
+	getRadius(d){
+		return(
+			d === 6 ? d*3 :
+			d === 5 ? d*3 :
+			d === 4 ? d*3 :
+			d === 3 ? d*3 :
+			d === 2 ? d*3 :
+			d === 1 ? d*3 : d*10
+		)
 	}
 
 	getColor(d){

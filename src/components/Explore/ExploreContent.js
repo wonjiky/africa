@@ -36,14 +36,14 @@ class ExploreContent extends Component {
 
         // const agglosList = this.filterAgglos(this.props.agglos);
         const agglosList = this.filterAgglos(this.props.selectedCountryValue);
-        
+
         return(
             <Grid fluid className="content">
                 <Row className="explore-row">
                     <Col md={3} className="mixers">
-                        <RenderFilter/>   
+                        <RenderFilter/>
                     </Col>
-                    <Col md={9} className="exp-content">ff
+                    <Col md={9} className="exp-content">
                         <Col md={9} mdOffset={1} className="searchPadding">
                             <Select
                                 placeholder="Select Country"
@@ -68,15 +68,15 @@ class ExploreContent extends Component {
                             />
                         </Col>
                         <br/>
-                        <InfoWrapper 
-                            selectedCountryValue={this.props.selectedCountryValue} 
+                        <InfoWrapper
+                            selectedCountryValue={this.props.selectedCountryValue}
                             selectedAgglosValue={this.props.selectedAgglosValue}
                             countryData={this.props.countryData}
                             valueFromCountryHistogram={this.sendCountryValueToMap.bind(this)}
                             />
                     </Col>
                 </Row>
-                    
+
             </Grid>
         );
     }

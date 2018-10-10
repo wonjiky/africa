@@ -8,11 +8,11 @@ import InputRange from 'react-input-range';
 
 
 class RenderFilter extends Component {
-    
+
     constructor(props){
         super(props);
         this.state={
-            value: 2000,
+            value: 2015,
         }
     }
 
@@ -38,7 +38,7 @@ class RenderFilter extends Component {
                         <li>
                             <InputRange
                                 step={10}
-                                maxValue={2020}
+                                maxValue={2015}
                                 minValue={1950}
                                 value={this.state.value}
                                 onChange={value => this.setState({ value })} />

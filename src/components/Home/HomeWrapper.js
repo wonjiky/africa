@@ -8,14 +8,9 @@ class HomeWrapper extends Component {
     constructor(props){
         super(props);
         this.state = {
-            mixerToggle: true,
-            mapToggle: true,
-            collapseNav: true,
-            mixerCol: 2,
-            mapCol: 4,
             homeWrapperIsMounted: true,
             selectedContent:0,
-            contentFilter:'overview',
+            contentFilter:'narrative',
 
         };
         this.handleValueFromMixer = this.handleValueFromMixer.bind(this);

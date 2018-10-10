@@ -172,7 +172,10 @@ class LeafletMap extends Component {
 		// If Home Wrapper is Mounted :
 		} else if(this.props.homeWrapperIsMounted) {
 			if(this.props.treemapFilter === 'treemap'){ // && this.props.treemapValue === 0){
-				if(this.treemap){this.treemap.clearLayers(this.treemap);}
+				
+				if(this.treemap){
+					this.treemap.clearLayers(this.treemap);
+				}
 				this.treemap = L.geoJson(this.props.treemap_buildup, {
 					filter: this.treemap_filter,
 					onEachFeature: this.treemap_onEachFeature,

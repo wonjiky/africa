@@ -35,23 +35,16 @@ class RenderList extends Component {
                 <ul className="list-unstyled">
                 {/* <i className="material-icons" id="icon-size">public</i> */}
                     <h6>What is Africapolis</h6>
-                    <li>
-                        <Link onClick={() => this.props.contentSelect('overview')} containerId="scroll-container" activeClass="selectedContent" to="overview" spy={true} smooth={true} duration={500}>
-                        <MaterialIcon icon="arrow_forward" size={15} color='#585858' />{overview.title}</Link>
-                    </li>
+                        {stories.map((story, i) => (
+                                <li 
+                                key={i} 
+                                id={selectedContent === story.ID && filter === story.content ? 'clicked' : ' '}
+                                onClick={() => this.props.contentSelect(story)}>
+                                    <MaterialIcon icon="arrow_forward" size={15} color='#585858' />
+                                    {story.title}
+                                </li>
+                            ))}
                     <hr />    
-                    <h6>Engaging Narratives</h6>
-                    {stories.map((story, i) => (
-                        <li key={'story-'+i}>
-                        {/* this.props.contentSelect(story)}> */}
-                            <Link onClick={() => this.props.contentSelect(story)} onSetActive={this.handleSetActive} containerId="scroll-container" activeClass="selectedContent" to={'story-'+i} spy={true} smooth={true} duration={500}>
-                                <MaterialIcon icon="arrow_forward" size={15} color='#585858' />
-                                {story.title}
-                            </Link>
-                        </li>
-                    ))}
-                    <hr />    
-                    {/* <i className="material-icons" id="icon-size">public</i> */}
                     <h6>Data Driven Stories</h6>
                     {treemap.map((treemap, i) => (
                         <li 

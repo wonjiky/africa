@@ -62,11 +62,9 @@ class HomeContent extends Component {
                             contentFilter={this.props.contentFilter} 
                         />                
                     </Col>
-                    <Col md={9} className="homeContent" id="scroll-container" onScroll={this.handleScroll}>
+                    <Col md={9} className="homeContent">
                         <RenderContent 
                             //Sending
-                            visibility={this.state.scrollTop}
-                            overview={this.props.overview}
                             narratives={this.props.narratives}
                             treemap={this.props.treemap} 
                             selectedContent={this.props.selectedContent}

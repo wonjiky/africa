@@ -154,7 +154,6 @@ padding: 30px !important;
   font-size: 13px;
   font-weight:300;
   padding: 20px;
-  margin-bottom: 100px;
 }
 
 .keyfigureTitle{
@@ -165,6 +164,17 @@ padding: 30px !important;
   align-items: center;
 }
 
+.agglosKeyFigureTitle{
+  display : flex;
+  justify-content : bottom;
+  margin:0;
+  height:120px; 
+  align-items: center;
+}
+.agglosKeyFigureTitle p{
+  padding-left:20px;
+  font-weight: 600;
+}
 .keyfigureTitle p{
   padding-left:20px;
   font-weight: 600;

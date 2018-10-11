@@ -52,6 +52,7 @@ class MainWrapper extends Component {
 							africaContinent={this.state.geo_country}
 							agglosGeo={this.state.geo_agglomeration}
 							countryData={this.state.countryData}
+							agglosData={this.state.info_agglomeration}
 							/> } />
 					<Redirect to="/home" />
 				</Switch>

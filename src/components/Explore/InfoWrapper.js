@@ -9,13 +9,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 class InfoWrapper extends Component {
     constructor(props){
         super(props);
-        this.state = {
-        };
         this.renderInfo = this.renderInfo.bind(this);
     }
 
-	renderInfo(selectedCountry){
-		const list = this.props.countryData.find(u => u.ID  === selectedCountry.value);
+	renderInfo(selectedCountry, countryData){
+		const list = countryData.find(u => u.ID  === selectedCountry);
 		if(list === undefined){
 			return <div></div>
 		}else{
@@ -47,19 +45,25 @@ class InfoWrapper extends Component {
 	}
 
     render() {
-		const { selectedCountry } = this.props;
-        if(this.props.selectedCountry){
+		
+		const { selectedCountry, countryData, selectedAgglos, agglosData } = this.props;
+        if(selectedCountry){
 			return(
 				<Row className="keyFigure-row">
 					<Col md={9} mdOffset={1} className="countrySelected">
-						{this.renderInfo(selectedCountry)}
+						{this.renderInfo(selectedCountry, countryData)}
 					</Col>
 					<Col md={9} mdOffset={1} className="keyFigure-Wrapper">
-						<KeyFigures 
-							countryData={this.props.countryData}
-							selectedCountry={selectedCountry}
-							agglosValueForSearch = {this.props.agglosValueForSearch}
-							valueFromCountryHistogram = {this.valueFromCountryHistogram.bind(this)}/>
+					<KeyFigures 
+						//country data
+						countryData={countryData}
+						selectedCountry={selectedCountry}
+						valueFromCountryHistogram = {this.valueFromCountryHistogram.bind(this)}
+						
+						//city data
+						agglosData={agglosData}
+						selectedAgglos = {selectedAgglos}
+						/>
 					</Col>
 				</Row>  
 			);

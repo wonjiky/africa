@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import HomeWrapper from './Home/HomeWrapper';
 import ExploreWrapper from './Explore/ExploreWrapper';
+import AboutWrapper from './Aboutus/AboutWrapper';
 import Header from './Header';
-import { NARRATIVES, OVERVIEW } from '../shared/narratives';
+import { NARRATIVES, WHATSNEW } from '../shared/narratives';
 import { TREEMAP } from '../shared/treemap';
 import { COUNTRYINFO } from '../shared/info_country';
 import { TREEMAP_BUILDUP } from '../shared/treemap_buildup'
@@ -21,7 +22,7 @@ class MainWrapper extends Component {
 		super(props);
 		this.state = {
 			narratives: NARRATIVES,
-			overview: OVERVIEW,
+			whatsnew: WHATSNEW,
 			countryData: COUNTRYINFO,
 			geo_shades: AFRICA_ONE,
 			geo_country: AFRICA_CONTINENT,
@@ -39,21 +40,30 @@ class MainWrapper extends Component {
 				<Header />
 				<Switch>
 					<Route path="/home" component={() => <HomeWrapper 
-							narratives={this.state.narratives}
-							overview={this.state.overview}
-							treemap={this.state.treemap}
-							africaOne={this.state.geo_shades}
-							africaContinent={this.state.geo_country}
-							agglosGeo={this.state.geo_agglomeration}
-							treemap_buildup={this.state.treemap_buildup}
-							/>}/>
+						narratives={this.state.narratives}
+						whatsnew={this.state.whatsnew}
+						treemap={this.state.treemap}
+						africaOne={this.state.geo_shades}
+						africaContinent={this.state.geo_country}
+						agglosGeo={this.state.geo_agglomeration}
+						treemap_buildup={this.state.treemap_buildup}
+						/>}/>
 					<Route exact path={`/explore`} component={() => <ExploreWrapper 
-							africaOne={this.state.geo_shades}
-							africaContinent={this.state.geo_country}
-							agglosGeo={this.state.geo_agglomeration}
-							countryData={this.state.countryData}
-							agglosData={this.state.info_agglomeration}
-							/> } />
+						africaOne={this.state.geo_shades}
+						africaContinent={this.state.geo_country}
+						agglosGeo={this.state.geo_agglomeration}
+						countryData={this.state.countryData}
+						agglosData={this.state.info_agglomeration}
+						/> } />
+					<Route exact path={`/aboutus`} component={() => <AboutWrapper
+						narratives={this.state.narratives}
+						whatsnew={this.state.whatsnew}
+						treemap={this.state.treemap}
+						africaOne={this.state.geo_shades}
+						africaContinent={this.state.geo_country}
+						agglosGeo={this.state.geo_agglomeration}
+						treemap_buildup={this.state.treemap_buildup}
+						/> } />
 					<Redirect to="/home" />
 				</Switch>
 			</div>

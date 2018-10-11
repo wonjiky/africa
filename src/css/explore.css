@@ -12,6 +12,10 @@ p{
 .recharts-wrapper{
   display:flex;
 }
+input{
+  width: 100%;
+}
+
 .histogram-wrapper{
   margin-bottom:15px;
 }
@@ -27,8 +31,20 @@ p{
   justify-content: flex-start;
 }
 
+.StepRangeSlider__track{
+  height: 4px !important;
+  background-color: #585858;
+  border: none !important;
+}
+
+.StepRangeSlider__thumb{
+  border: none !important;
+  background-color: #585858 !important;
+  width:16px;
+  height:16px;
+}
+
 .explore-mixer-list li{
-  color: #585858;
   font-size: 12px;
   font-weight: 300;
   margin: 3px 0px 3px 0px;

@@ -113,8 +113,9 @@ class CountryHistogram extends Component {
 
     population(data, value){
         let d = data.find(u => u.ID === value)
+        let num = d.urbanPopulation.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
         return(
-            <p>{d.urbanPopulation}</p>
+            <p>{num}</p>
         )
     }
 
@@ -134,15 +135,16 @@ class CountryHistogram extends Component {
 
     metropolitan(data, value){
         let d = data.find(u => u.ID === value)
+        let num = d.metropolitanPop.toFixed(2);
         return(
-            <p>{d.metropolitanPop}</p>
+            <p>{num}</p>
         )
     }
 
     averagedist(data,value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{d.AverageDist}km</p>
+            <p>{d.AverageDist}km&sup2;</p>
         )
     }
 

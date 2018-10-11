@@ -75,7 +75,7 @@ class HomeWrapper extends Component {
                     </Col>
                     <Col md={8} className="no-margin">
                         <HomeContent 
-                            overview={this.props.overview}
+                            whatsnew={this.props.whatsnew}
                             narratives={story} 
                             treemap={this.props.treemap}
                             contentSelect={this.handleValueFromMixer}

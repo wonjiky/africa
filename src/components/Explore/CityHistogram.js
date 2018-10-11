@@ -5,7 +5,7 @@ import Paper from '@material-ui/core/Paper';
 
 let params = {
     histogramHeight: 100,
-    histogramWidth: 400,
+    histogramWidth: 200,
 };
 
 class Custom extends Component {

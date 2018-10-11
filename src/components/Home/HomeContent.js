@@ -54,7 +54,7 @@ class HomeContent extends Component {
                 <Row className="content-row">
                     <Col md={3} className="mixers">
                         <RenderList
-                            overview={this.props.overview}
+                            whatsnew={this.props.whatsnew}
                             contentSelect={this.contentSelect.bind(this)} 
                             narratives={this.props.narratives}
                             treemap={this.props.treemap}

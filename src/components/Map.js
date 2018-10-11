@@ -111,7 +111,7 @@ class LeafletMap extends Component {
 						this.ID = feature.properties.ID;
 						this.agglos = L.geoJson(this.props.agglosGeo, {
 							onEachFeature: (feature, layer) => {
-								
+
 								layer._leaflet_id = feature.properties.city_ID;
 
 								layer.on('mouseover', (e) => {
@@ -131,13 +131,13 @@ class LeafletMap extends Component {
 									const cityName = feature.properties.NAME;
 									const value = { value:cityID, label:cityName}
 									this.props.agglosValueToMap(value);
-									let popupContent = "<table class='tooltip-table'>";
-									popupContent += "<tr><td class='title'>Name:</td><td class='data'>" + feature.properties.cityName + "</td></tr>";
-									popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
-									popupContent += "</table>";
-									layer.bindPopup(popupContent).openPopup();
+									// let popupContent = "<table class='tooltip-table'>";
+									// popupContent += "<tr><td class='title'>Name:</td><td class='data'>" + feature.properties.cityName + "</td></tr>";
+									// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
+									// popupContent += "</table>";
+									// layer.bindPopup(popupContent).openPopup();
 								})
-								
+
 							},
 							filter: this.agglos_cityFilter,
 							pointToLayer: this.agglos_pointToLayer
@@ -145,14 +145,14 @@ class LeafletMap extends Component {
 
 						this.placeHolder.addLayer(this.agglos);
 					});
-					
+
 					layer.on('click', () => {
 						const ISO3_ID = feature.properties.ID;
 						const ISO3_NAME = feature.properties.NAME_EN;
 						const e = { value: ISO3_ID, label:ISO3_NAME}
 						this.props.sendCountryValueToContent(e);
 					});
-					
+
 					layer._leaflet_id = feature.properties.ID;
 				}
 			})
@@ -172,8 +172,14 @@ class LeafletMap extends Component {
 
 		// If Home Wrapper is Mounted :
 		} else if(this.props.homeWrapperIsMounted) {
+
+
+			let treemapcurrValue = this.props.treemapSelect;
+			let treemapprevValue = prevProps.treemapSelect;
+
 			if(this.props.treemapFilter === 'treemap'){ // && this.props.treemapValue === 0){
-				
+
+
 				if(this.treemap){
 					this.treemap.clearLayers(this.treemap);
 				}
@@ -183,9 +189,6 @@ class LeafletMap extends Component {
 					pointToLayer: this.treemap_pointToLayer})
 				this.state.map.addLayer(this.treemap);
 			}
-
-			let treemapcurrValue = this.props.treemapSelect;
-			let treemapprevValue = prevProps.treemapSelect;
 
 			if (treemapcurrValue){
 				this.currLayer = this.treemap.getLayer(treemapcurrValue);
@@ -197,7 +200,9 @@ class LeafletMap extends Component {
 				layer.fire('mouseover')
 				if(treemapprevValue){
 				let layerprev = this.treemap.getLayer(treemapprevValue);
-				layerprev.fire('mouseout')}
+				if(layerprev)
+				{layerprev.fire('mouseout')}
+			}
 			}
 		}
 	}

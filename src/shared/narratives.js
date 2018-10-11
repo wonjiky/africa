@@ -1,9 +1,19 @@
-export const OVERVIEW = {
+export const WHATSNEW = [
+  {
     "ID": 0,
-    "content": 'overview',
-    "title": "Overview",
-    "text": "Over the past 60 years, urbanisation and cities have fundamentally transformed the social, economic and political geography of West Africa. The number of people living in cities increased from 5 million in 1950 to 133 million in 2010. During the same period, the number of towns and cities with more than 10 000 inhabitants grew from 159 to close to 2 000. A large majority of these agglomerations are secondary cities and small towns that act as hubs and catalysts for local and regional production and supply chains, as well as for the transfer of goods, people and information, linking the local and regional economies to the global economy.",
+    "whatsNew": 'whatsNew',
+    "title": "Africapolis report 2019",
+  },
+  {
+    "ID": 1,
+    "whatsNew": 'whatsNew',
+    "title": "Africa's largest cities 2019",
+  },{
+    "ID": 2,
+    "whatsNew": 'whatsNew',
+    "title": "Madagascar data available",
   }
+]
 
   export const NARRATIVES = [
     {

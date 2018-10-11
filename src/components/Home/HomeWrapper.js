@@ -11,7 +11,7 @@ class HomeWrapper extends Component {
             homeWrapperIsMounted: true,
             selectedContent:0,
             contentFilter:'narrative',
-
+            
         };
         this.handleValueFromMixer = this.handleValueFromMixer.bind(this);
         this.handleValueFromMap = this.handleValueFromMap.bind(this);
@@ -75,7 +75,7 @@ class HomeWrapper extends Component {
                     </Col>
                     <Col md={8} className="no-margin">
                         <HomeContent 
-                            overview={this.props.overview}
+                            whatsnew={this.props.whatsnew}
                             narratives={story} 
                             treemap={this.props.treemap}
                             contentSelect={this.handleValueFromMixer}

@@ -29,7 +29,7 @@ class RenderList extends Component {
         console.log(e)
     }
 
-    list(stories, treemap, selectedContent, filter, overview){
+    list(stories, treemap, selectedContent, filter, whatsnew){
         return(
             <section>
                 <ul className="list-unstyled">
@@ -55,29 +55,19 @@ class RenderList extends Component {
                             {treemap.title}
                         </li>
                     ))}
+                     <hr />    
+                     <h6>What's New?</h6>
+                     {whatsnew.map((entry, index) => (
+                            <li key={index}>
+                                <MaterialIcon icon="arrow_forward" size={15} color='#585858' />
+                                {entry.title}
+                            </li>
+                    ))}
                 </ul>
 
             </section>
         );
     }
-
-    renderWhatsNew(stories) {
-            return(
-                <div >
-                    {/* <MaterialIcon id="icons" icon="filter_none" size={17} color='#585858' />  */}
-                    <h6>What's New?</h6>
-                    <ul className="list-unstyled">
-                        {stories.map((hello, index) => (
-                            <li key={index}>
-                                <MaterialIcon icon="arrow_forward" size={15} color='#585858' />
-                                {hello.whatsnew}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            );
-        }
-
     _renderDownloadFullData(){
         return(
             <ul className="list-unstyled">
@@ -98,9 +88,7 @@ class RenderList extends Component {
                             this.props.treemap, 
                             this.props.selectedContent, 
                             this.props.contentFilter,
-                            this.props.overview)}
-                        <hr/>
-                        {this.renderWhatsNew(this.props.narratives)}
+                            this.props.whatsnew)}
                     </Col>
                     <Col md={12} className="mixer-download">
                             <img src="assets/images/swac-oecd.png" width="100%"

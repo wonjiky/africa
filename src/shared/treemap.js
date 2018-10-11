@@ -2,7 +2,7 @@ export const TREEMAP = [
    {
         "ID": 0,
         "content": 'treemap',
-        "title": "Africa’s largest cities",
+        "title": "Africa’s largest cities (population)",
         "description": "Stick to 50 since it can give a coherent impression how the histogram look like. And already with 50 it’s well distributed like following. Stick to 50 sinceit can give a coherent impression how the histogram look like. And already with 50 it’s well distributed like following. Over the past 60 years, urbanisation and cities have fundamentally transformed the social, economic and political geography of West Africa. The number of people living in cities",
         "data":[
   {
@@ -360,7 +360,7 @@ export const TREEMAP = [
    {
         "ID": 1,
         "content": 'treemap',
-        "title": "Africa’s largest cities II",
+        "title": "Africa’s largest cities II (surface area)",
         "description": "Stick to 50 since it can give a coherent impression how the histogram look like. And already with 50 it’s well distributed like following. Stick to 50 sinceit can give a coherent impression how the histogram look like. And already with 50 it’s well distributed like following. Over the past 60 years, urbanisation and cities have fundamentally transformed the social, economic and political geography of West Africa. The number of people living in cities",
         "data":[
             {

@@ -135,14 +135,14 @@ class CountryHistogram extends Component {
     metropolitan(data, value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{Math.round(d.metropolitanPop*100)}</p>
+            <p>{d.metropolitanPop.toFixed(2)}</p>
         )
     }
 
     averagedist(data,value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{d.AverageDist}km</p>
+            <p>{d.AverageDist}km&sup2;</p>
         )
     }
 

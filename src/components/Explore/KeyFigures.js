@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 import CountryHistogram from './CountryHistogram';
 import CityHistogram from './CityHistogram';
-
+import BarChart from './BarChart';
 class KeyFigures extends Component {
     constructor(props){
         super(props);

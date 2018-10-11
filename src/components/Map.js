@@ -37,7 +37,7 @@ class LeafletMap extends Component {
 		};
 
 		// this.onEachFeature = this.onEachFeature.bind(this);
-		this.agglos_onEachFeature = this.agglos_onEachFeature.bind(this);
+		// this.agglos_onEachFeature = this.agglos_onEachFeature.bind(this);
 		this.agglos_pointToLayer = this.agglos_pointToLayer.bind(this);
 		this.agglos_cityFilter = this.agglos_cityFilter.bind(this);
 		this.placeHolder_filter = this.placeHolder_filter.bind(this);
@@ -120,6 +120,8 @@ class LeafletMap extends Component {
 
 								layer.on('mouseout', (e) => {
 									e.target.setStyle(this.defaultAgglosStyle(feature))
+									if(feature.properties.clicked){e.target.setStyle(this.highlightAgglosStyle(feature))}
+
 								})
 
 								layer.on('change', () => {
@@ -131,11 +133,15 @@ class LeafletMap extends Component {
 									const cityName = feature.properties.NAME;
 									const value = { value:cityID, label:cityName}
 									this.props.agglosValueToMap(value);
+									if(feature.properties.clicked=true){feature.properties.clicked=null}
+									feature.properties.clicked=true;
+									console.log(feature.properties.clicked)
 									// let popupContent = "<table class='tooltip-table'>";
 									// popupContent += "<tr><td class='title'>Name:</td><td class='data'>" + feature.properties.cityName + "</td></tr>";
 									// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
 									// popupContent += "</table>";
 									// layer.bindPopup(popupContent).openPopup();
+
 								})
 
 							},
@@ -286,7 +292,7 @@ class LeafletMap extends Component {
 
 	highlightAgglosStyle(feature){
 		return({
-			radius: this.getRadius(feature.properties.size),
+			radius: feature.properties.Size*3+6,
 			// fillColor: '#E8AE40',
 			fillOpacity: 1,
 			stroke: true,
@@ -339,33 +345,37 @@ class LeafletMap extends Component {
 		)
 	}
 
-	agglos_onEachFeature(feature, layer) {
-		layer.on('mouseover', (e) => {
-			e.target.setStyle(this.highlightAgglosStyle())
-		})
-
-		layer.on('mouseout', (e) => {
-			e.target.setStyle(this.defaultAgglosStyle(feature))
-		})
-
-		layer.on('change', (e) => {
-			let popupContent = "<table class='tooltip-table'>";
-			popupContent += "<tr><td class='title'>Name:</td><td class='data'>" + feature.properties.cityName + "</td></tr>";
-			popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
-			popupContent += "</table>";
-			layer.bindPopup(popupContent).openPopup();
-		})
-
-		layer.on('click', (e) => {
-			e.target.setStyle(this.highlightAgglosStyle())
-			const cityID = feature.properties.cityID;
-			const cityName = feature.properties.cityName;
-			const a = { value:cityID, label:cityName}
-			this.props.sendAgglosValueToContent(a);
-		})
-		layer._leaflet_id = feature.properties.ID;
-
-	}
+	// agglos_onEachFeature(feature, layer) {
+	// 	layer.on('mouseover', (e) => {
+	// 		e.target.setStyle(this.highlightAgglosStyle())
+	// 	})
+	//
+	// 	layer.on('mouseout', (e) => {
+	// 		e.target.setStyle(this.defaultAgglosStyle(feature))
+	// 		if(feature.properties.clicked=true){this.highlightAgglosStyle()}
+	// 	})
+	//
+	// 	layer.on('change', (e) => {
+	// 		let popupContent = "<table class='tooltip-table'>";
+	// 		popupContent += "<tr><td class='title'>Name:</td><td class='data'>" + feature.properties.cityName + "</td></tr>";
+	// 		popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
+	// 		popupContent += "</table>";
+	// 		layer.bindPopup(popupContent).openPopup();
+	// 	})
+	//
+	// 	layer.on('click', (e) => {
+	// 		feature.properties.clicked=true;
+	// 		e.target.setStyle(this.highlightAgglosStyle())
+	// 		const cityID = feature.properties.cityID;
+	// 		const cityName = feature.properties.cityName;
+	// 		const a = { value:cityID, label:cityName}
+	// 		this.props.sendAgglosValueToContent(a);
+	// 		if(feature.properties.clicked=true){feature.properties.clicked=false}
+	//
+	// 	})
+	// 	layer._leaflet_id = feature.properties.ID;
+	//
+	// }
 
 	render() {
 		return (

@@ -11,9 +11,6 @@ class MenuList extends Component {
   render() {
     
     const { children, maxHeight } = this.props;
-    
-    // const [value] = getValue();
-    // const initialOffset = options.indexOf(value) * height;
 
     return (
       <List
@@ -44,37 +41,35 @@ class ExploreContent extends Component {
 
     sendAgglosValueToMap(e){
         this.props.handleAgglosValueFromSearch(e);
-        // console.log(e)
     }
 
-    filterAgglos(agglosList, selectedCountry){
+    filterAgglos(data, selectedCountry){
         
-        const sortedAgglosList = agglosList[0].features.map((u) => (u.properties)).sort((a, b) => a.NAME.localeCompare(b.NAME))
+        const sortedAgglosList = data.sort((a, b) => a.cityName.localeCompare(b.cityName))
         
         if(selectedCountry){
             const agglosValue = sortedAgglosList.filter(u => (u.ID === selectedCountry))
-            const filteredAgglosList = agglosValue.map((a,i) => ({value: a.city_ID, label: a.NAME, countryID: a.ID}))
+            const filteredAgglosList = agglosValue.map((a,i) => ({value: a.City_ID, label: a.cityName, countryID: a.ID}))
             return(
                 filteredAgglosList
             )
         }else{
             return(
                 sortedAgglosList.map((a,i) => ({
-                    value: a.city_ID, label: a.NAME, countryID: a.ID
+                    value: a.City_ID, label: a.cityName, countryID: a.ID
             })))
         }
     }
 
-    filterCountry(countryList){
-      const sortedCountryList = countryList.map((u) => (u)).sort((a, b) => a.Country.localeCompare(b.Country));
+    filterCountry(data){
+      const sortedCountryList = data.map((u) => (u)).sort((a, b) => a.Country.localeCompare(b.Country));
       const list = sortedCountryList.map((c, i) => (
       {value: c.ID, label: c.Country }))
       return list
     }
 
-    
-    displayCountry(selectedCountry, countryList){
-        const list = countryList.find(u => u.ID === selectedCountry);
+    displayCountry(selectedCountry, data){
+        const list = data.find(u => u.ID === selectedCountry);
         if(selectedCountry){
             return(
                 ({value: list.ID, label: list.Country})
@@ -82,27 +77,27 @@ class ExploreContent extends Component {
         }
     }
 
-    displayAgglos(v,c){
-        if(c) {
-            return c;
-        }else if(v === ''){
-            return '';
+    displayAgglos(selectedAgglos, data){
+        const list = data.find(u => u.City_ID === selectedAgglos);
+        if(selectedAgglos) {
+            return(
+                ({ value: list.City_ID, label: list.cityName})
+            )
         }
     }
 
     render() {
         const { 
-            agglos, 
-            selectedCountry, 
+            agglosData, 
             selectedAgglos,
-            agglosValueForSearch,
+            selectedCountry, 
             countryData,
         } = this.props;
 
         const countryList = this.filterCountry(countryData);
-        const agglosList = this.filterAgglos(agglos, selectedCountry);
+        const agglosList = this.filterAgglos(agglosData, selectedCountry);
         const displayCountry = this.displayCountry(selectedCountry, countryData);
-        const displayAgglos = this.displayAgglos(selectedCountry, agglosValueForSearch);
+        const displayAgglos = this.displayAgglos(selectedAgglos, agglosData);
 
         return(
             <Grid fluid className="content">
@@ -122,28 +117,27 @@ class ExploreContent extends Component {
                                 // isMulti={true}
                             />
                         </Col>
-                        
                         <Col md={9} mdOffset={1}>
                             <Select
                                 placeholder="Select City"
                                 isClearable={this.state.isClearable}
                                 isSearchable={this.state.isSearchable}
-                                value={agglosValueForSearch}
-                                // value={displayAgglos}
+                                value={displayAgglos}
                                 components={{ MenuList }}
                                 onChange={this.sendAgglosValueToMap.bind(this)}
                                 options={agglosList}
-                                
                             />
                         </Col>
-                        <br/>
-                        {/* //change from countryValueForSearch to selectedCountry */}
                         <InfoWrapper 
                             selectedCountry={this.props.selectedCountry} 
-                            agglosValueForSearch={this.props.agglosValueForSearch}
+                            selectedAgglos={this.props.selectedAgglos}
+                            agglosData={this.props.agglosData}
                             countryData={this.props.countryData}
                             valueFromCountryHistogram={this.sendCountryValueToMap.bind(this)}
                             />
+                        <br/>
+                        {/* //change from countryValueForSearch to selectedCountry */}
+                        
                     </Col>
                 </Row>
 

@@ -25,7 +25,8 @@ class RenderTreemap extends Component {
           padding:3,
           overflow:10
         }}
-		};
+    };
+
 		return(
       <Row className="explore-content-row">
        <Col md={7} mdOffset={2}  className="treemap-text">

@@ -1,6 +1,26 @@
 import React, { Component } from 'react';
 import {Row, Col} from 'react-flexbox-grid';
-import { BarChart, Cell, Bar, Tooltip } from 'recharts'; 
+import { BarChart, Cell, Bar, Tooltip, Brush, ReferenceDot,AreaChart, Area, LineChart, Line, YAxis, XAxis, CartesianGrid } from 'recharts'; 
+import Paper from '@material-ui/core/Paper';
+
+let params = {
+    histogramHeight: 100,
+    histogramWidth: 400,
+};
+
+class Custom extends Component {
+    render() {
+        console.log(this.props.selectedAgglos);
+    const {cx, cy, selectedAgglos, stroke, payload, value} = this.props;
+        if(payload.ID){
+            return (
+                <svg x={cx - 10} y={cy - 10} width={5} height={5} fill="green" viewBox="0 0 1024 1024">
+                    {/* <path d="M517.12 53.248q95.232 0 179.2 36.352t145.92 98.304 98.304 145.92 36.352 179.2-36.352 179.2-98.304 145.92-145.92 98.304-179.2 36.352-179.2-36.352-145.92-98.304-98.304-145.92-36.352-179.2 36.352-179.2 98.304-145.92 145.92-98.304 179.2-36.352zM663.552 261.12q-15.36 0-28.16 6.656t-23.04 18.432-15.872 27.648-5.632 33.28q0 35.84 21.504 61.44t51.2 25.6 51.2-25.6 21.504-61.44q0-17.408-5.632-33.28t-15.872-27.648-23.04-18.432-28.16-6.656zM373.76 261.12q-29.696 0-50.688 25.088t-20.992 60.928 20.992 61.44 50.688 25.6 50.176-25.6 20.48-61.44-20.48-60.928-50.176-25.088zM520.192 602.112q-51.2 0-97.28 9.728t-82.944 27.648-62.464 41.472-35.84 51.2q-1.024 1.024-1.024 2.048-1.024 3.072-1.024 8.704t2.56 11.776 7.168 11.264 12.8 6.144q25.6-27.648 62.464-50.176 31.744-19.456 79.36-35.328t114.176-15.872q67.584 0 116.736 15.872t81.92 35.328q37.888 22.528 63.488 50.176 17.408-5.12 19.968-18.944t0.512-18.944-3.072-7.168-1.024-3.072q-26.624-55.296-100.352-88.576t-176.128-33.28z"/> */}
+                </svg>
+                );
+            }
+    }
+  }
 
 class CityHistogram extends Component {
     constructor(props){
@@ -11,94 +31,52 @@ class CityHistogram extends Component {
 
     }
 
-    sendValueFromHistogram(e){
-        let values = {
-            value: e.ID, label: e.Country
-        }
-        this.props.valueFromCountryHistogram(values);
+    sendValueFromCityHistogram(e){
+        this.props.valueFromCityHistogram(e);
     }
 
-    renderUrbanPopulation(data, selectedCountry){
+    renderUrbanPopulation(data, selectedAgglos){
+        const hi = data.map((u => u.ID))
         return(
-            <BarChart width={200} height={60} data={data}>
-                <Bar dataKey='urbanPopulationScaled' onClick={this.sendValueFromHistogram.bind(this)} id="color">
+            <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
+                <Brush 
+                    dataKey='PopulationScaled' 
+                    height={10} 
+                    // startIndex={50}
+                    travellerWidth={10}
+                    // gap={3}
+                    stroke="lightgrey"/>
+                <Bar dataKey='PopulationScaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
                     {data.map((entry, index) => (
-                        <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#e8ae40' : 'lightgrey' }/>
+                        <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? 'red' : 'lightgrey'}/> //entry.ID ===  selectedAgglos ? 'red !important' : 'lightgrey' }/>
                     ))}
                 </Bar>
+                
                 <Tooltip/> 
             </BarChart>    
         )
     }
-
-    renderUrbanizationLevel(data, selectedCountry){
+    
+    renderPopulation(data, selectedAgglos){
         return(
-            <BarChart width={200} height={60} data={data}>
-                <Bar dataKey='urbanizationLevel' onClick={this.sendValueFromHistogram.bind(this)} id="color">
-                    {data.map((entry, index) => (
-                        <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#e8ae40' : 'lightgrey' }/>
-                    ))}
-                </Bar>
-                <Tooltip/> 
-            </BarChart>    
-        )
-    }
-
-    renderAgglos(data, selectedCountry){
-        return(
-            <BarChart width={200} height={60} data={data}>
-                <Bar dataKey='urbanAgglos' onClick={this.sendValueFromHistogram.bind(this)} id="color">
-                    {data.map((entry, index) => (
-                        <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#e8ae40' : 'lightgrey' }/>
-                    ))}
-                </Bar>
-                <Tooltip/> 
-            </BarChart>    
-        )
-    }
-
-    renderMetropolitan(data, selectedCountry){
-        return(
-            <BarChart width={200} height={60} data={data}>
-                <Bar dataKey='metropolitanPop' onClick={this.sendValueFromHistogram.bind(this)} id="color">
-                    {data.map((entry, index) => (
-                        <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#e8ae40' : 'lightgrey' }/>
-                    ))}
-                </Bar>
-                <Tooltip/> 
-            </BarChart>    
-        )
-    }
-
-    renderAvgDist(data, selectedCountry){
-        return(
-            <BarChart width={200} height={60} data={data}>
-                <Bar dataKey='AverageDistScaled' onClick={this.sendValueFromHistogram.bind(this)} id="color">
-                    {data.map((entry, index) => (
-                        <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#e8ae40' : 'lightgrey' }/>
-                    ))}
-                </Bar>
-                <Tooltip/> 
-            </BarChart>    
-        )
-    }
-
-    renderUrbanSurf(data, selectedCountry){
-        return(
-            <BarChart width={200} height={60} data={data}>
-                <Bar dataKey='urbanSurface' onClick={this.sendValueFromHistogram.bind(this)} id="color">
-                    {data.map((entry, index) => (
-                        <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#e8ae40' : 'lightgrey' }/>
-                    ))}
-                </Bar>
-                <Tooltip/> 
-            </BarChart>    
+            <LineChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
+                <Line type="monotone" dataKey="PopulationScaled" stroke="#8884d8" dot={<Custom />}/>
+                <CartesianGrid strokeDasharray="1 1"/>
+                {/* <XAxis dataKey="name"/> */}
+                {/* <YAxis/> */}
+                {/* <Line type="monotone" dataKey="PopulationScaled"
+                dot={<Custom />}
+                /> */}
+                {/* <Area type='monotone' dataKey='PopulationScaled' stroke='lightgrey' fill='lightgrey' /> */}
+                <ReferenceDot r={20} x={.2} y={3} fill="red" stroke="none" />
+                <Tooltip />
+            </LineChart>
         )
     }
 
 
     check(e){
-        return(e === this.props.selectedCountryValue.value)     
+        return(e === this.props.selectedAgglos)     
     }    
 
     renderRanking(data){
@@ -111,103 +89,97 @@ class CityHistogram extends Component {
         )
     }
 
+    filterAgglosForHistogram(data, selectedAgglos, selectedCountry){
+        return data.filter(u => (u.ID === selectedCountry))
+    }
+
     render() {
-        // const data = this.props.countryData.map((d, i) => (
-        //     { 
-        //         "ID":d.ID, 
-        //         "ISO":d.ISO, 
-        //         "Country": d.Country,
-        //         "urbanPopulation":d.Upop, 
-        //         "urbanPopulationScaled":d.Upop_Scaled,
-        //     }
-        // ))
 
-        // const dataUrbanizationLevel = this.props.countryData.map((d, i) => (
-        //     { 
-        //         "ID":d.ID, 
-        //         "ISO":d.ISO, 
-        //         "Country": d.Country,
-        //         "urbanizationLevel": d.Ulvl_Scaled,
-        //     }
-        // ))
+        const { 
+            selectedAgglos, 
+            agglosData,
+            selectedCountry 
+        } = this.props;
 
-        // const dataAgglomerations = this.props.countryData.map((d, i) => (
-        //     { 
-        //         "ID":d.ID, 
-        //         "ISO":d.ISO, 
-        //         "Country": d.Country,
-        //         "urbanAgglos": d.NumAgglos,
-        //         "urbanAgglosScaled": d.NumAgglos_Scaled,
-        //     }
-        // ))
+        const agglos = this.filterAgglosForHistogram(agglosData, selectedAgglos, selectedCountry);
 
-        // const dataMetropolitan = this.props.countryData.map((d, i) => (
-        //     { 
-        //         "ID":d.ID, 
-        //         "ISO":d.ISO, 
-        //         "Country": d.Country,
-        //         "metropolitanPop": d.Mpop,
-        //     }
-        // ))
-
-        // const dataAverageDist = this.props.countryData.map((d, i) => (
-        //     { 
-        //         "ID":d.ID, 
-        //         "ISO":d.ISO, 
-        //         "Country": d.Country,
-        //         "AverageDist": d.ADBC,
-        //         "AverageDistScaled": d.ADBC_Scaled,
-        //     }
-        // ))
-
-        // const dataUrbanSurf = this.props.countryData.map((d, i) => (
-        //     { 
-        //         "ID":d.ID, 
-        //         "ISO":d.ISO, 
-        //         "Country": d.Country,
-        //         "urbanSurface": d.Usurf,
-        //     }
-        // ))
-
-        // const urbanPopulationData = data.sort((a,b) => a.urbanPopulationScaled - b.urbanPopulationScaled);
-        // const urbanizationLevelData = dataUrbanizationLevel.sort((a,b) => a.urbanizationLevel - b.urbanizationLevel);
-        // const agglomerationData = dataAgglomerations.sort((a,b) => a.urbanAgglos - b.urbanAgglos);
-        // const metroPolitanData = dataMetropolitan.sort((a,b) => a.metropolitanPop - b.metropolitanPop);
-        // const averageDistData = dataAverageDist.sort((a,b) => a.AverageDistScaled - b.AverageDistScaled);
-        // const urbanSurfData = dataUrbanSurf.sort((a,b) => a.urbanSurface - b.urbanSurface);
-
+        const PopulationData = agglos.map((d) => (
+            { 
+                "ID": d.City_ID, 
+                "City": d.cityName,
+                "Population": d.Population, 
+                "PopulationScaled": d.Population_Scaled,
+            }
+        )).sort((a,b) => a.PopulationScaled - b.PopulationScaled);
         
-        const { agglosValueForSearch } = this.props;
-        console.log(agglosValueForSearch.value);
-        return(
-            // <Row className="no-padding">
-            //     <Col md={12} className="histogramTitle">city</Col>
-            //     <Col md={12} className="countryKeyfigure"><span>Urban Population</span></Col><br/>
-            //     <Col md={3} className="rankingWrapper">{this.renderRanking(urbanPopulationData)}</Col>
-            //     <Col md={9}className="histogram">{this.renderUrbanPopulation(urbanPopulationData, selectedCountryValue.value)}</Col>
-            //     <hr/>
-            //     <Col md={12} className="countryKeyfigure"><span>Urbanisation Level</span></Col><br/>
-            //     <Col md={3} className="rankingWrapper">{this.renderRanking(urbanizationLevelData)}</Col>
-            //     <Col md={9}className="histogram">{this.renderUrbanizationLevel(urbanizationLevelData, selectedCountryValue.value)}</Col>
-            //     <hr/>
-            //     <Col md={12} className="countryKeyfigure"><span>Number of Agglomerations</span></Col><br/>
-            //     <Col md={3} className="rankingWrapper">{this.renderRanking(agglomerationData)}</Col>
-            //     <Col md={9}className="histogram">{this.renderAgglos(agglomerationData, selectedCountryValue.value)}</Col>
-            //     <hr/>
-            //     <Col md={12} className="countryKeyfigure"><span>Metropolitan Population</span></Col><br/>
-            //     <Col md={3} className="rankingWrapper">{this.renderRanking(metroPolitanData)}</Col>
-            //     <Col md={9}className="histogram">{this.renderMetropolitan(metroPolitanData, selectedCountryValue.value)}</Col>
-            //     <hr/>
-            //     <Col md={12} className="countryKeyfigure"><span>Average Distance between Agglomerations</span></Col><br/>
-            //     <Col md={3} className="rankingWrapper">{this.renderRanking(averageDistData)}</Col>
-            //     <Col md={9}className="histogram">{this.renderAvgDist(averageDistData, selectedCountryValue.value)}</Col>
-            //     <hr/>
-            //     <Col md={12} className="countryKeyfigure"><span>Urban Land Cover</span></Col><br/>
-            //     <Col md={3} className="rankingWrapper">{this.renderRanking(urbanSurfData)}</Col>
-            //     <Col md={9}className="histogram">{this.renderUrbanSurf(urbanSurfData, selectedCountryValue.value)}</Col>
-            // </Row>
-            <div></div>
+
+        /*
+        @@@LABELS: 
+        1. Population
+        2. Density (people/km^2, threshold to see >100 000)
+        3. Distance to metropolitan agglomeration (crossing country, name on hover tooltip )
+        4. Built-up area
+        5. Size of voronoi cell
+        6. Population 1950-2015 (Growth rate 1950-2015 line graph with points)
+        */
+ 
+        if(selectedAgglos){
+            return(
+                <Row className="no-padding">
+                    <Col md={12}>
+                    CITY
+                    </Col>
+                    <Col md={12} className="histogram-wrapper">
+                        <Paper square={true}>
+                            <Row>
+                                <Col md={4} className="agglosKeyFigureTitle"><p>Population</p></Col>
+                                {/* <Col md={3} className="country-histogram-value"> {this.population(urbanPopulationData, selectedCountry)}</Col> */}
+                                {/* <Col md={1} className="rankingWrapper">{this.renderRanking(urbanPopulationData)}</Col> */}
+                                <Col md={4} className="country-histogram-wrapper"> {this.renderUrbanPopulation(PopulationData, selectedAgglos)} </Col>
+                            </Row>
+                        </Paper>
+                    </Col>
+                    <Col md={12} className="histogram-wrapper">
+                        <Paper square={true}>
+                            <Row>
+                                <Col md={4} className="agglosKeyFigureTitle"><p>Population</p></Col>
+                                {/* <Col md={3} className="country-histogram-value"> {this.population(urbanPopulationData, selectedCountry)}</Col> */}
+                                {/* <Col md={1} className="rankingWrapper">{this.renderRanking(urbanPopulationData)}</Col> */}
+                                <Col md={4} className="country-histogram-wrapper"> {this.renderPopulation(PopulationData, selectedAgglos)} </Col>
+                            </Row>
+                        </Paper>
+                    </Col>
+                </Row>
+                // <Row className="no-padding">
+                //     <Col md={12} className="histogramTitle">city</Col>
+                //     <Col md={12} className="countryKeyfigure"><span>Urban Population</span></Col><br/>
+                //     <Col md={3} className="rankingWrapper">{this.renderRanking(urbanPopulationData)}</Col>
+                //     <Col md={9}className="histogram">{this.renderUrbanPopulation(urbanPopulationData, selectedCountryValue.value)}</Col>
+                //     <hr/>
+                //     <Col md={12} className="countryKeyfigure"><span>Urbanisation Level</span></Col><br/>
+                //     <Col md={3} className="rankingWrapper">{this.renderRanking(urbanizationLevelData)}</Col>
+                //     <Col md={9}className="histogram">{this.renderUrbanizationLevel(urbanizationLevelData, selectedCountryValue.value)}</Col>
+                //     <hr/>
+                //     <Col md={12} className="countryKeyfigure"><span>Number of Agglomerations</span></Col><br/>
+                //     <Col md={3} className="rankingWrapper">{this.renderRanking(agglomerationData)}</Col>
+                //     <Col md={9}className="histogram">{this.renderAgglos(agglomerationData, selectedCountryValue.value)}</Col>
+                //     <hr/>
+                //     <Col md={12} className="countryKeyfigure"><span>Metropolitan Population</span></Col><br/>
+                //     <Col md={3} className="rankingWrapper">{this.renderRanking(metroPolitanData)}</Col>
+                //     <Col md={9}className="histogram">{this.renderMetropolitan(metroPolitanData, selectedCountryValue.value)}</Col>
+                //     <hr/>
+                //     <Col md={12} className="countryKeyfigure"><span>Average Distance between Agglomerations</span></Col><br/>
+                //     <Col md={3} className="rankingWrapper">{this.renderRanking(averageDistData)}</Col>
+                //     <Col md={9}className="histogram">{this.renderAvgDist(averageDistData, selectedCountryValue.value)}</Col>
+                //     <hr/>
+                //     <Col md={12} className="countryKeyfigure"><span>Urban Land Cover</span></Col><br/>
+                //     <Col md={3} className="rankingWrapper">{this.renderRanking(urbanSurfData)}</Col>
+                //     <Col md={9}className="histogram">{this.renderUrbanSurf(urbanSurfData, selectedCountryValue.value)}</Col>
+                // </Row>
             );
+        }else{
+            return <div></div>
+        }
     }
 }
 

@@ -9,8 +9,8 @@ class ExploreWrapper extends Component {
         super(props);
         this.state = {
             selectedCountry: null,
-            agglosValueForSearch: '',
-            countryValueForSearch: '',
+            selectedCountry: '',
+            selectedAgglos: '',
             origin: '',
             exploreWrapperIsMounted: true,
             
@@ -21,11 +21,13 @@ class ExploreWrapper extends Component {
         this.handleAgglosValueFromSearch = this.handleAgglosValueFromSearch.bind(this)
     }
 
-
     componentDidUpdate(prevProps, prevState){
-        console.log(prevState.selectedCountry)
+        // if(prevState.selectedCountry !== this.state.selectedCountry){
+        //     this.setState({
+        //         selectedAgglos: '',
+        //     })
+        // }
     }
-
 
     handleCountryValueFromSearch(a){
         let selected = a === null ? '' : a.value
@@ -36,7 +38,6 @@ class ExploreWrapper extends Component {
             this.setState({
                 origin:'search',
                 selectedCountry: '',
-                agglosValueForSearch: '',
             })
         }else{
             this.setState({
@@ -57,7 +58,6 @@ class ExploreWrapper extends Component {
             this.setState({
                 origin:'search',
                 selectedAgglos: '',
-                agglosValueForSearch: '',
             })
         }else{
             this.setState({
@@ -65,8 +65,27 @@ class ExploreWrapper extends Component {
                 selectedCountry: selectedCountry,
                 
                 selectedAgglos: selected,
-                agglosValueForSearch: value,
             })
+        }
+    }
+
+    filterAgglosForHistogram(){
+
+    }
+
+    filterAgglos(data, selectedCountry){
+        const sortedAgglosList = data.sort((a, b) => a.cityName.localeCompare(b.cityName))
+        if(selectedCountry){
+            const agglosValue = sortedAgglosList.filter(u => (u.ID === selectedCountry))
+            const filteredAgglosList = agglosValue.map((a,i) => ({value: a.City_ID, label: a.cityName, countryID: a.ID}))
+            return(
+                filteredAgglosList
+            )
+        }else{
+            return(
+                sortedAgglosList.map((a,i) => ({
+                    value: a.City_ID, label: a.cityName, countryID: a.ID
+            })))
         }
     }
 
@@ -81,12 +100,17 @@ class ExploreWrapper extends Component {
         this.setState({
             origin:'map',
             selectedAgglos: d.value,
-            agglosValueForSearch: d,
         })
-        console.log(this.state.agglosValueForSearch)
     }
 
     render() {
+        const { 
+            agglosData,
+            selectedCountry, 
+        } = this.props;
+
+        const agglosList = this.filterAgglos(agglosData, selectedCountry);
+
         return(
             <Row className="full-height">
                 <Col md={4} className="no-margin">
@@ -111,12 +135,12 @@ class ExploreWrapper extends Component {
                     <ExploreContent 
                         //data to Content
                         countryData={this.props.countryData} 
-                        agglos={this.props.agglosGeo}
+                        agglosData={this.props.agglosData}
+                        // filtered={agglosList}
 
                         //values to Content
                         selectedCountry={this.state.selectedCountry}
-                        agglosValueForSearch={this.state.agglosValueForSearch}
-
+                        selectedAgglos={this.state.selectedAgglos}
 
                         //data from Content
                         handleCountryValueFromSearch={this.handleCountryValueFromSearch}

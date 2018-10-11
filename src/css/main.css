@@ -71,7 +71,7 @@ address{
 
 html, body{
   font-family: 'Merriweather', serif !important;
-  overflow: hidden;
+  /* overflow: hidden; */
   height: 100vh;
 }
 

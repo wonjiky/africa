@@ -55,15 +55,7 @@ class MainWrapper extends Component {
 						countryData={this.state.countryData}
 						agglosData={this.state.info_agglomeration}
 						/> } />
-					<Route exact path={`/aboutus`} component={() => <AboutWrapper
-						narratives={this.state.narratives}
-						whatsnew={this.state.whatsnew}
-						treemap={this.state.treemap}
-						africaOne={this.state.geo_shades}
-						africaContinent={this.state.geo_country}
-						agglosGeo={this.state.geo_agglomeration}
-						treemap_buildup={this.state.treemap_buildup}
-						/> } />
+					<Route exact path={`/aboutus`} component={() => <AboutWrapper/> } />
 					<Redirect to="/home" />
 				</Switch>
 			</div>

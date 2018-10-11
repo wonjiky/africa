@@ -414,3 +414,17 @@ padding: 30px !important;
   margin-top:20px;
   margin-left:25px;
 }
+
+
+
+.recharts-cartesian-axis-line{
+  stroke: none !important;
+}
+
+.recharts-cartesian-axis-tick-line{
+  stroke: none !important;
+}
+
+.recharts-cartesian-axis-tick-value{
+  fill: none !important;
+}

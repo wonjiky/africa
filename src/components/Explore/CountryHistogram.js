@@ -121,7 +121,7 @@ class CountryHistogram extends Component {
     urbanisationlevel(data, value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{Math.round(d.urbanizationLevel*100)}</p>
+            <p>{Math.round(d.urbanizationLevel*100)+'%'}</p>
         )
     }
 
@@ -135,7 +135,7 @@ class CountryHistogram extends Component {
     metropolitan(data, value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{d.metropolitanPop.toFixed(2)}</p>
+            <p>{Math.round(d.metropolitanPop*100)+'%'}</p>
         )
     }
 
@@ -149,7 +149,7 @@ class CountryHistogram extends Component {
     urbanland(data,value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{d.urbanSurface}km<sup>2</sup></p>
+            <p>{d.urbanSurface}km&sup2;</p>
         )
     }
 
@@ -236,7 +236,7 @@ class CountryHistogram extends Component {
                     <Paper square={true}>
                         <Row>
                             <Col md={4} className="keyfigureTitle"><p>Urbanisation Level</p></Col>
-                            <Col md={3} className="country-histogram-value"> {this.urbanisationlevel(urbanizationLevelData, selectedCountry)}%</Col>
+                            <Col md={3} className="country-histogram-value"> {this.urbanisationlevel(urbanizationLevelData, selectedCountry)}</Col>
                             <Col md={1} className="rankingWrapper">{this.renderRanking(urbanizationLevelData)}</Col>
                             <Col md={4}className="country-histogram-wrapper">{this.renderUrbanizationLevel(urbanizationLevelData, selectedCountry)}</Col>
                         </Row>
@@ -256,7 +256,7 @@ class CountryHistogram extends Component {
                     <Paper square={true}>
                         <Row>
                             <Col md={4} className="keyfigureTitle"><p>Metropolitan Population</p></Col>
-                            <Col md={3} className="country-histogram-value"> {this.metropolitan(metroPolitanData, selectedCountry)}%</Col>
+                            <Col md={3} className="country-histogram-value"> {this.metropolitan(metroPolitanData, selectedCountry)}</Col>
                             <Col md={1} className="rankingWrapper">{this.renderRanking(metroPolitanData)}</Col>
                             <Col md={4}className="country-histogram-wrapper">{this.renderMetropolitan(metroPolitanData, selectedCountry)}</Col>
                         </Row>

@@ -44,14 +44,14 @@ class CityHistogram extends Component {
                     height={10} 
                     // startIndex={50}
                     travellerWidth={10}
-                    // gap={3}
-                    stroke="lightgrey"/>
+                    stroke="red"/>
                 <Bar dataKey='PopulationScaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
                     {data.map((entry, index) => (
-                        <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? 'red' : 'lightgrey'}/> //entry.ID ===  selectedAgglos ? 'red !important' : 'lightgrey' }/>
+                        <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? 'red' : 'lightgrey'}/> 
                     ))}
-                </Bar>
                 
+                </Bar>
+                <XAxis height={5}/>
                 <Tooltip/> 
             </BarChart>    
         )

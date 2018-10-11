@@ -9,7 +9,7 @@ const height = 35;
 
 class MenuList extends Component {
   render() {
-    
+
     const { children, maxHeight } = this.props;
 
     return (
@@ -44,9 +44,9 @@ class ExploreContent extends Component {
     }
 
     filterAgglos(data, selectedCountry){
-        
+
         const sortedAgglosList = data.sort((a, b) => a.cityName.localeCompare(b.cityName))
-        
+
         if(selectedCountry){
             const agglosValue = sortedAgglosList.filter(u => (u.ID === selectedCountry))
             const filteredAgglosList = agglosValue.map((a,i) => ({value: a.City_ID, label: a.cityName, countryID: a.ID}))
@@ -87,10 +87,10 @@ class ExploreContent extends Component {
     }
 
     render() {
-        const { 
-            agglosData, 
+        const {
+            agglosData,
             selectedAgglos,
-            selectedCountry, 
+            selectedCountry,
             countryData,
         } = this.props;
 
@@ -128,8 +128,8 @@ class ExploreContent extends Component {
                                 options={agglosList}
                             />
                         </Col>
-                        <InfoWrapper 
-                            selectedCountry={this.props.selectedCountry} 
+                        <InfoWrapper
+                            selectedCountry={this.props.selectedCountry}
                             selectedAgglos={this.props.selectedAgglos}
                             agglosData={this.props.agglosData}
                             countryData={this.props.countryData}
@@ -137,7 +137,7 @@ class ExploreContent extends Component {
                             />
                         <br/>
                         {/* //change from countryValueForSearch to selectedCountry */}
-                        
+
                     </Col>
                 </Row>
 

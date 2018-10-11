@@ -11,7 +11,7 @@ class HomeWrapper extends Component {
             homeWrapperIsMounted: true,
             selectedContent:0,
             contentFilter:'narrative',
-
+            
         };
         this.handleValueFromMixer = this.handleValueFromMixer.bind(this);
         this.handleValueFromMap = this.handleValueFromMap.bind(this);

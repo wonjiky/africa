@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Row, Col} from 'react-flexbox-grid';
-import { BarChart, Cell, Bar, Tooltip } from 'recharts'; 
+import { BarChart, Cell, Bar, Tooltip } from 'recharts';
 import Paper from '@material-ui/core/Paper';
 
 
@@ -28,7 +28,7 @@ class CountryHistogram extends Component {
                             <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#c95d47' : '#e0e0e0' }/>
                         ))}
                     </Bar>
-                    <Tooltip/> 
+                    <Tooltip/>
                 </BarChart>
         )
     }
@@ -41,8 +41,8 @@ class CountryHistogram extends Component {
                         <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#c95d47' : '#e0e0e0' }/>
                     ))}
                 </Bar>
-                <Tooltip/> 
-            </BarChart>    
+                <Tooltip/>
+            </BarChart>
         )
     }
 
@@ -54,8 +54,8 @@ class CountryHistogram extends Component {
                         <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#c95d47' : '#e0e0e0' }/>
                     ))}
                 </Bar>
-                <Tooltip/> 
-            </BarChart>    
+                <Tooltip/>
+            </BarChart>
         )
     }
 
@@ -67,8 +67,8 @@ class CountryHistogram extends Component {
                         <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#c95d47' : '#e0e0e0' }/>
                     ))}
                 </Bar>
-                <Tooltip/> 
-            </BarChart>    
+                <Tooltip/>
+            </BarChart>
         )
     }
 
@@ -80,8 +80,8 @@ class CountryHistogram extends Component {
                         <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#c95d47' : '#e0e0e0' }/>
                     ))}
                 </Bar>
-                <Tooltip/> 
-            </BarChart>    
+                <Tooltip/>
+            </BarChart>
         )
     }
 
@@ -93,15 +93,15 @@ class CountryHistogram extends Component {
                         <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#c95d47' : '#e0e0e0' }/>
                     ))}
                 </Bar>
-                <Tooltip/> 
-            </BarChart>    
+                <Tooltip/>
+            </BarChart>
         )
     }
 
 
     check(e){
-        return(e === this.props.selectedCountry)     
-    }    
+        return(e === this.props.selectedCountry)
+    }
 
     renderRanking(data){
         let d = data.map(u => u.ID)
@@ -113,31 +113,29 @@ class CountryHistogram extends Component {
 
     population(data, value){
         let d = data.find(u => u.ID === value)
-        let num = d.urbanPopulation.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
         return(
-            <p>{num}</p>
+            <p>{d.urbanPopulation.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</p>
         )
     }
 
     urbanisationlevel(data, value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{d.urbanizationLevel}</p>
+            <p>{Math.round(d.urbanizationLevel*100)}</p>
         )
     }
 
     numofagglomeration(data,value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{d.urbanAgglos}</p>
+            <p>{d.urbanAgglos.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</p>
         )
     }
 
     metropolitan(data, value){
         let d = data.find(u => u.ID === value)
-        let num = d.metropolitanPop.toFixed(2);
         return(
-            <p>{num}</p>
+            <p>{d.metropolitanPop.toFixed(2)}</p>
         )
     }
 
@@ -151,7 +149,7 @@ class CountryHistogram extends Component {
     urbanland(data,value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{d.urbanSurface}km2</p>
+            <p>{d.urbanSurface}km<sup>2</sup></p>
         )
     }
 
@@ -159,28 +157,28 @@ class CountryHistogram extends Component {
 
     render() {
         const dataUrbanPopulation = this.props.countryData.map((d, i) => (
-            { 
-                "ID":d.ID, 
-                "ISO":d.ISO, 
+            {
+                "ID":d.ID,
+                "ISO":d.ISO,
                 "Country": d.Country,
-                "urbanPopulation":d.Upop, 
+                "urbanPopulation":d.Upop,
                 "urbanPopulationScaled":d.Upop_Scaled,
             }
         ))
 
         const dataUrbanizationLevel = this.props.countryData.map((d, i) => (
-            { 
-                "ID":d.ID, 
-                "ISO":d.ISO, 
+            {
+                "ID":d.ID,
+                "ISO":d.ISO,
                 "Country": d.Country,
                 "urbanizationLevel": d.Ulvl_Scaled,
             }
         ))
 
         const dataAgglomerations = this.props.countryData.map((d, i) => (
-            { 
-                "ID":d.ID, 
-                "ISO":d.ISO, 
+            {
+                "ID":d.ID,
+                "ISO":d.ISO,
                 "Country": d.Country,
                 "urbanAgglos": d.NumAgglos,
                 "urbanAgglosScaled": d.NumAgglos_Scaled,
@@ -188,18 +186,18 @@ class CountryHistogram extends Component {
         ))
 
         const dataMetropolitan = this.props.countryData.map((d, i) => (
-            { 
-                "ID":d.ID, 
-                "ISO":d.ISO, 
+            {
+                "ID":d.ID,
+                "ISO":d.ISO,
                 "Country": d.Country,
                 "metropolitanPop": d.Mpop,
             }
         ))
 
         const dataAverageDist = this.props.countryData.map((d, i) => (
-            { 
-                "ID":d.ID, 
-                "ISO":d.ISO, 
+            {
+                "ID":d.ID,
+                "ISO":d.ISO,
                 "Country": d.Country,
                 "AverageDist": d.ADBC,
                 "AverageDistScaled": d.ADBC_Scaled,
@@ -207,9 +205,9 @@ class CountryHistogram extends Component {
         ))
 
         const dataUrbanSurf = this.props.countryData.map((d, i) => (
-            { 
-                "ID":d.ID, 
-                "ISO":d.ISO, 
+            {
+                "ID":d.ID,
+                "ISO":d.ISO,
                 "Country": d.Country,
                 "urbanSurface": d.Usurf,
             }
@@ -238,12 +236,12 @@ class CountryHistogram extends Component {
                     <Paper square={true}>
                         <Row>
                             <Col md={4} className="keyfigureTitle"><p>Urbanisation Level</p></Col>
-                            <Col md={3} className="country-histogram-value"> {this.urbanisationlevel(urbanizationLevelData, selectedCountry)}</Col>
+                            <Col md={3} className="country-histogram-value"> {this.urbanisationlevel(urbanizationLevelData, selectedCountry)}%</Col>
                             <Col md={1} className="rankingWrapper">{this.renderRanking(urbanizationLevelData)}</Col>
                             <Col md={4}className="country-histogram-wrapper">{this.renderUrbanizationLevel(urbanizationLevelData, selectedCountry)}</Col>
                         </Row>
                     </Paper>
-                </Col> 
+                </Col>
                 <Col md={12} className="histogram-wrapper">
                     <Paper square={true}>
                         <Row>
@@ -258,7 +256,7 @@ class CountryHistogram extends Component {
                     <Paper square={true}>
                         <Row>
                             <Col md={4} className="keyfigureTitle"><p>Metropolitan Population</p></Col>
-                            <Col md={3} className="country-histogram-value"> {this.metropolitan(metroPolitanData, selectedCountry)}</Col>
+                            <Col md={3} className="country-histogram-value"> {this.metropolitan(metroPolitanData, selectedCountry)}%</Col>
                             <Col md={1} className="rankingWrapper">{this.renderRanking(metroPolitanData)}</Col>
                             <Col md={4}className="country-histogram-wrapper">{this.renderMetropolitan(metroPolitanData, selectedCountry)}</Col>
                         </Row>
@@ -290,7 +288,3 @@ class CountryHistogram extends Component {
 }
 
 export default CountryHistogram;
-
-
-
-

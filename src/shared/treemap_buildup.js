@@ -5,7 +5,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 1,
+        "City_ID": "a1",
         "NAME": "al-Qahira",
         "value": 22995802,
         "Color": "#df521e",
@@ -25,7 +25,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 33,
-        "City_ID": 2,
+        "City_ID": "a2",
         "NAME": "Lagos",
         "value": 11810523,
         "Color": "#E73741",
@@ -45,7 +45,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 33,
-        "City_ID": 3,
+        "City_ID": "a3",
         "NAME": "Onitsha",
         "value": 8530514,
         "Color": "#E73741",
@@ -65,7 +65,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 47,
-        "City_ID": 4,
+        "City_ID": "a4",
         "NAME": "Johannesburg",
         "value": 8314220,
         "Color": "#32a674",
@@ -85,7 +85,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 48,
-        "City_ID": 5,
+        "City_ID": "a5",
         "NAME": "Kinshasa",
         "value": 7270000,
         "Color": "#719e24",
@@ -105,7 +105,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 1,
-        "City_ID": 6,
+        "City_ID": "a6",
         "NAME": "Luanda",
         "value": 6979211,
         "Color": "#993484",
@@ -125,7 +125,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 7,
+        "City_ID": "a7",
         "NAME": "Alexandrie",
         "value": 6585102,
         "Color": "#df521e",
@@ -145,7 +145,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 22,
-        "City_ID": 8,
+        "City_ID": "a8",
         "NAME": "Nairobi aggl.",
         "value": 5877118,
         "Color": "#e1b400",
@@ -165,7 +165,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 45,
-        "City_ID": 9,
+        "City_ID": "a9",
         "NAME": "Dar es Salaam",
         "value": 5325879,
         "Color": "#e1b400",
@@ -185,7 +185,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 40,
-        "City_ID": 10,
+        "City_ID": "a10",
         "NAME": "Khartum",
         "value": 5264746,
         "Color": "#32a674",
@@ -205,7 +205,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 22,
-        "City_ID": 11,
+        "City_ID": "a11",
         "NAME": "Kisumu aggl.",
         "value": 5040159,
         "Color": "#e1b400",
@@ -225,7 +225,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 7,
-        "City_ID": 12,
+        "City_ID": "a12",
         "NAME": "Abidjan",
         "value": 4717347,
         "Color": "#719e24",
@@ -245,7 +245,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 18,
-        "City_ID": 13,
+        "City_ID": "a13",
         "NAME": "Accra",
         "value": 4452483,
         "Color": "#0b68af",
@@ -265,8 +265,8 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 8,
-        "City_ID": 14,
-        "NAME": "Yaound�",
+        "City_ID": "a14",
+        "NAME": "Yaound?",
         "value": 3901680,
         "Color": "#E73741",
         "lon": 11.53000029,
@@ -285,7 +285,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 33,
-        "City_ID": 15,
+        "City_ID": "a15",
         "NAME": "Kano",
         "value": 3888582,
         "Color": "#E73741",
@@ -305,7 +305,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 12,
-        "City_ID": 16,
+        "City_ID": "a16",
         "NAME": "Alger",
         "value": 3886202,
         "Color": "#0f8fd9",
@@ -325,7 +325,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 46,
-        "City_ID": 17,
+        "City_ID": "a17",
         "NAME": "Kampala",
         "value": 3790894,
         "Color": "#df521e",
@@ -345,7 +345,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 18,
+        "City_ID": "a18",
         "NAME": "Suhag",
         "value": 3749685,
         "Color": "#df521e",
@@ -365,7 +365,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 15,
-        "City_ID": 19,
+        "City_ID": "a19",
         "NAME": "Addis Ababa City",
         "value": 3711329,
         "Color": "#0f8fd9",
@@ -385,7 +385,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 47,
-        "City_ID": 20,
+        "City_ID": "a20",
         "NAME": "Cape Town",
         "value": 3661684,
         "Color": "#32a674",
@@ -405,7 +405,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 22,
-        "City_ID": 21,
+        "City_ID": "a21",
         "NAME": "Kisii aggl.",
         "value": 3407476,
         "Color": "#e1b400",
@@ -425,7 +425,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 26,
-        "City_ID": 22,
+        "City_ID": "a22",
         "NAME": "Casablanca",
         "value": 3390193,
         "Color": "#0b68af",
@@ -445,7 +445,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 47,
-        "City_ID": 23,
+        "City_ID": "a23",
         "NAME": "Durban",
         "value": 3088935,
         "Color": "#32a674",
@@ -465,7 +465,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 33,
-        "City_ID": 24,
+        "City_ID": "a24",
         "NAME": "Ibadan",
         "value": 3088477,
         "Color": "#E73741",
@@ -485,7 +485,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 36,
-        "City_ID": 25,
+        "City_ID": "a25",
         "NAME": "Dakar",
         "value": 3067637,
         "Color": "#993484",
@@ -505,7 +505,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 18,
-        "City_ID": 26,
+        "City_ID": "a26",
         "NAME": "Kumasi",
         "value": 2802344,
         "Color": "#0b68af",
@@ -525,7 +525,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 27,
-        "City_ID": 27,
+        "City_ID": "a27",
         "NAME": "Bamako",
         "value": 2781734,
         "Color": "#E73741",
@@ -545,7 +545,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 28,
-        "City_ID": 28,
+        "City_ID": "a28",
         "NAME": "Cidade de Maputo",
         "value": 2607026,
         "Color": "#df521e",
@@ -565,7 +565,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 8,
-        "City_ID": 29,
+        "City_ID": "a29",
         "NAME": "Douala",
         "value": 2567572,
         "Color": "#E73741",
@@ -585,7 +585,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 44,
-        "City_ID": 30,
+        "City_ID": "a30",
         "NAME": "Tunis",
         "value": 2442503,
         "Color": "#e1b400",
@@ -605,7 +605,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 49,
-        "City_ID": 31,
+        "City_ID": "a31",
         "NAME": "Lusaka",
         "value": 2426689,
         "Color": "#32a674",
@@ -625,7 +625,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 4,
-        "City_ID": 32,
+        "City_ID": "a32",
         "NAME": "Ouagadougou",
         "value": 2299007,
         "Color": "#719e24",
@@ -645,7 +645,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 50,
-        "City_ID": 33,
+        "City_ID": "a33",
         "NAME": "Harare",
         "value": 2272905,
         "Color": "#0f8fd9",
@@ -665,7 +665,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 33,
-        "City_ID": 34,
+        "City_ID": "a34",
         "NAME": "Uyo",
         "value": 2271025,
         "Color": "#E73741",
@@ -685,7 +685,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 15,
-        "City_ID": 35,
+        "City_ID": "a35",
         "NAME": "Sodo Town",
         "value": 2261958,
         "Color": "#0f8fd9",
@@ -705,7 +705,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 46,
-        "City_ID": 36,
+        "City_ID": "a36",
         "NAME": "Mbale [UGA]",
         "value": 2247248,
         "Color": "#df521e",
@@ -725,7 +725,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 34,
-        "City_ID": 37,
+        "City_ID": "a37",
         "NAME": "Kigali",
         "value": 2202094,
         "Color": "#0b68af",
@@ -745,7 +745,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 19,
-        "City_ID": 38,
+        "City_ID": "a38",
         "NAME": "Conakry",
         "value": 2186966,
         "Color": "#993484",
@@ -765,7 +765,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 15,
-        "City_ID": 39,
+        "City_ID": "a39",
         "NAME": "Hawassa City",
         "value": 2182604,
         "Color": "#0f8fd9",
@@ -785,7 +785,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 48,
-        "City_ID": 40,
+        "City_ID": "a40",
         "NAME": "Lubumbashi",
         "value": 2077000,
         "Color": "#719e24",
@@ -805,7 +805,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 22,
-        "City_ID": 41,
+        "City_ID": "a41",
         "NAME": "Embu aggl.",
         "value": 2046897,
         "Color": "#e1b400",
@@ -825,7 +825,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 42,
+        "City_ID": "a42",
         "NAME": "al-Mansura",
         "value": 2018861,
         "Color": "#df521e",
@@ -845,7 +845,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 33,
-        "City_ID": 43,
+        "City_ID": "a43",
         "NAME": "Abuja",
         "value": 1998816,
         "Color": "#E73741",
@@ -865,7 +865,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 24,
-        "City_ID": 44,
+        "City_ID": "a44",
         "NAME": "Tripoli",
         "value": 1949325,
         "Color": "#E73741",
@@ -885,7 +885,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 33,
-        "City_ID": 45,
+        "City_ID": "a45",
         "NAME": "Port Harcourt",
         "value": 1845232,
         "Color": "#E73741",
@@ -905,7 +905,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 43,
-        "City_ID": 46,
+        "City_ID": "a46",
         "NAME": "Lome",
         "value": 1733330,
         "Color": "#df521e",
@@ -925,7 +925,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 38,
-        "City_ID": 47,
+        "City_ID": "a47",
         "NAME": "Mogadisho",
         "value": 1712400,
         "Color": "#e1b400",
@@ -945,7 +945,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 33,
-        "City_ID": 48,
+        "City_ID": "a48",
         "NAME": "Aba",
         "value": 1687158,
         "Color": "#E73741",
@@ -965,7 +965,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 9,
-        "City_ID": 49,
+        "City_ID": "a49",
         "NAME": "Brazzaville",
         "value": 1588304,
         "Color": "#32a674",
@@ -985,7 +985,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 33,
-        "City_ID": 50,
+        "City_ID": "a50",
         "NAME": "Benin City",
         "value": 1569977,
         "Color": "#E73741",
@@ -1005,7 +1005,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 22,
-        "City_ID": 11,
+        "City_ID": "b11",
         "NAME": "Kisumu aggl.",
         "value": 5862.59,
         "Color": "#E73741",
@@ -1025,7 +1025,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 22,
-        "City_ID": 21,
+        "City_ID": "b21",
         "NAME": "Kisii aggl.",
         "value": 5000.77,
         "Color": "#E73741",
@@ -1045,7 +1045,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 33,
-        "City_ID": 3,
+        "City_ID": "b3",
         "NAME": "Onitsha",
         "value": 2866.69,
         "Color": "#df521e",
@@ -1065,7 +1065,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 47,
-        "City_ID": 4,
+        "City_ID": "b4",
         "NAME": "Johannesburg",
         "value": 2214.06,
         "Color": "#e1b400",
@@ -1085,7 +1085,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 15,
-        "City_ID": 35,
+        "City_ID": "b35",
         "NAME": "Sodo Town",
         "value": 1929.53,
         "Color": "#32a674",
@@ -1105,7 +1105,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 8,
-        "City_ID": 60,
+        "City_ID": "b60",
         "NAME": "Bafoussam",
         "value": 1888.53,
         "Color": "#0b68af",
@@ -1125,7 +1125,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 1,
+        "City_ID": "b1",
         "NAME": "al-Qahira",
         "value": 1774.41,
         "Color": "#719e24",
@@ -1145,7 +1145,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 24,
-        "City_ID": 44,
+        "City_ID": "b44",
         "NAME": "Tripoli",
         "value": 1745.38,
         "Color": "#E73741",
@@ -1165,7 +1165,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 22,
-        "City_ID": 41,
+        "City_ID": "b41",
         "NAME": "Embu aggl.",
         "value": 1554.74,
         "Color": "#E73741",
@@ -1185,7 +1185,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 22,
-        "City_ID": 93,
+        "City_ID": "b93",
         "NAME": "Bomet aggl.",
         "value": 1503.97,
         "Color": "#E73741",
@@ -1205,7 +1205,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 22,
-        "City_ID": 8,
+        "City_ID": "b8",
         "NAME": "Nairobi aggl.",
         "value": 1340.26,
         "Color": "#E73741",
@@ -1225,7 +1225,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 15,
-        "City_ID": 39,
+        "City_ID": "b39",
         "NAME": "Hawassa City",
         "value": 1301.78,
         "Color": "#32a674",
@@ -1245,7 +1245,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 18,
-        "City_ID": 13,
+        "City_ID": "b13",
         "NAME": "Accra",
         "value": 1197.69,
         "Color": "#993484",
@@ -1265,7 +1265,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 46,
-        "City_ID": 36,
+        "City_ID": "b36",
         "NAME": "Mbale [UGA]",
         "value": 1065.58,
         "Color": "#0f8fd9",
@@ -1285,7 +1285,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 45,
-        "City_ID": 9,
+        "City_ID": "b9",
         "NAME": "Dar es Salaam",
         "value": 1065.11,
         "Color": "#df521e",
@@ -1305,7 +1305,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 33,
-        "City_ID": 34,
+        "City_ID": "b34",
         "NAME": "Uyo",
         "value": 997.34,
         "Color": "#df521e",
@@ -1325,7 +1325,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 1,
-        "City_ID": 6,
+        "City_ID": "b6",
         "NAME": "Luanda",
         "value": 964.85,
         "Color": "#e1b400",
@@ -1345,7 +1345,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 12,
-        "City_ID": 16,
+        "City_ID": "b16",
         "NAME": "Alger",
         "value": 952.76,
         "Color": "#32a674",
@@ -1365,7 +1365,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 22,
-        "City_ID": 82,
+        "City_ID": "b82",
         "NAME": "Maua aggl.",
         "value": 943.26,
         "Color": "#E73741",
@@ -1385,7 +1385,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 33,
-        "City_ID": 2,
+        "City_ID": "b2",
         "NAME": "Lagos",
         "value": 937.93,
         "Color": "#df521e",
@@ -1405,7 +1405,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 46,
-        "City_ID": 17,
+        "City_ID": "b17",
         "NAME": "Kampala",
         "value": 896.73,
         "Color": "#0f8fd9",
@@ -1425,7 +1425,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 34,
-        "City_ID": 37,
+        "City_ID": "b37",
         "NAME": "Kigali",
         "value": 863.08,
         "Color": "#719e24",
@@ -1445,7 +1445,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 40,
-        "City_ID": 10,
+        "City_ID": "b10",
         "NAME": "Khartum",
         "value": 810.99,
         "Color": "#0f8fd9",
@@ -1465,7 +1465,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 28,
-        "City_ID": 28,
+        "City_ID": "b28",
         "NAME": "Cidade de Maputo",
         "value": 805.87,
         "Color": "#0b68af",
@@ -1485,7 +1485,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 47,
-        "City_ID": 23,
+        "City_ID": "b23",
         "NAME": "Durban",
         "value": 790.39,
         "Color": "#e1b400",
@@ -1505,7 +1505,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 33,
-        "City_ID": 48,
+        "City_ID": "b48",
         "NAME": "Aba",
         "value": 754.18,
         "Color": "#df521e",
@@ -1525,7 +1525,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 50,
-        "City_ID": 33,
+        "City_ID": "b33",
         "NAME": "Harare",
         "value": 712.21,
         "Color": "#993484",
@@ -1545,7 +1545,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 33,
-        "City_ID": 54,
+        "City_ID": "b54",
         "NAME": "Nsukka",
         "value": 698.6,
         "Color": "#df521e",
@@ -1565,7 +1565,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 47,
-        "City_ID": 20,
+        "City_ID": "b20",
         "NAME": "Cape Town",
         "value": 628.66,
         "Color": "#e1b400",
@@ -1585,7 +1585,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 49,
-        "City_ID": 31,
+        "City_ID": "b31",
         "NAME": "Lusaka",
         "value": 621.98,
         "Color": "#E73741",
@@ -1605,7 +1605,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 33,
-        "City_ID": 24,
+        "City_ID": "b24",
         "NAME": "Ibadan",
         "value": 607.78,
         "Color": "#df521e",
@@ -1625,7 +1625,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 18,
-        "City_ID": 26,
+        "City_ID": "b26",
         "NAME": "Kumasi",
         "value": 554.62,
         "Color": "#993484",
@@ -1645,7 +1645,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 15,
-        "City_ID": 19,
+        "City_ID": "b19",
         "NAME": "Addis Ababa City",
         "value": 530.85,
         "Color": "#32a674",
@@ -1665,7 +1665,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 26,
-        "City_ID": 22,
+        "City_ID": "b22",
         "NAME": "Casablanca",
         "value": 527.05,
         "Color": "#df521e",
@@ -1685,7 +1685,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 27,
-        "City_ID": 27,
+        "City_ID": "b27",
         "NAME": "Bamako",
         "value": 499.32,
         "Color": "#e1b400",
@@ -1705,7 +1705,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 22,
-        "City_ID": 136,
+        "City_ID": "b136",
         "NAME": "Meru aggl.",
         "value": 498.65,
         "Color": "#E73741",
@@ -1725,7 +1725,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 33,
-        "City_ID": 43,
+        "City_ID": "b43",
         "NAME": "Abuja",
         "value": 488.85,
         "Color": "#df521e",
@@ -1745,7 +1745,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 45,
-        "City_ID": 149,
+        "City_ID": "b149",
         "NAME": "Mbomai",
         "value": 439.66,
         "Color": "#df521e",
@@ -1765,7 +1765,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 22,
-        "City_ID": 232,
+        "City_ID": "b232",
         "NAME": "Kikima aggl.",
         "value": 437.98,
         "Color": "#E73741",
@@ -1785,7 +1785,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 33,
-        "City_ID": 50,
+        "City_ID": "b50",
         "NAME": "Benin City",
         "value": 437.64,
         "Color": "#df521e",
@@ -1805,7 +1805,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 22,
-        "City_ID": 292,
+        "City_ID": "b292",
         "NAME": "Kehancha aggl.",
         "value": 431.23,
         "Color": "#E73741",
@@ -1825,7 +1825,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 48,
-        "City_ID": 5,
+        "City_ID": "b5",
         "NAME": "Kinshasa",
         "value": 429.58,
         "Color": "#32a674",
@@ -1845,7 +1845,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 4,
-        "City_ID": 32,
+        "City_ID": "b32",
         "NAME": "Ouagadougou",
         "value": 405.69,
         "Color": "#719e24",
@@ -1865,7 +1865,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 7,
+        "City_ID": "b7",
         "NAME": "Alexandrie",
         "value": 391.74,
         "Color": "#719e24",
@@ -1885,7 +1885,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 7,
-        "City_ID": 12,
+        "City_ID": "b12",
         "NAME": "Abidjan",
         "value": 391.35,
         "Color": "#0f8fd9",
@@ -1905,7 +1905,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 22,
-        "City_ID": 143,
+        "City_ID": "b143",
         "NAME": "Kericho aggl.",
         "value": 381.59,
         "Color": "#E73741",
@@ -1925,7 +1925,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 47,
-        "City_ID": 56,
+        "City_ID": "b56",
         "NAME": "Soshanguve",
         "value": 380.07,
         "Color": "#e1b400",
@@ -1945,7 +1945,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 44,
-        "City_ID": 30,
+        "City_ID": "b30",
         "NAME": "Tunis",
         "value": 376.07,
         "Color": "#0b68af",
@@ -1965,7 +1965,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 33,
-        "City_ID": 45,
+        "City_ID": "b45",
         "NAME": "Port Harcourt",
         "value": 368.01,
         "Color": "#df521e",
@@ -1985,7 +1985,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 22,
-        "City_ID": 182,
+        "City_ID": "b182",
         "NAME": "Runyenjes aggl.",
         "value": 355.98,
         "Color": "#E73741",
@@ -2005,7 +2005,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 630,
+        "City_ID": "c630",
         "NAME": "Nasir (Bush)",
         "value": 32457,
         "Color": "#E73741",
@@ -2025,7 +2025,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 245,
+        "City_ID": "c245",
         "NAME": "Mallawi",
         "value": 28387,
         "Color": "#E73741",
@@ -2045,7 +2045,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 211,
+        "City_ID": "c211",
         "NAME": "al-Minya",
         "value": 27944,
         "Color": "#E73741",
@@ -2065,7 +2065,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 103,
+        "City_ID": "c103",
         "NAME": "Bur Said",
         "value": 26849,
         "Color": "#E73741",
@@ -2085,7 +2085,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 521,
+        "City_ID": "c521",
         "NAME": "Usim",
         "value": 26827,
         "Color": "#E73741",
@@ -2105,7 +2105,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 681,
+        "City_ID": "c681",
         "NAME": "al-Fashn",
         "value": 24423,
         "Color": "#E73741",
@@ -2125,7 +2125,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 164,
+        "City_ID": "c164",
         "NAME": "Bani Suwayf",
         "value": 24410,
         "Color": "#E73741",
@@ -2145,7 +2145,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 507,
+        "City_ID": "c507",
         "NAME": "Samalut",
         "value": 24176,
         "Color": "#E73741",
@@ -2165,7 +2165,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 106,
+        "City_ID": "c106",
         "NAME": "al-Fayyum",
         "value": 23733,
         "Color": "#E73741",
@@ -2185,7 +2185,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 12,
-        "City_ID": 350,
+        "City_ID": "c350",
         "NAME": "Mohammadia",
         "value": 23684,
         "Color": "#e1b400",
@@ -2205,7 +2205,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 568,
+        "City_ID": "c568",
         "NAME": "Maghagha",
         "value": 23332,
         "Color": "#E73741",
@@ -2225,7 +2225,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 665,
+        "City_ID": "c665",
         "NAME": "Abshaway",
         "value": 23227,
         "Color": "#E73741",
@@ -2245,7 +2245,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 452,
+        "City_ID": "c452",
         "NAME": "Atsa",
         "value": 22718,
         "Color": "#E73741",
@@ -2265,7 +2265,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 91,
+        "City_ID": "c91",
         "NAME": "Tanta",
         "value": 22475,
         "Color": "#E73741",
@@ -2285,7 +2285,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 545,
+        "City_ID": "c545",
         "NAME": "al-Fikriyya",
         "value": 20873,
         "Color": "#E73741",
@@ -2305,7 +2305,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 269,
+        "City_ID": "c269",
         "NAME": "Shibin al-Qanatir",
         "value": 20430,
         "Color": "#E73741",
@@ -2325,7 +2325,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 528,
+        "City_ID": "c528",
         "NAME": "Bani Mazar",
         "value": 19878,
         "Color": "#E73741",
@@ -2345,7 +2345,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 450,
+        "City_ID": "c450",
         "NAME": "Bilqas",
         "value": 19862,
         "Color": "#E73741",
@@ -2365,7 +2365,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 477,
+        "City_ID": "c477",
         "NAME": "Tanan",
         "value": 19673,
         "Color": "#E73741",
@@ -2385,7 +2385,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 1,
-        "City_ID": 467,
+        "City_ID": "c467",
         "NAME": "Cafunfo",
         "value": 19652,
         "Color": "#df521e",
@@ -2405,7 +2405,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 306,
+        "City_ID": "c306",
         "NAME": "al-Matariyya",
         "value": 19351,
         "Color": "#E73741",
@@ -2425,7 +2425,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 251,
+        "City_ID": "c251",
         "NAME": "Sinuras",
         "value": 18840,
         "Color": "#E73741",
@@ -2445,7 +2445,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 539,
+        "City_ID": "c539",
         "NAME": "Abu Zabal",
         "value": 18691,
         "Color": "#E73741",
@@ -2465,7 +2465,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 411,
+        "City_ID": "c411",
         "NAME": "Bani Rafi",
         "value": 18079,
         "Color": "#E73741",
@@ -2485,7 +2485,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 42,
+        "City_ID": "c42",
         "NAME": "al-Mansura",
         "value": 18018,
         "Color": "#E73741",
@@ -2505,7 +2505,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 219,
+        "City_ID": "c219",
         "NAME": "Dayrut",
         "value": 17919,
         "Color": "#E73741",
@@ -2525,7 +2525,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 602,
+        "City_ID": "c602",
         "NAME": "Qus",
         "value": 17812,
         "Color": "#E73741",
@@ -2545,7 +2545,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 216,
+        "City_ID": "c216",
         "NAME": "Kafr al-Shaykh",
         "value": 17514,
         "Color": "#E73741",
@@ -2565,7 +2565,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 346,
+        "City_ID": "c346",
         "NAME": "Isna",
         "value": 16980,
         "Color": "#E73741",
@@ -2585,7 +2585,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 129,
+        "City_ID": "c129",
         "NAME": "Mit Ghamr",
         "value": 16959,
         "Color": "#E73741",
@@ -2605,7 +2605,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 48,
-        "City_ID": 5,
+        "City_ID": "c5",
         "NAME": "Kinshasa",
         "value": 16924,
         "Color": "#32a674",
@@ -2625,7 +2625,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 223,
+        "City_ID": "c223",
         "NAME": "Disuq",
         "value": 16844,
         "Color": "#E73741",
@@ -2645,7 +2645,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 7,
+        "City_ID": "c7",
         "NAME": "Alexandrie",
         "value": 16810,
         "Color": "#E73741",
@@ -2665,7 +2665,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 63,
+        "City_ID": "c63",
         "NAME": "al-Zaqaziq",
         "value": 16657,
         "Color": "#E73741",
@@ -2685,7 +2685,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 167,
+        "City_ID": "c167",
         "NAME": "Huw",
         "value": 16651,
         "Color": "#E73741",
@@ -2705,7 +2705,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 352,
+        "City_ID": "c352",
         "NAME": "al-Qusiyya",
         "value": 15997,
         "Color": "#E73741",
@@ -2725,7 +2725,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 426,
+        "City_ID": "c426",
         "NAME": "Adfu",
         "value": 15921,
         "Color": "#E73741",
@@ -2745,7 +2745,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 441,
+        "City_ID": "c441",
         "NAME": "al-Barahma",
         "value": 15666,
         "Color": "#E73741",
@@ -2765,7 +2765,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 323,
+        "City_ID": "c323",
         "NAME": "Bilbis",
         "value": 15628,
         "Color": "#E73741",
@@ -2785,7 +2785,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 556,
+        "City_ID": "c556",
         "NAME": "al-Wasta",
         "value": 15571,
         "Color": "#E73741",
@@ -2805,7 +2805,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 695,
+        "City_ID": "c695",
         "NAME": "Bani Muhammadiyyat",
         "value": 15447,
         "Color": "#E73741",
@@ -2825,7 +2825,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 501,
+        "City_ID": "c501",
         "NAME": "Dikirnis",
         "value": 15324,
         "Color": "#E73741",
@@ -2845,7 +2845,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 275,
+        "City_ID": "c275",
         "NAME": "al-Uqsur",
         "value": 15324,
         "Color": "#E73741",
@@ -2865,7 +2865,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 667,
+        "City_ID": "c667",
         "NAME": "Sahil Silim",
         "value": 15086,
         "Color": "#E73741",
@@ -2885,7 +2885,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 36,
-        "City_ID": 25,
+        "City_ID": "c25",
         "NAME": "Dakar",
         "value": 15052,
         "Color": "#719e24",
@@ -2905,7 +2905,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 1,
-        "City_ID": 425,
+        "City_ID": "c425",
         "NAME": "N'dalatando",
         "value": 14881,
         "Color": "#df521e",
@@ -2925,7 +2925,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 248,
+        "City_ID": "c248",
         "NAME": "Faqus",
         "value": 14748,
         "Color": "#E73741",
@@ -2945,7 +2945,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 130,
+        "City_ID": "c130",
         "NAME": "al-Manzala",
         "value": 14577,
         "Color": "#E73741",
@@ -2965,7 +2965,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 307,
+        "City_ID": "c307",
         "NAME": "al-Sinbillawin",
         "value": 14329,
         "Color": "#E73741",
@@ -2985,7 +2985,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 412,
+        "City_ID": "c412",
         "NAME": "Kum Umbu",
         "value": 14159,
         "Color": "#E73741",
@@ -3007,7 +3007,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 32,
         "Color": "#32a674",
         "treemap_ID": 3,
-        "City_ID": 587
+        "City_ID": "c587"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -3053,7 +3053,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 12,
         "Color": "#E73741",
         "treemap_ID": 3,
-        "City_ID": 593
+        "City_ID": "d593"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -3107,7 +3107,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 12,
         "Color": "#E73741",
         "treemap_ID": 3,
-        "City_ID": 987
+        "City_ID": "d987"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -3149,7 +3149,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 31,
         "Color": "#0b68af",
         "treemap_ID": 3,
-        "City_ID": 1020
+        "City_ID": "d1020"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -3211,7 +3211,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 47,
         "Color": "#e1b400",
         "treemap_ID": 3,
-        "City_ID": 1054
+        "City_ID": "d1054"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -3257,7 +3257,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 12,
         "Color": "#E73741",
         "treemap_ID": 3,
-        "City_ID": 1097
+        "City_ID": "d1097"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -3311,7 +3311,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 27,
         "Color": "#993484",
         "treemap_ID": 3,
-        "City_ID": 1099
+        "City_ID": "d1099"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -3361,7 +3361,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 5,
         "Color": "#df521e",
         "treemap_ID": 3,
-        "City_ID": 1112
+        "City_ID": "d1112"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -3403,7 +3403,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 12,
         "Color": "#E73741",
         "treemap_ID": 3,
-        "City_ID": 1232
+        "City_ID": "d1232"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -3469,7 +3469,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 12,
         "Color": "#E73741",
         "treemap_ID": 3,
-        "City_ID": 1256
+        "City_ID": "d1256"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -3531,7 +3531,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 26,
         "Color": "#32a674",
         "treemap_ID": 3,
-        "City_ID": 1266
+        "City_ID": "d1266"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -3577,7 +3577,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 40,
         "Color": "#E73741",
         "treemap_ID": 3,
-        "City_ID": 1407
+        "City_ID": "d1407"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -3635,7 +3635,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 32,
         "Color": "#32a674",
         "treemap_ID": 3,
-        "City_ID": 1411
+        "City_ID": "d1411"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -3681,7 +3681,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 42,
         "Color": "#e1b400",
         "treemap_ID": 3,
-        "City_ID": 1540
+        "City_ID": "d1540"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -3735,7 +3735,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 29,
         "Color": "#719e24",
         "treemap_ID": 3,
-        "City_ID": 1591
+        "City_ID": "d1591"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -3785,7 +3785,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 35,
         "Color": "#719e24",
         "treemap_ID": 3,
-        "City_ID": 1725
+        "City_ID": "d1725"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -3851,7 +3851,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 24,
         "Color": "#df521e",
         "treemap_ID": 3,
-        "City_ID": 1762
+        "City_ID": "d1762"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -3917,7 +3917,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 26,
         "Color": "#32a674",
         "treemap_ID": 3,
-        "City_ID": 1887
+        "City_ID": "d1887"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -3967,7 +3967,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 42,
         "Color": "#e1b400",
         "treemap_ID": 3,
-        "City_ID": 2067
+        "City_ID": "d2067"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -4017,7 +4017,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 27,
         "Color": "#993484",
         "treemap_ID": 3,
-        "City_ID": 2458
+        "City_ID": "d2458"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -4067,7 +4067,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 12,
         "Color": "#E73741",
         "treemap_ID": 3,
-        "City_ID": 2631
+        "City_ID": "d2631"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -4105,7 +4105,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 32,
         "Color": "#32a674",
         "treemap_ID": 3,
-        "City_ID": 2754
+        "City_ID": "d2754"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -4147,7 +4147,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 32,
         "Color": "#32a674",
         "treemap_ID": 3,
-        "City_ID": 3069
+        "City_ID": "d3069"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -4221,7 +4221,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 42,
         "Color": "#e1b400",
         "treemap_ID": 3,
-        "City_ID": 3248
+        "City_ID": "d3248"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -4271,7 +4271,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 13,
         "Color": "#0f8fd9",
         "treemap_ID": 3,
-        "City_ID": 3261
+        "City_ID": "d3261"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -4325,7 +4325,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 12,
         "Color": "#E73741",
         "treemap_ID": 3,
-        "City_ID": 3270
+        "City_ID": "d3270"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -4371,7 +4371,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 24,
         "Color": "#df521e",
         "treemap_ID": 3,
-        "City_ID": 3296
+        "City_ID": "d3296"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -4417,7 +4417,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 29,
         "Color": "#719e24",
         "treemap_ID": 3,
-        "City_ID": 3325
+        "City_ID": "d3325"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -4483,7 +4483,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 31,
         "Color": "#0b68af",
         "treemap_ID": 3,
-        "City_ID": 3551
+        "City_ID": "d3551"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -4525,7 +4525,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 13,
         "Color": "#0f8fd9",
         "treemap_ID": 3,
-        "City_ID": 3655
+        "City_ID": "d3655"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -4579,7 +4579,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 24,
         "Color": "#df521e",
         "treemap_ID": 3,
-        "City_ID": 3686
+        "City_ID": "d3686"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -4625,7 +4625,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 13,
         "Color": "#0f8fd9",
         "treemap_ID": 3,
-        "City_ID": 3703
+        "City_ID": "d3703"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -4695,7 +4695,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 12,
         "Color": "#E73741",
         "treemap_ID": 3,
-        "City_ID": 3797
+        "City_ID": "d3797"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -4749,7 +4749,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 31,
         "Color": "#0b68af",
         "treemap_ID": 3,
-        "City_ID": 3822
+        "City_ID": "d3822"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -4799,7 +4799,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 12,
         "Color": "#E73741",
         "treemap_ID": 3,
-        "City_ID": 4525
+        "City_ID": "d4525"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -4849,7 +4849,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 40,
         "Color": "#E73741",
         "treemap_ID": 3,
-        "City_ID": 4669
+        "City_ID": "d4669"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -4895,7 +4895,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 24,
         "Color": "#df521e",
         "treemap_ID": 3,
-        "City_ID": 4807
+        "City_ID": "d4807"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -4953,7 +4953,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 5,
         "Color": "#df521e",
         "treemap_ID": 3,
-        "City_ID": 4835
+        "City_ID": "d4835"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -5003,7 +5003,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 42,
         "Color": "#e1b400",
         "treemap_ID": 3,
-        "City_ID": 5154
+        "City_ID": "d5154"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -5049,7 +5049,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 40,
         "Color": "#E73741",
         "treemap_ID": 3,
-        "City_ID": 5622
+        "City_ID": "d5622"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -5107,7 +5107,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 13,
         "Color": "#0f8fd9",
         "treemap_ID": 3,
-        "City_ID": 5685
+        "City_ID": "d5685"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -5553,7 +5553,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 31,
         "Color": "#0b68af",
         "treemap_ID": 3,
-        "City_ID": 5780
+        "City_ID": "d5780"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -5595,7 +5595,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 24,
         "Color": "#df521e",
         "treemap_ID": 3,
-        "City_ID": 5890
+        "City_ID": "d5890"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -5649,7 +5649,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 12,
         "Color": "#E73741",
         "treemap_ID": 3,
-        "City_ID": 6172
+        "City_ID": "d6172"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -5703,7 +5703,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 24,
         "Color": "#df521e",
         "treemap_ID": 3,
-        "City_ID": 6195
+        "City_ID": "d6195"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -5749,7 +5749,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 1,
         "Color": "#0f8fd9",
         "treemap_ID": 3,
-        "City_ID": 6497
+        "City_ID": "d6497"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -5791,7 +5791,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 29,
         "Color": "#719e24",
         "treemap_ID": 3,
-        "City_ID": 6698
+        "City_ID": "d6698"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -5845,7 +5845,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 24,
         "Color": "#df521e",
         "treemap_ID": 3,
-        "City_ID": 6747
+        "City_ID": "d6747"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -5895,7 +5895,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 12,
         "Color": "#E73741",
         "treemap_ID": 3,
-        "City_ID": 6944
+        "City_ID": "d6944"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -5933,7 +5933,7 @@ export const TREEMAP_BUILDUP =[{
         "ID": 47,
         "Color": "#e1b400",
         "treemap_ID": 3,
-        "City_ID": 7201
+        "City_ID": "d7201"
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -5989,7 +5989,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 24,
-        "City_ID": 1762,
+        "City_ID": "e1762",
         "NAME": "al-Jawf",
         "value": 473008,
         "Color": "#df521e",
@@ -6009,7 +6009,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 42,
-        "City_ID": 1540,
+        "City_ID": "e1540",
         "NAME": "Faya",
         "value": 370216,
         "Color": "#e1b400",
@@ -6029,7 +6029,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 12,
-        "City_ID": 3797,
+        "City_ID": "e3797",
         "NAME": "Bordj Badji Mokhtar",
         "value": 323371,
         "Color": "#E73741",
@@ -6049,7 +6049,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 12,
-        "City_ID": 1232,
+        "City_ID": "e1232",
         "NAME": "Tindouf",
         "value": 302344,
         "Color": "#E73741",
@@ -6069,7 +6069,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 24,
-        "City_ID": 3686,
+        "City_ID": "e3686",
         "NAME": "Marzuq",
         "value": 274083,
         "Color": "#df521e",
@@ -6089,7 +6089,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 12,
-        "City_ID": 593,
+        "City_ID": "e593",
         "NAME": "Tamanrasset",
         "value": 244991,
         "Color": "#E73741",
@@ -6109,7 +6109,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 29,
-        "City_ID": 1591,
+        "City_ID": "e1591",
         "NAME": "Zoueiratt",
         "value": 218704,
         "Color": "#719e24",
@@ -6129,7 +6129,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 12,
-        "City_ID": 4525,
+        "City_ID": "e4525",
         "NAME": "Illizi",
         "value": 203899,
         "Color": "#E73741",
@@ -6149,7 +6149,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 24,
-        "City_ID": 5890,
+        "City_ID": "e5890",
         "NAME": "Jalu",
         "value": 184380,
         "Color": "#df521e",
@@ -6169,7 +6169,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 29,
-        "City_ID": 3325,
+        "City_ID": "e3325",
         "NAME": "Nema",
         "value": 176788,
         "Color": "#719e24",
@@ -6189,7 +6189,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 12,
-        "City_ID": 6944,
+        "City_ID": "e6944",
         "NAME": "Tinoulef",
         "value": 172219,
         "Color": "#E73741",
@@ -6209,7 +6209,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 3261,
+        "City_ID": "e3261",
         "NAME": "Mut",
         "value": 171540,
         "Color": "#0f8fd9",
@@ -6229,7 +6229,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 32,
-        "City_ID": 3069,
+        "City_ID": "e3069",
         "NAME": "N'Guigmi",
         "value": 171265,
         "Color": "#32a674",
@@ -6249,7 +6249,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 42,
-        "City_ID": 3248,
+        "City_ID": "e3248",
         "NAME": "Fada",
         "value": 169110,
         "Color": "#e1b400",
@@ -6269,7 +6269,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 32,
-        "City_ID": 1411,
+        "City_ID": "e1411",
         "NAME": "Arlit",
         "value": 158495,
         "Color": "#32a674",
@@ -6289,7 +6289,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 27,
-        "City_ID": 1099,
+        "City_ID": "e1099",
         "NAME": "Tombouctou",
         "value": 157475,
         "Color": "#993484",
@@ -6309,7 +6309,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 12,
-        "City_ID": 2631,
+        "City_ID": "e2631",
         "NAME": "Djanet",
         "value": 147527,
         "Color": "#E73741",
@@ -6329,7 +6329,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 3655,
+        "City_ID": "e3655",
         "NAME": "Siwa",
         "value": 140107,
         "Color": "#0f8fd9",
@@ -6349,7 +6349,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 12,
-        "City_ID": 3270,
+        "City_ID": "e3270",
         "NAME": "In Salah",
         "value": 135705,
         "Color": "#E73741",
@@ -6369,7 +6369,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 29,
-        "City_ID": 6698,
+        "City_ID": "e6698",
         "NAME": "Tidjikja",
         "value": 134532,
         "Color": "#719e24",
@@ -6389,7 +6389,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 27,
-        "City_ID": 2458,
+        "City_ID": "e2458",
         "NAME": "Kidal",
         "value": 133542,
         "Color": "#993484",
@@ -6409,7 +6409,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 5,
-        "City_ID": 4835,
+        "City_ID": "e4835",
         "NAME": "Ghanzi",
         "value": 131586,
         "Color": "#df521e",
@@ -6429,7 +6429,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 24,
-        "City_ID": 6747,
+        "City_ID": "e6747",
         "NAME": "GhYt",
         "value": 128705,
         "Color": "#df521e",
@@ -6449,7 +6449,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 31,
-        "City_ID": 3551,
+        "City_ID": "e3551",
         "NAME": "Keetmanshoop",
         "value": 124473,
         "Color": "#0b68af",
@@ -6469,7 +6469,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 32,
-        "City_ID": 587,
+        "City_ID": "e587",
         "NAME": "Agadez",
         "value": 120787,
         "Color": "#32a674",
@@ -6489,7 +6489,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 40,
-        "City_ID": 4669,
+        "City_ID": "e4669",
         "NAME": "Wadi Halfa",
         "value": 109404,
         "Color": "#E73741",
@@ -6509,7 +6509,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 31,
-        "City_ID": 1020,
+        "City_ID": "e1020",
         "NAME": "Rundu",
         "value": 106255,
         "Color": "#0b68af",
@@ -6529,7 +6529,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 42,
-        "City_ID": 5154,
+        "City_ID": "e5154",
         "NAME": "Salal",
         "value": 105908,
         "Color": "#e1b400",
@@ -6549,7 +6549,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 12,
-        "City_ID": 1256,
+        "City_ID": "e1256",
         "NAME": "Hassi Messaoud",
         "value": 104920,
         "Color": "#E73741",
@@ -6569,7 +6569,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 42,
-        "City_ID": 2067,
+        "City_ID": "e2067",
         "NAME": "Oure Cassoni camp",
         "value": 103988,
         "Color": "#e1b400",
@@ -6589,7 +6589,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 47,
-        "City_ID": 1054,
+        "City_ID": "e1054",
         "NAME": "Upington",
         "value": 100702,
         "Color": "#e1b400",
@@ -6609,7 +6609,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 26,
-        "City_ID": 1266,
+        "City_ID": "e1266",
         "NAME": "EsSemara",
         "value": 100333,
         "Color": "#32a674",
@@ -6629,7 +6629,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 5,
-        "City_ID": 1112,
+        "City_ID": "e1112",
         "NAME": "Maun",
         "value": 94530,
         "Color": "#df521e",
@@ -6649,7 +6649,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 12,
-        "City_ID": 1097,
+        "City_ID": "e1097",
         "NAME": "El Menea",
         "value": 94222,
         "Color": "#E73741",
@@ -6669,7 +6669,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 24,
-        "City_ID": 4807,
+        "City_ID": "e4807",
         "NAME": "Nalut",
         "value": 92596,
         "Color": "#df521e",
@@ -6689,7 +6689,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 24,
-        "City_ID": 6195,
+        "City_ID": "e6195",
         "NAME": "Waddan",
         "value": 86984,
         "Color": "#df521e",
@@ -6709,7 +6709,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 12,
-        "City_ID": 6172,
+        "City_ID": "e6172",
         "NAME": "Beni Abbes",
         "value": 86700,
         "Color": "#E73741",
@@ -6729,7 +6729,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 35,
-        "City_ID": 1725,
+        "City_ID": "e1725",
         "NAME": "Raga",
         "value": 85504,
         "Color": "#719e24",
@@ -6749,7 +6749,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 31,
-        "City_ID": 3822,
+        "City_ID": "e3822",
         "NAME": "Gobabis",
         "value": 85027,
         "Color": "#0b68af",
@@ -6769,7 +6769,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 32,
-        "City_ID": 2754,
+        "City_ID": "e2754",
         "NAME": "Akokan",
         "value": 83556,
         "Color": "#32a674",
@@ -6789,7 +6789,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 24,
-        "City_ID": 3296,
+        "City_ID": "e3296",
         "NAME": "Awbari",
         "value": 80899,
         "Color": "#df521e",
@@ -6809,7 +6809,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 12,
-        "City_ID": 987,
+        "City_ID": "e987",
         "NAME": "Adrar",
         "value": 80494,
         "Color": "#E73741",
@@ -6829,7 +6829,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 47,
-        "City_ID": 7201,
+        "City_ID": "e7201",
         "NAME": "Vredendal North",
         "value": 77923,
         "Color": "#e1b400",
@@ -6849,7 +6849,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 40,
-        "City_ID": 5622,
+        "City_ID": "e5622",
         "NAME": "Abu Hamad",
         "value": 77788,
         "Color": "#E73741",
@@ -6869,7 +6869,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 31,
-        "City_ID": 5780,
+        "City_ID": "e5780",
         "NAME": "Mariental",
         "value": 76581,
         "Color": "#0b68af",
@@ -6889,7 +6889,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 5685,
+        "City_ID": "e5685",
         "NAME": "al-Shallatin",
         "value": 76336,
         "Color": "#0f8fd9",
@@ -6909,7 +6909,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 13,
-        "City_ID": 3703,
+        "City_ID": "e3703",
         "NAME": "al-Bawiti",
         "value": 74980,
         "Color": "#0f8fd9",
@@ -6929,7 +6929,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 26,
-        "City_ID": 1887,
+        "City_ID": "e1887",
         "NAME": "Zagora",
         "value": 74864,
         "Color": "#32a674",
@@ -6949,7 +6949,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 1,
-        "City_ID": 6497,
+        "City_ID": "e6497",
         "NAME": "Mavinga",
         "value": 74856,
         "Color": "#0f8fd9",
@@ -6969,7 +6969,7 @@ export const TREEMAP_BUILDUP =[{
       "type": "Feature",
       "properties": {
         "ID": 40,
-        "City_ID": 1407,
+        "City_ID": "e1407",
         "NAME": "Mellit",
         "value": 74158,
         "Color": "#E73741",
@@ -6986,5 +6986,4 @@ export const TREEMAP_BUILDUP =[{
       }
     }
   ]
-}
-  ];
+}];

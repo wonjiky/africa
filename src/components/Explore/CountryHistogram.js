@@ -20,6 +20,7 @@ class CountryHistogram extends Component {
         this.props.valueFromCountryHistogram(values);
     }
 
+
     renderUrbanPopulation(data, selectedCountry){
         return(
                 <BarChart width={200} height={60} data={data}>
@@ -142,14 +143,14 @@ class CountryHistogram extends Component {
     averagedist(data,value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{d.AverageDist}km&sup2;</p>
+            <p>{d.AverageDist} km&sup2;</p>
         )
     }
 
     urbanland(data,value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{d.urbanSurface}km&sup2;</p>
+            <p>{d.urbanSurface} km&sup2;</p>
         )
     }
 
@@ -219,6 +220,11 @@ class CountryHistogram extends Component {
         const metroPolitanData = dataMetropolitan.sort((a,b) => a.metropolitanPop - b.metropolitanPop);
         const averageDistData = dataAverageDist.sort((a,b) => a.AverageDistScaled - b.AverageDistScaled);
         const urbanSurfData = dataUrbanSurf.sort((a,b) => a.urbanSurface - b.urbanSurface);
+
+        
+
+
+
         const { selectedCountry } = this.props;
         return(
             <Row className="no-padding">

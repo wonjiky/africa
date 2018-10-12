@@ -5,7 +5,7 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-  
+
 class InfoWrapper extends Component {
     constructor(props){
         super(props);
@@ -27,25 +27,25 @@ class InfoWrapper extends Component {
 						<ul className="list-unstyled ">
 							<li>
 								<h5><span>Capital: </span>{list.Capital}</h5>
-								<h5 className="pop-area"><span>Population: </span>{list.Upop}</h5>
-								<h5 className="pop-area"><span>Area: </span>{list.Surface}</h5>
+								<h5 className="pop-area"><span>Population: </span>{list.Upop.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</h5>
+								<h5 className="pop-area"><span>Area: </span>{list.Surface.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</h5>
 								<br />
 								<p>{list.description} </p>
 							</li>
-						</ul>					
+						</ul>
 						</ExpansionPanelDetails>
 					</ExpansionPanel>
 				</div>
 			)
 		}
 	}
-	
+
 	valueFromCountryHistogram(value){
 		this.props.valueFromCountryHistogram(value);
 	}
 
     render() {
-		
+
 		const { selectedCountry, countryData, selectedAgglos, agglosData } = this.props;
         if(selectedCountry){
 			return(
@@ -54,25 +54,25 @@ class InfoWrapper extends Component {
 						{this.renderInfo(selectedCountry, countryData)}
 					</Col>
 					<Col md={9} mdOffset={1} className="keyFigure-Wrapper">
-					<KeyFigures 
+					<KeyFigures
 						//country data
 						countryData={countryData}
 						selectedCountry={selectedCountry}
 						valueFromCountryHistogram = {this.valueFromCountryHistogram.bind(this)}
-						
+
 						//city data
 						agglosData={agglosData}
 						selectedAgglos = {selectedAgglos}
 						/>
 					</Col>
-				</Row>  
+				</Row>
 			);
 		}else{
 			return(
 				<Col md={9} mdOffset={1} className="countryUnselected">
 					Start by selecting country or city from search box or map
 				</Col>
-				
+
 		  );
 		}
     }

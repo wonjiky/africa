@@ -38,9 +38,9 @@ class RenderFilter extends Component {
 
     rangeChange(e){
         console.log(e.target.value)
-        this.setState({ 
+        this.setState({
             value: e.target.value })
-        
+
         if(this.state.value > 10){
             e.step = 10;
         }else {
@@ -54,10 +54,10 @@ class RenderFilter extends Component {
             { value: 1960, step: 10 },
             { value: 1970, step: 10 },
             { value: 1980, step: 10 },
-            { value: 1990, step: 10 }, 
+            { value: 1990, step: 10 },
             { value: 2000, step: 10 },
             { value: 2010, step: 5 },
-            { value: 2015 } 
+            { value: 2015 }
         ]
 
         return(
@@ -68,9 +68,9 @@ class RenderFilter extends Component {
                         <li className="slider">Use slider to toggle view of<br/> different years</li>
                         <br/>
                         <li>
-                            <StepRangeSlider 
-                            value={2015} 
-                            range={range} 
+                            <StepRangeSlider
+                            value={2015}
+                            range={range}
                             onChange={value => console.log(value)}
                             />
                         </li>
@@ -84,10 +84,10 @@ class RenderFilter extends Component {
                     </ul>
                 </Col>
                 <Col md={12} className="mixer-download">
-              
-                    <hr/>    
+
+                    <hr/>
                         {this._renderDownloadFullData()}
-                    <hr/>   
+                    <hr/>
                     <img src="assets/images/swac-oecd.png" width="100%"
                     alt="Africapolis Visualise Urbanisation in Africa"/>
                 </Col>

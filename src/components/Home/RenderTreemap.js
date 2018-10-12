@@ -24,7 +24,7 @@ class RenderTreemap extends Component {
         labelConfig: {
           fontResize:false,
           fontSize:12,
-          width:100,
+          width:90,
           height:3000,
           padding:3,
           overflow:10

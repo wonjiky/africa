@@ -8,7 +8,7 @@ export const TREEMAP = [
   {
     "ID": 13,
     "City_ID": "a1" ,
-    "NAME": "al-Qahira",
+    "NAME": "Cairo",
     "value": 22995802,
     "Color": "#df521e"
   },
@@ -57,7 +57,7 @@ export const TREEMAP = [
   {
     "ID": 22,
     "City_ID": "a8" ,
-    "NAME": "Nairobi aggl.",
+    "NAME": "Nairobi",
     "value": 5877118,
     "Color": "#e1b400"
   },
@@ -78,7 +78,7 @@ export const TREEMAP = [
   {
     "ID": 22,
     "City_ID": "a11" ,
-    "NAME": "Kisumu aggl.",
+    "NAME": "Kisumu",
     "value": 5040159,
     "Color": "#e1b400"
   },
@@ -148,7 +148,7 @@ export const TREEMAP = [
   {
     "ID": 22,
     "City_ID": "a21" ,
-    "NAME": "Kisii aggl.",
+    "NAME": "Kisii",
     "value": 3407476,
     "Color": "#e1b400"
   },
@@ -288,7 +288,7 @@ export const TREEMAP = [
   {
     "ID": 22,
     "City_ID": "a41" ,
-    "NAME": "Embu aggl.",
+    "NAME": "Embu",
     "value": 2046897,
     "Color": "#e1b400"
   },
@@ -365,14 +365,14 @@ export const TREEMAP = [
         "data":[
             {
               "ID": 22,
-              "NAME": "Kisumu aggl.",
+              "NAME": "Kisumu",
               "value": 5862.59,
               "City_ID": "b11" ,
               "Color": "#E73741"
             },
             {
               "ID": 22,
-              "NAME": "Kisii aggl.",
+              "NAME": "Kisii",
               "value": 5000.77,
               "City_ID": "b21" ,
               "Color": "#E73741"
@@ -407,7 +407,7 @@ export const TREEMAP = [
             },
             {
               "ID": 13,
-              "NAME": "al-Qahira",
+              "NAME": "Cairo",
               "value": 1774.41,
               "City_ID": "b1" ,
               "Color": "#719e24"
@@ -421,21 +421,21 @@ export const TREEMAP = [
             },
             {
               "ID": 22,
-              "NAME": "Embu aggl.",
+              "NAME": "Embu",
               "value": 1554.74,
               "City_ID": "b41" ,
               "Color": "#E73741"
             },
             {
               "ID": 22,
-              "NAME": "Bomet aggl.",
+              "NAME": "Bomet",
               "value": 1503.97,
               "City_ID": "b93" ,
               "Color": "#E73741"
             },
             {
               "ID": 22,
-              "NAME": "Nairobi aggl.",
+              "NAME": "Nairobi",
               "value": 1340.26,
               "City_ID": "b8" ,
               "Color": "#E73741"
@@ -491,7 +491,7 @@ export const TREEMAP = [
             },
             {
               "ID": 22,
-              "NAME": "Maua aggl.",
+              "NAME": "Maua",
               "value": 943.26,
               "City_ID": "b82" ,
               "Color": "#E73741"
@@ -610,7 +610,7 @@ export const TREEMAP = [
             },
             {
               "ID": 22,
-              "NAME": "Meru aggl.",
+              "NAME": "Meru",
               "value": 498.65,
               "City_ID": "b136" ,
               "Color": "#E73741"
@@ -631,7 +631,7 @@ export const TREEMAP = [
             },
             {
               "ID": 22,
-              "NAME": "Kikima aggl.",
+              "NAME": "Kikima",
               "value": 437.98,
               "City_ID": "b232" ,
               "Color": "#E73741"
@@ -645,7 +645,7 @@ export const TREEMAP = [
             },
             {
               "ID": 22,
-              "NAME": "Kehancha aggl.",
+              "NAME": "Kehancha",
               "value": 431.23,
               "City_ID": "b292" ,
               "Color": "#E73741"
@@ -680,7 +680,7 @@ export const TREEMAP = [
             },
             {
               "ID": 22,
-              "NAME": "Kericho aggl.",
+              "NAME": "Kericho",
               "value": 381.59,
               "City_ID": "b143",
               "Color": "#E73741"
@@ -708,7 +708,7 @@ export const TREEMAP = [
             },
             {
               "ID": 22,
-              "NAME": "Runyenjes aggl.",
+              "NAME": "Runyenjes",
               "value": 355.98,
               "City_ID": "b182" ,
               "Color": "#E73741"

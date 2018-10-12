@@ -6,7 +6,7 @@ export const TREEMAP_BUILDUP =[{
       "properties": {
         "ID": 13,
         "City_ID": "a1",
-        "NAME": "al-Qahira",
+        "NAME": "Cairo",
         "value": 22995802,
         "Color": "#df521e",
         "lon": 31.255,
@@ -1126,7 +1126,7 @@ export const TREEMAP_BUILDUP =[{
       "properties": {
         "ID": 13,
         "City_ID": "b1",
-        "NAME": "al-Qahira",
+        "NAME": "Cairo",
         "value": 1774.41,
         "Color": "#719e24",
         "lon": -0.206319346,

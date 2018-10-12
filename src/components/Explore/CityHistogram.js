@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Row, Col} from 'react-flexbox-grid';
-import { BarChart, Cell, Bar, Tooltip, Brush, ReferenceDot,AreaChart, Area, LineChart, Line, YAxis, XAxis, CartesianGrid } from 'recharts'; 
+import { BarChart, Cell, Bar, Tooltip, Brush, ReferenceDot,AreaChart, Area, LineChart, Line, YAxis, XAxis, CartesianGrid } from 'recharts';
 import Paper from '@material-ui/core/Paper';
 
 let params = {
@@ -38,20 +38,20 @@ class CityHistogram extends Component {
         const hi = data.map((u => u.ID))
         return(
             <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
-                <Brush 
-                    dataKey='PopulationScaled' 
-                    height={10} 
+                <Brush
+                    dataKey='PopulationScaled'
+                    height={10}
                     // startIndex={50}
                     travellerWidth={10}
                     stroke="lightgrey"/>
                 <Bar dataKey='PopulationScaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
                     {data.map((entry, index) => (
-                        <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#E8AE40' : 'lightgrey'}/> 
+                        <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#E8AE40' : 'lightgrey'}/>
                     ))}
                 </Bar>
                 <XAxis height={5}/>
-                <Tooltip/> 
-            </BarChart>    
+                <Tooltip/>
+            </BarChart>
         )
     }
 
@@ -59,20 +59,20 @@ class CityHistogram extends Component {
         const hi = data.map((u => u.ID))
         return(
             <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
-                <Brush 
-                    dataKey='DensityScaled' 
-                    height={10} 
+                <Brush
+                    dataKey='DensityScaled'
+                    height={10}
                     // startIndex={50}
                     travellerWidth={10}
                     stroke="lightgrey"/>
                 <Bar dataKey='DensityScaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
                     {data.map((entry, index) => (
-                        <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#E8AE40' : 'lightgrey'}/> 
+                        <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#E8AE40' : 'lightgrey'}/>
                     ))}
                 </Bar>
                 <XAxis height={5}/>
-                <Tooltip/> 
-            </BarChart>    
+                <Tooltip/>
+            </BarChart>
         )
     }
 
@@ -80,20 +80,20 @@ class CityHistogram extends Component {
         const hi = data.map((u => u.ID))
         return(
             <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
-                <Brush 
-                    dataKey='DistScaled' 
-                    height={10} 
+                <Brush
+                    dataKey='DistScaled'
+                    height={10}
                     // startIndex={50}
                     travellerWidth={10}
                     stroke="lightgrey"/>
                 <Bar dataKey='DistScaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
                     {data.map((entry, index) => (
-                        <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#E8AE40' : 'lightgrey'}/> 
+                        <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#E8AE40' : 'lightgrey'}/>
                     ))}
                 </Bar>
                 <XAxis height={5}/>
-                <Tooltip/> 
-            </BarChart>    
+                <Tooltip/>
+            </BarChart>
         )
     }
 
@@ -101,20 +101,20 @@ class CityHistogram extends Component {
         const hi = data.map((u => u.ID))
         return(
             <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
-                <Brush 
-                    dataKey='BuiltUp' 
-                    height={10} 
+                <Brush
+                    dataKey='BuiltUp'
+                    height={10}
                     // startIndex={50}
                     travellerWidth={10}
                     stroke="lightgrey"/>
                 <Bar dataKey='BuiltUp' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
                     {data.map((entry, index) => (
-                        <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#E8AE40' : 'lightgrey'}/> 
+                        <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#E8AE40' : 'lightgrey'}/>
                     ))}
                 </Bar>
                 <XAxis height={5}/>
-                <Tooltip/> 
-            </BarChart>    
+                <Tooltip/>
+            </BarChart>
         )
     }
 
@@ -122,23 +122,23 @@ class CityHistogram extends Component {
         const hi = data.map((u => u.ID))
         return(
             <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
-                <Brush 
-                    dataKey='Voronoi_Scaled' 
-                    height={10} 
+                <Brush
+                    dataKey='Voronoi_Scaled'
+                    height={10}
                     // startIndex={50}
                     travellerWidth={10}
                     stroke="lightgrey"/>
                 <Bar dataKey='Voronoi_Scaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
                     {data.map((entry, index) => (
-                        <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#E8AE40' : 'lightgrey'}/> 
+                        <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#E8AE40' : 'lightgrey'}/>
                     ))}
                 </Bar>
                 <XAxis height={5}/>
-                <Tooltip/> 
-            </BarChart>    
+                <Tooltip/>
+            </BarChart>
         )
     }
-    
+
     renderPopulation1950(data){
         return(
             <LineChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
@@ -151,8 +151,8 @@ class CityHistogram extends Component {
 
 
     check(e){
-        return(e === this.props.selectedAgglos)     
-    }    
+        return(e === this.props.selectedAgglos)
+    }
 
     renderRanking(data){
         let d = data.map(u => u.ID)
@@ -178,7 +178,7 @@ class CityHistogram extends Component {
         let d = data.find(u => u.ID === value)
         if(value){
         return(
-            <p>{Math.round(d.Density*100)+'%'}</p>
+            <p>{Math.round(d.Density).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} Inhabitants per km&sup2;</p>
         )
     }else{return}
     }
@@ -187,7 +187,7 @@ class CityHistogram extends Component {
         let d = data.find(u => u.ID === value)
         if(value){
         return(
-            <p>{d.Dist.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</p>
+            <p>{d.Dist.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} km</p>
         )
     }else{return}
     }
@@ -196,7 +196,7 @@ class CityHistogram extends Component {
         let d = data.find(u => u.ID === value)
         if(value){
         return(
-            <p>{Math.round(d.BuiltUp*100)+'%'}</p>
+            <p>{d.BuiltUp} km&sup2;</p>
         )}
         else{return}
     }
@@ -205,11 +205,11 @@ class CityHistogram extends Component {
         let d = data.find(u => u.ID === value)
         if(value){
         return(
-            <p>{d.Voronoi}km&sup2;</p>
+            <p>{d.Voronoi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} km&sup2;</p>
         )}else{
             return;
         }
-        
+
     }
 
     filterAgglosForHistogram(data, selectedCountry){
@@ -218,55 +218,60 @@ class CityHistogram extends Component {
 
     render() {
 
-        const { 
-            selectedAgglos, 
+        const {
+            selectedAgglos,
             agglosData,
-            selectedCountry 
+            selectedCountry
         } = this.props;
+
+
+
 
         const agglos = this.filterAgglosForHistogram(agglosData, selectedCountry);
 
+
+
         const PopulationData = agglos.map((d) => (
-            { 
-                "ID": d.City_ID, 
+            {
+                "ID": d.City_ID,
                 "City": d.cityName,
-                "Population": d.Population, 
+                "Population": d.Population,
                 "PopulationScaled": d.Population_Scaled,
             }
         )).sort((a,b) => a.PopulationScaled - b.PopulationScaled);
 
         const DensityData = agglos.map((d) => (
-            { 
-                "ID": d.City_ID, 
+            {
+                "ID": d.City_ID,
                 "City": d.cityName,
-                "Density": d.Density, 
+                "Density": d.Density,
                 "DensityScaled": d.Density_Scaled,
             }
         )).sort((a,b) => a.DensityScaled - b.DensityScaled);
 
         const DistData = agglos.map((d) => (
-            { 
-                "ID": d.City_ID, 
+            {
+                "ID": d.City_ID,
                 "City": d.cityName,
-                "Dist": d.DistToMetro, 
+                "Dist": Math.round(d.DistToMetro),
                 "DistScaled": d.DistToMetro_Scaled,
             }
         )).sort((a,b) => a.DistScaled - b.DistScaled);
 
         const BuiltupData = agglos.map((d) => (
-            { 
-                "ID": d.City_ID, 
+            {
+                "ID": d.City_ID,
                 "City": d.cityName,
-                "BuiltUp": d.Build_up, 
+                "BuiltUp": d.Build_up,
                 "BuiltUp_Scaled": d.Build_up_scale,
             }
         )).sort((a,b) => a.BuiltUp - b.BuiltUp);
 
         const VoronoiData = agglos.map((d) => (
-            { 
-                "ID": d.City_ID, 
+            {
+                "ID": d.City_ID,
                 "City": d.cityName,
-                "Voronoi": d.Voronoi, 
+                "Voronoi": d.Voronoi,
                 "Voronoi_Scaled": d.Voronoi_Scaled,
             }
         )).sort((a,b) => a.Voronoi_Scaled - b.Voronoi_Scaled);
@@ -275,7 +280,7 @@ class CityHistogram extends Component {
             {
             "ID": d.City_ID,
             "City": d.cityName,
-            "data":[ 
+            "data":[
                 { ID: d.City_ID, City: d.cityName, name: "1950", "population": d.P1950 },
                 { ID: d.City_ID, City: d.cityName, name: "1960", "population": d.P1960 },
                 { ID: d.City_ID, City: d.cityName, name: "1970", "population": d.P1970 },
@@ -288,10 +293,10 @@ class CityHistogram extends Component {
         }
         )).map(e => e.data);
         const data1950 = Pop1950Data.map(u => u.data);
-        
+
 
         /*
-        @@@LABELS: 
+        @@@LABELS:
         1. Population
         2. Density (people/km^2, threshold to see >100 000)
         3. Distance to metropolitan agglomeration (crossing country, name on hover tooltip )
@@ -299,7 +304,7 @@ class CityHistogram extends Component {
         5. Size of voronoi cell
         6. Population 1950-2015 (Growth rate 1950-2015 line graph with points)
         */
- 
+
         if(selectedAgglos){
             return(
                 <Row className="no-padding">
@@ -376,7 +381,3 @@ class CityHistogram extends Component {
 }
 
 export default CityHistogram;
-
-
-
-

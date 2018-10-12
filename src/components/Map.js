@@ -120,9 +120,7 @@ class LeafletMap extends Component {
 
 								layer.on('mouseout', (e) => {
 									e.target.setStyle(this.defaultAgglosStyle(feature))
-									if(feature.properties.clicked){e.target.setStyle(this.highlightAgglosStyle(feature))}
-
-								})
+																	})
 
 								layer.on('change', () => {
 									e.target.setStyle(this.selectedAgglosStyle())
@@ -133,13 +131,12 @@ class LeafletMap extends Component {
 									const cityName = feature.properties.NAME;
 									const value = { value:cityID, label:cityName}
 									this.props.agglosValueToMap(value);
-									if(feature.properties.clicked=true){feature.properties.clicked=null}
-									feature.properties.clicked=true;
-									// let popupContent = "<table class='tooltip-table'>";
-									// popupContent += "<tr><td class='title'>Name:</td><td class='data'>" + feature.properties.cityName + "</td></tr>";
+
+									 let popupContent = "<table margin={{top: -20, right: 0, left: 0, bottom: 0}}>";//feature.properties.NAME
+									     popupContent += "<tr></td><td class='data'>" + feature.properties.NAME + "</td></tr>";
 									// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
-									// popupContent += "</table>";
-									// layer.bindPopup(popupContent).openPopup();
+									     popupContent += "</table>";
+									 layer.bindPopup(popupContent,{closeButton:false}).openPopup();
 
 								})
 

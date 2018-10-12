@@ -173,7 +173,7 @@ class CityHistogram extends Component {
         let d = data.find(u => u.ID === value)
         if(value){
         return(
-            <p>{Math.round(d.Density).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} Inhabitants per km&sup2;</p>
+            <p>{Math.round(d.Density).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} Inhabitants &frasl; km&sup2;</p>
         )
     }else{return}
     }
@@ -340,7 +340,7 @@ class CityHistogram extends Component {
                     <Col md={12} className="histogram-wrapper">
                         <Paper square={true}>
                             <Row>
-                                <Col md={4} className="agglosKeyFigureTitle"><p>Built-up area</p></Col>
+                                <Col md={4} className="agglosKeyFigureTitle"><p>Build-up area</p></Col>
                                 <Col md={3} className="country-histogram-value"> {this.builtup(BuiltupData, selectedAgglos)}</Col>
                                 <Col md={1} className="agglosRanking">{this.renderRanking(BuiltupData)}</Col>
                                 <Col md={4} className="country-histogram-wrapper"> {this.renderBuiltup(BuiltupData, selectedAgglos)} </Col>

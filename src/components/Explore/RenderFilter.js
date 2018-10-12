@@ -74,10 +74,17 @@ class RenderFilter extends Component {
                             onChange={value => console.log(value)}
                             />
                         </li>
+                        <hr className="mixerhr" />
+                        <li className="slider-title">Population</li>
+                        <li>
+                        <img src="assets/images/legend.png" width="50%"
+                    alt="Africapolis Visualise Urbanisation in Africa"/>
+                        </li>
+                        <hr className="mixerhr" />
                     </ul>
-                    <hr className="mixerhr" />
                 </Col>
                 <Col md={12} className="mixer-download">
+              
                     <hr/>    
                         {this._renderDownloadFullData()}
                     <hr/>   

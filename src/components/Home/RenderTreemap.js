@@ -9,7 +9,7 @@ class RenderTreemap extends Component {
 			groupBy: [
 					"ID","NAME"
 					],
-			data: data,
+			data: data.data,
 			size: d => d.value,
 			on: {click:  d => this.props.receiveValue(d.City_ID), mouseover: d => this.props.receiveValue(d.City_ID)},
 			tooltip: true,
@@ -36,7 +36,7 @@ class RenderTreemap extends Component {
        <Col md={7} mdOffset={2}  className="treemap-text">
           <ul className="list-unstyled">
             <li id="tree-title">
-              Top 50 Cities by Population
+              {data.title}
               <hr/>
             </li>
             <li id="tree-text">

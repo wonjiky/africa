@@ -25,6 +25,13 @@ input{
   align-items: center;
 }
 
+.no-padding span{
+  font-size: 20px;
+  font-family: 'Oswald';
+  text-transform: uppercase;
+
+}
+
 .country-histogram-value{
   display:flex;
   align-items: center;
@@ -159,7 +166,7 @@ padding: 30px !important;
 
 .keyFigure span{
   font-weight:400;
-  font-size: 14px;
+  font-size: 18px;
   color: #2C2C2C;
 }
 
@@ -207,6 +214,20 @@ padding: 30px !important;
 
 .rankingWrapper span{
   color: #c95d47;
+  font-weight: 600;
+}
+
+.agglosRanking{
+  display:flex;
+  align-items: center;
+}
+
+.agglosRanking p{
+  margin:0;
+}
+
+.agglosRanking span{
+  color: #E8AE40;
   font-weight: 600;
 }
 

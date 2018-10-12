@@ -19,12 +19,10 @@ class RenderFilter extends Component {
 
     _renderDownloadFullData(){
         return(
-            <ul className="list-unstyled">
-                <li>
-                    <MaterialIcon icon="add_circle_outline" size={25} color='#FFFFFF' />
-                    <p>Annual Report<br/>2018</p>
-                </li>
-            </ul>
+            <div>
+            <MaterialIcon icon="add_circle_outline" size={25} color='#585858' />
+            <p>Annual Report 2018</p>
+            </div>
         )
     }
 
@@ -80,6 +78,9 @@ class RenderFilter extends Component {
                     <hr className="mixerhr" />
                 </Col>
                 <Col md={12} className="mixer-download">
+                    <hr/>    
+                        {this._renderDownloadFullData()}
+                    <hr/>   
                     <img src="assets/images/swac-oecd.png" width="100%"
                     alt="Africapolis Visualise Urbanisation in Africa"/>
                 </Col>

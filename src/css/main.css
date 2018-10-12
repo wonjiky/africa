@@ -321,6 +321,9 @@ hr{
   display: flex;
   flex-direction: column;
   padding: 25px;
+  justify-content:center;
+  align-items: center;
+  text-align:center;
 }
 
 .mixer-download-wrapper{

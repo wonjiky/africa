@@ -37,10 +37,9 @@ class RenderContent extends Component{
             )
         } else if ((contentID === 0 && filter === 'treemap') || (contentID && filter === 'treemap')){
             const treemapList = treemaps.find(t => t.ID === contentID);
-            const data = treemapList.data;
             return(
                 <RenderTreemap
-                    data={data}
+                    data={treemapList}
                     receiveValue={this.receiveValue.bind(this)}
                 />
             )

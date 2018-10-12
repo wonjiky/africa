@@ -8,7 +8,7 @@ class ExploreWrapper extends Component {
     constructor(props){
         super(props);
         this.state = {
-            selectedCountry: null,
+            // selectedCountry: null,
             selectedCountry: '',
             selectedAgglos: '',
             origin: '',
@@ -21,19 +21,19 @@ class ExploreWrapper extends Component {
         this.handleAgglosValueFromSearch = this.handleAgglosValueFromSearch.bind(this)
     }
 
-    componentDidUpdate(prevProps, prevState){
-        // if(prevState.selectedCountry !== this.state.selectedCountry){
-        //     this.setState({
-        //         selectedAgglos: '',
-        //     })
-        // }
-    }
+    // componentDidUpdate(prevState, prevProps){
+    //     if(prevProps.selectedCountry !== this.state.selectedCountry){
+    //         this.setState({
+    //             selectedAgglos: ''
+    //         })
+    //     }
+    // }
 
     handleCountryValueFromSearch(a){
         let selected = a === null ? '' : a.value
         let value = a === null ? '' : a
         let selectedIsArray = selected === null ? false : value.constructor === Array;
-        
+
         if(selectedIsArray === true){
             this.setState({
                 origin:'search',
@@ -53,7 +53,6 @@ class ExploreWrapper extends Component {
         let selected = c === null ? '' : c.value
         let value = c === null ? '' : c
         let selectedIsArray = selected === null ? false : value.constructor === Array;
-
         if(selectedIsArray){
             this.setState({
                 origin:'search',
@@ -63,14 +62,9 @@ class ExploreWrapper extends Component {
             this.setState({
                 origin:'search',
                 selectedCountry: selectedCountry,
-                
                 selectedAgglos: selected,
             })
         }
-    }
-
-    filterAgglosForHistogram(){
-
     }
 
     filterAgglos(data, selectedCountry){

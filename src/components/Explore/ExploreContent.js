@@ -77,6 +77,11 @@ class ExploreContent extends Component {
         }
     }
 
+    componentDidUpdate(prevState, prevProps){
+        console.log(this.props.selectedCountry, prevState.selectedCountry);
+        console.log(this.props.selectedAgglos, prevState.selectedAgglos);
+    }
+
     displayAgglos(selectedAgglos, data){
         const list = data.find(u => u.City_ID === selectedAgglos);
         if(selectedAgglos) {

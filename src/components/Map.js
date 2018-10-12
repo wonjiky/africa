@@ -135,7 +135,6 @@ class LeafletMap extends Component {
 									this.props.agglosValueToMap(value);
 									if(feature.properties.clicked=true){feature.properties.clicked=null}
 									feature.properties.clicked=true;
-									console.log(feature.properties.clicked)
 									// let popupContent = "<table class='tooltip-table'>";
 									// popupContent += "<tr><td class='title'>Name:</td><td class='data'>" + feature.properties.cityName + "</td></tr>";
 									// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";

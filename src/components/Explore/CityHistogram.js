@@ -260,7 +260,7 @@ class CityHistogram extends Component {
                 "BuiltUp": d.Build_up, 
                 "BuiltUp_Scaled": d.Build_up_scale,
             }
-        )).sort((a,b) => a.BuiltUp_Scaled - b.BuiltUp_Scaled);
+        )).sort((a,b) => a.BuiltUp - b.BuiltUp);
 
         const VoronoiData = agglos.map((d) => (
             { 
@@ -361,8 +361,8 @@ class CityHistogram extends Component {
                         <Paper square={true}>
                             <Row>
                                 <Col md={4} className="agglosKeyFigureTitle"><p>Population 1950-2015</p></Col>
-                                {/* <Col md={3} className="country-histogram-value"> {this.population(urbanPopulationData, selectedCountry)}</Col> */}
-                                {/* <Col md={1} className="agglosRanking">{this.renderRanking(urbanPopulationData)}</Col> */}
+                                <Col md={3} className="country-histogram-value"></Col>
+                                <Col md={1} className="agglosRanking"></Col>
                                 <Col md={4} className="country-histogram-wrapper"> {this.renderPopulation1950(Pop1950Data[0])} </Col>
                             </Row>
                         </Paper>

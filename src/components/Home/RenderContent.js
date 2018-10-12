@@ -10,13 +10,21 @@ class RenderContent extends Component{
         if(storyList.ID === 0 && filter === 'narrative'){
             return(
                 <Col md={6} mdOffset={2} className="overview-wrapper">
-                    <ul className="list-unstyled">
-                        <li >
-                            <h2>{narratives[0].title}</h2>
+                        <div className="overviewtext">
+                            <h2>{narratives[0].story[0].storyTitle}</h2>
                             <hr id="overview_hr"/>
-                            <p>{narratives[0].overview}</p>
-                        </li>
-                    </ul>
+                            <p>{narratives[0].story[0].storyText}</p>
+                        </div>
+                        <div className="overviewtext1">
+                            <h2>{narratives[0].story[1].storyTitle}</h2>
+                            <hr id="overview_hr"/>
+                            <p>{narratives[0].story[1].storyText}</p>
+                        </div>
+                        <div className="overviewtext2">
+                            <h2>{narratives[0].story[2].storyTitle}</h2>
+                            <hr id="overview_hr"/>
+                            <p>{narratives[0].story[2].storyText}</p>
+                        </div>
                 </Col>
             )
         } else if (storyList.ID !== 0 && filter === 'narrative'){

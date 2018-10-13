@@ -20,6 +20,18 @@ class CountryHistogram extends Component {
         this.props.valueFromCountryHistogram(values);
     }
 
+    customTooltipOnYourLine(e){
+        if (e.active && e.payload!=null && e.payload[0]!=null) {
+              console.log(e)
+              console.log(e.payload[0].payload)
+              return (<div className="custom-tooltip">
+                    Rank: {(e.label-50)*(-1)}
+                    <p>{e.payload[0].payload["Country"]}</p>
+                    {e.payload[0].payload["urbanPopulation"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
+                  </div>);
+            }
+        else{}
+      }
 
     renderUrbanPopulation(data, selectedCountry){
         return(
@@ -29,7 +41,7 @@ class CountryHistogram extends Component {
                             <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#c95d47' : '#e0e0e0' }/>
                         ))}
                     </Bar>
-                    <Tooltip/>
+                    <Tooltip content={this.customTooltipOnYourLine}/>
                 </BarChart>
         )
     }
@@ -221,7 +233,7 @@ class CountryHistogram extends Component {
         const averageDistData = dataAverageDist.sort((a,b) => a.AverageDistScaled - b.AverageDistScaled);
         const urbanSurfData = dataUrbanSurf.sort((a,b) => a.urbanSurface - b.urbanSurface);
 
-        
+
 
 
 

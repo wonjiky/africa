@@ -23,6 +23,9 @@ class CountryHistogram extends Component {
 
     customTooltipOnYourLine(e){
         if (e.active && e.payload!=null && e.payload[0]!=null) {
+
+          if(e.payload[0].payload["urbanPopulation"])
+          {
               console.log(e)
               console.log(e.payload[0].payload)
               return (<div className="custom-tooltip">
@@ -31,6 +34,62 @@ class CountryHistogram extends Component {
                     {e.payload[0].payload["urbanPopulation"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
                   </div>);
             }
+
+            if(e.payload[0].payload["urbanizationLevel"])
+            {
+                console.log(e)
+                console.log(e.payload[0].payload)
+                return (<div className="custom-tooltip">
+                      Rank: {(e.label-50)*(-1)}
+                      <p>{e.payload[0].payload["Country"]}</p>
+                      {Math.round(e.payload[0].payload["urbanizationLevel"]*100)+"%"}
+                    </div>);
+              }
+
+              if(e.payload[0].payload["urbanAgglos"])
+              {
+                  console.log(e)
+                  console.log(e.payload[0].payload)
+                  return (<div className="custom-tooltip">
+                        Rank: {(e.label-50)*(-1)}
+                        <p>{e.payload[0].payload["Country"]}</p>
+                        {e.payload[0].payload["urbanAgglos"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
+                      </div>);
+                }
+
+                if(e.payload[0].payload["metropolitanPop"])
+                {
+                    console.log(e)
+                    console.log(e.payload[0].payload)
+                    return (<div className="custom-tooltip">
+                          Rank: {(e.label-50)*(-1)}
+                          <p>{e.payload[0].payload["Country"]}</p>
+                          {Math.round(e.payload[0].payload["metropolitanPop"]*100)+"%"}
+                        </div>);
+                  }
+
+                  if(e.payload[0].payload["AverageDist"])
+                  {
+                      console.log(e)
+                      console.log(e.payload[0].payload)
+                      return (<div className="custom-tooltip">
+                            Rank: {(e.label-50)*(-1)}
+                            <p>{e.payload[0].payload["Country"]}</p>
+                            {Math.round(e.payload[0].payload["AverageDist"])+"km"}
+                          </div>);
+                    }
+
+                    if(e.payload[0].payload["urbanSurface"])
+                    {
+                        console.log(e)
+                        console.log(e.payload[0].payload)
+                        return (<div className="custom-tooltip">
+                              Rank: {(e.label-50)*(-1)}
+                              <p>{e.payload[0].payload["Country"]}</p>
+                              {Math.round(e.payload[0].payload["urbanSurface"]*100)+"%"}
+                            </div>);
+                      }
+          }
         else{}
       }
 
@@ -55,7 +114,7 @@ class CountryHistogram extends Component {
                         <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#c95d47' : '#e0e0e0' }/>
                     ))}
                 </Bar>
-                <Tooltip/>
+                <Tooltip content={this.customTooltipOnYourLine}/>
             </BarChart>
         )
     }
@@ -68,7 +127,7 @@ class CountryHistogram extends Component {
                         <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#c95d47' : '#e0e0e0' }/>
                     ))}
                 </Bar>
-                <Tooltip/>
+                <Tooltip content={this.customTooltipOnYourLine}/>
             </BarChart>
         )
     }
@@ -81,7 +140,7 @@ class CountryHistogram extends Component {
                         <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#c95d47' : '#e0e0e0' }/>
                     ))}
                 </Bar>
-                <Tooltip/>
+                <Tooltip content={this.customTooltipOnYourLine}/>
             </BarChart>
         )
     }
@@ -94,7 +153,7 @@ class CountryHistogram extends Component {
                         <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#c95d47' : '#e0e0e0' }/>
                     ))}
                 </Bar>
-                <Tooltip/>
+                <Tooltip content={this.customTooltipOnYourLine}/>
             </BarChart>
         )
     }
@@ -107,7 +166,7 @@ class CountryHistogram extends Component {
                         <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#c95d47' : '#e0e0e0' }/>
                     ))}
                 </Bar>
-                <Tooltip/>
+              <Tooltip content={this.customTooltipOnYourLine}/>
             </BarChart>
         )
     }
@@ -142,7 +201,7 @@ class CountryHistogram extends Component {
     numofagglomeration(data,value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{d.urbanAgglos.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</p>
+            <p>{d.urbanAgglos.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} agglos</p>
         )
     }
 
@@ -156,14 +215,14 @@ class CountryHistogram extends Component {
     averagedist(data,value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{d.AverageDist} km&sup2;</p>
+            <p>{d.AverageDist} km</p>
         )
     }
 
     urbanland(data,value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{d.urbanSurface} km&sup2;</p>
+            <p>{d.urbanSurface*100} %</p>
         )
     }
 

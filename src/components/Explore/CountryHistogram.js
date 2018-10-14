@@ -366,7 +366,7 @@ class CountryHistogram extends Component {
                         <Row>
                             <Col md={4} className="keyfigureTitle"><p>Urban land cover</p></Col>
                             <Col md={1} className="info_icon"> <MaterialIcon icon="info" size={20} color='lightgrey' /></Col>
-                            <Col md={1} className="country-histogram-value"> {this.urbanland(urbanSurfData, selectedCountry)}</Col>
+                            <Col md={2} className="country-histogram-value"> {this.urbanland(urbanSurfData, selectedCountry)}</Col>
                             <Col md={1} className="rankingWrapper">{this.renderRanking(urbanSurfData)}</Col>
                             <Col md={4}className="country-histogram-wrapper">{this.renderUrbanSurf(urbanSurfData, selectedCountry)}</Col>
                         </Row>

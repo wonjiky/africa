@@ -49,6 +49,27 @@ class RenderFilter extends Component {
         }
     }
 
+    hello(data){
+      let result = {};
+      if(data){
+      for(var i = 0; i < data.length; ++i) {
+          if(!result[data[i]])
+              result[data[i]] = 0;
+          ++result[data[i]];
+      }
+}
+      return (
+        <div>
+          {result["6"]}<br/>
+          {result["5"]}<br/>
+          {result["4"]}<br/>
+          {result["3"]}<br/>
+          {result["2"]}<br/>
+          {result["1"]}<br/>
+
+        </div>
+      );
+    }
     render() {
 
 
@@ -62,6 +83,7 @@ class RenderFilter extends Component {
             { value: 2010, step: 5 },
             { value: 2015 }
         ]
+        const hi= this.hello(this.props.sizeArray)
 
         return(
             <Grid fluid id="mixer">
@@ -84,8 +106,7 @@ class RenderFilter extends Component {
                         <img src="assets/images/legend.png" width="50%"
                     alt="Africapolis Visualise Urbanisation in Africa"/>
 
-                    
-
+                    {hi}
 
 
                     </div>

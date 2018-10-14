@@ -449,3 +449,10 @@ padding: 30px !important;
 .recharts-cartesian-axis-tick-value{
   fill: none !important;
 }
+
+.custom-tooltip{
+  background-color: white;
+  border: 1px solid #c95d47;
+  padding:10px;
+  z-index:1;
+}

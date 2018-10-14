@@ -10,7 +10,8 @@ class CountryHistogram extends Component {
         this.state={
         }
         this.check = this.check.bind(this);
-
+        this.tooltipYOffset = 55;
+        this.tooltipZindex = 1000;
     }
 
     sendValueFromHistogram(e){
@@ -41,7 +42,7 @@ class CountryHistogram extends Component {
                             <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#c95d47' : '#e0e0e0' }/>
                         ))}
                     </Bar>
-                    <Tooltip content={this.customTooltipOnYourLine}/>
+                    <Tooltip content={this.customTooltipOnYourLine} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
                 </BarChart>
         )
     }

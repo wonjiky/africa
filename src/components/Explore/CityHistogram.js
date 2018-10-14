@@ -160,7 +160,6 @@ class CityHistogram extends Component {
     }
 
     population(data, value){
-        console.log(data,value);
         let d = data.find(u => u.ID === value)
         if(value){
         return(
@@ -300,7 +299,7 @@ class CityHistogram extends Component {
         6. Population 1950-2015 (Growth rate 1950-2015 line graph with points)
         */
 
-        if(selectedAgglos){
+        if(selectedAgglos && PopulationData.find(u => u.ID === selectedAgglos)){
             return(
                 <Row className="no-padding">
                     <Col md={12}>

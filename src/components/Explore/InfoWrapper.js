@@ -26,10 +26,8 @@ class InfoWrapper extends Component {
 						<ExpansionPanelDetails>
 						<ul className="list-unstyled ">
 							<li>
-								<h5><span>Capital: </span>{list.Capital}</h5>
-								<h5 className="pop-area"><span>Population: </span>{list.Upop.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</h5>
-								<h5 className="pop-area"><span>Area: </span>{list.Surface.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</h5>
-								<br />
+								<h5>{list.X2}</h5>
+								<h5 className="pop-area">{list.Surface.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</h5>
 								<p>{list.description} </p>
 							</li>
 						</ul>

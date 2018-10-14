@@ -1002,1005 +1002,905 @@ export const TREEMAP_BUILDUP =[{
       }
     },
     {
-      "type": "Feature",
-      "properties": {
-        "ID": 22,
-        "City_ID": "b11",
-        "NAME": "Kisumu aggl.",
-        "value": 5862.59,
-        "Color": "#E73741",
-        "lon": -7.634,
-        "lat": 33.539,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -7.634,
-          33.539
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 22,
-        "City_ID": "b21",
-        "NAME": "Kisii aggl.",
-        "value": 5000.77,
-        "Color": "#E73741",
-        "lon": -7.634,
-        "lat": 33.539,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -7.634,
-          33.539
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 33,
-        "City_ID": "b3",
-        "NAME": "Onitsha",
-        "value": 2866.69,
-        "Color": "#df521e",
-        "lon": 31.06681439,
-        "lat": -17.87158962,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          31.06681439,
-          -17.87158962
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 47,
-        "City_ID": "b4",
-        "NAME": "Johannesburg",
-        "value": 2214.06,
-        "Color": "#e1b400",
-        "lon": 45.30553724,
-        "lat": 2.061554167,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          45.30553724,
-          2.061554167
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 15,
-        "City_ID": "b35",
-        "NAME": "Sodo Town",
-        "value": 1929.53,
-        "Color": "#32a674",
-        "lon": 8.525258315,
-        "lat": 11.99284315,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.525258315,
-          11.99284315
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 8,
-        "City_ID": "b60",
-        "NAME": "Bafoussam",
-        "value": 1888.53,
-        "Color": "#0b68af",
-        "lon": 36.7942443,
-        "lat": -1.21047772,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          36.7942443,
-          -1.21047772
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 13,
-        "City_ID": "b1",
-        "NAME": "Cairo",
-        "value": 1774.41,
-        "Color": "#719e24",
-        "lon": -0.206319346,
-        "lat": 5.653984515,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -0.206319346,
-          5.653984515
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 24,
-        "City_ID": "b44",
-        "NAME": "Tripoli",
-        "value": 1745.38,
-        "Color": "#E73741",
-        "lon": 3.913241176,
-        "lat": 7.402137063,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          3.913241176,
-          7.402137063
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 22,
-        "City_ID": "b41",
-        "NAME": "Embu aggl.",
-        "value": 1554.74,
-        "Color": "#E73741",
-        "lon": -7.634,
-        "lat": 33.539,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -7.634,
-          33.539
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 22,
-        "City_ID": "b93",
-        "NAME": "Bomet aggl.",
-        "value": 1503.97,
-        "Color": "#E73741",
-        "lon": -7.634,
-        "lat": 33.539,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -7.634,
-          33.539
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 22,
-        "City_ID": "b8",
-        "NAME": "Nairobi aggl.",
-        "value": 1340.26,
-        "Color": "#E73741",
-        "lon": -7.634,
-        "lat": 33.539,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -7.634,
-          33.539
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 15,
-        "City_ID": "b39",
-        "NAME": "Hawassa City",
-        "value": 1301.78,
-        "Color": "#32a674",
-        "lon": 8.525258315,
-        "lat": 11.99284315,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.525258315,
-          11.99284315
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 18,
-        "City_ID": "b13",
-        "NAME": "Accra",
-        "value": 1197.69,
-        "Color": "#993484",
-        "lon": 31.6,
-        "lat": 26.714,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          31.6,
-          26.714
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 46,
-        "City_ID": "b36",
-        "NAME": "Mbale [UGA]",
-        "value": 1065.58,
-        "Color": "#0f8fd9",
-        "lon": 1.22057276,
-        "lat": 6.208941378,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          1.22057276,
-          6.208941378
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 45,
-        "City_ID": "b9",
-        "NAME": "Dar es Salaam",
-        "value": 1065.11,
-        "Color": "#df521e",
-        "lon": 7.033823337,
-        "lat": 4.851261298,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.033823337,
-          4.851261298
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 33,
-        "City_ID": "b34",
-        "NAME": "Uyo",
-        "value": 997.34,
-        "Color": "#df521e",
-        "lon": 31.06681439,
-        "lat": -17.87158962,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          31.06681439,
-          -17.87158962
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 1,
-        "City_ID": "b6",
-        "NAME": "Luanda",
-        "value": 964.85,
-        "Color": "#e1b400",
-        "lon": 31.255,
-        "lat": 30.13,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          31.255,
-          30.13
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 12,
-        "City_ID": "b16",
-        "NAME": "Alger",
-        "value": 952.76,
-        "Color": "#32a674",
-        "lon": -3.998029524,
-        "lat": 5.35699951,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -3.998029524,
-          5.35699951
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 22,
-        "City_ID": "b82",
-        "NAME": "Maua aggl.",
-        "value": 943.26,
-        "Color": "#E73741",
-        "lon": -7.634,
-        "lat": 33.539,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -7.634,
-          33.539
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 33,
-        "City_ID": "b2",
-        "NAME": "Lagos",
-        "value": 937.93,
-        "Color": "#df521e",
-        "lon": 31.06681439,
-        "lat": -17.87158962,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          31.06681439,
-          -17.87158962
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 46,
-        "City_ID": "b17",
-        "NAME": "Kampala",
-        "value": 896.73,
-        "Color": "#0f8fd9",
-        "lon": 1.22057276,
-        "lat": 6.208941378,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          1.22057276,
-          6.208941378
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 34,
-        "City_ID": "b37",
-        "NAME": "Kigali",
-        "value": 863.08,
-        "Color": "#719e24",
-        "lon": 7.812575535,
-        "lat": 5.019468012,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.812575535,
-          5.019468012
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 40,
-        "City_ID": "b10",
-        "NAME": "Khartum",
-        "value": 810.99,
-        "Color": "#0f8fd9",
-        "lon": 27.47468958,
-        "lat": -11.65305627,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          27.47468958,
-          -11.65305627
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 28,
-        "City_ID": "b28",
-        "NAME": "Cidade de Maputo",
-        "value": 805.87,
-        "Color": "#0b68af",
-        "lon": 32.5223434,
-        "lat": -25.83511224,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          32.5223434,
-          -25.83511224
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 47,
-        "City_ID": "b23",
-        "NAME": "Durban",
-        "value": 790.39,
-        "Color": "#e1b400",
-        "lon": 45.30553724,
-        "lat": 2.061554167,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          45.30553724,
-          2.061554167
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 33,
-        "City_ID": "b48",
-        "NAME": "Aba",
-        "value": 754.18,
-        "Color": "#df521e",
-        "lon": 31.06681439,
-        "lat": -17.87158962,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          31.06681439,
-          -17.87158962
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 50,
-        "City_ID": "b33",
-        "NAME": "Harare",
-        "value": 712.21,
-        "Color": "#993484",
-        "lon": 5.639080396,
-        "lat": 6.332235044,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.639080396,
-          6.332235044
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 33,
-        "City_ID": "b54",
-        "NAME": "Nsukka",
-        "value": 698.6,
-        "Color": "#df521e",
-        "lon": 31.06681439,
-        "lat": -17.87158962,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          31.06681439,
-          -17.87158962
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 47,
-        "City_ID": "b20",
-        "NAME": "Cape Town",
-        "value": 628.66,
-        "Color": "#e1b400",
-        "lon": 45.30553724,
-        "lat": 2.061554167,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          45.30553724,
-          2.061554167
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 49,
-        "City_ID": "b31",
-        "NAME": "Lusaka",
-        "value": 621.98,
-        "Color": "#E73741",
-        "lon": 15.24657013,
-        "lat": -4.236220927,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          15.24657013,
-          -4.236220927
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 33,
-        "City_ID": "b24",
-        "NAME": "Ibadan",
-        "value": 607.78,
-        "Color": "#df521e",
-        "lon": 31.06681439,
-        "lat": -17.87158962,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          31.06681439,
-          -17.87158962
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 18,
-        "City_ID": "b26",
-        "NAME": "Kumasi",
-        "value": 554.62,
-        "Color": "#993484",
-        "lon": 31.6,
-        "lat": 26.714,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          31.6,
-          26.714
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 15,
-        "City_ID": "b19",
-        "NAME": "Addis Ababa City",
-        "value": 530.85,
-        "Color": "#32a674",
-        "lon": 8.525258315,
-        "lat": 11.99284315,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.525258315,
-          11.99284315
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 26,
-        "City_ID": "b22",
-        "NAME": "Casablanca",
-        "value": 527.05,
-        "Color": "#df521e",
-        "lon": -1.619166683,
-        "lat": 6.69548393,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -1.619166683,
-          6.69548393
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 27,
-        "City_ID": "b27",
-        "NAME": "Bamako",
-        "value": 499.32,
-        "Color": "#e1b400",
-        "lon": -7.958375511,
-        "lat": 12.61354889,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -7.958375511,
-          12.61354889
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 22,
-        "City_ID": "b136",
-        "NAME": "Meru aggl.",
-        "value": 498.65,
-        "Color": "#E73741",
-        "lon": -7.634,
-        "lat": 33.539,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -7.634,
-          33.539
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 33,
-        "City_ID": "b43",
-        "NAME": "Abuja",
-        "value": 488.85,
-        "Color": "#df521e",
-        "lon": 31.06681439,
-        "lat": -17.87158962,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          31.06681439,
-          -17.87158962
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 45,
-        "City_ID": "b149",
-        "NAME": "Mbomai",
-        "value": 439.66,
-        "Color": "#df521e",
-        "lon": 7.033823337,
-        "lat": 4.851261298,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.033823337,
-          4.851261298
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 22,
-        "City_ID": "b232",
-        "NAME": "Kikima aggl.",
-        "value": 437.98,
-        "Color": "#E73741",
-        "lon": -7.634,
-        "lat": 33.539,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -7.634,
-          33.539
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 33,
-        "City_ID": "b50",
-        "NAME": "Benin City",
-        "value": 437.64,
-        "Color": "#df521e",
-        "lon": 31.06681439,
-        "lat": -17.87158962,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          31.06681439,
-          -17.87158962
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 22,
-        "City_ID": "b292",
-        "NAME": "Kehancha aggl.",
-        "value": 431.23,
-        "Color": "#E73741",
-        "lon": -7.634,
-        "lat": 33.539,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -7.634,
-          33.539
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 48,
-        "City_ID": "b5",
-        "NAME": "Kinshasa",
-        "value": 429.58,
-        "Color": "#32a674",
-        "lon": 7.365436348,
-        "lat": 5.187085343,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.365436348,
-          5.187085343
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 4,
-        "City_ID": "b32",
-        "NAME": "Ouagadougou",
-        "value": 405.69,
-        "Color": "#719e24",
-        "lon": 28.13184538,
-        "lat": -26.06703456,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          28.13184538,
-          -26.06703456
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 13,
-        "City_ID": "b7",
-        "NAME": "Alexandrie",
-        "value": 391.74,
-        "Color": "#719e24",
-        "lon": -0.206319346,
-        "lat": 5.653984515,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -0.206319346,
-          5.653984515
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 7,
-        "City_ID": "b12",
-        "NAME": "Abidjan",
-        "value": 391.35,
-        "Color": "#0f8fd9",
-        "lon": 30.586,
-        "lat": 31.125,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          30.586,
-          31.125
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 22,
-        "City_ID": "b143",
-        "NAME": "Kericho aggl.",
-        "value": 381.59,
-        "Color": "#E73741",
-        "lon": -7.634,
-        "lat": 33.539,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -7.634,
-          33.539
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 47,
-        "City_ID": "b56",
-        "NAME": "Soshanguve",
-        "value": 380.07,
-        "Color": "#e1b400",
-        "lon": 45.30553724,
-        "lat": 2.061554167,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          45.30553724,
-          2.061554167
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 44,
-        "City_ID": "b30",
-        "NAME": "Tunis",
-        "value": 376.07,
-        "Color": "#0b68af",
-        "lon": 13.176,
-        "lat": 32.894,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.176,
-          32.894
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 33,
-        "City_ID": "b45",
-        "NAME": "Port Harcourt",
-        "value": 368.01,
-        "Color": "#df521e",
-        "lon": 31.06681439,
-        "lat": -17.87158962,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          31.06681439,
-          -17.87158962
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ID": 22,
-        "City_ID": "b182",
-        "NAME": "Runyenjes aggl.",
-        "value": 355.98,
-        "Color": "#E73741",
-        "lon": -7.634,
-        "lat": 33.539,
-        "treemap_ID": 1
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -7.634,
-          33.539
-        ]
-      }
-    },
+     "type": "Feature",
+     "properties": {
+       "ID": 22,
+       "City_ID": "b11",
+       "NAME": "Kisumu aggl.",
+       "value": 5862.59,
+       "Color": "#E73741",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         34.74913174,
+         0.38159039
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 22,
+       "City_ID": "b21",
+       "NAME": "Kisii aggl.",
+       "value": 5000.77,
+       "Color": "#E73741",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         34.72965228,
+         -0.678320501
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 33,
+       "City_ID": "b3",
+       "NAME": "Onitsha",
+       "value": 2866.69,
+       "Color": "#df521e",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         7.045712305,
+         5.812861246
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 47,
+       "City_ID": "b4",
+       "NAME": "Johannesburg",
+       "value": 2214.06,
+       "Color": "#e1b400",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         28.13184538,
+         -26.06703456
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 15,
+       "City_ID": "b35",
+       "NAME": "Sodo Town",
+       "value": 1929.53,
+       "Color": "#32a674",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         37.73956848,
+         7.030508122
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 8,
+       "City_ID": "b60",
+       "NAME": "Bafoussam",
+       "value": 1888.53,
+       "Color": "#0b68af",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         10.25085909,
+         5.453210499
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 13,
+       "City_ID": "b1",
+       "NAME": "al-Qahira",
+       "value": 1774.41,
+       "Color": "#719e24",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         31.255,
+         30.13
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 24,
+       "City_ID": "b44",
+       "NAME": "Tripoli",
+       "value": 1745.38,
+       "Color": "#E73741",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         13.176,
+         32.894
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 22,
+       "City_ID": "b41",
+       "NAME": "Embu aggl.",
+       "value": 1554.74,
+       "Color": "#E73741",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         37.09504014,
+         -0.630075462
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 22,
+       "City_ID": "b93",
+       "NAME": "Bomet aggl.",
+       "value": 1503.97,
+       "Color": "#E73741",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         35.23393993,
+         -0.752539747
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 22,
+       "City_ID": "b8",
+       "NAME": "Nairobi aggl.",
+       "value": 1340.26,
+       "Color": "#E73741",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         36.7942443,
+         -1.21047772
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 15,
+       "City_ID": "b39",
+       "NAME": "Hawassa City",
+       "value": 1301.78,
+       "Color": "#32a674",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         38.40243487,
+         6.80540293
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 18,
+       "City_ID": "b13",
+       "NAME": "Accra",
+       "value": 1197.69,
+       "Color": "#993484",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         -0.206319346,
+         5.653984515
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 46,
+       "City_ID": "b36",
+       "NAME": "Mbale [UGA]",
+       "value": 1065.58,
+       "Color": "#0f8fd9",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         34.16919209,
+         1.01911755
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 45,
+       "City_ID": "b9",
+       "NAME": "Dar es Salaam",
+       "value": 1065.11,
+       "Color": "#df521e",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         39.16785785,
+         -6.819328852
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 33,
+       "City_ID": "b34",
+       "NAME": "Uyo",
+       "value": 997.34,
+       "Color": "#df521e",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         7.812575535,
+         5.019468012
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 1,
+       "City_ID": "b6",
+       "NAME": "Luanda",
+       "value": 964.85,
+       "Color": "#e1b400",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         13.31293462,
+         -8.926452268
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 12,
+       "City_ID": "b16",
+       "NAME": "Alger",
+       "value": 952.76,
+       "Color": "#32a674",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         3.051,
+         36.765
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 22,
+       "City_ID": "b82",
+       "NAME": "Maua aggl.",
+       "value": 943.26,
+       "Color": "#E73741",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         37.81667557,
+         0.211582472
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 33,
+       "City_ID": "b2",
+       "NAME": "Lagos",
+       "value": 937.93,
+       "Color": "#df521e",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         3.337584742,
+         6.589961167
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 46,
+       "City_ID": "b17",
+       "NAME": "Kampala",
+       "value": 896.73,
+       "Color": "#0f8fd9",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         32.57301619,
+         0.332728523
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 34,
+       "City_ID": "b37",
+       "NAME": "Kigali",
+       "value": 863.08,
+       "Color": "#719e24",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         30.15222032,
+         -1.869413559
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 40,
+       "City_ID": "b10",
+       "NAME": "Khartum",
+       "value": 810.99,
+       "Color": "#0f8fd9",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         32.51556821,
+         15.58927334
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 28,
+       "City_ID": "b28",
+       "NAME": "Cidade de Maputo",
+       "value": 805.87,
+       "Color": "#0b68af",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         32.5223434,
+         -25.83511224
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 47,
+       "City_ID": "b23",
+       "NAME": "Durban",
+       "value": 790.39,
+       "Color": "#e1b400",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         30.90439528,
+         -29.83964617
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 33,
+       "City_ID": "b48",
+       "NAME": "Aba",
+       "value": 754.18,
+       "Color": "#df521e",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         7.365436348,
+         5.187085343
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 50,
+       "City_ID": "b33",
+       "NAME": "Harare",
+       "value": 712.21,
+       "Color": "#993484",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         31.06681439,
+         -17.87158962
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 33,
+       "City_ID": "b54",
+       "NAME": "Nsukka",
+       "value": 698.6,
+       "Color": "#df521e",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         7.439961949,
+         6.907489586
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 47,
+       "City_ID": "b20",
+       "NAME": "Cape Town",
+       "value": 628.66,
+       "Color": "#e1b400",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         18.56912775,
+         -33.95184752
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 49,
+       "City_ID": "b31",
+       "NAME": "Lusaka",
+       "value": 621.98,
+       "Color": "#E73741",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         28.28415662,
+         -15.40977716
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 33,
+       "City_ID": "b24",
+       "NAME": "Ibadan",
+       "value": 607.78,
+       "Color": "#df521e",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         3.913241176,
+         7.402137063
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 18,
+       "City_ID": "b26",
+       "NAME": "Kumasi",
+       "value": 554.62,
+       "Color": "#993484",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         -1.619166683,
+         6.69548393
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 15,
+       "City_ID": "b19",
+       "NAME": "Addis Ababa City",
+       "value": 530.85,
+       "Color": "#32a674",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         38.78721923,
+         8.951903935
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 26,
+       "City_ID": "b22",
+       "NAME": "Casablanca",
+       "value": 527.05,
+       "Color": "#df521e",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         -7.634,
+         33.539
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 27,
+       "City_ID": "b27",
+       "NAME": "Bamako",
+       "value": 499.32,
+       "Color": "#e1b400",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         -7.958375511,
+         12.61354889
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 22,
+       "City_ID": "b136",
+       "NAME": "Meru aggl.",
+       "value": 498.65,
+       "Color": "#E73741",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         37.7070939,
+         -0.029378742
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 33,
+       "City_ID": "b43",
+       "NAME": "Abuja",
+       "value": 488.85,
+       "Color": "#df521e",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         7.383928551,
+         9.070937334
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 45,
+       "City_ID": "b149",
+       "NAME": "Mbomai",
+       "value": 439.66,
+       "Color": "#df521e",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         37.57869077,
+         -3.188520843
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 22,
+       "City_ID": "b232",
+       "NAME": "Kikima aggl.",
+       "value": 437.98,
+       "Color": "#E73741",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         37.45357536,
+         -1.646999704
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 33,
+       "City_ID": "b50",
+       "NAME": "Benin City",
+       "value": 437.64,
+       "Color": "#df521e",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         5.639080396,
+         6.332235044
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 22,
+       "City_ID": "b292",
+       "NAME": "Kehancha aggl.",
+       "value": 431.23,
+       "Color": "#E73741",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         34.57721939,
+         -1.2304425
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 48,
+       "City_ID": "b5",
+       "NAME": "Kinshasa",
+       "value": 429.58,
+       "Color": "#32a674",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         15.33483552,
+         -4.396663245
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 4,
+       "City_ID": "b32",
+       "NAME": "Ouagadougou",
+       "value": 405.69,
+       "Color": "#719e24",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         -1.525664279,
+         12.36468257
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 13,
+       "City_ID": "b7",
+       "NAME": "Alexandrie",
+       "value": 391.74,
+       "Color": "#719e24",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         30.586,
+         31.125
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 7,
+       "City_ID": "b12",
+       "NAME": "Abidjan",
+       "value": 391.35,
+       "Color": "#0f8fd9",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         -3.998029524,
+         5.35699951
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 22,
+       "City_ID": "b143",
+       "NAME": "Kericho aggl.",
+       "value": 381.59,
+       "Color": "#E73741",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         35.18765981,
+         -0.365048736
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 47,
+       "City_ID": "b56",
+       "NAME": "Soshanguve",
+       "value": 380.07,
+       "Color": "#e1b400",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         28.08479733,
+         -25.45071165
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 44,
+       "City_ID": "b30",
+       "NAME": "Tunis",
+       "value": 376.07,
+       "Color": "#0b68af",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         10.278,
+         36.78
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 33,
+       "City_ID": "b45",
+       "NAME": "Port Harcourt",
+       "value": 368.01,
+       "Color": "#df521e",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         7.033823337,
+         4.851261298
+       ]
+     }
+   },
+   {
+     "type": "Feature",
+     "properties": {
+       "ID": 22,
+       "City_ID": "b182",
+       "NAME": "Runyenjes aggl.",
+       "value": 355.98,
+       "Color": "#E73741",
+       "treemap_ID": 1
+     },
+     "geometry": {
+       "type": "Point",
+       "coordinates": [
+         37.55212234,
+         -0.466987915
+       ]
+     }
+   },
     {
       "type": "Feature",
       "properties": {

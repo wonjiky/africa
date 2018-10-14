@@ -10,6 +10,7 @@ import StepRangeSlider from 'react-step-range-slider'
 
 class RenderFilter extends Component {
 
+
     constructor(props){
         super(props);
         this.state={
@@ -49,6 +50,8 @@ class RenderFilter extends Component {
     }
 
     render() {
+
+
         const range = [
             { value: 1950, step: 10 },
             { value: 1960, step: 10 },
@@ -77,8 +80,15 @@ class RenderFilter extends Component {
                         <hr className="mixerhr" />
                         <li className="slider-title">Population</li>
                         <li>
+                        <div>
                         <img src="assets/images/legend.png" width="50%"
                     alt="Africapolis Visualise Urbanisation in Africa"/>
+
+                    
+
+
+
+                    </div>
                         </li>
                         <hr className="mixerhr" />
                     </ul>
@@ -90,6 +100,8 @@ class RenderFilter extends Component {
                     <hr/>
                     <img src="assets/images/swac-oecd.png" width="100%"
                     alt="Africapolis Visualise Urbanisation in Africa"/>
+
+
                 </Col>
             </Grid>
         );

@@ -34,6 +34,73 @@ class CityHistogram extends Component {
         this.props.valueFromCityHistogram(e);
     }
 
+    customTooltipOnYourLine_city(e){
+        if (e.active && e.payload!=null && e.payload[0]!=null) {
+          console.log(e)
+          if(e.payload[0].payload["Population"])
+          {
+              return (<div className="custom-tooltip">
+                    <p>{e.payload[0].payload["City"]}</p>
+                    {e.payload[0].payload["Population"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
+                  </div>);
+            }
+
+            if(e.payload[0].payload["Density"])
+            {
+
+
+                return (<div className="custom-tooltip">
+                      <p>{e.payload[0].payload["City"]}</p>
+                      {Math.round(e.payload[0].payload["Density"])} inhabitants
+                    </div>);
+              }
+
+              if(e.payload[0].payload["Dist"])
+              {
+
+
+                  return (<div className="custom-tooltip">
+                        <p>{e.payload[0].payload["City"]}</p>
+                        {e.payload[0].payload["Dist"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} km
+                      </div>);
+                }
+
+                if(e.payload[0].payload["BuiltUp"])
+                {
+
+
+                    return (<div className="custom-tooltip">
+                          <p>{e.payload[0].payload["City"]}</p>
+                          {Math.round(e.payload[0].payload["BuiltUp"])} km&sup2;
+                        </div>);
+                  }
+
+                  if(e.payload[0].payload["Voronoi"])
+                  {
+
+
+                      return (<div className="custom-tooltip">
+                            <p>{e.payload[0].payload["City"]}</p>
+                            {Math.round(e.payload[0].payload["Voronoi"])} km&sup2;
+                          </div>);
+                    }
+
+
+                      if(e.payload[0].payload["name"])
+                      {
+
+
+                          return (<div className="custom-tooltip">
+                                <p>{e.payload[0].payload["City"]}</p>
+                                Year {Math.round(e.payload[0].payload["name"])}
+                                <p>{e.payload[0].payload["population"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</p>
+
+                              </div>);
+                        }
+          }
+        else{}
+      }
+
     renderPopulation(data, selectedAgglos){
         return(
             <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
@@ -49,7 +116,7 @@ class CityHistogram extends Component {
                     ))}
                 </Bar>
                 <XAxis height={5}/>
-                <Tooltip/>
+                <Tooltip content={this.customTooltipOnYourLine_city} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
             </BarChart>
         )
     }
@@ -69,7 +136,7 @@ class CityHistogram extends Component {
                     ))}
                 </Bar>
                 <XAxis height={5}/>
-                <Tooltip/>
+                <Tooltip content={this.customTooltipOnYourLine_city} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
             </BarChart>
         )
     }
@@ -89,7 +156,7 @@ class CityHistogram extends Component {
                     ))}
                 </Bar>
                 <XAxis height={5}/>
-                <Tooltip/>
+                <Tooltip content={this.customTooltipOnYourLine_city} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
             </BarChart>
         )
     }
@@ -109,7 +176,7 @@ class CityHistogram extends Component {
                     ))}
                 </Bar>
                 <XAxis height={5}/>
-                <Tooltip/>
+                <Tooltip content={this.customTooltipOnYourLine_city} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
             </BarChart>
         )
     }
@@ -129,7 +196,7 @@ class CityHistogram extends Component {
                     ))}
                 </Bar>
                 <XAxis height={5}/>
-                <Tooltip/>
+                <Tooltip content={this.customTooltipOnYourLine_city} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
             </BarChart>
         )
     }
@@ -139,7 +206,7 @@ class CityHistogram extends Component {
             <LineChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
                 <Line type="monotone" dataKey="population" stroke="#E8AE40" fill="#E8AE40"/>
                 <CartesianGrid strokeDasharray="1 1"/>
-                <Tooltip />
+                <Tooltip content={this.customTooltipOnYourLine_city} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
             </LineChart>
         )
     }

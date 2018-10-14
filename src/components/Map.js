@@ -92,6 +92,7 @@ class LeafletMap extends Component {
 			let prevCountryValue = prevProps.selectedCountry;
 			let currAgglosValue = selectedAgglos;
 			let prevAgglosValue = prevProps.selectedAgglos;
+			let Size = []
 
 			this.mapOverlay = L.geoJson(this.props.africaContinent, {
 				style: () => {return {color: 'transparent'}},
@@ -111,7 +112,7 @@ class LeafletMap extends Component {
 						this.ID = feature.properties.ID;
 						this.agglos = L.geoJson(this.props.agglosGeo, {
 							onEachFeature: (feature, layer) => {
-
+								Size.push(feature.properties.Size);
 								layer._leaflet_id = feature.properties.city_ID;
 
 								layer.on('mouseover', (e) => {
@@ -144,6 +145,8 @@ class LeafletMap extends Component {
 							filter: this.agglos_cityFilter,
 							pointToLayer: this.agglos_pointToLayer
 						});
+
+						this.props.sizeArray(Size);
 
 						this.placeHolder.addLayer(this.agglos);
 					});

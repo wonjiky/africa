@@ -108,7 +108,7 @@ class ExploreContent extends Component {
             <Grid fluid className="content">
                 <Row className="explore-row">
                     <Col md={3} className="mixers">
-                        <RenderFilter/>
+                        <RenderFilter sizeArray={this.props.sizeArray}/>
                     </Col>
                     <Col md={9} className="exp-content">
                         <Col md={9} mdOffset={1} className="searchPadding">

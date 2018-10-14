@@ -27,8 +27,8 @@ class CountryHistogram extends Component {
 
           if(e.payload[0].payload["urbanPopulation"])
           {
-              console.log(e)
-              console.log(e.payload[0].payload)
+
+
               return (<div className="custom-tooltip">
                     Rank: {(e.label-50)*(-1)}
                     <p>{e.payload[0].payload["Country"]}</p>
@@ -38,8 +38,8 @@ class CountryHistogram extends Component {
 
             if(e.payload[0].payload["urbanizationLevel"])
             {
-                console.log(e)
-                console.log(e.payload[0].payload)
+
+
                 return (<div className="custom-tooltip">
                       Rank: {(e.label-50)*(-1)}
                       <p>{e.payload[0].payload["Country"]}</p>
@@ -49,19 +49,19 @@ class CountryHistogram extends Component {
 
               if(e.payload[0].payload["urbanAgglos"])
               {
-                  console.log(e)
-                  console.log(e.payload[0].payload)
+
+
                   return (<div className="custom-tooltip">
                         Rank: {(e.label-50)*(-1)}
                         <p>{e.payload[0].payload["Country"]}</p>
-                        {e.payload[0].payload["urbanAgglos"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
+                        {e.payload[0].payload["urbanAgglos"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} agglos
                       </div>);
                 }
 
                 if(e.payload[0].payload["metropolitanPop"])
                 {
-                    console.log(e)
-                    console.log(e.payload[0].payload)
+
+
                     return (<div className="custom-tooltip">
                           Rank: {(e.label-50)*(-1)}
                           <p>{e.payload[0].payload["Country"]}</p>
@@ -71,8 +71,8 @@ class CountryHistogram extends Component {
 
                   if(e.payload[0].payload["AverageDist"])
                   {
-                      console.log(e)
-                      console.log(e.payload[0].payload)
+
+
                       return (<div className="custom-tooltip">
                             Rank: {(e.label-50)*(-1)}
                             <p>{e.payload[0].payload["Country"]}</p>
@@ -82,8 +82,8 @@ class CountryHistogram extends Component {
 
                     if(e.payload[0].payload["urbanSurface"])
                     {
-                        console.log(e)
-                        console.log(e.payload[0].payload)
+
+
                         return (<div className="custom-tooltip">
                               Rank: {(e.label-50)*(-1)}
                               <p>{e.payload[0].payload["Country"]}</p>
@@ -231,7 +231,7 @@ class CountryHistogram extends Component {
         return(
             <div className="info-wrapper">{title}
             <MaterialIcon icon="info" size={15} className="icon-color"/>
-                <span className="infotext"> {info} </span>            
+                <span className="infotext"> {info} </span>
             </div>
         )
     }
@@ -245,7 +245,7 @@ class CountryHistogram extends Component {
                 "urbanPopulation":d.Upop,
                 "urbanPopulationScaled":d.Upop_Scaled,
                 "title": "Urban population",
-                "info": "This is urban population"
+                "info": "Number of inhabitants living in urban area"
             }
         ))
 
@@ -255,6 +255,8 @@ class CountryHistogram extends Component {
                 "ISO":d.ISO,
                 "Country": d.Country,
                 "urbanizationLevel": d.Ulvl_Scaled,
+                "title": "Urbanisation level",
+                "info": "Ratio of urban population to total population"
             }
         ))
 
@@ -265,6 +267,8 @@ class CountryHistogram extends Component {
                 "Country": d.Country,
                 "urbanAgglos": d.NumAgglos,
                 "urbanAgglosScaled": d.NumAgglos_Scaled,
+                "title": "Number of agglomerations",
+                "info": "Total number of agglomerations in a country"
             }
         ))
 
@@ -274,6 +278,8 @@ class CountryHistogram extends Component {
                 "ISO":d.ISO,
                 "Country": d.Country,
                 "metropolitanPop": d.Mpop,
+                "title": "Metropolitan population",
+                "info": "Ratio of metropolitan population to urban population"
             }
         ))
 
@@ -284,6 +290,8 @@ class CountryHistogram extends Component {
                 "Country": d.Country,
                 "AverageDist": d.ADBC,
                 "AverageDistScaled": d.ADBC_Scaled,
+                "title": "Average distance between agglomerations",
+                "info": "Average distance to next closest agglomeration"
             }
         ))
 
@@ -293,6 +301,8 @@ class CountryHistogram extends Component {
                 "ISO":d.ISO,
                 "Country": d.Country,
                 "urbanSurface": d.Usurf,
+                "title": "Urban land cover",
+                "info": "Ratio of urban surface to total surface"
             }
         ))
 
@@ -310,7 +320,7 @@ class CountryHistogram extends Component {
                 <Col md={12} className="histogram-wrapper">
                     <Paper square={true}>
                         <Row>
-                            <Col md={4} className="keyfigureTitle">{this.renderInfo(dataUrbanPopulation[0].info, dataUrbanPopulation[0].title)}</Col>
+                            <Col md={4} className="keyfigureTitle"><p>{this.renderInfo(dataUrbanPopulation[0].info, dataUrbanPopulation[0].title)}</p></Col>
                             <Col md={3} className="country-histogram-value"> {this.population(urbanPopulationData, selectedCountry)}</Col>
                             <Col md={1} className="rankingWrapper">{this.renderRanking(urbanPopulationData)}</Col>
                             <Col md={4} className="country-histogram-wrapper"> {this.renderUrbanPopulation(urbanPopulationData, selectedCountry)} </Col>
@@ -320,9 +330,8 @@ class CountryHistogram extends Component {
                 <Col md={12} className="histogram-wrapper">
                     <Paper square={true}>
                         <Row>
-                            <Col md={4} className="keyfigureTitle"><p>Urbanisation level</p></Col>
-                            <Col md={1} className="info_icon"> <MaterialIcon icon="info" size={20} color='lightgrey' /></Col>
-                            <Col md={2} className="country-histogram-value"> {this.urbanisationlevel(urbanizationLevelData, selectedCountry)}</Col>
+                            <Col md={4} className="keyfigureTitle"><p>{this.renderInfo(dataUrbanizationLevel[0].info, dataUrbanizationLevel[0].title)}</p></Col>
+                            <Col md={3} className="country-histogram-value"> {this.urbanisationlevel(urbanizationLevelData, selectedCountry)}</Col>
                             <Col md={1} className="rankingWrapper">{this.renderRanking(urbanizationLevelData)}</Col>
                             <Col md={4}className="country-histogram-wrapper">{this.renderUrbanizationLevel(urbanizationLevelData, selectedCountry)}</Col>
                         </Row>
@@ -331,9 +340,8 @@ class CountryHistogram extends Component {
                 <Col md={12} className="histogram-wrapper">
                     <Paper square={true}>
                         <Row>
-                            <Col md={4} className="keyfigureTitle"><p>Number of agglomerations</p></Col>
-                            <Col md={1} className="info_icon"> <MaterialIcon icon="info" size={20} color='lightgrey' /></Col>
-                            <Col md={2} className="country-histogram-value"> {this.numofagglomeration(agglomerationData, selectedCountry)}</Col>
+                            <Col md={4} className="keyfigureTitle"><p>{this.renderInfo(dataAgglomerations[0].info, dataAgglomerations[0].title)}</p></Col>
+                            <Col md={3} className="country-histogram-value"> {this.numofagglomeration(agglomerationData, selectedCountry)}</Col>
                             <Col md={1} className="rankingWrapper">{this.renderRanking(agglomerationData)}</Col>
                             <Col md={4}className="country-histogram-wrapper">{this.renderAgglos(agglomerationData, selectedCountry)}</Col>
                         </Row>
@@ -342,9 +350,8 @@ class CountryHistogram extends Component {
                 <Col md={12} className="histogram-wrapper">
                     <Paper square={true}>
                         <Row>
-                            <Col md={4} className="keyfigureTitle"><p>Metropolitan population</p></Col>
-                            <Col md={1} className="info_icon"> <MaterialIcon icon="info" size={20} color='lightgrey' /></Col>
-                            <Col md={2} className="country-histogram-value"> {this.metropolitan(metroPolitanData, selectedCountry)}</Col>
+                            <Col md={4} className="keyfigureTitle"><p>{this.renderInfo(dataMetropolitan[0].info, dataMetropolitan[0].title)}</p></Col>
+                            <Col md={3} className="country-histogram-value"> {this.metropolitan(metroPolitanData, selectedCountry)}</Col>
                             <Col md={1} className="rankingWrapper">{this.renderRanking(metroPolitanData)}</Col>
                             <Col md={4}className="country-histogram-wrapper">{this.renderMetropolitan(metroPolitanData, selectedCountry)}</Col>
                         </Row>
@@ -353,9 +360,8 @@ class CountryHistogram extends Component {
                 <Col md={12} className="histogram-wrapper">
                     <Paper square={true}>
                         <Row>
-                            <Col md={4} className="keyfigureTitle"><p>Average distance between agglomerations</p></Col>
-                            <Col md={1} className="info_icon"> <MaterialIcon icon="info" size={20} color='lightgrey' /></Col>
-                            <Col md={2} className="country-histogram-value"> {this.averagedist(averageDistData, selectedCountry)}</Col>
+                            <Col md={4} className="keyfigureTitle"><p>{this.renderInfo(dataAverageDist[0].info, dataAverageDist[0].title)}</p></Col>
+                            <Col md={3} className="country-histogram-value"> {this.averagedist(averageDistData, selectedCountry)}</Col>
                             <Col md={1} className="rankingWrapper">{this.renderRanking(averageDistData)}</Col>
                             <Col md={4}className="country-histogram-wrapper">{this.renderAvgDist(averageDistData, selectedCountry)}</Col>
                         </Row>
@@ -364,9 +370,8 @@ class CountryHistogram extends Component {
                 <Col md={12} className="histogram-wrapper">
                     <Paper square={true}>
                         <Row>
-                            <Col md={4} className="keyfigureTitle"><p>Urban land cover</p></Col>
-                            <Col md={1} className="info_icon"> <MaterialIcon icon="info" size={20} color='lightgrey' /></Col>
-                            <Col md={2} className="country-histogram-value"> {this.urbanland(urbanSurfData, selectedCountry)}</Col>
+                            <Col md={4} className="keyfigureTitle"><p>{this.renderInfo(dataUrbanSurf[0].info, dataUrbanSurf[0].title)}</p></Col>
+                            <Col md={3} className="country-histogram-value"> {this.urbanland(urbanSurfData, selectedCountry)}</Col>
                             <Col md={1} className="rankingWrapper">{this.renderRanking(urbanSurfData)}</Col>
                             <Col md={4}className="country-histogram-wrapper">{this.renderUrbanSurf(urbanSurfData, selectedCountry)}</Col>
                         </Row>

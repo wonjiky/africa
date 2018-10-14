@@ -14,7 +14,6 @@ class RenderTreemap extends Component {
 			on: {click:  d => this.props.receiveValue(d.City_ID), mouseover: d => this.props.receiveValue(d.City_ID)},
 			tooltip: true,
       tooltipConfig: {
-
         body: d=> "<table style=z-index:10000>"+d.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")+"</table>"
 
     },

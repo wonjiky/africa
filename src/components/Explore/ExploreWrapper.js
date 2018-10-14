@@ -13,12 +13,13 @@ class ExploreWrapper extends Component {
             selectedAgglos: '',
             origin: '',
             exploreWrapperIsMounted: true,
-            
+
         };
         this.handleCountryValueFromMap = this.handleCountryValueFromMap.bind(this);
         this.handleCountryValueFromSearch = this.handleCountryValueFromSearch.bind(this);
         this.handleAgglosValueFromMap = this.handleAgglosValueFromMap.bind(this);
-        this.handleAgglosValueFromSearch = this.handleAgglosValueFromSearch.bind(this)
+        this.handleAgglosValueFromSearch = this.handleAgglosValueFromSearch.bind(this);
+        this.handleSizeArray=this.handleSizeArray.bind(this);
     }
 
     // componentDidUpdate(prevState, prevProps){
@@ -49,7 +50,7 @@ class ExploreWrapper extends Component {
 
     handleAgglosValueFromSearch(c){
         let selectedCountry = c === null ? '' : c.countryID
-        
+
         let selected = c === null ? '' : c.value
         let value = c === null ? '' : c
         let selectedIsArray = selected === null ? false : value.constructor === Array;
@@ -89,7 +90,7 @@ class ExploreWrapper extends Component {
             selectedCountry: e.value,
         })
     }
-    
+
     handleAgglosValueFromMap(d){
         this.setState({
             origin:'map',
@@ -97,10 +98,22 @@ class ExploreWrapper extends Component {
         })
     }
 
+    handleSizeArray(e){      
+      let result = [];
+      for(var i = 0; i < e.length; ++i) {
+          if(!result[e[i]])
+              result[e[i]] = 0;
+          ++result[e[i]];
+      }
+      this.setState({
+        sizeArray: result
+      })
+    }
+
     render() {
-        const { 
+        const {
             agglosData,
-            selectedCountry, 
+            selectedCountry
         } = this.props;
 
         const agglosList = this.filterAgglos(agglosData, selectedCountry);
@@ -108,7 +121,7 @@ class ExploreWrapper extends Component {
         return(
             <Row className="full-height">
                 <Col md={4} className="no-margin">
-                    <Map 
+                    <Map
                         //data to Map
                         africaOne={this.props.africaOne}
                         africaContinent={this.props.africaContinent}
@@ -122,19 +135,21 @@ class ExploreWrapper extends Component {
                         //data from Map
                         sendCountryValueToContent={this.handleCountryValueFromMap}
                         agglosValueToMap={this.handleAgglosValueFromMap}
+                        sizeArray={this.handleSizeArray}
                     />
                 </Col>
                 <Col md={8} className="no-margin">
                 {/* className="exp-content"> */}
-                    <ExploreContent 
+                    <ExploreContent
                         //data to Content
-                        countryData={this.props.countryData} 
+                        countryData={this.props.countryData}
                         agglosData={this.props.agglosData}
                         // filtered={agglosList}
 
                         //values to Content
                         selectedCountry={this.state.selectedCountry}
                         selectedAgglos={this.state.selectedAgglos}
+                        sizeArray={this.state.sizeArray}
 
                         //data from Content
                         handleCountryValueFromSearch={this.handleCountryValueFromSearch}

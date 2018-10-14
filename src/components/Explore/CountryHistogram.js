@@ -227,11 +227,11 @@ class CountryHistogram extends Component {
         )
     }
 
-    renderInfo(data){
+    renderInfo(info, title){
         return(
-            <div className="info-wrapper">
-            <MaterialIcon icon="info" size={20} className="icon-color"/>
-                <span className="infotext"> {data} </span>            
+            <div className="info-wrapper">{title}
+            <MaterialIcon icon="info" size={15} className="icon-color"/>
+                <span className="infotext"> {info} </span>            
             </div>
         )
     }
@@ -244,6 +244,7 @@ class CountryHistogram extends Component {
                 "Country": d.Country,
                 "urbanPopulation":d.Upop,
                 "urbanPopulationScaled":d.Upop_Scaled,
+                "title": "Urban population",
                 "info": "This is urban population"
             }
         ))
@@ -309,9 +310,8 @@ class CountryHistogram extends Component {
                 <Col md={12} className="histogram-wrapper">
                     <Paper square={true}>
                         <Row>
-                            <Col md={4} className="keyfigureTitle"><p>Urban population</p></Col>
-                            <Col md={1} className="info_icon">{this.renderInfo(dataUrbanPopulation[0].info)}</Col>
-                            <Col md={2} className="country-histogram-value"> {this.population(urbanPopulationData, selectedCountry)}</Col>
+                            <Col md={4} className="keyfigureTitle">{this.renderInfo(dataUrbanPopulation[0].info, dataUrbanPopulation[0].title)}</Col>
+                            <Col md={3} className="country-histogram-value"> {this.population(urbanPopulationData, selectedCountry)}</Col>
                             <Col md={1} className="rankingWrapper">{this.renderRanking(urbanPopulationData)}</Col>
                             <Col md={4} className="country-histogram-wrapper"> {this.renderUrbanPopulation(urbanPopulationData, selectedCountry)} </Col>
                         </Row>

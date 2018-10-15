@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Col } from 'react-flexbox-grid';
+import { Grid, Col, Row } from 'react-flexbox-grid';
 import MaterialIcon from 'material-icons-react';
 // import InputRange from 'react-input-range';
 import StepRangeSlider from 'react-step-range-slider'
@@ -102,14 +102,32 @@ class RenderFilter extends Component {
                         <hr className="mixerhr" />
                         <li className="slider-title">Population</li>
                         <li>
-                        <div>
-                        <img src="assets/images/legend.png" width="50%"
-                    alt="Africapolis Visualise Urbanisation in Africa"/>
-
-                    {hi}
-
-
-                    </div>
+                            <Row>
+                                <Col className="legend-number">
+                                    <p>Above 2 million</p>
+                                    <p>1-2 million</p>
+                                    <p>300 000 - 1 million</p>
+                                    <p>100 000 -  300 000</p>
+                                    <p>30 000 - 100 000</p>
+                                    <p>10 000 - 30 000</p>
+                                </Col>
+                                <Col className="legend">
+                               
+                                <img src="assets/images/legend_image.png" height="80%"
+                                    alt="Africapolis Visualise Urbanisation in Africa"/>
+                                </Col>
+                                <Col>
+                                {hi}
+                                </Col>
+                            </Row>
+                            {/* <div>
+                                <p>Above 2million</p>
+                            </div>
+                            <div className="legend">
+                                <img src="assets/images/legend_image.png" height="100%"
+                            alt="Africapolis Visualise Urbanisation in Africa"/>
+                            {hi}
+                        </div> */}
                         </li>
                         <hr className="mixerhr" />
                     </ul>

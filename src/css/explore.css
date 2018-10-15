@@ -208,6 +208,16 @@ padding: 30px !important;
   color: lightgrey;
 }
 
+.legend{
+  display:flex;
+}
+
+.legend-number{
+  display: flex;
+  flex-direction: column;
+  
+}
+
 
 .info-wrapper .infotext::after {
   content: "";

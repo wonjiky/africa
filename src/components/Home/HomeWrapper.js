@@ -11,12 +11,13 @@ class HomeWrapper extends Component {
             homeWrapperIsMounted: true,
             selectedContent:0,
             contentFilter:'narrative',
-            
+
         };
         this.handleValueFromMixer = this.handleValueFromMixer.bind(this);
         this.handleValueFromMap = this.handleValueFromMap.bind(this);
         this.handleValueFromSearch = this.handleValueFromSearch.bind(this);
         this.handleValueFromTreemap = this.handleValueFromTreemap.bind(this);
+        this.handleValueFromTreemap_click = this.handleValueFromTreemap_click.bind(this);
     }
 
     handleValueFromMixer(e){
@@ -49,6 +50,12 @@ class HomeWrapper extends Component {
         })
     }
 
+    handleValueFromTreemap_click(e){
+        this.setState({
+            treemapSelect_click: e
+        })
+    }
+
     render() {
         const story = this.props.narratives.map((narrative) => {
             return(narrative);
@@ -58,7 +65,7 @@ class HomeWrapper extends Component {
                 <Row className="full-height">
                     <Col md={4} className="no-margin">
                     {/* {this._mapExpand(this.state.mapToggle)} */}
-                        <Map 
+                        <Map
                             //Check Home or Explore
                             homeWrapperIsMounted={this.state.homeWrapperIsMounted}
                             //Receving
@@ -68,20 +75,22 @@ class HomeWrapper extends Component {
                             treemap_buildup={this.props.treemap_buildup}
                             sendValueToContent={this.handleValueFromMap}
                             //Sending
-                            treemapValue={this.state.selectedContent}                            
+                            treemapValue={this.state.selectedContent}
                             treemapFilter={this.state.contentFilter}
                             treemapSelect={this.state.treemapSelect}
+                            treemapSelect_click={this.state.treemapSelect_click}
                         />
                     </Col>
                     <Col md={8} className="no-margin">
-                        <HomeContent 
+                        <HomeContent
                             whatsnew={this.props.whatsnew}
-                            narratives={story} 
+                            narratives={story}
                             treemap={this.props.treemap}
                             contentSelect={this.handleValueFromMixer}
                             selectedContent={this.state.selectedContent}
                             valueFromTreemap={this.handleValueFromTreemap}
-                            contentFilter={this.state.contentFilter} 
+                            valueFromTreemap_click={this.handleValueFromTreemap_click}
+                            contentFilter={this.state.contentFilter}
                         />
                     </Col>
                 </Row>

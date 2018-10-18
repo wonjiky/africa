@@ -37,17 +37,7 @@ class RenderFilter extends Component {
         }
     }
 
-    rangeChange(e){
-        console.log(e.target.value)
-        this.setState({
-            value: e.target.value })
-
-        if(this.state.value > 10){
-            e.step = 10;
-        }else {
-            e.step = 1;
-        }
-    }
+  
 
     hello(data){
       let result = {};
@@ -112,7 +102,7 @@ class RenderFilter extends Component {
                                     <p>10 000 - 30 000</p>
                                 </Col>
                                 <Col className="legend">
-                               
+
                                 <img src="assets/images/legend_image.png" height="80%"
                                     alt="Africapolis Visualise Urbanisation in Africa"/>
                                 </Col>

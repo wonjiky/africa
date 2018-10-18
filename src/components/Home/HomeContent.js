@@ -30,17 +30,20 @@ class HomeContent extends Component {
         this.props.valueFromTreemap(e);
     }
 
+    valueFromTreemap_click(e){
+        this.props.valueFromTreemap_click(e);
+    }
     contentSelect(e){
         this.props.contentSelect(e);
     }
-    
+
     normalize(num, in_min, in_max, out_min, out_max){
         return (num-in_min) * (out_max-out_min) / (in_max-in_min) + out_min;
     }
 
     handleScroll = event => {
         let num = event.target.scrollTop
-        let number = this.normalize(num, 0, 16293, 0, 1)        
+        let number = this.normalize(num, 0, 16293, 0, 1)
         let value = Math.round(number * 1000) / 1000;
         this.setState({
           scrollTop: value,
@@ -55,22 +58,23 @@ class HomeContent extends Component {
                     <Col md={3} className="mixers">
                         <RenderList
                             whatsnew={this.props.whatsnew}
-                            contentSelect={this.contentSelect.bind(this)} 
+                            contentSelect={this.contentSelect.bind(this)}
                             narratives={this.props.narratives}
                             treemap={this.props.treemap}
-                            selectedContent={this.props.selectedContent}   
-                            contentFilter={this.props.contentFilter} 
-                        />                
+                            selectedContent={this.props.selectedContent}
+                            contentFilter={this.props.contentFilter}
+                        />
                     </Col>
                     <Col md={9} className="homeContent">
-                        <RenderContent 
+                        <RenderContent
                             //Sending
                             narratives={this.props.narratives}
-                            treemap={this.props.treemap} 
+                            treemap={this.props.treemap}
                             selectedContent={this.props.selectedContent}
-                            contentFilter={this.props.contentFilter} 
+                            contentFilter={this.props.contentFilter}
                             //Receiving
                             valueFromTreemap={this.valueFromTreemap.bind(this)}
+                            valueFromTreemap_click={this.valueFromTreemap_click.bind(this)}
                         />
                     </Col>
                 </Row>

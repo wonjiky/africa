@@ -127,12 +127,12 @@ class LeafletMap extends Component {
 									e.target.setStyle(this.selectedAgglosStyle())
 								})
 
-								layer.on('click', () => {
+								layer.on('click', (e) => {
 									const cityID = feature.properties.city_ID;
 									const cityName = feature.properties.NAME;
 									const value = { value:cityID, label:cityName}
 									this.props.agglosValueToMap(value);
-
+									this.state.map.setView(layer._latlng, 12);
 									 let popupContent = "<table margin={{top: -20, right: 0, left: 0, bottom: 0}}>";//feature.properties.NAME
 									     popupContent += "<tr></td><td class='data'>" + feature.properties.NAME + "</td></tr>";
 									// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
@@ -172,7 +172,7 @@ class LeafletMap extends Component {
 
 			if (currAgglosValue !== prevAgglosValue && currAgglosValue !== ''){
 				let agglosLayer = this.agglos.getLayer(currAgglosValue)
-				agglosLayer.fire('change');
+				agglosLayer.fire('click');
 			}
 
 		// If Home Wrapper is Mounted :
@@ -181,6 +181,8 @@ class LeafletMap extends Component {
 
 			let treemapcurrValue = this.props.treemapSelect;
 			let treemapprevValue = prevProps.treemapSelect;
+			let treemap_click = this.props.treemapSelect_click;
+			console.log(treemap_click)
 
 			if(this.props.treemapFilter === 'treemap'){ // && this.props.treemapValue === 0){
 
@@ -194,6 +196,10 @@ class LeafletMap extends Component {
 					pointToLayer: this.treemap_pointToLayer})
 				this.state.map.addLayer(this.treemap);
 			}
+
+			if (treemap_click)
+			{let layer = this.treemap.getLayer(treemap_click);
+				layer.fire('click')}
 
 			if (treemapcurrValue){
 				this.currLayer = this.treemap.getLayer(treemapcurrValue);
@@ -226,6 +232,7 @@ class LeafletMap extends Component {
 
 		layer.on('click', (e) => {
 			e.target.setStyle(this.treemapHighlightStyle(feature))
+			this.state.map.setView(layer._latlng, 10);
 		})
 
 		let popupContent = "<table class='tooltip-table'>";

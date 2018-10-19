@@ -236,8 +236,8 @@ class LeafletMap extends Component {
 		})
 
 		let popupContent = "<table class='tooltip-table'>";
-		popupContent += "<tr><td class='title'>Name:</td><td class='data'>" + feature.properties.NAME + "</td></tr>";
-		popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.value + "</td></tr>";
+		popupContent += "<tr><td class='title'></td>" + feature.properties.NAME + "</tr>";
+		popupContent += "<tr><td class='title'></td>" + feature.properties.value + "</tr>";
 		popupContent += "</table>";
 		layer.bindPopup(popupContent).openPopup();
 		layer._leaflet_id = feature.properties.City_ID;

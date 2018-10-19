@@ -37,7 +37,7 @@ class RenderFilter extends Component {
         }
     }
 
-  
+
 
     hello(data){
       let result = {};
@@ -60,6 +60,10 @@ class RenderFilter extends Component {
         </div>
       );
     }
+
+
+
+
     render() {
 
 

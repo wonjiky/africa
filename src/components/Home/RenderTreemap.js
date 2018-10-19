@@ -11,6 +11,7 @@ class RenderTreemap extends Component {
 					],
 			data: data.data,
 			size: d => d.value,
+      //label: d => d.NAME,
 			on: {click:  d => this.props.receiveValue_click(d.City_ID), mouseover: d => this.props.receiveValue(d.City_ID)},
 			tooltip: true,
       tooltipConfig: {
@@ -21,12 +22,12 @@ class RenderTreemap extends Component {
       fill: d => d.Color,
       shapeConfig: {fill:d => d.Color,
         labelConfig: {
-          fontResize:false,
-          fontSize:12,
-          width:90,
-          height:3000,
-          padding:3,
-          overflow:10
+          //fontResize:false,
+          //fontSize:12,
+          //width:40,
+          //height:100,
+          padding:1
+          //overflow:10
         }}
     };
 

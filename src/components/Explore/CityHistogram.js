@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Row, Col} from 'react-flexbox-grid';
 import { BarChart, Cell, Bar, Tooltip, Brush, LineChart, Line, XAxis, CartesianGrid } from 'recharts';
 import Paper from '@material-ui/core/Paper';
+import MaterialIcon from 'material-icons-react';
 
 let params = {
     histogramHeight: 100,
@@ -51,7 +52,7 @@ class CityHistogram extends Component {
 
                 return (<div className="custom-tooltip">
                       <p>{e.payload[0].payload["City"]}</p>
-                      {Math.round(e.payload[0].payload["Density"])} inhabitants
+                      {Math.round(e.payload[0].payload["Density"]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} inhabitants &frasl; km&sup2;
                     </div>);
               }
 
@@ -71,7 +72,7 @@ class CityHistogram extends Component {
 
                     return (<div className="custom-tooltip">
                           <p>{e.payload[0].payload["City"]}</p>
-                          {Math.round(e.payload[0].payload["BuiltUp"])} km&sup2;
+                          {Math.round(e.payload[0].payload["BuiltUp"]*100)/100} km&sup2;
                         </div>);
                   }
 
@@ -81,7 +82,7 @@ class CityHistogram extends Component {
 
                       return (<div className="custom-tooltip">
                             <p>{e.payload[0].payload["City"]}</p>
-                            {Math.round(e.payload[0].payload["Voronoi"])} km&sup2;
+                            {Math.round(e.payload[0].payload["Voronoi"]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} km&sup2;
                           </div>);
                     }
 
@@ -277,6 +278,14 @@ class CityHistogram extends Component {
         return data.filter(u => (u.ID === selectedCountry))
     }
 
+    renderInfo(info, title){
+        return(
+            <div className="info-wrapper">{title}
+            <MaterialIcon icon="info" size={15} className="icon-color"/>
+                <span className="infotext"> {info} </span>
+            </div>
+        )
+    }
     render() {
 
         const {
@@ -298,6 +307,8 @@ class CityHistogram extends Component {
                 "City": d.cityName,
                 "Population": d.Population,
                 "PopulationScaled": d.Population_Scaled,
+                "title": "Population",
+                "info": "Number of inhabitants living in the agglomeration"
             }
         )).sort((a,b) => a.PopulationScaled - b.PopulationScaled);
 
@@ -307,6 +318,8 @@ class CityHistogram extends Component {
                 "City": d.cityName,
                 "Density": d.Density,
                 "DensityScaled": d.Density_Scaled,
+                "title": "Density",
+                "info": "Number of inhabitants per square kilometer in the agglomeration"
             }
         )).sort((a,b) => a.DensityScaled - b.DensityScaled);
 
@@ -316,6 +329,8 @@ class CityHistogram extends Component {
                 "City": d.cityName,
                 "Dist": Math.round(d.DistToMetro),
                 "DistScaled": d.DistToMetro_Scaled,
+                "title": "Distance to metropolitan agglomeration",
+                "info": "Distance to nearest metropolitan agglomeration in kilometre and name"
             }
         )).sort((a,b) => a.DistScaled - b.DistScaled);
 
@@ -325,6 +340,8 @@ class CityHistogram extends Component {
                 "City": d.cityName,
                 "BuiltUp": d.Build_up,
                 "BuiltUp_Scaled": d.Build_up_scale,
+                "title": "Build-up area",
+                "info": "Surface of build-up area in square kilometre"
             }
         )).sort((a,b) => a.BuiltUp - b.BuiltUp);
 
@@ -334,6 +351,8 @@ class CityHistogram extends Component {
                 "City": d.cityName,
                 "Voronoi": d.Voronoi,
                 "Voronoi_Scaled": d.Voronoi_Scaled,
+                "title": "Size of Voronoi cell",
+                "info": "Size of Voronoi cell in Square kilometre "
             }
         )).sort((a,b) => a.Voronoi_Scaled - b.Voronoi_Scaled);
         const pop1950 = agglos.filter(u => u.City_ID === selectedAgglos)
@@ -342,7 +361,7 @@ class CityHistogram extends Component {
             "ID": d.City_ID,
             "City": d.cityName,
             "data":[
-                { ID: d.City_ID, City: d.cityName, name: "1950", "population": d.P1950 },
+                { ID: d.City_ID, City: d.cityName, name: "1950", "population": d.P1950, "title": "Population 1950-2015","info": "Historical population of agglomeration"},
                 { ID: d.City_ID, City: d.cityName, name: "1960", "population": d.P1960 },
                 { ID: d.City_ID, City: d.cityName, name: "1970", "population": d.P1970 },
                 { ID: d.City_ID, City: d.cityName, name: "1980", "population": d.P1980 },
@@ -376,7 +395,7 @@ class CityHistogram extends Component {
                     <Col md={12} className="histogram-wrapper">
                         <Paper square={true}>
                             <Row>
-                                <Col md={4} className="agglosKeyFigureTitle"><p>Population</p></Col>
+                                <Col md={4} className="agglosKeyFigureTitle"><p>{this.renderInfo(PopulationData[0].info, PopulationData[0].title)}</p></Col>
                                 <Col md={3} className="country-histogram-value"> {this.population(PopulationData, selectedAgglos)}</Col>
                                 <Col md={1} className="agglosRanking">{this.renderRanking(PopulationData)}</Col>
                                 <Col md={4} className="country-histogram-wrapper"> {this.renderPopulation(PopulationData, selectedAgglos)} </Col>
@@ -386,7 +405,7 @@ class CityHistogram extends Component {
                     <Col md={12} className="histogram-wrapper">
                         <Paper square={true}>
                             <Row>
-                                <Col md={4} className="agglosKeyFigureTitle"><p>Density</p></Col>
+                                <Col md={4} className="agglosKeyFigureTitle"><p>{this.renderInfo(DensityData[0].info, DensityData[0].title)}</p></Col>
                                 <Col md={3} className="country-histogram-value"> {this.density(DensityData, selectedAgglos)}</Col>
                                 <Col md={1} className="agglosRanking">{this.renderRanking(DensityData)}</Col>
                                 <Col md={4} className="country-histogram-wrapper"> {this.renderDensity(DensityData, selectedAgglos)} </Col>
@@ -396,7 +415,7 @@ class CityHistogram extends Component {
                     <Col md={12} className="histogram-wrapper">
                         <Paper square={true}>
                             <Row>
-                                <Col md={4} className="agglosKeyFigureTitle"><p>Distance to metropolitan agglomeration</p></Col>
+                                <Col md={4} className="agglosKeyFigureTitle"><p>{this.renderInfo(DistData[0].info, DistData[0].title)}</p></Col>
                                 <Col md={3} className="country-histogram-value"> {this.distance(DistData, selectedAgglos)}</Col>
                                 <Col md={1} className="agglosRanking">{this.renderRanking(DistData)}</Col>
                                 <Col md={4} className="country-histogram-wrapper"> {this.renderDist(DistData, selectedAgglos)} </Col>
@@ -406,7 +425,7 @@ class CityHistogram extends Component {
                     <Col md={12} className="histogram-wrapper">
                         <Paper square={true}>
                             <Row>
-                                <Col md={4} className="agglosKeyFigureTitle"><p>Build-up area</p></Col>
+                                <Col md={4} className="agglosKeyFigureTitle"><p>{this.renderInfo(BuiltupData[0].info, BuiltupData[0].title)}</p></Col>
                                 <Col md={3} className="country-histogram-value"> {this.builtup(BuiltupData, selectedAgglos)}</Col>
                                 <Col md={1} className="agglosRanking">{this.renderRanking(BuiltupData)}</Col>
                                 <Col md={4} className="country-histogram-wrapper"> {this.renderBuiltup(BuiltupData, selectedAgglos)} </Col>
@@ -416,7 +435,7 @@ class CityHistogram extends Component {
                     <Col md={12} className="histogram-wrapper">
                         <Paper square={true}>
                             <Row>
-                                <Col md={4} className="agglosKeyFigureTitle"><p>Size of voronoi cell</p></Col>
+                                <Col md={4} className="agglosKeyFigureTitle"><p>{this.renderInfo(VoronoiData[0].info, VoronoiData[0].title)}</p></Col>
                                 <Col md={3} className="country-histogram-value"> {this.voronoi(VoronoiData, selectedAgglos)}</Col>
                                 <Col md={1} className="agglosRanking">{this.renderRanking(VoronoiData)}</Col>
                                 <Col md={4} className="country-histogram-wrapper"> {this.renderVoronoi(VoronoiData, selectedAgglos)} </Col>
@@ -426,7 +445,7 @@ class CityHistogram extends Component {
                     <Col md={12} className="histogram-wrapper">
                         <Paper square={true}>
                             <Row>
-                                <Col md={4} className="agglosKeyFigureTitle"><p>Population 1950-2015</p></Col>
+                                <Col md={4} className="agglosKeyFigureTitle"><p>{this.renderInfo(Pop1950Data[0][0].info, Pop1950Data[0][0].title)}</p></Col>
                                 <Col md={3} className="country-histogram-value"></Col>
                                 <Col md={1} className="agglosRanking"></Col>
                                 <Col md={4} className="country-histogram-wrapper"> {this.renderPopulation1950(Pop1950Data[0])} </Col>

@@ -245,7 +245,7 @@ class CountryHistogram extends Component {
                 "urbanPopulation":d.Upop,
                 "urbanPopulationScaled":d.Upop_Scaled,
                 "title": "Urban population",
-                "info": "Number of inhabitants living in urban area"
+                "info": "Total number of people living in urban agglomerations"
             }
         ))
 
@@ -256,7 +256,7 @@ class CountryHistogram extends Component {
                 "Country": d.Country,
                 "urbanizationLevel": d.Ulvl_Scaled,
                 "title": "Urbanisation level",
-                "info": "Ratio of urban population to total population"
+                "info": "Share of the urban population in total population"
             }
         ))
 
@@ -268,7 +268,7 @@ class CountryHistogram extends Component {
                 "urbanAgglos": d.NumAgglos,
                 "urbanAgglosScaled": d.NumAgglos_Scaled,
                 "title": "Number of agglomerations",
-                "info": "Total number of agglomerations in a country"
+                "info": "Total number of urban agglomerations in country"
             }
         ))
 
@@ -279,7 +279,7 @@ class CountryHistogram extends Component {
                 "Country": d.Country,
                 "metropolitanPop": d.Mpop,
                 "title": "Metropolitan population",
-                "info": "Ratio of metropolitan population to urban population"
+                "info": "Share of metropolitan population (urban agglomeration above 250 000 population) in total urban population"
             }
         ))
 
@@ -291,7 +291,7 @@ class CountryHistogram extends Component {
                 "AverageDist": d.ADBC,
                 "AverageDistScaled": d.ADBC_Scaled,
                 "title": "Average distance between agglomerations",
-                "info": "Average distance to next closest agglomeration"
+                "info": "Average distance between urban agglomerations, calculated as average of distance between all pair of cities"
             }
         ))
 
@@ -302,7 +302,7 @@ class CountryHistogram extends Component {
                 "Country": d.Country,
                 "urbanSurface": d.Usurf,
                 "title": "Urban land cover",
-                "info": "Ratio of urban surface to total surface"
+                "info": "Share of total surface area covered by urban agglomerations"
             }
         ))
 

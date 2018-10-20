@@ -22,11 +22,11 @@ class RenderTreemap extends Component {
       fill: d => d.Color,
       shapeConfig: {fill:d => d.Color,
         labelConfig: {
-          //fontResize:false,
-          //fontSize:12,
-          //width:40,
-          //height:100,
-          padding:1
+          fontResize:false,
+          fontSize:13,
+          width:50,
+          height:1000,
+          padding:0.2
           //overflow:10
         }}
     };

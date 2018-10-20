@@ -87,7 +87,7 @@ class CountryHistogram extends Component {
                         return (<div className="custom-tooltip">
                               Rank: {(e.label-50)*(-1)}
                               <p>{e.payload[0].payload["Country"]}</p>
-                              {Math.round(e.payload[0].payload["urbanSurface"]*100)+"%"}
+                              {Math.round(e.payload[0].payload["urbanSurface"]*10000)/100+"%"}
                             </div>);
                       }
           }
@@ -216,7 +216,7 @@ class CountryHistogram extends Component {
     averagedist(data,value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{d.AverageDist} km</p>
+            <p>{Math.round(d.AverageDist)} km</p>
         )
     }
 

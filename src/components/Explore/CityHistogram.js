@@ -37,7 +37,6 @@ class CityHistogram extends Component {
 
     customTooltipOnYourLine_city(e){
         if (e.active && e.payload!=null && e.payload[0]!=null) {
-          console.log(e)
           if(e.payload[0].payload["Population"])
           {
               return (<div className="custom-tooltip">
@@ -61,6 +60,7 @@ class CityHistogram extends Component {
 
 
                   return (<div className="custom-tooltip">
+                        <p>Closest Metro: {e.payload[0].payload["Closest_Metropolitan"]}</p>
                         <p>{e.payload[0].payload["City"]}</p>
                         {e.payload[0].payload["Dist"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} km
                       </div>);
@@ -319,7 +319,7 @@ class CityHistogram extends Component {
                 "Density": d.Density,
                 "DensityScaled": d.Density_Scaled,
                 "title": "Density",
-                "info": "Number of inhabitants per square kilometer in the agglomeration"
+                "info": "Number of inhabitants per square kilometer in the agglomeration (Only above 100 000 inhabitants agglomeration is calculated)"
             }
         )).sort((a,b) => a.DensityScaled - b.DensityScaled);
 
@@ -329,6 +329,7 @@ class CityHistogram extends Component {
                 "City": d.cityName,
                 "Dist": Math.round(d.DistToMetro),
                 "DistScaled": d.DistToMetro_Scaled,
+                "Closest_Metropolitan": d.Closest_Metropolitan,
                 "title": "Distance to metropolitan agglomeration",
                 "info": "Distance to nearest metropolitan agglomeration in kilometre and name"
             }

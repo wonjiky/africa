@@ -1,8 +1,16 @@
 import React from 'react';
 import { Component } from 'react';
 import  L  from 'leaflet';
+import  home  from 'leaflet.defaultextent';
+import P from 'leaflet-easyprint';
+import d from 'leaflet-draw';
+import m from 'leaflet.measurecontrol';
 import '../shared/leaflet.snogylop.js';
 import "../../node_modules/leaflet/dist/leaflet.css";
+import "../../node_modules/leaflet.defaultextent/dist/leaflet.defaultextent.css";
+import "../../node_modules/leaflet-draw/dist/leaflet.draw.css";
+import "../../node_modules/leaflet.measurecontrol/docs/leaflet.measurecontrol.css";
+
 
 const southWest = L.latLng(-48.739134, -29.058270);
 const northEast = L.latLng(42.157281, 52);
@@ -16,6 +24,8 @@ config.params = {
 	minZoom: 3,
 	maxBounds:mybounds,
 	opacity:0,
+  defaultExtentControl: true,
+	measureControl:true
 };
 config.tileLayer = {
 	//Original:
@@ -64,6 +74,18 @@ class LeafletMap extends Component {
 
 		this.placeHolder = L.featureGroup();
 		this.placeHolder.addTo(map);
+
+		this.printer = L.easyPrint({
+      		sizeModes: ['Current', 'A4Landscape', 'A4Portrait'],
+      		filename: 'Africapolis',
+      		exportOnly: true,
+      		hideControlContainer: true
+		}).addTo(map);
+
+		// this.htmlObject =this.printer.getContainer();
+		// this.puthtml = document.getElementById('new-parent');
+		// this.puthtml.newParent.appendChild(this.htmlObject);
+
 	}
 
 	selectedStyle(){
@@ -93,6 +115,8 @@ class LeafletMap extends Component {
 			let currAgglosValue = selectedAgglos;
 			let prevAgglosValue = prevProps.selectedAgglos;
 			let Size = []
+
+
 
 			this.mapOverlay = L.geoJson(this.props.africaContinent, {
 				style: () => {return {color: 'transparent'}},
@@ -237,7 +261,6 @@ class LeafletMap extends Component {
 
 		let popupContent = "<table class='tooltip-table'>";
 		popupContent += "<tr><td class='title'></td>" + feature.properties.NAME + "</tr>";
-		popupContent += "<tr><td class='title'></td>" + feature.properties.value + "</tr>";
 		popupContent += "</table>";
 		layer.bindPopup(popupContent).openPopup();
 		layer._leaflet_id = feature.properties.City_ID;

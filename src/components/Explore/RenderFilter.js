@@ -116,7 +116,7 @@ class RenderFilter extends Component {
                                 <img src="assets/images/legend_image.png" height="80%"
                                     alt="Africapolis Visualise Urbanisation in Africa"/>
                                 </Col>
-                                <Col>
+                                <Col >
                                 {hi}
                                 </Col>
                             </Row>

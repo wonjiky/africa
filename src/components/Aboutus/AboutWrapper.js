@@ -46,7 +46,7 @@ class AboutWrapper extends Component {
                                     </Col>
                                     <Col md={6} className="about-text">
                                         <div className="text">
-                                            Africapolis contributes to Sustainable Development Goal 11 to “make cities and human settlement inclusive, safe, resilient and sustainable” by providing policy makers and researchers with a unique insight into the African urban landscape and a strong basis for the analyses and strategies needed to support sustainable and co-ordinated urban development. 
+                                            Africapolis contributes to Sustainable Development Goal 11 to “make cities and human settlement inclusive, safe, resilient and sustainable” by providing policy makers and researchers with a unique insight into the African urban landscape and a strong basis for the analyses and strategies needed to support sustainable and co-ordinated urban development.
                                         </div>
                                     </Col>
                                 </Row>
@@ -60,7 +60,7 @@ class AboutWrapper extends Component {
                         </Fade>
                         <Fade bottom>
                             <div className="abouthrwrapper">
-                                <hr className='aboutushr'/> 
+                                <hr className='aboutushr'/>
                             </div>
                         </Fade>
                         <Fade bottom>
@@ -72,7 +72,7 @@ class AboutWrapper extends Component {
                         </Fade>
                         <Fade bottom>
                             <div className="abouthrwrapper">
-                                <hr className='aboutushr'/> 
+                                <hr className='aboutushr'/>
                             </div>
                         </Fade>
                         <Fade bottom>
@@ -122,14 +122,22 @@ class AboutWrapper extends Component {
                                 <div className="logoitems"><img src="assets/images/france.jpg" height="30%"
                                         alt="Africapolis Visualise Urbanisation in Africa"/>
                                         </div></Paper></Col>
-                                <Col md={2} className="logo"><Paper square={true} className="logopaper">
-                                <div className="logoitems">
-                                <img src="assets/images/netherlands.jpg" height="30%"
-                                        alt="Africapolis Visualise Urbanisation in Africa"/>
+                                        <Col md={2} className="logo"><Paper square={true} className="logopaper">
+                                        <div className="logoitems">
+                                        <img src="assets/images/lux.jpg" height="25%"
+                                              alt="Africapolis Visualise Urbanisation in Africa"/>
+
                                         </div>
                                     </Paper></Col>
                             </Row>
                             <Row className="logo-wrapper addmargin">
+                                  <Col md={2} className="logo"><Paper square={true} className="logopaper">
+                                  <div className="logoitems">
+                                  <img src="assets/images/netherlands.jpg" height="30%"
+                                    alt="Africapolis Visualise Urbanisation in Africa"/>
+                                    </div>
+                                </Paper></Col>
+
                                 <Col md={2} className="logo"><Paper square={true} className="logopaper">
                                 <div className="logoitems"><img src="assets/images/switzerland.png" height="30%"
                                         alt="Africapolis Visualise Urbanisation in Africa"/>
@@ -144,8 +152,6 @@ class AboutWrapper extends Component {
                                     <img src="assets/images/US.png" height="30%"
                                             alt="Africapolis Visualise Urbanisation in Africa"/>
                                     </div>
-                                </Paper></Col>
-                                <Col md={2} className="logo"><Paper square={true} className="logopaper">
                                 </Paper></Col>
                             </Row>
                         </Fade>

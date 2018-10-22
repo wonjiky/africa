@@ -390,7 +390,7 @@ class CityHistogram extends Component {
             return(
                 <Row className="no-padding">
                     <Col md={12}>
-                        <span>CITY</span>
+                        <span>URBAN AGGLOMERATION</span>
                     </Col>
                     <br/><br/>
                     <Col md={12} className="histogram-wrapper">

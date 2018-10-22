@@ -68,7 +68,7 @@ class InfoWrapper extends Component {
 		}else{
 			return(
 				<Col md={9} mdOffset={1} className="countryUnselected">
-					Start by selecting country or city from search box or map
+					Start by selecting country or agglomeration from search box or map
 				</Col>
 
 		  );

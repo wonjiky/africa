@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Row, Col} from 'react-flexbox-grid';
-import { BarChart, Cell, Bar, Tooltip, Brush, LineChart, Line, XAxis, CartesianGrid } from 'recharts';
+import { BarChart, Cell, Bar, Tooltip, LineChart, Line, XAxis, CartesianGrid } from 'recharts';
 import Paper from '@material-ui/core/Paper';
 import MaterialIcon from 'material-icons-react';
 
@@ -105,7 +105,7 @@ class CityHistogram extends Component {
     renderPopulation(data, selectedAgglos){
         return(
             <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
-                <Brush
+                <Bar
                     dataKey='PopulationScaled'
                     height={10}
                     // startIndex={50}
@@ -125,7 +125,7 @@ class CityHistogram extends Component {
     renderDensity(data, selectedAgglos){
         return(
             <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
-                <Brush
+                <Bar
                     dataKey='DensityScaled'
                     height={10}
                     // startIndex={50}
@@ -145,7 +145,7 @@ class CityHistogram extends Component {
     renderDist(data, selectedAgglos){
         return(
             <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
-                <Brush
+                <Bar
                     dataKey='DistScaled'
                     height={10}
                     // startIndex={50}
@@ -165,7 +165,7 @@ class CityHistogram extends Component {
     renderBuiltup(data, selectedAgglos){
         return(
             <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
-                <Brush
+                <Bar
                     dataKey='BuiltUp'
                     height={10}
                     // startIndex={50}
@@ -185,7 +185,7 @@ class CityHistogram extends Component {
     renderVoronoi(data, selectedAgglos){
         return(
             <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
-                <Brush
+                <Bar
                     dataKey='Voronoi_Scaled'
                     height={10}
                     // startIndex={50}
@@ -219,12 +219,21 @@ class CityHistogram extends Component {
 
     renderRanking(data){
         let d = data.map(u => u.ID)
+        if(data[d.findIndex(this.check)]["Density"]===0||data[d.findIndex(this.check)]["Dist"]===0)
+        {return(
+            <div className="ranking">
+                <p>Rank:<br/><span>-</span>/{data.length}</p>
+            </div>)}
+        else {
+
+
         let rank = data.length - (d.findIndex(this.check) + 1)
         return(
             <div className="ranking">
                 <p>Rank:<br/><span>{ rank + 1 }</span>/{data.length}</p>
             </div>
         )
+        }
     }
 
     population(data, value){
@@ -238,16 +247,21 @@ class CityHistogram extends Component {
 
     density(data, value){
         let d = data.find(u => u.ID === value)
-        if(value){
-        return(
-            <p>{Math.round(d.Density).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} Inhabitants &frasl; km&sup2;</p>
-        )
-    }else{return}
+        if(d.Density==0){
+              return(<p> Population under 100000  </p>)
+    }
+    else if(value)
+    {return(<p>{Math.round(d.Density).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} Inhabitants &frasl; km&sup2;</p>)
+    }
+    else{return}
     }
 
     distance(data,value){
         let d = data.find(u => u.ID === value)
-        if(value){
+        if(d.Dist==0){
+              return(<p> Metrpolitan agglomeration </p>)
+        }
+        else if(value){
         return(
             <p>{d.Dist.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} km</p>
         )

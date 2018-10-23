@@ -30,7 +30,7 @@ class AboutWrapper extends Component {
                                     <Col md={6} className="about-text">
                                         <div className="text">
                                             Africapolis.org and the 2019 Africapolis Update is produced by the Sahel and West Africa Club (SWAC) in collaboration with e-geopolis.org.<br/><br/>
-                                            This work builds on an innovative project started in 2008 by XXXXXX. The 2019 update is made possible by regular funding from SWAC members and by additional funding from USAID.
+                                            The Africapolis project started in 2008 with support from the French Development Agency (AFD). The 2019 update is made possible by regular funding from SWAC members and by additional funding from USAID.
                                         </div>
                                     </Col>
                                 </Row>
@@ -40,7 +40,7 @@ class AboutWrapper extends Component {
                             <Paper square={true} className="aboutus-2">
                                 <Row className="about-text-wrapper">
                                     <Col md={6} className="about-img">
-                                        <img src="assets/images/SDG-11.jpg" height="30%"
+                                        <img src="assets/images/SDG-11.png" height="20%"
                                         alt="Africapolis Visualise Urbanisation in Africa"/>
                                         <br/>
                                     </Col>
@@ -53,7 +53,8 @@ class AboutWrapper extends Component {
                             </Paper>
                         </Fade>
                         <Fade bottom>
-                            <div className="aboutus-3">
+                            <div className="aboutus-4">
+                                <p><span>THE SAHEL AND WEST AFRICA CLUB</span></p><br/>
                                 SWAC is is an independent, international platform. Its Secretariat is hosted at<br/>the Organisation for Economic Co-operation and Development (OECD). <br/><br/>
                                 Its mission is to promote regional policies that will improve the economic and<br/>social well-being of people in the Sahel and West Africa.
                             </div>
@@ -63,20 +64,9 @@ class AboutWrapper extends Component {
                                 <hr className='aboutushr'/>
                             </div>
                         </Fade>
+
                         <Fade bottom>
                             <div className="aboutus-4">
-                                <p><span>Its objectives are</span></p><br/>
-                                <p>Improve the regional governance of food and nutrition security</p><br/>
-                                <p>Improve the understanding of ongoing transformations in the region and their<br/>policy implications through regional, spatial and forward-looking analyses</p>
-                            </div>
-                        </Fade>
-                        <Fade bottom>
-                            <div className="abouthrwrapper">
-                                <hr className='aboutushr'/>
-                            </div>
-                        </Fade>
-                        <Fade bottom>
-                            <div className="aboutus-5">
                                 <p><span>Its members are</span></p><br/>
                                 <p>Austria, Belgium, Canada, CILSS, the ECOWAS Commission, the European Union, France,<br/> Luxembourg, the Netherlands, Switzerland, the UEMOA Commission and the United States. </p>
                             </div>
@@ -124,7 +114,7 @@ class AboutWrapper extends Component {
                                         </div></Paper></Col>
                                         <Col md={2} className="logo"><Paper square={true} className="logopaper">
                                         <div className="logoitems">
-                                        <img src="assets/images/lux.jpg" height="25%"
+                                        <img src="assets/images/lux.png" height="25%"
                                               alt="Africapolis Visualise Urbanisation in Africa"/>
 
                                         </div>

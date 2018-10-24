@@ -1,10 +1,10 @@
 import React from 'react';
 import { Component } from 'react';
 import  L  from 'leaflet';
-import  home  from 'leaflet.defaultextent';
-import P from 'leaflet-easyprint';
-import d from 'leaflet-draw';
-import m from 'leaflet.measurecontrol';
+import 'leaflet.defaultextent';
+import 'leaflet-easyprint';
+import 'leaflet-draw';
+import 'leaflet.measurecontrol';
 import '../shared/leaflet.snogylop.js';
 import "../../node_modules/leaflet/dist/leaflet.css";
 import "../../node_modules/leaflet.defaultextent/dist/leaflet.defaultextent.css";
@@ -18,6 +18,7 @@ const mybounds = L.latLngBounds(southWest, northEast);
 
 let config = {};
 config.params = {
+
 	center: [1.46,18.3],
 	zoom: 3,
 	zoomSnap: 1.2,
@@ -26,13 +27,14 @@ config.params = {
 	opacity:0,
   defaultExtentControl: true,
 	measureControl:true
+
 };
 config.tileLayer = {
 	//Original:
 	uri: 'https://api.mapbox.com/styles/v1/mkmd/cjj041lbo07vo2rphltlukpya/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
 	params: {
 		maxZoom: 18,
-		id: '',
+		//attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <img src="assets/images/swac-oecd.png" height="17px"/>  '
 	}
 };
 
@@ -61,8 +63,11 @@ class LeafletMap extends Component {
 
 	componentDidMount() {
 		let map = L.map('map', config.params);
+
 		const tileLayer = L.tileLayer(config.tileLayer.uri, config.tileLayer.params).addTo(map);
 		this.setState({ map, tileLayer });
+
+
 
 		this.mapShades = L.geoJson(this.props.africaOne, {
 			invert:true,
@@ -79,8 +84,15 @@ class LeafletMap extends Component {
       		sizeModes: ['Current', 'A4Landscape', 'A4Portrait'],
       		filename: 'Africapolis',
       		exportOnly: true,
-      		hideControlContainer: true
+      		hideControlContainer: false,
+					hideclass: true,
+					customWindowTitle: "Copyright: SWAC"
 		}).addTo(map);
+
+		//map.on('beforePrint', () => {L.control.attribution(addAttribution("Copyright: Sahel and West Africa Club"))})
+		//map.on('afterPrint', () => {L.control.attribution(removeAttribution("Copyright: Sahel and West Africa Club"))})
+
+
 
 		// this.htmlObject =this.printer.getContainer();
 		// this.puthtml = document.getElementById('new-parent');
@@ -223,7 +235,8 @@ class LeafletMap extends Component {
 
 			if (treemap_click)
 			{let layer = this.treemap.getLayer(treemap_click);
-				layer.fire('click')}
+				if(layer)
+				{layer.fire('click')}}
 
 			if (treemapcurrValue){
 				this.currLayer = this.treemap.getLayer(treemapcurrValue);
@@ -408,7 +421,9 @@ class LeafletMap extends Component {
 
 	render() {
 		return (
-			<div id="map" />
+			<div id="map"/>
+
+
 		)
 	}
 }

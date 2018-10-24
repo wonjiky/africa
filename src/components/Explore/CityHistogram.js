@@ -247,7 +247,7 @@ class CityHistogram extends Component {
 
     density(data, value){
         let d = data.find(u => u.ID === value)
-        if(d.Density==0){
+        if(d.Density===0){
               return(<p> Population under 100000  </p>)
     }
     else if(value)
@@ -258,7 +258,7 @@ class CityHistogram extends Component {
 
     distance(data,value){
         let d = data.find(u => u.ID === value)
-        if(d.Dist==0){
+        if(d.Dist===0){
               return(<p> Metrpolitan agglomeration </p>)
         }
         else if(value){

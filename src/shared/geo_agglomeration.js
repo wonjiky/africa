@@ -6748,7 +6748,7 @@ export const AGGLOS = [
     { "type": "Feature", "properties": { "ID": 2, "NAME": "Nyamitanga", "city_ID": "a6744", "Size": 1 }, "geometry": { "type": "Point", "coordinates": [ 29.26774472, -3.066259491 ] } },
     { "type": "Feature", "properties": { "ID": 30, "NAME": "Nsangwe UA", "city_ID": "a6745", "Size": 1 }, "geometry": { "type": "Point", "coordinates": [ 34.98243307, -16.5278658 ] } },
     { "type": "Feature", "properties": { "ID": 33, "NAME": "Augie", "city_ID": "a6746", "Size": 1 }, "geometry": { "type": "Point", "coordinates": [ 4.598764612, 12.89144385 ] } },
-    { "type": "Feature", "properties": { "ID": 24, "NAME": "GhYt", "city_ID": "a6747", "Size": 1 }, "geometry": { "type": "Point", "coordinates": [ 10.175, 24.961 ] } },
+    { "type": "Feature", "properties": { "ID": 24, "NAME": "Ghat", "city_ID": "a6747", "Size": 1 }, "geometry": { "type": "Point", "coordinates": [ 10.175, 24.961 ] } },
     { "type": "Feature", "properties": { "ID": 12, "NAME": "Asfour", "city_ID": "a6748", "Size": 1 }, "geometry": { "type": "Point", "coordinates": [ 7.977, 36.678 ] } },
     { "type": "Feature", "properties": { "ID": 12, "NAME": "Gouraya", "city_ID": "a6749", "Size": 1 }, "geometry": { "type": "Point", "coordinates": [ 1.904, 36.571 ] } },
     { "type": "Feature", "properties": { "ID": 45, "NAME": "Bulinda (Kanyangereko)", "city_ID": "a6750", "Size": 1 }, "geometry": { "type": "Point", "coordinates": [ 31.78035251, -1.443555208 ] } },

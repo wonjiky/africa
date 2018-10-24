@@ -84,7 +84,7 @@ class LeafletMap extends Component {
       		sizeModes: ['Current', 'A4Landscape', 'A4Portrait'],
       		filename: 'Africapolis',
       		exportOnly: true,
-      		hideControlContainer: false,
+      		hideControlContainer: true,
 					hideclass: true,
 					customWindowTitle: "Copyright: SWAC"
 		}).addTo(map);

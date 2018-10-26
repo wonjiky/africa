@@ -35,6 +35,7 @@ config.tileLayer = {
 	params: {
 		maxZoom: 18,
 		//attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <img src="assets/images/swac-oecd.png" height="17px"/>  '
+
 	}
 };
 
@@ -100,6 +101,8 @@ class LeafletMap extends Component {
 
 	}
 
+
+
 	selectedStyle(){
 		return({
 			weight : 2,
@@ -153,6 +156,12 @@ class LeafletMap extends Component {
 
 								layer.on('mouseover', (e) => {
 									e.target.setStyle(this.highlightAgglosStyle(feature))
+									let popupContent = "<table margin={{top: -20, right: 0, left: 0, bottom: 0}}>";//feature.properties.NAME
+											popupContent += "<tr></td><td class='data'>" + feature.properties.NAME + "</td></tr>";
+									// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
+											popupContent += "</table>";
+
+									layer.bindTooltip(popupContent,{closeButton:false}).openTooltip();
 								})
 
 								layer.on('mouseout', (e) => {
@@ -161,6 +170,8 @@ class LeafletMap extends Component {
 
 								layer.on('change', () => {
 									e.target.setStyle(this.selectedAgglosStyle())
+
+
 								})
 
 								layer.on('click', (e) => {
@@ -169,11 +180,13 @@ class LeafletMap extends Component {
 									const value = { value:cityID, label:cityName}
 									this.props.agglosValueToMap(value);
 									this.state.map.setView(layer._latlng, 12);
-									 let popupContent = "<table margin={{top: -20, right: 0, left: 0, bottom: 0}}>";//feature.properties.NAME
-									     popupContent += "<tr></td><td class='data'>" + feature.properties.NAME + "</td></tr>";
+
+									let popupContent = "<table margin={{top: -20, right: 0, left: 0, bottom: 0}}>";//feature.properties.NAME
+											popupContent += "<tr></td><td class='data'>" + feature.properties.NAME + "</td></tr>";
 									// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
-									     popupContent += "</table>";
+											popupContent += "</table>";
 									 layer.bindPopup(popupContent,{closeButton:false}).openPopup();
+
 
 								})
 

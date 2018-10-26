@@ -161906,7 +161906,7 @@ export const AGGLOMERATIONINFO = [
   {
     "ID": 24,
     "City_ID": "a6747",
-    "cityName": "GhYt",
+    "cityName": "Ghat",
     "ISO": "LBY",
     "Population": 11183,
     "Population_Scaled": 0.01,

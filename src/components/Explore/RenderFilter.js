@@ -1,3 +1,4 @@
+import createClass from 'create-react-class';
 import React, { Component } from 'react';
 import { Grid, Col, Row } from 'react-flexbox-grid';
 import MaterialIcon from 'material-icons-react';
@@ -40,23 +41,58 @@ class RenderFilter extends Component {
 
 
     hello(data){
+      let Circle = createClass({
+        render:function(){
+          var circleStyle = {
+            padding:2,
+            margin:2,
+            display:"inline-block",
+            backgroundColor: this.props.bgColor,
+            borderRadius: "50%",
+            width:10,
+            height:10,
+          };
+          return (
+            <div style={circleStyle}>
+            </div>
+          );
+        }
+      });
+      let colors = ['#E73741','#df521e','#e1b400','#32a674','#0b68af','#993484'];
+      let renderData = [];
+
+      for (var i = 0; i < colors.length; i++) {
+        var color = colors[i];
+        renderData.push(<Circle key={i + color} bgColor={color}/>);
+      }
+      let destination = document.querySelector("#container");
+
+
+
+
+
       let result = {};
       if(data){
       for(var i = 0; i < data.length; ++i) {
           if(!result[data[i]])
               result[data[i]] = 0;
           ++result[data[i]];
+
+
+
       }
+      result[["7"]]=data.length;
+
 }
       return (
         <div>
-          {result["6"]}<br/>
-          {result["5"]}<br/>
-          {result["4"]}<br/>
-          {result["3"]}<br/>
-          {result["2"]}<br/>
-          {result["1"]}<br/>
-
+          {renderData[0]}{result["6"]}<br/>
+          {renderData[1]}{result["5"]}<br/>
+          {renderData[2]}{result["4"]}<br/>
+          {renderData[3]}{result["3"]}<br/>
+          {renderData[4]}{result["2"]}<br/>
+          {renderData[5]}{result["1"]}<br/>
+          {result["7"]}<br/>
         </div>
       );
     }
@@ -104,12 +140,9 @@ class RenderFilter extends Component {
                                     <p>100 000 -  300 000</p>
                                     <p>30 000 - 100 000</p>
                                     <p>10 000 - 30 000</p>
+                                    <li className="slider-title"><p>Total</p></li>
                                 </Col>
-                                <Col className="legend">
 
-                                <img src="assets/images/legend_image.png" height="80%"
-                                    alt="Africapolis Visualise Urbanisation in Africa"/>
-                                </Col>
                                 <Col>
                                 {hi}
                                 </Col>

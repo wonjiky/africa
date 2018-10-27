@@ -248,7 +248,7 @@ class CityHistogram extends Component {
     density(data, value){
         let d = data.find(u => u.ID === value)
         if(d.Density===0){
-              return(<p> Population under 100000  </p>)
+              return(<p> Population under <br/> 100 000  </p>)
     }
     else if(value)
     {return(<p>{Math.round(d.Density).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} Inhabitants &frasl; km&sup2;</p>)

@@ -88,16 +88,16 @@ class RenderFilter extends Component {
 
 }
       return (
-        <li>
+        <li className="slider">
         <Row>
             <Col className="legend-number">
-                <p style={{lineHeight: 1.8}}>Above 2 million</p>
-                <p style={{lineHeight: 3}}>1-2 million</p>
-                <p style={{lineHeight: 1.1}}>300 000 - 1 million</p>
-                <p style={{lineHeight: 2.7}}>100 000 -  300 000</p>
-                <p style={{lineHeight: 0.7}}>30 000 - 100 000</p>
-                <p style={{lineHeight: 2.5}}>10 000 - 30 000</p>
-                <li className="slider-title"><p>Total</p></li>
+                <p style={{lineHeight: 1.8}}>&nbsp;&nbsp;&nbsp;Above 2 million</p>
+                <p style={{lineHeight: 3}}> &nbsp;&nbsp;&nbsp;1-2 million</p>
+                <p style={{lineHeight: 1.1}}> &nbsp;&nbsp;&nbsp;300 000 - 1 million</p>
+                <p style={{lineHeight: 2.7}}> &nbsp;&nbsp;&nbsp;100 000 -  300 000</p>
+                <p style={{lineHeight: 0.7}}> &nbsp;&nbsp;&nbsp;30 000 - 100 000</p>
+                <p style={{lineHeight: 2.5}}> &nbsp;&nbsp;&nbsp;10 000 - 30 000</p>
+                <li className="slider-title"><p> &nbsp;&nbsp;&nbsp;Total</p></li>
             </Col>
         <Col className='legend-circle'>
           <p>{renderData[0]}</p>
@@ -157,7 +157,7 @@ class RenderFilter extends Component {
                             />
                         </li>
                         <hr className="mixerhr" />
-                        <li className="slider-title">Population</li>
+                        <li className="slider-title">Urban population</li>
 
 
 

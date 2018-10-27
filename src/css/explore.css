@@ -28,7 +28,7 @@ input{
 .no-padding span{
   font-size: 20px;
   font-family: 'Oswald';
-  
+
 
 }
 
@@ -215,6 +215,14 @@ padding: 30px !important;
 .legend-number{
   display: flex;
   flex-direction: column;
+  width:130px
+
+}
+
+.legend-circle{
+  display: flex;
+  flex-direction: column;
+  width:70px
 
 }
 

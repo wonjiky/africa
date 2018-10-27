@@ -44,13 +44,14 @@ class RenderFilter extends Component {
       let Circle = createClass({
         render:function(){
           var circleStyle = {
-            padding:2,
-            margin:2,
+            opacity:0.6,
+            padding:4,
+            margin:0,
             display:"inline-block",
             backgroundColor: this.props.bgColor,
             borderRadius: "50%",
-            width:10,
-            height:10,
+            width:this.props.size,
+            height:this.props.size,
           };
           return (
             <div style={circleStyle}>
@@ -59,11 +60,13 @@ class RenderFilter extends Component {
         }
       });
       let colors = ['#E73741','#df521e','#e1b400','#32a674','#0b68af','#993484'];
+      let sizes = [24,21,18,15,12,9];
       let renderData = [];
 
       for (var i = 0; i < colors.length; i++) {
         var color = colors[i];
-        renderData.push(<Circle key={i + color} bgColor={color}/>);
+        var size = sizes[i];
+        renderData.push(<Circle key={i + color} bgColor={color} size={size}/>);
       }
       let destination = document.querySelector("#container");
 
@@ -85,15 +88,39 @@ class RenderFilter extends Component {
 
 }
       return (
-        <div>
-          {renderData[0]}{result["6"]}<br/>
-          {renderData[1]}{result["5"]}<br/>
-          {renderData[2]}{result["4"]}<br/>
-          {renderData[3]}{result["3"]}<br/>
-          {renderData[4]}{result["2"]}<br/>
-          {renderData[5]}{result["1"]}<br/>
-          {result["7"]}<br/>
-        </div>
+        <li>
+        <Row>
+            <Col className="legend-number">
+                <p style={{lineHeight: 1.8}}>Above 2 million</p>
+                <p style={{lineHeight: 3}}>1-2 million</p>
+                <p style={{lineHeight: 1.1}}>300 000 - 1 million</p>
+                <p style={{lineHeight: 2.7}}>100 000 -  300 000</p>
+                <p style={{lineHeight: 0.7}}>30 000 - 100 000</p>
+                <p style={{lineHeight: 2.5}}>10 000 - 30 000</p>
+                <li className="slider-title"><p>Total</p></li>
+            </Col>
+        <Col className='legend-circle'>
+          <p>{renderData[0]}</p>
+          <p>{renderData[1]}</p>
+          <p>{renderData[2]}</p>
+          <p>{renderData[3]}</p>
+          <p>{renderData[4]}</p>
+          <p>{renderData[5]}</p>
+
+        </Col>
+        <Col>
+        <p style={{lineHeight: 1.8}}> &nbsp;{result["6"]}</p>
+        <p style={{lineHeight: 3}}> &nbsp;{result["5"]}</p>
+        <p style={{lineHeight: 1.1}}> &nbsp;{result["4"]}</p>
+        <p style={{lineHeight: 2.7}}> &nbsp;{result["3"]}</p>
+        <p style={{lineHeight: 0.7}}> &nbsp;{result["2"]}</p>
+        <p style={{lineHeight: 2.5}}> &nbsp;{result["1"]}</p>
+        <li className="slider-title"><p> &nbsp;{result["7"]}</p></li>
+        </Col>
+
+        </Row>
+
+        </li>
       );
     }
 
@@ -131,31 +158,14 @@ class RenderFilter extends Component {
                         </li>
                         <hr className="mixerhr" />
                         <li className="slider-title">Population</li>
-                        <li>
-                            <Row>
-                                <Col className="legend-number">
-                                    <p>Above 2 million</p>
-                                    <p>1-2 million</p>
-                                    <p>300 000 - 1 million</p>
-                                    <p>100 000 -  300 000</p>
-                                    <p>30 000 - 100 000</p>
-                                    <p>10 000 - 30 000</p>
-                                    <li className="slider-title"><p>Total</p></li>
-                                </Col>
 
-                                <Col>
+
+
+
                                 {hi}
-                                </Col>
-                            </Row>
-                            {/* <div>
-                                <p>Above 2million</p>
-                            </div>
-                            <div className="legend">
-                                <img src="assets/images/legend_image.png" height="100%"
-                            alt="Africapolis Visualise Urbanisation in Africa"/>
-                            {hi}
-                        </div> */}
-                        </li>
+
+
+
                         <hr className="mixerhr" />
                     </ul>
                 </Col>

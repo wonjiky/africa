@@ -223,7 +223,7 @@ class CountryHistogram extends Component {
     urbanland(data,value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{d.urbanSurface*100} %</p>
+            <p>{Math.round(d.urbanSurface*10000)/100} %</p>
         )
     }
 

@@ -531,6 +531,18 @@ button:focus{
   width: 100%;
 }
 
+.leaflet-bar button {
+  height: 29.5px; /* easyButton's height default */
+  width: 29.5px;  /*  easyButton's width default */
+  background-color: #FFFFFF;
+  border: 0px;
+  border-color: #FFFFFF;
+
+}
+
+.leaflet-control.enabled a {
+    background-color: #f8a343;
+}
 
 #viz{
   height: 500px;

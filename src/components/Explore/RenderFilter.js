@@ -7,6 +7,14 @@ import StepRangeSlider from 'react-step-range-slider'
 // import Button from '@material-ui/core/Button';
 // import ChevronRight from '@material-ui/icons/ChevronRight';
 // import ChevronLeft from '@material-ui/icons/ChevronLeft';
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  LinkedinIcon
+} from 'react-share';
 
 
 class RenderFilter extends Component {
@@ -168,6 +176,21 @@ class RenderFilter extends Component {
 
                         <hr className="mixerhr" />
                     </ul>
+                </Col>
+                <Col md={12} className="explore-mixer-list">
+
+                    <ul className="list-unstyled">
+                <li className="slider-title">Share</li>
+                <TwitterShareButton url="africapolis.org" title="share" via= "www.africapolis.org">
+                <TwitterIcon size={32} round />
+                </TwitterShareButton>
+                <FacebookShareButton url="africapolis.org" title="share" >
+                <FacebookIcon size={32} round />
+                </FacebookShareButton>
+                <LinkedinShareButton url="africapolis.org" title="share" description= "www.africapolis.org">
+                <LinkedinIcon size={32} round />
+                </LinkedinShareButton>
+                      </ul>
                 </Col>
                 <Col md={12} className="mixer-download">
 

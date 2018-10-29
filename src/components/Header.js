@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
+import ReactGA from 'react-ga';
+import {
+  FacebookIcon,
+  TwitterIcon,
+  LinkedinIcon
+} from 'react-share';
 
 class Header extends Component {
-    
+
     constructor(props) {
+
+
+      ReactGA.initialize('UA-128268752-1');
+      ReactGA.pageview(window.location.pathname + window.location.search);
+
+
         super(props)
         this.state = {
             isNavOpen: false
@@ -34,6 +46,9 @@ class Header extends Component {
                                 <NavItem><NavLink className="nav-link" to="/explore">Explore</NavLink></NavItem>
                                 <NavItem><NavLink className="nav-link" to="/research">Research</NavLink></NavItem>
                                 <NavItem><NavLink className="nav-link" to="/aboutus">About Us</NavLink></NavItem>
+                                <a href="https://twitter.com/SWAC_OECD"><TwitterIcon size={32} round={true} /></a>
+                                <a href="http://www.facebook.com/OECDSWAC"><FacebookIcon size={32} round={true}/></a>
+                                <a href="https://www.linkedin.com/company/sahel-and-west-africa-club-club-du-sahel-et-l-afrique-de-l-ouest/"><LinkedinIcon size={32} round={true} /></a>
                             </Nav>
                         </Collapse>
 					</div>

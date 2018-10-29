@@ -5,6 +5,7 @@ import 'leaflet.defaultextent';
 import 'leaflet-easyprint';
 import 'leaflet-draw';
 import 'leaflet.measurecontrol';
+import 'leaflet-easybutton';
 import '../shared/leaflet.snogylop.js';
 import "../../node_modules/leaflet/dist/leaflet.css";
 import "../../node_modules/leaflet.defaultextent/dist/leaflet.defaultextent.css";
@@ -81,14 +82,19 @@ class LeafletMap extends Component {
 		this.placeHolder = L.featureGroup();
 		this.placeHolder.addTo(map);
 
-		this.printer = L.easyPrint({
-      		sizeModes: ['Current', 'A4Landscape', 'A4Portrait'],
+		const printer = L.easyPrint({
+      		sizeModes: ['Current'],
       		filename: 'Africapolis',
       		exportOnly: true,
       		hideControlContainer: true,
-					hideclass: true,
+					hidden: true,
 					customWindowTitle: "Copyright: SWAC"
 		}).addTo(map);
+
+		L.easyButton( 'fa-camera', function(){
+			printer.printMap('CurrentSize', 'Africapolis');
+		}).addTo(map);
+
 
 		//map.on('beforePrint', () => {L.control.attribution(addAttribution("Copyright: Sahel and West Africa Club"))})
 		//map.on('afterPrint', () => {L.control.attribution(removeAttribution("Copyright: Sahel and West Africa Club"))})
@@ -181,14 +187,16 @@ class LeafletMap extends Component {
 									this.props.agglosValueToMap(value);
 									this.state.map.setView(layer._latlng, 12);
 
-									let popupContent = "<table margin={{top: -20, right: 0, left: 0, bottom: 0}}>";//feature.properties.NAME
+									let popupContent = "<table>";//feature.properties.NAME
 											popupContent += "<tr></td><td class='data'>" + feature.properties.NAME + "</td></tr>";
 									// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
 											popupContent += "</table>";
 									 layer.bindPopup(popupContent,{closeButton:false}).openPopup();
-
-
 								})
+
+
+
+
 
 							},
 							filter: this.agglos_cityFilter,

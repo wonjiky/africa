@@ -91,6 +91,12 @@ class RenderFilter extends Component {
 
 
 
+
+      }
+      for(var i = 0; i < 7; ++i)
+      {if(!result[i])
+        {result[i]=0}
+
       }
       result[["7"]]=data.length;
 
@@ -99,12 +105,12 @@ class RenderFilter extends Component {
         <li className="slider">
         <Row>
             <Col className="legend-number">
-                <p style={{lineHeight: 1.8}}>&nbsp;&nbsp;&nbsp;Above 2 million</p>
-                <p style={{lineHeight: 3}}> &nbsp;&nbsp;&nbsp;1 - 2 million</p>
-                <p style={{lineHeight: 1.1}}> &nbsp;&nbsp;&nbsp;300 000 - 1 million</p>
-                <p style={{lineHeight: 2.7}}> &nbsp;&nbsp;&nbsp;100 000 -  300 000</p>
-                <p style={{lineHeight: 0.7}}> &nbsp;&nbsp;&nbsp;30 000 - 100 000</p>
-                <p style={{lineHeight: 2.5}}> &nbsp;&nbsp;&nbsp;10 000 - 30 000</p>
+                <p>&nbsp;&nbsp;&nbsp;Above 2 million</p>
+                <p> &nbsp;&nbsp;&nbsp;1 - 2 million</p>
+                <p> &nbsp;&nbsp;&nbsp;300 000 - 1 million</p>
+                <p> &nbsp;&nbsp;&nbsp;100 000 -  300 000</p>
+                <p> &nbsp;&nbsp;&nbsp;30 000 - 100 000</p>
+                <p> &nbsp;&nbsp;&nbsp;10 000 - 30 000</p>
                 <li className="slider-title"><p> &nbsp;&nbsp;&nbsp;Total</p></li>
             </Col>
         <Col className='legend-circle'>
@@ -116,13 +122,13 @@ class RenderFilter extends Component {
           <p>{renderData[5]}</p>
 
         </Col>
-        <Col>
-        <p style={{lineHeight: 1.8}}> &nbsp;{result["6"]}</p>
-        <p style={{lineHeight: 3}}> &nbsp;{result["5"]}</p>
-        <p style={{lineHeight: 1.1}}> &nbsp;{result["4"]}</p>
-        <p style={{lineHeight: 2.7}}> &nbsp;{result["3"]}</p>
-        <p style={{lineHeight: 0.7}}> &nbsp;{result["2"]}</p>
-        <p style={{lineHeight: 2.5}}> &nbsp;{result["1"]}</p>
+        <Col className="legend-circle">
+        <p> &nbsp;{result["6"]}</p>
+        <p> &nbsp;{result["5"]}</p>
+        <p> &nbsp;{result["4"]}</p>
+        <p> &nbsp;{result["3"]}</p>
+        <p> &nbsp;{result["2"]}</p>
+        <p> &nbsp;{result["1"]}</p>
         <li className="slider-title"><p> &nbsp;{result["7"]}</p></li>
         </Col>
 
@@ -177,20 +183,10 @@ class RenderFilter extends Component {
                         <hr className="mixerhr" />
                     </ul>
                 </Col>
-            
+
                 <Col md={12} className="mixer-download">
-                <ul className="list-unstyled">
-                <li className="slider-title">Share</li>
-                <TwitterShareButton url="africapolis.org" title="share" via= "www.africapolis.org">
-                <TwitterIcon size={32} round />
-                </TwitterShareButton>
-                <FacebookShareButton url="africapolis.org" title="share" >
-                <FacebookIcon size={32} round />
-                </FacebookShareButton>
-                <LinkedinShareButton url="africapolis.org" title="share" description= "www.africapolis.org">
-                <LinkedinIcon size={32} round />
-                </LinkedinShareButton>
-                  </ul>
+
+
                     <hr/>
                         {this._renderDownloadFullData()}
                     <hr/>

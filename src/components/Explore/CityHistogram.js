@@ -355,8 +355,8 @@ class CityHistogram extends Component {
                 "City": d.cityName,
                 "BuiltUp": d.Build_up,
                 "BuiltUp_Scaled": d.Build_up_scale,
-                "title": "Build-up area",
-                "info": "Surface of build-up area in square kilometre"
+                "title": "Built-up area",
+                "info": "Surface of built-up area in square kilometre"
             }
         )).sort((a,b) => a.BuiltUp - b.BuiltUp);
 

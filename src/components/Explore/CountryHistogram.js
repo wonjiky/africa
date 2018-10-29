@@ -279,7 +279,7 @@ class CountryHistogram extends Component {
                 "Country": d.Country,
                 "metropolitanPop": d.Mpop,
                 "title": "Metropolitan population",
-                "info": "Share of metropolitan population (urban agglomeration above 250 000 population) in total urban population"
+                "info": "Share of metropolitan population in total urban population"
             }
         ))
 

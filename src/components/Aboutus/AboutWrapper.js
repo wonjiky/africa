@@ -18,39 +18,33 @@ class AboutWrapper extends Component {
             <Grid fluid className="aboutus-wrapper">
                     <Col md={8} mdOffset={2}>
                         <Fade bottom>
-                            <Paper square={true} className="aboutus-1">
+
+
+
                                 <Row className="about-text-wrapper">
+                                
                                     <Col md={6} className="about-img">
-                                        <img src="assets/images/swac-oecd.png" height="20%"
+                                        <img src="assets/images/swac-oecd.png" height="10%"
                                         alt="Africapolis Visualise Urbanisation in Africa"/>
                                         <br/>
-                                        <img src="assets/images/e-geopolis.png" height="40%"
+                                        <img src="assets/images/e-geopolis.png" height="10%"
                                         alt="Africapolis Visualise Urbanisation in Africa"/>
+                                        <br/><br/><br/><br/><br/>
+                                        <img src="assets/images/SDG-11.png" height="5%"
+                                        alt="Africapolis Visualise Urbanisation in Africa"/>
+
                                     </Col>
-                                    <Col md={6} className="about-text">
+                                    <Col md={6} className="aboutus-4">
                                         <div className="text">
+                                        <br/><br/>
                                             Africapolis.org and the 2019 Africapolis Update is produced by the Sahel and West Africa Club (SWAC) in collaboration with e-geopolis.org.<br/><br/>
-                                            The Africapolis project started in 2008 with support from the French Development Agency (AFD). The 2019 update is made possible by regular funding from SWAC members and by additional funding from USAID.
+                                            The Africapolis project started in 2008 with support from the French Development Agency (AFD). The 2019 update is made possible by regular funding from SWAC members and by additional funding from USAID.<br/><br/><br/><br/>
                                         </div>
-                                    </Col>
-                                </Row>
-                            </Paper>
-                        </Fade>
-                        <Fade bottom>
-                            <Paper square={true} className="aboutus-2">
-                                <Row className="about-text-wrapper">
-                                    <Col md={6} className="about-img">
-                                        <img src="assets/images/SDG-11.png" height="20%"
-                                        alt="Africapolis Visualise Urbanisation in Africa"/>
-                                        <br/>
-                                    </Col>
-                                    <Col md={6} className="about-text">
                                         <div className="text">
                                             Africapolis contributes to Sustainable Development Goal 11 to “make cities and human settlement inclusive, safe, resilient and sustainable” by providing policy makers and researchers with a unique insight into the African urban landscape and a strong basis for the analyses and strategies needed to support sustainable and co-ordinated urban development.
                                         </div>
                                     </Col>
                                 </Row>
-                            </Paper>
                         </Fade>
                         <Fade bottom>
                             <div className="aboutus-4">

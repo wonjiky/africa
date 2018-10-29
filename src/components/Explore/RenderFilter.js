@@ -100,7 +100,7 @@ class RenderFilter extends Component {
         <Row>
             <Col className="legend-number">
                 <p style={{lineHeight: 1.8}}>&nbsp;&nbsp;&nbsp;Above 2 million</p>
-                <p style={{lineHeight: 3}}> &nbsp;&nbsp;&nbsp;1-2 million</p>
+                <p style={{lineHeight: 3}}> &nbsp;&nbsp;&nbsp;1 - 2 million</p>
                 <p style={{lineHeight: 1.1}}> &nbsp;&nbsp;&nbsp;300 000 - 1 million</p>
                 <p style={{lineHeight: 2.7}}> &nbsp;&nbsp;&nbsp;100 000 -  300 000</p>
                 <p style={{lineHeight: 0.7}}> &nbsp;&nbsp;&nbsp;30 000 - 100 000</p>
@@ -177,9 +177,9 @@ class RenderFilter extends Component {
                         <hr className="mixerhr" />
                     </ul>
                 </Col>
-                <Col md={12} className="explore-mixer-list">
-
-                    <ul className="list-unstyled">
+            
+                <Col md={12} className="mixer-download">
+                <ul className="list-unstyled">
                 <li className="slider-title">Share</li>
                 <TwitterShareButton url="africapolis.org" title="share" via= "www.africapolis.org">
                 <TwitterIcon size={32} round />
@@ -190,10 +190,7 @@ class RenderFilter extends Component {
                 <LinkedinShareButton url="africapolis.org" title="share" description= "www.africapolis.org">
                 <LinkedinIcon size={32} round />
                 </LinkedinShareButton>
-                      </ul>
-                </Col>
-                <Col md={12} className="mixer-download">
-
+                  </ul>
                     <hr/>
                         {this._renderDownloadFullData()}
                     <hr/>

@@ -120,7 +120,7 @@ export const COUNTRYINFO =[
     "description": "NA"
   },
   {
-    "Country": "Ivory Coast",
+    "Country": "Cote d`Ivoire",
     "ISO": "CIV",
     "ID": 7,
     "Upop": 11489818,

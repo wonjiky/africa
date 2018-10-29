@@ -47,8 +47,6 @@ class CityHistogram extends Component {
 
             if(e.payload[0].payload["Density"])
             {
-
-
                 return (<div className="custom-tooltip">
                       <p>{e.payload[0].payload["City"]}</p>
                       {Math.round(e.payload[0].payload["Density"]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} inhabitants &frasl; km&sup2;
@@ -60,8 +58,8 @@ class CityHistogram extends Component {
 
 
                   return (<div className="custom-tooltip">
+                        <span>{e.payload[0].payload["City"]}</span>
                         <p>Closest Metro: {e.payload[0].payload["Closest_Metropolitan"]}</p>
-                        <p>{e.payload[0].payload["City"]}</p>
                         {e.payload[0].payload["Dist"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} km
                       </div>);
                 }

@@ -44,7 +44,7 @@ class Header extends Component {
                             <Nav className="ml-auto" navbar>
                                 <NavItem><NavLink className="nav-link" to="/home">Home</NavLink></NavItem>
                                 <NavItem><NavLink className="nav-link" to="/explore">Explore</NavLink></NavItem>
-                                <NavItem><NavLink className="nav-link" to="/research">Research</NavLink></NavItem>
+                                <NavItem className="nav-link">Research</NavItem>
                                 <NavItem><NavLink className="nav-link" to="/aboutus">About Us</NavLink></NavItem>
                                 <a href="https://twitter.com/SWAC_OECD"><TwitterIcon size={32} round={true} /></a>
                                 <a href="http://www.facebook.com/OECDSWAC"><FacebookIcon size={32} round={true}/></a>

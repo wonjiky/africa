@@ -22,7 +22,7 @@ class AboutWrapper extends Component {
 
 
                                 <Row className="about-text-wrapper">
-                                
+
                                     <Col md={6} className="about-img">
                                         <img src="assets/images/swac-oecd.png" height="10%"
                                         alt="Africapolis Visualise Urbanisation in Africa"/>
@@ -41,7 +41,7 @@ class AboutWrapper extends Component {
                                             The Africapolis project started in 2008 with support from the French Development Agency (AFD). The 2019 update is made possible by regular funding from SWAC members and by additional funding from USAID.<br/><br/><br/><br/>
                                         </div>
                                         <div className="text">
-                                            Africapolis contributes to Sustainable Development Goal 11 to “make cities and human settlement inclusive, safe, resilient and sustainable” by providing policy makers and researchers with a unique insight into the African urban landscape and a strong basis for the analyses and strategies needed to support sustainable and co-ordinated urban development.
+                                            Africapolis contributes to the New Urban Agenda in Africa and the Sustainable Development Goal 11 to “make cities and human settlement inclusive, safe, resilient and sustainable” by providing policy makers and researchers with a unique insight into the African urban landscape and a strong basis for the analyses and strategies needed to support sustainable and co-ordinated urban development.
                                         </div>
                                     </Col>
                                 </Row>

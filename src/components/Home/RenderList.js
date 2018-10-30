@@ -43,6 +43,8 @@ class RenderList extends Component {
                                     <MaterialIcon icon="arrow_forward" size={15} color='#585858' />
                                     {story.title}
                                 </li>
+
+
                             ))}
                     <hr />
                     <h6>Data Driven Stories</h6>

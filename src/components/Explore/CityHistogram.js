@@ -103,13 +103,7 @@ class CityHistogram extends Component {
     renderPopulation(data, selectedAgglos){
         return(
             <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
-                <Bar
-                    dataKey='PopulationScaled'
-                    height={10}
-                    // startIndex={50}
-                    travellerWidth={10}
-                    stroke="lightgrey"/>
-                <Bar dataKey='PopulationScaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
+                    <Bar dataKey='PopulationScaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
                     {data.map((entry, index) => (
                         <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#E8AE40' : 'lightgrey'}/>
                     ))}
@@ -123,12 +117,7 @@ class CityHistogram extends Component {
     renderDensity(data, selectedAgglos){
         return(
             <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
-                <Bar
-                    dataKey='DensityScaled'
-                    height={10}
-                    // startIndex={50}
-                    travellerWidth={10}
-                    stroke="lightgrey"/>
+
                 <Bar dataKey='DensityScaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
                     {data.map((entry, index) => (
                         <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#E8AE40' : 'lightgrey'}/>
@@ -143,12 +132,7 @@ class CityHistogram extends Component {
     renderDist(data, selectedAgglos){
         return(
             <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
-                <Bar
-                    dataKey='DistScaled'
-                    height={10}
-                    // startIndex={50}
-                    travellerWidth={10}
-                    stroke="lightgrey"/>
+
                 <Bar dataKey='DistScaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
                     {data.map((entry, index) => (
                         <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#E8AE40' : 'lightgrey'}/>
@@ -163,12 +147,7 @@ class CityHistogram extends Component {
     renderBuiltup(data, selectedAgglos){
         return(
             <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
-                <Bar
-                    dataKey='BuiltUp'
-                    height={10}
-                    // startIndex={50}
-                    travellerWidth={10}
-                    stroke="lightgrey"/>
+
                 <Bar dataKey='BuiltUp' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
                     {data.map((entry, index) => (
                         <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#E8AE40' : 'lightgrey'}/>
@@ -183,12 +162,7 @@ class CityHistogram extends Component {
     renderVoronoi(data, selectedAgglos){
         return(
             <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
-                <Bar
-                    dataKey='Voronoi_Scaled'
-                    height={10}
-                    // startIndex={50}
-                    travellerWidth={10}
-                    stroke="lightgrey"/>
+
                 <Bar dataKey='Voronoi_Scaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
                     {data.map((entry, index) => (
                         <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#E8AE40' : 'lightgrey'}/>

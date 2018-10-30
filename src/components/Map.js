@@ -282,6 +282,7 @@ class LeafletMap extends Component {
 		}
 		else {layer.on('mouseover', (e) => {
 			e.target.setStyle(this.treemapHighlightStyle(feature))
+			layer.bindTooltip(popupContent).openTooltip();
 		})
 
 		layer.on('mouseout', (e) => {

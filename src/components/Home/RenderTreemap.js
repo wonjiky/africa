@@ -15,7 +15,7 @@ class RenderTreemap extends Component {
 			on: {click:  d => this.props.receiveValue_click(d.City_ID), mouseover: d => this.props.receiveValue(d.City_ID)},
 			tooltip: true,
       tooltipConfig: {
-        body: d=> "<table style=z-index:10000>"+d.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")+"</table>"
+        body: d=> "<table style=z-index:10000>"+Math.round(d.value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")+data.measure+"</table>"
 
     },
       legend: false,
@@ -40,7 +40,7 @@ class RenderTreemap extends Component {
               <hr/>
             </li>
             <li id="tree-text">
-              Stick to 50 sinceit can give a coherent impression how the histogram look like. And already with 50 it’s well distributed like following. Stick to 50 sinceit can give a coherent impression how the histogram look like. And already with 50 it’s well distributed like following.
+              {data.description}
             </li>
           </ul>
         </Col>

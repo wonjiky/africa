@@ -15,7 +15,7 @@ class RenderList extends Component {
             // console.log("end", arguments);
         });
     }
-    
+
     scrollTo(e) {
         console.log(e)
         scroller.scrollTo('scroll-to-element', {
@@ -23,8 +23,8 @@ class RenderList extends Component {
           delay: 0,
           smooth: 'easeInOutQuart'
         })
-      } 
-    
+      }
+
     handleSetActive(e){
         console.log(e)
     }
@@ -36,26 +36,26 @@ class RenderList extends Component {
                 {/* <i className="material-icons" id="icon-size">public</i> */}
                     <h6>What is Africapolis</h6>
                         {stories.map((story, i) => (
-                                <li 
-                                key={i} 
+                                <li
+                                key={i}
                                 id={selectedContent === story.ID && filter === story.content ? 'clicked' : ' '}
                                 onClick={() => this.props.contentSelect(story)}>
                                     <MaterialIcon icon="arrow_forward" size={15} color='#585858' />
                                     {story.title}
                                 </li>
                             ))}
-                    <hr />    
+                    <hr />
                     <h6>Data Driven Stories</h6>
                     {treemap.map((treemap, i) => (
-                        <li 
-                        key={i} 
+                        <li
+                        key={i}
                         id={selectedContent === treemap.ID && filter === treemap.content ? 'clicked' : ' '}
                         onClick={() => this.props.contentSelect(treemap)}>
                             <MaterialIcon icon="arrow_forward" size={15} color='#585858' />
                             {treemap.title}
                         </li>
                     ))}
-                     <hr />    
+                     <hr />
                      <h6>What's New?</h6>
                      {whatsnew.map((entry, index) => (
                             <li key={index}>
@@ -82,16 +82,16 @@ class RenderList extends Component {
             <Grid fluid id="mixer">
                     <Col className="home-mixer-list" >
                         {this.list(
-                            this.props.narratives, 
-                            this.props.treemap, 
-                            this.props.selectedContent, 
+                            this.props.narratives,
+                            this.props.treemap,
+                            this.props.selectedContent,
                             this.props.contentFilter,
                             this.props.whatsnew)}
                     </Col>
                     <Col md={12} className="mixer-download">
-                            <hr/>    
+                            <hr/>
                             {this._renderDownloadFullData()}
-                            <hr/>    
+                            <hr/>
                             <img src="assets/images/swac-oecd.png" width="100%"
                             alt="Africapolis Visualise Urbanisation in Africa"/>
                     </Col>

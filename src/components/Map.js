@@ -1,8 +1,16 @@
 import React from 'react';
 import { Component } from 'react';
 import  L  from 'leaflet';
+import  home  from 'leaflet.defaultextent';
+import P from 'leaflet-easyprint';
+import d from 'leaflet-draw';
+import m from 'leaflet.measurecontrol';
 import '../shared/leaflet.snogylop.js';
 import "../../node_modules/leaflet/dist/leaflet.css";
+import "../../node_modules/leaflet.defaultextent/dist/leaflet.defaultextent.css";
+import "../../node_modules/leaflet-draw/dist/leaflet.draw.css";
+import "../../node_modules/leaflet.measurecontrol/docs/leaflet.measurecontrol.css";
+
 
 const southWest = L.latLng(-48.739134, -29.058270);
 const northEast = L.latLng(42.157281, 52);
@@ -16,6 +24,8 @@ config.params = {
 	minZoom: 3,
 	maxBounds:mybounds,
 	opacity:0,
+  defaultExtentControl: true,
+	measureControl:true
 };
 config.tileLayer = {
 	//Original:
@@ -64,6 +74,18 @@ class LeafletMap extends Component {
 
 		this.placeHolder = L.featureGroup();
 		this.placeHolder.addTo(map);
+
+		this.printer = L.easyPrint({
+      		sizeModes: ['Current', 'A4Landscape', 'A4Portrait'],
+      		filename: 'Africapolis',
+      		exportOnly: true,
+      		hideControlContainer: true
+		}).addTo(map);
+
+		// this.htmlObject =this.printer.getContainer();
+		// this.puthtml = document.getElementById('new-parent');
+		// this.puthtml.newParent.appendChild(this.htmlObject);
+
 	}
 
 	selectedStyle(){
@@ -93,6 +115,8 @@ class LeafletMap extends Component {
 			let currAgglosValue = selectedAgglos;
 			let prevAgglosValue = prevProps.selectedAgglos;
 			let Size = []
+
+
 
 			this.mapOverlay = L.geoJson(this.props.africaContinent, {
 				style: () => {return {color: 'transparent'}},
@@ -127,12 +151,12 @@ class LeafletMap extends Component {
 									e.target.setStyle(this.selectedAgglosStyle())
 								})
 
-								layer.on('click', () => {
+								layer.on('click', (e) => {
 									const cityID = feature.properties.city_ID;
 									const cityName = feature.properties.NAME;
 									const value = { value:cityID, label:cityName}
 									this.props.agglosValueToMap(value);
-
+									this.state.map.setView(layer._latlng, 12);
 									 let popupContent = "<table margin={{top: -20, right: 0, left: 0, bottom: 0}}>";//feature.properties.NAME
 									     popupContent += "<tr></td><td class='data'>" + feature.properties.NAME + "</td></tr>";
 									// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
@@ -172,7 +196,7 @@ class LeafletMap extends Component {
 
 			if (currAgglosValue !== prevAgglosValue && currAgglosValue !== ''){
 				let agglosLayer = this.agglos.getLayer(currAgglosValue)
-				agglosLayer.fire('change');
+				agglosLayer.fire('click');
 			}
 
 		// If Home Wrapper is Mounted :
@@ -181,6 +205,8 @@ class LeafletMap extends Component {
 
 			let treemapcurrValue = this.props.treemapSelect;
 			let treemapprevValue = prevProps.treemapSelect;
+			let treemap_click = this.props.treemapSelect_click;
+			console.log(treemap_click)
 
 			if(this.props.treemapFilter === 'treemap'){ // && this.props.treemapValue === 0){
 
@@ -194,6 +220,10 @@ class LeafletMap extends Component {
 					pointToLayer: this.treemap_pointToLayer})
 				this.state.map.addLayer(this.treemap);
 			}
+
+			if (treemap_click)
+			{let layer = this.treemap.getLayer(treemap_click);
+				layer.fire('click')}
 
 			if (treemapcurrValue){
 				this.currLayer = this.treemap.getLayer(treemapcurrValue);
@@ -226,11 +256,11 @@ class LeafletMap extends Component {
 
 		layer.on('click', (e) => {
 			e.target.setStyle(this.treemapHighlightStyle(feature))
+			this.state.map.setView(layer._latlng, 10);
 		})
 
 		let popupContent = "<table class='tooltip-table'>";
-		popupContent += "<tr><td class='title'>Name:</td><td class='data'>" + feature.properties.NAME + "</td></tr>";
-		popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.value + "</td></tr>";
+		popupContent += "<tr><td class='title'></td>" + feature.properties.NAME + "</tr>";
 		popupContent += "</table>";
 		layer.bindPopup(popupContent).openPopup();
 		layer._leaflet_id = feature.properties.City_ID;

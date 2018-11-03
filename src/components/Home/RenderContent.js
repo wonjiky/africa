@@ -49,6 +49,7 @@ class RenderContent extends Component{
                 <RenderTreemap
                     data={treemapList}
                     receiveValue={this.receiveValue.bind(this)}
+                    receiveValue_click={this.receiveValue_click.bind(this)}
                 />
             )
         }
@@ -61,6 +62,10 @@ class RenderContent extends Component{
 
     receiveValue(e){
         this.props.valueFromTreemap(e);
+    }
+
+    receiveValue_click(e){
+        this.props.valueFromTreemap_click(e);
     }
 
     renderNarrative_Text(stories){
@@ -80,8 +85,8 @@ class RenderContent extends Component{
             <div className="renderContentWrapper">
                 {this.renderContent(
                     this.props.selectedContent,
-                    this.props.contentFilter, 
-                    this.props.narratives, 
+                    this.props.contentFilter,
+                    this.props.narratives,
                     this.props.treemap,
                     )}
             </div>
@@ -90,4 +95,3 @@ class RenderContent extends Component{
 }
 
 export default RenderContent;
-

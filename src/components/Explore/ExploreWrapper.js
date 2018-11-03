@@ -99,14 +99,8 @@ class ExploreWrapper extends Component {
     }
 
     handleSizeArray(e){
-      console.log(e)
 
-      let result = {};
-      for(var i = 0; i < e.length; ++i) {
-          if(!result[e[i]])
-              result[e[i]] = 0;
-          ++result[e[i]];
-      }
+
       this.setState({
         sizeArray: e
       })

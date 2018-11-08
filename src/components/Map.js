@@ -40,6 +40,45 @@ config.tileLayer = {
 	}
 };
 
+//////////////////////
+		L.CursorHandler = L.Handler.extend({
+
+    addHooks: function () {
+        this._popup = new L.Popup();
+        this._map.on('mouseover', this._open, this);
+        this._map.on('mousemove', this._update, this);
+        this._map.on('mouseout', this._close, this);
+    },
+
+    removeHooks: function () {
+        this._map.off('mouseover', this._open, this);
+        this._map.off('mousemove', this._update, this);
+        this._map.off('mouseout', this._close, this);
+    },
+
+    _open: function (e) {
+        this._update(e);
+        this._popup.openOn(this._map);
+    },
+
+    _close: function () {
+        this._map.closePopup(this._popup);
+    },
+
+    _update: function (e) {
+        this._popup.setLatLng(e.latlng)
+            .setContent("Please select two countries");
+    }
+
+
+	});
+
+L.Map.addInitHook('addHandler', 'cursor', L.CursorHandler);
+	//////////////////////////////
+
+
+
+
 class LeafletMap extends Component {
 	constructor(props){
 		super(props)
@@ -47,7 +86,8 @@ class LeafletMap extends Component {
 			map: null,
 			tileLayer: null,
 			list: 0,
-			currLayerClicked: false,
+			currLayerClicked: false
+
 		};
 
 		// this.onEachFeature = this.onEachFeature.bind(this);
@@ -91,31 +131,100 @@ class LeafletMap extends Component {
 					customWindowTitle: "Copyright: SWAC"
 		}).addTo(map);
 
+
+
+
 		L.easyButton( 'fa-camera', function(){
 			printer.printMap('CurrentSize', 'Africapolis');
 		}).addTo(map);
 
 
-		//map.on('beforePrint', () => {L.control.attribution(addAttribution("Copyright: Sahel and West Africa Club"))})
-		//map.on('afterPrint', () => {L.control.attribution(removeAttribution("Copyright: Sahel and West Africa Club"))})
+		let selected = null;
+		let previous= null;
+		const markerGroup = L.geoJson(this.props.africaContinent,{
+
+			onEachFeature: (feature, layer) => {
+
+				layer.on('mouseover', () => {
+					layer.setStyle(this.hoverStyle());
+				});
+
+				layer.on('mouseout', (e) => {
+					this.deselect(e.target);
+				});
+
+				layer.on('click', (e) => {
+						if (this.selected !== null) {
+		    		let previous = selected;}
+
+					this.selectedStyle(e.target);
+
+						this.selected = layer;
+						if (previous) {
+							if (this.selected === null || this.selected._leaflet_id !== layer._leaflet_id) {
+			 				this.markerGroup.resetStyle(layer);}
+			  		}
+				});
+			}
+		});
+
+
+		L.easyButton({
+
+			states: [{
+		     stateName: 'add-markers',
+		     icon: 'fa-exchange',
+		     title: 'Activate compare countries',
+		     onClick: function(control) {
+		       map.addLayer(markerGroup);
+		       control.state('remove-markers');
+					 map.setView([1.46,18.3], 3);
+					 map.cursor.enable();
+
+
+		     }
+		   }, {
+		     icon: 'fa-undo',
+		     stateName: 'remove-markers',
+		     onClick: function(control) {
+		       map.removeLayer(markerGroup);
+		       control.state('add-markers');
+					 map.cursor.disable();
+					 this._map.closePopup(this._popup);
+		     },
+		     title: 'Deactivate compare countries'
+		   }]
 
 
 
-		// this.htmlObject =this.printer.getContainer();
-		// this.puthtml = document.getElementById('new-parent');
-		// this.puthtml.newParent.appendChild(this.htmlObject);
+		}).addTo(map);
+
+
+
+
 
 	}
 
+/////////////////
+
+	deselect(layer) {
+			console.log(this.selected)
+			if (this.selected === null || this.selected._leaflet_id !== layer._leaflet_id) {
+			  this.markerGroup.resetStyle(layer);
+		  }
+		}
 
 
-	selectedStyle(){
-		return({
+	selectedStyle(layer){
+		layer.setStyle({
 			weight : 2,
 			color : 'black',
 			fillColor : 'yellow',
 			fillOpacity : 0.03,
-		})
+		});
+		if (!L.Browser.ie && !L.Browser.opera) {
+				layer.bringToFront();
+			}
 	}
 
 	hoverStyle(){
@@ -126,6 +235,8 @@ class LeafletMap extends Component {
 			fillOpacity: 0,
 		})
 	}
+
+
 
 	componentDidUpdate(prevProps){
 		// If Explore Wrapper is Mounted :

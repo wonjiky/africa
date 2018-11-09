@@ -242,15 +242,36 @@ class CountryHistogram extends Component {
 
     render() {
 
+
+
+      if (this.props.countryData) {
+        for (var j = 0; j < 5; ++j)
+        {let variables = ["Upop","NumAgglos","ADBC","Mpop","Ulvl_Scaled"]
+          for(var i = 0; i < 50; ++i) {
+
+            let value = 1950
+            if(this.props.countryData[i][variables[j]+"_sel"])
+            {delete this.props.countryData[i][variables[j]+"_sel"];}
+            Object.defineProperty(this.props.countryData[i], variables[j]+"_sel",
+            Object.getOwnPropertyDescriptor(this.props.countryData[i], variables[j] + value));
+
+          }
+        }
+
+        }
+
       console.log(this.props.countryData)
       console.log(this.props.countryData_past)
+
+
+
 
         const dataUrbanPopulation = this.props.countryData.map((d, i) => (
             {
                 "ID":d.ID,
                 "ISO":d.ISO,
                 "Country": d.Country,
-                "urbanPopulation":d.Upop,
+                "urbanPopulation":d.Upop_sel,
                 "urbanPopulationScaled":d.Upop_Scaled,
                 "title": "Urban population",
                 "info": "Total number of people living in urban agglomerations"
@@ -262,7 +283,7 @@ class CountryHistogram extends Component {
                 "ID":d.ID,
                 "ISO":d.ISO,
                 "Country": d.Country,
-                "urbanizationLevel": d.Ulvl_Scaled,
+                "urbanizationLevel": d.Ulvl_Scaled_sel,
                 "title": "Urbanisation level",
                 "info": "Share of the urban population in total population"
             }
@@ -273,8 +294,8 @@ class CountryHistogram extends Component {
                 "ID":d.ID,
                 "ISO":d.ISO,
                 "Country": d.Country,
-                "urbanAgglos": d.NumAgglos,
-                "urbanAgglosScaled": d.NumAgglos_Scaled,
+                "urbanAgglos": d.NumAgglos_sel,
+                "urbanAgglosScaled": d.NumAgglos_Scaled_sel,
                 "title": "Number of agglomerations",
                 "info": "Total number of urban agglomerations in country"
             }
@@ -285,7 +306,7 @@ class CountryHistogram extends Component {
                 "ID":d.ID,
                 "ISO":d.ISO,
                 "Country": d.Country,
-                "metropolitanPop": d.Mpop,
+                "metropolitanPop": d.Mpop_sel,
                 "title": "Metropolitan population",
                 "info": "Share of metropolitan population in total urban population"
             }
@@ -296,7 +317,7 @@ class CountryHistogram extends Component {
                 "ID":d.ID,
                 "ISO":d.ISO,
                 "Country": d.Country,
-                "AverageDist": d.ADBC,
+                "AverageDist": d.ADBC_sel,
                 "AverageDistScaled": d.ADBC_Scaled,
                 "title": "Average distance between agglomerations",
                 "info": "Average distance between urban agglomerations, calculated as average of distance between all pair of cities"

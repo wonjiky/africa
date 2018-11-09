@@ -30,7 +30,6 @@ class RenderFilter extends Component {
     }
 
     steps(e){
-        console.log(this.state.value);
         const {value} = this.state;
         if(1950 < value < 2010){
             return 10;

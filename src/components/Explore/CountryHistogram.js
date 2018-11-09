@@ -6,6 +6,8 @@ import Paper from '@material-ui/core/Paper';
 
 
 class CountryHistogram extends Component {
+
+
     constructor(props){
         super(props);
         this.state={
@@ -93,6 +95,8 @@ class CountryHistogram extends Component {
           }
         else{}
       }
+
+
 
     renderUrbanPopulation(data, selectedCountry){
         return(
@@ -237,6 +241,10 @@ class CountryHistogram extends Component {
     }
 
     render() {
+
+      console.log(this.props.countryData)
+      console.log(this.props.countryData_past)
+
         const dataUrbanPopulation = this.props.countryData.map((d, i) => (
             {
                 "ID":d.ID,

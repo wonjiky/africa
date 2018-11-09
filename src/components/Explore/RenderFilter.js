@@ -7,14 +7,7 @@ import StepRangeSlider from 'react-step-range-slider'
 // import Button from '@material-ui/core/Button';
 // import ChevronRight from '@material-ui/icons/ChevronRight';
 // import ChevronLeft from '@material-ui/icons/ChevronLeft';
-import {
-  FacebookShareButton,
-  LinkedinShareButton,
-  TwitterShareButton,
-  FacebookIcon,
-  TwitterIcon,
-  LinkedinIcon
-} from 'react-share';
+
 
 
 class RenderFilter extends Component {

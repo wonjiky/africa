@@ -126,6 +126,10 @@ class ExploreWrapper extends Component {
       })
     }
 
+    buttonHandle(e){
+        console.log(e);
+    }
+
     render() {
 
         const {
@@ -156,6 +160,7 @@ class ExploreWrapper extends Component {
                     />
                 </Col>
                 <Col md={8} className="no-margin">
+                <button onClick={(e) => this.buttonHandle}> BUTTON </button>
                 {/* className="exp-content"> */}
                     <ExploreContent
                         handleSliderValue={this.handleSliderValue}

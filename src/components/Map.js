@@ -86,8 +86,8 @@ class LeafletMap extends Component {
 			map: null,
 			tileLayer: null,
 			list: 0,
-			currLayerClicked: false
-
+			currLayerClicked: false,
+			hello: null,
 		};
 
 		// this.onEachFeature = this.onEachFeature.bind(this);
@@ -131,88 +131,45 @@ class LeafletMap extends Component {
 					customWindowTitle: "Copyright: SWAC"
 		}).addTo(map);
 
-
-
-
 		L.easyButton( 'fa-camera', function(){
 			printer.printMap('CurrentSize', 'Africapolis');
 		}).addTo(map);
 
 
-		let selected = null;
-		let previous= null;
-		const markerGroup = L.geoJson(this.props.africaContinent,{
-
-			onEachFeature: (feature, layer) => {
-
-				layer.on('mouseover', () => {
-					layer.setStyle(this.hoverStyle());
-				});
-
-				layer.on('mouseout', (e) => {
-					this.deselect(e.target);
-				});
-
-				layer.on('click', (e) => {
-						if (this.selected !== null) {
-		    		let previous = selected;}
-
-					this.selectedStyle(e.target);
-
-						this.selected = layer;
-						if (previous) {
-							if (this.selected === null || this.selected._leaflet_id !== layer._leaflet_id) {
-			 				this.markerGroup.resetStyle(layer);}
-			  		}
-				});
-			}
-		});
+	
+		
 
 
 		L.easyButton({
-
 			states: [{
 		     stateName: 'add-markers',
 		     icon: 'fa-exchange',
 		     title: 'Activate compare countries',
 		     onClick: function(control) {
-		       map.addLayer(markerGroup);
-		       control.state('remove-markers');
-					 map.setView([1.46,18.3], 3);
-					 map.cursor.enable();
-
-
+				// map.addLayer(markerGroup);
+				control.state('remove-markers');
+				map.setView([1.46,18.3], 3);
+				map.cursor.enable();
+				this.state.compareButton = true;
 		     }
 		   }, {
 		     icon: 'fa-undo',
 		     stateName: 'remove-markers',
 		     onClick: function(control) {
-		       map.removeLayer(markerGroup);
-		       control.state('add-markers');
-					 map.cursor.disable();
-					 this._map.closePopup(this._popup);
+				// map.removeLayer(markerGroup);
+				control.state('add-markers');
+				map.cursor.disable();
+				this._map.closePopup(this._popup);
+				this.state.compareButton = false;
 		     },
 		     title: 'Deactivate compare countries'
 		   }]
-
-
-
 		}).addTo(map);
-
-
-
-
-
 	}
 
 /////////////////
 
-	deselect(layer) {
-			console.log(this.selected)
-			if (this.selected === null || this.selected._leaflet_id !== layer._leaflet_id) {
-			  this.markerGroup.resetStyle(layer);
-		  }
-		}
+
 
 
 	selectedStyle(layer){
@@ -236,156 +193,200 @@ class LeafletMap extends Component {
 		})
 	}
 
-
-
-	componentDidUpdate(prevProps){
-		// If Explore Wrapper is Mounted :
-		let { selectedCountry, selectedAgglos } = this.props;
-		if (this.props.exploreWrapperIsMounted === true){
-			let currCountryValue = selectedCountry;
-			let prevCountryValue = prevProps.selectedCountry;
-			let currAgglosValue = selectedAgglos;
-			let prevAgglosValue = prevProps.selectedAgglos;
-			let Size = []
-
-
-
-			this.mapOverlay = L.geoJson(this.props.africaContinent, {
-				style: () => {return {color: 'transparent'}},
-				onEachFeature: (feature, layer) => {
-
-					layer.on('mouseover', () => {
-						layer.setStyle(this.hoverStyle());
-					});
-
-					layer.on('mouseout', (e) => {
-						this.mapOverlay.resetStyle(e.target);
-					});
-
-					layer.on('change', (e) => {
-						this.placeHolder.clearLayers();
-						this.state.map.fitBounds(layer.getBounds());
-						this.ID = feature.properties.ID;
-						this.agglos = L.geoJson(this.props.agglosGeo, {
-							onEachFeature: (feature, layer) => {
-								Size.push(feature.properties.Size);
-								layer._leaflet_id = feature.properties.city_ID;
-
-								layer.on('mouseover', (e) => {
-									e.target.setStyle(this.highlightAgglosStyle(feature))
-									let popupContent = "<table margin={{top: -20, right: 0, left: 0, bottom: 0}}>";//feature.properties.NAME
-											popupContent += "<tr></td><td class='data'>" + feature.properties.NAME + "</td></tr>";
-									// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
-											popupContent += "</table>";
-
-									layer.bindTooltip(popupContent,{closeButton:false}).openTooltip();
-								})
-
-								layer.on('mouseout', (e) => {
-									e.target.setStyle(this.defaultAgglosStyle(feature))
-																	})
-
-								layer.on('change', () => {
-									e.target.setStyle(this.selectedAgglosStyle())
-
-
-								})
-
-								layer.on('click', (e) => {
-									const cityID = feature.properties.city_ID;
-									const cityName = feature.properties.NAME;
-									const value = { value:cityID, label:cityName}
-									this.props.agglosValueToMap(value);
-									this.state.map.setView(layer._latlng, 12);
-
-									let popupContent = "<table>";//feature.properties.NAME
-											popupContent += "<tr></td><td class='data'>" + feature.properties.NAME + "</td></tr>";
-									// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
-											popupContent += "</table>";
-									 layer.bindPopup(popupContent,{closeButton:false}).openPopup();
-								})
-
-
-
-
-
-							},
-							filter: this.agglos_cityFilter,
-							pointToLayer: this.agglos_pointToLayer
-						});
-
-						this.props.sizeArray(Size);
-
-						this.placeHolder.addLayer(this.agglos);
-					});
-
-					layer.on('click', () => {
-						const ISO3_ID = feature.properties.ID;
-						const ISO3_NAME = feature.properties.NAME_EN;
-						const e = { value: ISO3_ID, label:ISO3_NAME}
-						this.props.sendCountryValueToContent(e);
-					});
-
-					layer._leaflet_id = feature.properties.ID;
-				}
-			})
-			this.mapOverlay.addTo(this.state.map);
-
-			if(currCountryValue !== prevCountryValue && currCountryValue !== ''){
-				let layer = this.mapOverlay.getLayer(currCountryValue);
-				layer.fire('change')
-			} else if (currCountryValue !== prevCountryValue && currCountryValue === ''){
-				this.placeHolder.clearLayers();
-			}
-
-			if (currAgglosValue !== prevAgglosValue && currAgglosValue !== ''){
-				let agglosLayer = this.agglos.getLayer(currAgglosValue)
-				agglosLayer.fire('click');
-			}
-
-		// If Home Wrapper is Mounted :
-		} else if(this.props.homeWrapperIsMounted) {
-
-
-			let treemapcurrValue = this.props.treemapSelect;
-			let treemapprevValue = prevProps.treemapSelect;
-			let treemap_click = this.props.treemapSelect_click;
-			console.log(treemap_click)
-
-			if(this.props.treemapFilter === 'treemap'){ // && this.props.treemapValue === 0){
-
-
-				if(this.treemap){
-					this.treemap.clearLayers(this.treemap);
-				}
-				this.treemap = L.geoJson(this.props.treemap_buildup, {
-					filter: this.treemap_filter,
-					onEachFeature: this.treemap_onEachFeature,
-					pointToLayer: this.treemap_pointToLayer})
-				this.state.map.addLayer(this.treemap);
-			}
-
-			if (treemap_click)
-			{let layer = this.treemap.getLayer(treemap_click);
-				if(layer)
-				{layer.fire('click')}}
-
-			if (treemapcurrValue){
-				this.currLayer = this.treemap.getLayer(treemapcurrValue);
-				this.prevLayer = this.treemap.getLayer(treemapprevValue);
-			}
-
-			if(treemapcurrValue !== treemapprevValue){
-				let layer = this.treemap.getLayer(treemapcurrValue);
-				layer.fire('mouseover')
-				if(treemapprevValue){
-				let layerprev = this.treemap.getLayer(treemapprevValue);
-				if(layerprev)
-				{layerprev.fire('mouseout')}
-			}
-			}
-		}
+	deselect(layer, prevState, selected) {
+		if (selected === null || selected._leaflet_id !== layer._leaflet_id) {
+		  this.markerGroup.resetStyle(layer);
+	  }
 	}
+
+	componentDidUpdate(prevProps, prevState){
+		// If Explore Wrapper is Mounted :
+
+		var selected = null;
+		var previous= null;
+		this.markerGroup = L.geoJson(this.props.africaContinent,{
+
+			onEachFeature: (feature, layer) => {
+				layer.on('mouseover', () => {
+					layer.setStyle(this.hoverStyle());
+				});
+
+				layer.on('mouseout', (e) => {
+					this.deselect(e.target, prevState, selected );
+				});
+
+				layer.on('click', (e) => {
+					if (selected !== null) {
+						var previous = selected;
+					}
+
+					this.selectedStyle(e.target);
+					selected = layer;
+					if (previous) {
+						if (selected === null || selected._leaflet_id !== layer._leaflet_id) {
+						this.markerGroup.resetStyle(layer);}
+			  		}
+				});
+			}
+		});
+
+		this.state.map.addLayer(this.markerGroup);
+	
+	// 	if (this.props.exploreWrapperIsMounted === true){
+	// 		let currCountryValue = selectedCountry;
+	// 		let prevCountryValue = prevProps.selectedCountry;
+	// 		let currAgglosValue = selectedAgglos;
+	// 		let prevAgglosValue = prevProps.seectedAgglos;
+	// 		let Size = []
+
+	// 		this.mapOverlay = L.geoJson(this.props.africaContinent, {
+	// 			style: () => {return {color: 'transparent'}},
+	// 			onEachFeature: (feature, layer) => {
+ 
+	// 				layer.on('mouseover', () => {
+	// 					layer.setStyle(this.hoverStyle());
+	// 				});
+
+	// 				layer.on('mouseout', (e) => {
+	// 					this.mapOverlay.resetStyle(e.target);
+	// 				});
+
+	// 				layer.on('change', (e) => {
+	// 					this.placeHolder.clearLayers();
+	// 					this.state.map.fitBounds(layer.getBounds());
+	// 					this.ID = feature.properties.ID;
+	// 					this.agglos = L.geoJson(this.props.agglosGeo, {
+	// 						onEachFeature: (feature, layer) => {
+	// 							Size.push(feature.properties.Size);
+	// 							layer._leaflet_id = feature.properties.city_ID;
+
+	// 							layer.on('mouseover', (e) => {
+	// 								e.target.setStyle(this.highlightAgglosStyle(feature))
+	// 								let popupContent = "<table margin={{top: -20, right: 0, left: 0, bottom: 0}}>";//feature.properties.NAME
+	// 										popupContent += "<tr></td><td class='data'>" + feature.properties.NAME + "</td></tr>";
+	// 								// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
+	// 										popupContent += "</table>";
+
+	// 								layer.bindTooltip(popupContent,{closeButton:false}).openTooltip();
+	// 							})
+
+	// 							layer.on('mouseout', (e) => {
+	// 								e.target.setStyle(this.defaultAgglosStyle(feature))
+	// 																})
+
+	// 							layer.on('change', () => {
+	// 								e.target.setStyle(this.selectedAgglosStyle())
+
+
+	// 							})
+
+	// 							layer.on('click', (e) => {
+	// 								const cityID = feature.properties.city_ID;
+	// 								const cityName = feature.properties.NAME;
+	// 								const value = { value:cityID, label:cityName}
+	// 								this.props.agglosValueToMap(value);
+	// 								this.state.map.setView(layer._latlng, 12);
+
+	// 								let popupContent = "<table>";//feature.properties.NAME
+	// 										popupContent += "<tr></td><td class='data'>" + feature.properties.NAME + "</td></tr>";
+	// 								// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
+	// 										popupContent += "</table>";
+	// 								 layer.bindPopup(popupContent,{closeButton:false}).openPopup();
+	// 							})
+
+
+
+
+
+	// 						},
+	// 						filter: this.agglos_cityFilter,
+	// 						pointToLayer: this.agglos_pointToLayer
+	// 					});
+
+	// 					this.props.sizeArray(Size);
+
+	// 					this.placeHolder.addLayer(this.agglos);
+	// 				});
+
+	// 				layer.on('click', () => {
+	// 					const ISO3_ID = feature.properties.ID;
+	// 					const ISO3_NAME = feature.properties.NAME_EN;
+	// 					const e = { value: ISO3_ID, label:ISO3_NAME}
+	// 					this.props.sendCountryValueToContent(e);
+	// 				});
+
+	// 				layer._leaflet_id = feature.properties.ID;
+	// 			}
+	// 		})
+	// 		this.mapOverlay.addTo(this.state.map);
+
+	// 		if(currCountryValue !== prevCountryValue && currCountryValue !== ''){
+	// 			let layer = this.mapOverlay.getLayer(currCountryValue);
+	// 			layer.fire('change')
+	// 		} else if (currCountryValue !== prevCountryValue && currCountryValue === ''){
+	// 			this.placeHolder.clearLayers();
+	// 		}
+
+	// 		if (currAgglosValue !== prevAgglosValue && currAgglosValue !== ''){
+	// 			let agglosLayer = this.agglos.getLayer(currAgglosValue)
+	// 			agglosLayer.fire('click');
+	// 		}
+
+	// 	// If Home Wrapper is Mounted :
+	// 	} else if(this.props.homeWrapperIsMounted) {
+
+
+	// 		let treemapcurrValue = this.props.treemapSelect;
+	// 		let treemapprevValue = prevProps.treemapSelect;
+	// 		let treemap_click = this.props.treemapSelect_click;
+	// 		console.log(treemap_click)
+
+	// 		if(this.props.treemapFilter === 'treemap'){ // && this.props.treemapValue === 0){
+
+
+	// 			if(this.treemap){
+	// 				this.treemap.clearLayers(this.treemap);
+	// 			}
+	// 			this.treemap = L.geoJson(this.props.treemap_buildup, {
+	// 				filter: this.treemap_filter,
+	// 				onEachFeature: this.treemap_onEachFeature,
+	// 				pointToLayer: this.treemap_pointToLayer})
+	// 			this.state.map.addLayer(this.treemap);
+	// 		}
+
+	// 		if (treemap_click)
+	// 		{let layer = this.treemap.getLayer(treemap_click);
+	// 			if(layer)
+	// 			{layer.fire('click')}}
+
+	// 		if (treemapcurrValue){
+	// 			this.currLayer = this.treemap.getLayer(treemapcurrValue);
+	// 			this.prevLayer = this.treemap.getLayer(treemapprevValue);
+	// 		}
+
+	// 		if(treemapcurrValue !== treemapprevValue){
+	// 			let layer = this.treemap.getLayer(treemapcurrValue);
+	// 			layer.fire('mouseover')
+	// 			if(treemapprevValue){
+	// 			let layerprev = this.treemap.getLayer(treemapprevValue);
+	// 			if(layerprev)
+	// 			{layerprev.fire('mouseout')}
+	// 		}
+	// 		}
+	// 	}
+	// }else if(this.state.compareButton === true){
+	// 	console.log(this.state.compareButton)
+	// }
+	}
+
+
+
+
+
+
+
+
+
 
 	treemap_onEachFeature(feature,layer){
 		if(feature.geometry.type==="MultiPolygon"){

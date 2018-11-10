@@ -28,7 +28,7 @@ input{
 .no-padding span{
   font-size: 20px;
   font-family: 'Oswald';
-  
+
 
 }
 
@@ -215,8 +215,19 @@ padding: 30px !important;
 .legend-number{
   display: flex;
   flex-direction: column;
+  width:140px;
+  line-height: 3;
 
 }
+
+.legend-circle{
+  display: flex;
+  flex-direction: column;
+  width:70px;
+  line-height: 3;
+  text-align: center;
+}
+
 
 
 .info-wrapper .infotext::after {
@@ -407,6 +418,7 @@ padding: 30px !important;
 .slider-title{
   font-weight:700 !important;
   letter-spacing: .2px;
+  font-size: 15px !important;
 }
 
 .content-nav{

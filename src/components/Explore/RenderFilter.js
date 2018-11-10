@@ -1,3 +1,4 @@
+import createClass from 'create-react-class';
 import React, { Component } from 'react';
 import { Grid, Col, Row } from 'react-flexbox-grid';
 import MaterialIcon from 'material-icons-react';
@@ -6,6 +7,14 @@ import StepRangeSlider from 'react-step-range-slider'
 // import Button from '@material-ui/core/Button';
 // import ChevronRight from '@material-ui/icons/ChevronRight';
 // import ChevronLeft from '@material-ui/icons/ChevronLeft';
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  LinkedinIcon
+} from 'react-share';
 
 
 class RenderFilter extends Component {
@@ -40,24 +49,83 @@ class RenderFilter extends Component {
 
 
     hello(data){
-      let result = {};
-      if(data){
-      for(var i = 0; i < data.length; ++i) {
-          if(!result[data[i]])
-              result[data[i]] = 0;
-          ++result[data[i]];
-      }
-}
-      return (
-        <div>
-          {result["6"]}<br/>
-          {result["5"]}<br/>
-          {result["4"]}<br/>
-          {result["3"]}<br/>
-          {result["2"]}<br/>
-          {result["1"]}<br/>
+      let Circle = createClass({
+        render:function(){
+          var circleStyle = {
+            opacity:0.6,
+            padding:4,
+            margin:0,
+            display:"inline-block",
+            backgroundColor: this.props.bgColor,
+            borderRadius: "50%",
+            width:this.props.size,
+            height:this.props.size,
+          };
+          return (
+            <div style={circleStyle}>
+            </div>
+          );
+        }
+      });
+      let colors = ['#E73741','#df521e','#e1b400','#32a674','#0b68af','#993484'];
+      let sizes = [24,21,18,15,12,9];
+      let renderData = [];
 
-        </div>
+      for (var i = 0; i < colors.length; i++) {
+        var color = colors[i];
+        var size = sizes[i];
+        renderData.push(<Circle key={i + color} bgColor={color} size={size}/>);
+      }
+      let result = {};
+
+      if(data){
+        for(var i = 0; i < data.length; ++i) {
+            if(!result[data[i]])
+                result[data[i]] = 0;
+            ++result[data[i]];
+        }
+        for(var i = 0; i < 7; ++i)
+        {if(!result[i])
+            {result[i]=0}
+        }
+        result[["7"]]=data.length;
+    }
+    console.log(data);
+    console.log(result);
+      return (
+        <li className="slider">
+        <Row>
+            <Col className="legend-number">
+                <p>&nbsp;&nbsp;&nbsp;Above 2 million</p>
+                <p> &nbsp;&nbsp;&nbsp;1 - 2 million</p>
+                <p> &nbsp;&nbsp;&nbsp;300 000 - 1 million</p>
+                <p> &nbsp;&nbsp;&nbsp;100 000 -  300 000</p>
+                <p> &nbsp;&nbsp;&nbsp;30 000 - 100 000</p>
+                <p> &nbsp;&nbsp;&nbsp;10 000 - 30 000</p>
+                <li className="slider-title"><p> &nbsp;&nbsp;&nbsp;Total</p></li>
+            </Col>
+        <Col className='legend-circle'>
+          <p>{renderData[0]}</p>
+          <p>{renderData[1]}</p>
+          <p>{renderData[2]}</p>
+          <p>{renderData[3]}</p>
+          <p>{renderData[4]}</p>
+          <p>{renderData[5]}</p>
+
+        </Col>
+        <Col className="legend-circle">
+        <p> &nbsp;{result["6"]}</p>
+        <p> &nbsp;{result["5"]}</p>
+        <p> &nbsp;{result["4"]}</p>
+        <p> &nbsp;{result["3"]}</p>
+        <p> &nbsp;{result["2"]}</p>
+        <p> &nbsp;{result["1"]}</p>
+        <li className="slider-title"><p> &nbsp;{result["7"]}</p></li>
+        </Col>
+
+        </Row>
+
+        </li>
       );
     }
 
@@ -94,39 +162,14 @@ class RenderFilter extends Component {
                             />
                         </li>
                         <hr className="mixerhr" />
-                        <li className="slider-title">Population</li>
-                        <li>
-                            <Row>
-                                <Col className="legend-number">
-                                    <p>Above 2 million</p>
-                                    <p>1-2 million</p>
-                                    <p>300 000 - 1 million</p>
-                                    <p>100 000 -  300 000</p>
-                                    <p>30 000 - 100 000</p>
-                                    <p>10 000 - 30 000</p>
-                                </Col>
-                                <Col className="legend">
-
-                                <img src="assets/images/legend_image.png" height="80%"
-                                    alt="Africapolis Visualise Urbanisation in Africa"/>
-                                </Col>
-                                <Col >
+                        <li className="slider-title">Urban population</li>
                                 {hi}
-                                </Col>
-                            </Row>
-                            {/* <div>
-                                <p>Above 2million</p>
-                            </div>
-                            <div className="legend">
-                                <img src="assets/images/legend_image.png" height="100%"
-                            alt="Africapolis Visualise Urbanisation in Africa"/>
-                            {hi}
-                        </div> */}
-                        </li>
                         <hr className="mixerhr" />
                     </ul>
                 </Col>
+
                 <Col md={12} className="mixer-download">
+
 
                     <hr/>
                         {this._renderDownloadFullData()}

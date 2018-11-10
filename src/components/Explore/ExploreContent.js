@@ -113,7 +113,7 @@ class ExploreContent extends Component {
                     <Col md={9} className="exp-content">
                         <Col md={9} mdOffset={1} className="searchPadding">
                             <Select
-                                placeholder="Select Country"
+                                placeholder="Select country"
                                 isClearable={this.state.isClearable}
                                 isSearchable={this.state.isSearchable}
                                 value={displayCountry}
@@ -124,7 +124,7 @@ class ExploreContent extends Component {
                         </Col>
                         <Col md={9} mdOffset={1}>
                             <Select
-                                placeholder="Select City"
+                                placeholder="Select agglomeration"
                                 isClearable={this.state.isClearable}
                                 isSearchable={this.state.isSearchable}
                                 value={displayAgglos}

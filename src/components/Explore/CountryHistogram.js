@@ -223,7 +223,7 @@ class CountryHistogram extends Component {
     urbanland(data,value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{d.urbanSurface*100} %</p>
+            <p>{Math.round(d.urbanSurface*10000)/100} %</p>
         )
     }
 
@@ -279,7 +279,7 @@ class CountryHistogram extends Component {
                 "Country": d.Country,
                 "metropolitanPop": d.Mpop,
                 "title": "Metropolitan population",
-                "info": "Share of metropolitan population (urban agglomeration above 250 000 population) in total urban population"
+                "info": "Share of metropolitan population in total urban population"
             }
         ))
 

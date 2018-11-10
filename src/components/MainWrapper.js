@@ -5,12 +5,17 @@ import AboutWrapper from './Aboutus/AboutWrapper';
 import Header from './Header';
 import { NARRATIVES, WHATSNEW } from '../shared/narratives';
 import { TREEMAP } from '../shared/treemap';
+
 import { COUNTRYINFO } from '../shared/info_country';
 import { TREEMAP_BUILDUP } from '../shared/treemap_buildup'
+
 import { AFRICA_ONE } from '../shared/geo_shades';
 import { AGGLOMERATIONINFO } from '../shared/info_agglomeration';
+
 import { AFRICA_CONTINENT } from '../shared/geo_country';
 import { AGGLOS } from '../shared/geo_agglomeration';
+
+
 import { }from 'react-fontawesome';
 import '../css/main.css';
 import {Switch, Route, Redirect } from 'react-router-dom';

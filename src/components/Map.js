@@ -1,10 +1,11 @@
 import React from 'react';
 import { Component } from 'react';
 import  L  from 'leaflet';
-import  home  from 'leaflet.defaultextent';
-import P from 'leaflet-easyprint';
-import d from 'leaflet-draw';
-import m from 'leaflet.measurecontrol';
+import 'leaflet.defaultextent';
+import 'leaflet-easyprint';
+import 'leaflet-draw';
+import 'leaflet.measurecontrol';
+import 'leaflet-easybutton';
 import '../shared/leaflet.snogylop.js';
 import "../../node_modules/leaflet/dist/leaflet.css";
 import "../../node_modules/leaflet.defaultextent/dist/leaflet.defaultextent.css";
@@ -18,6 +19,7 @@ const mybounds = L.latLngBounds(southWest, northEast);
 
 let config = {};
 config.params = {
+
 	center: [1.46,18.3],
 	zoom: 3,
 	zoomSnap: 1.2,
@@ -26,13 +28,15 @@ config.params = {
 	opacity:0,
   defaultExtentControl: true,
 	measureControl:true
+
 };
 config.tileLayer = {
 	//Original:
 	uri: 'https://api.mapbox.com/styles/v1/mkmd/cjj041lbo07vo2rphltlukpya/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
 	params: {
 		maxZoom: 18,
-		id: '',
+		//attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <img src="assets/images/swac-oecd.png" height="17px"/>  '
+
 	}
 };
 
@@ -61,8 +65,11 @@ class LeafletMap extends Component {
 
 	componentDidMount() {
 		let map = L.map('map', config.params);
+
 		const tileLayer = L.tileLayer(config.tileLayer.uri, config.tileLayer.params).addTo(map);
 		this.setState({ map, tileLayer });
+
+
 
 		this.mapShades = L.geoJson(this.props.africaOne, {
 			invert:true,
@@ -75,18 +82,32 @@ class LeafletMap extends Component {
 		this.placeHolder = L.featureGroup();
 		this.placeHolder.addTo(map);
 
-		this.printer = L.easyPrint({
-      		sizeModes: ['Current', 'A4Landscape', 'A4Portrait'],
+		const printer = L.easyPrint({
+      		sizeModes: ['Current'],
       		filename: 'Africapolis',
       		exportOnly: true,
-      		hideControlContainer: true
+      		hideControlContainer: true,
+					hidden: true,
+					customWindowTitle: "Copyright: SWAC"
 		}).addTo(map);
+
+		L.easyButton( 'fa-camera', function(){
+			printer.printMap('CurrentSize', 'Africapolis');
+		}).addTo(map);
+
+
+		//map.on('beforePrint', () => {L.control.attribution(addAttribution("Copyright: Sahel and West Africa Club"))})
+		//map.on('afterPrint', () => {L.control.attribution(removeAttribution("Copyright: Sahel and West Africa Club"))})
+
+
 
 		// this.htmlObject =this.printer.getContainer();
 		// this.puthtml = document.getElementById('new-parent');
 		// this.puthtml.newParent.appendChild(this.htmlObject);
 
 	}
+
+
 
 	selectedStyle(){
 		return({
@@ -141,6 +162,12 @@ class LeafletMap extends Component {
 
 								layer.on('mouseover', (e) => {
 									e.target.setStyle(this.highlightAgglosStyle(feature))
+									let popupContent = "<table margin={{top: -20, right: 0, left: 0, bottom: 0}}>";//feature.properties.NAME
+											popupContent += "<tr></td><td class='data'>" + feature.properties.NAME + "</td></tr>";
+									// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
+											popupContent += "</table>";
+
+									layer.bindTooltip(popupContent,{closeButton:false}).openTooltip();
 								})
 
 								layer.on('mouseout', (e) => {
@@ -149,6 +176,8 @@ class LeafletMap extends Component {
 
 								layer.on('change', () => {
 									e.target.setStyle(this.selectedAgglosStyle())
+
+
 								})
 
 								layer.on('click', (e) => {
@@ -157,13 +186,17 @@ class LeafletMap extends Component {
 									const value = { value:cityID, label:cityName}
 									this.props.agglosValueToMap(value);
 									this.state.map.setView(layer._latlng, 12);
-									 let popupContent = "<table margin={{top: -20, right: 0, left: 0, bottom: 0}}>";//feature.properties.NAME
-									     popupContent += "<tr></td><td class='data'>" + feature.properties.NAME + "</td></tr>";
-									// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
-									     popupContent += "</table>";
-									 layer.bindPopup(popupContent,{closeButton:false}).openPopup();
 
+									let popupContent = "<table>";//feature.properties.NAME
+											popupContent += "<tr></td><td class='data'>" + feature.properties.NAME + "</td></tr>";
+									// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
+											popupContent += "</table>";
+									 layer.bindPopup(popupContent,{closeButton:false}).openPopup();
 								})
+
+
+
+
 
 							},
 							filter: this.agglos_cityFilter,
@@ -223,7 +256,8 @@ class LeafletMap extends Component {
 
 			if (treemap_click)
 			{let layer = this.treemap.getLayer(treemap_click);
-				layer.fire('click')}
+				if(layer)
+				{layer.fire('click')}}
 
 			if (treemapcurrValue){
 				this.currLayer = this.treemap.getLayer(treemapcurrValue);
@@ -248,6 +282,7 @@ class LeafletMap extends Component {
 		}
 		else {layer.on('mouseover', (e) => {
 			e.target.setStyle(this.treemapHighlightStyle(feature))
+			layer.bindTooltip(popupContent).openTooltip();
 		})
 
 		layer.on('mouseout', (e) => {
@@ -408,7 +443,9 @@ class LeafletMap extends Component {
 
 	render() {
 		return (
-			<div id="map" />
+			<div id="map"/>
+
+
 		)
 	}
 }

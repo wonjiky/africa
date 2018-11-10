@@ -250,7 +250,7 @@ class CountryHistogram extends Component {
         {let variables = ["Upop","NumAgglos","ADBC","Mpop","Ulvl_Scaled"]
           for(var i = 0; i < 50; ++i) {
 
-            
+
             if(this.props.countryData[i][variables[j]+"_sel"])
             {delete this.props.countryData[i][variables[j]+"_sel"];}
             Object.defineProperty(this.props.countryData[i], variables[j]+"_sel",
@@ -271,7 +271,7 @@ class CountryHistogram extends Component {
                 "ISO":d.ISO,
                 "Country": d.Country,
                 "urbanPopulation":d.Upop_sel,
-                "urbanPopulationScaled":d.Upop_Scaled,
+                "urbanPopulationScaled":d.Upop_sel,
                 "title": "Urban population",
                 "info": "Total number of people living in urban agglomerations"
             }
@@ -317,7 +317,7 @@ class CountryHistogram extends Component {
                 "ISO":d.ISO,
                 "Country": d.Country,
                 "AverageDist": d.ADBC_sel,
-                "AverageDistScaled": d.ADBC_Scaled,
+                "AverageDistScaled": d.ADBC_sel,
                 "title": "Average distance between agglomerations",
                 "info": "Average distance between urban agglomerations, calculated as average of distance between all pair of cities"
             }

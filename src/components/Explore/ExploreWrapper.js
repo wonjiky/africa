@@ -139,7 +139,9 @@ class ExploreWrapper extends Component {
                     <ExploreContent
                         //data to Content
                         countryData={this.props.countryData}
+                        countryData_past={this.props.countryData_past}
                         agglosData={this.props.agglosData}
+
                         // filtered={agglosList}
 
                         //values to Content

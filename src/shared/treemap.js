@@ -157,7 +157,7 @@ export const TREEMAP = [
     "ID": 26,
     "City_ID": "a22" ,
     "NAME": "Casablanca",
-    "value": 3390193,
+    "value": 4182929,
     "Color": "#0b68af"
   },
   {

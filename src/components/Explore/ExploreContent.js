@@ -97,7 +97,9 @@ class ExploreContent extends Component {
             selectedAgglos,
             selectedCountry,
             countryData,
+            countryData_past
         } = this.props;
+
 
         const countryList = this.filterCountry(countryData);
         const agglosList = this.filterAgglos(agglosData, selectedCountry);
@@ -138,6 +140,7 @@ class ExploreContent extends Component {
                             selectedAgglos={this.props.selectedAgglos}
                             agglosData={this.props.agglosData}
                             countryData={this.props.countryData}
+                            countryData_past={this.props.countryData_past}
                             valueFromCountryHistogram={this.sendCountryValueToMap.bind(this)}
                             />
                         <br/>

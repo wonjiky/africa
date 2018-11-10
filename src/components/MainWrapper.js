@@ -14,8 +14,12 @@ import { AGGLOMERATIONINFO } from '../shared/info_agglomeration';
 
 import { AFRICA_CONTINENT } from '../shared/geo_country';
 import { AGGLOS } from '../shared/geo_agglomeration';
+<<<<<<< HEAD
 
 
+=======
+import { COUNTRYINFO_past } from '../shared/past_country';
+>>>>>>> d5c561ab00ea00d73b598b23dd8b7a93cc765854
 import { }from 'react-fontawesome';
 import '../css/main.css';
 import {Switch, Route, Redirect } from 'react-router-dom';
@@ -34,17 +38,19 @@ class MainWrapper extends Component {
 			geo_agglomeration: AGGLOS,
 			info_agglomeration: AGGLOMERATIONINFO,
 			treemap: TREEMAP,
-			treemap_buildup: TREEMAP_BUILDUP
+			treemap_buildup: TREEMAP_BUILDUP,
+			countryData_past: COUNTRYINFO_past
+
 		};
 		// window.countrydata = africa_continent;
 	}
-    
+
 	render() {
-		return (   
+		return (
 			<div>
 				<Header />
 				<Switch>
-					<Route path="/home" component={() => <HomeWrapper 
+					<Route path="/home" component={() => <HomeWrapper
 						narratives={this.state.narratives}
 						whatsnew={this.state.whatsnew}
 						treemap={this.state.treemap}
@@ -53,12 +59,13 @@ class MainWrapper extends Component {
 						agglosGeo={this.state.geo_agglomeration}
 						treemap_buildup={this.state.treemap_buildup}
 						/>}/>
-					<Route exact path={`/explore`} component={() => <ExploreWrapper 
+					<Route exact path={`/explore`} component={() => <ExploreWrapper
 						africaOne={this.state.geo_shades}
 						africaContinent={this.state.geo_country}
 						agglosGeo={this.state.geo_agglomeration}
 						countryData={this.state.countryData}
 						agglosData={this.state.info_agglomeration}
+						countryData_past={this.state.countryData_past}
 						/> } />
 					<Route exact path={`/aboutus`} component={() => <AboutWrapper/> } />
 					<Redirect to="/home" />

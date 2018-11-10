@@ -243,13 +243,14 @@ class CountryHistogram extends Component {
     render() {
 
 
-
+        console.log(this.props.sliderValue);
+        let value = this.props.sliderValue;
       if (this.props.countryData) {
         for (var j = 0; j < 5; ++j)
         {let variables = ["Upop","NumAgglos","ADBC","Mpop","Ulvl_Scaled"]
           for(var i = 0; i < 50; ++i) {
 
-            let value = 1950
+            
             if(this.props.countryData[i][variables[j]+"_sel"])
             {delete this.props.countryData[i][variables[j]+"_sel"];}
             Object.defineProperty(this.props.countryData[i], variables[j]+"_sel",
@@ -260,8 +261,6 @@ class CountryHistogram extends Component {
 
         }
 
-      console.log(this.props.countryData)
-      console.log(this.props.countryData_past)
 
 
 

@@ -77,10 +77,10 @@ class ExploreContent extends Component {
         }
     }
 
-    componentDidUpdate(prevState, prevProps){
-        console.log(this.props.selectedCountry, prevState.selectedCountry);
-        console.log(this.props.selectedAgglos, prevState.selectedAgglos);
-    }
+    // componentDidUpdate(prevState, prevProps){
+    //     console.log(this.props.selectedCountry, prevState.selectedCountry);
+    //     console.log(this.props.selectedAgglos, prevState.selectedAgglos);
+    // }
 
     displayAgglos(selectedAgglos, data){
         const list = data.find(u => u.City_ID === selectedAgglos);
@@ -89,6 +89,10 @@ class ExploreContent extends Component {
                 ({ value: list.City_ID, label: list.cityName})
             )
         }
+    }
+
+    handleSliderValue(e) {
+        this.props.handleSliderValue(e);
     }
 
     render() {
@@ -110,7 +114,11 @@ class ExploreContent extends Component {
             <Grid fluid className="content">
                 <Row className="explore-row">
                     <Col md={3} className="mixers">
-                        <RenderFilter sizeArray={this.props.sizeArray}/>
+                        <RenderFilter 
+                            sizeArray={this.props.sizeArray}
+                            sliderRange={this.props.sliderRange}
+                            handleSliderValue={this.handleSliderValue.bind(this)}
+                            />
                     </Col>
                     <Col md={9} className="exp-content">
                         <Col md={9} mdOffset={1} className="searchPadding">
@@ -142,6 +150,7 @@ class ExploreContent extends Component {
                             countryData={this.props.countryData}
                             countryData_past={this.props.countryData_past}
                             valueFromCountryHistogram={this.sendCountryValueToMap.bind(this)}
+                            sliderValue={this.props.sliderValue}
                             />
                         <br/>
                         {/* //change from countryValueForSearch to selectedCountry */}

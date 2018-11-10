@@ -82,8 +82,6 @@ class RenderFilter extends Component {
         }
         result[["7"]]=data.length;
     }
-    console.log(data);
-    console.log(result);
       return (
         <li className="slider">
         <Row>
@@ -121,12 +119,13 @@ class RenderFilter extends Component {
       );
     }
 
+    sliderValue(e) {
+        this.props.handleSliderValue(e);
+    }
 
 
 
     render() {
-
-
         const range = [
             { value: 1950, step: 10 },
             { value: 1960, step: 10 },
@@ -137,8 +136,9 @@ class RenderFilter extends Component {
             { value: 2010, step: 5 },
             { value: 2015 }
         ]
-        const hi= this.hello(this.props.sizeArray)
 
+        const hi= this.hello(this.props.sizeArray)
+        
         return(
             <Grid fluid id="mixer">
                 <Col md={12} className="explore-mixer-list">
@@ -149,8 +149,9 @@ class RenderFilter extends Component {
                         <li>
                             <StepRangeSlider
                             value={2015}
-                            range={range}
-                            onChange={value => console.log(value)}
+                            range={this.props.sliderRange}
+                            // range={range}
+                            onChange={value => this.sliderValue(value)}
                             />
                         </li>
                         <hr className="mixerhr" />

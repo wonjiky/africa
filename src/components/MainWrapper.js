@@ -14,12 +14,7 @@ import { AGGLOMERATIONINFO } from '../shared/info_agglomeration';
 
 import { AFRICA_CONTINENT } from '../shared/geo_country';
 import { AGGLOS } from '../shared/geo_agglomeration';
-<<<<<<< HEAD
-
-
-=======
 import { COUNTRYINFO_past } from '../shared/past_country';
->>>>>>> d5c561ab00ea00d73b598b23dd8b7a93cc765854
 import { }from 'react-fontawesome';
 import '../css/main.css';
 import {Switch, Route, Redirect } from 'react-router-dom';

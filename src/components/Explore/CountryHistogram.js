@@ -243,13 +243,13 @@ class CountryHistogram extends Component {
     render() {
 
 
-
+      let value = 1980
       if (this.props.countryData) {
         for (var j = 0; j < 5; ++j)
         {let variables = ["Upop","NumAgglos","ADBC","Mpop","Ulvl_Scaled"]
           for(var i = 0; i < 50; ++i) {
 
-            let value = 1950
+
             if(this.props.countryData[i][variables[j]+"_sel"])
             {delete this.props.countryData[i][variables[j]+"_sel"];}
             Object.defineProperty(this.props.countryData[i], variables[j]+"_sel",
@@ -295,7 +295,7 @@ class CountryHistogram extends Component {
                 "ISO":d.ISO,
                 "Country": d.Country,
                 "urbanAgglos": d.NumAgglos_sel,
-                "urbanAgglosScaled": d.NumAgglos_Scaled_sel,
+                "urbanAgglosScaled": d.NumAgglos_sel,
                 "title": "Number of agglomerations",
                 "info": "Total number of urban agglomerations in country"
             }

@@ -294,7 +294,7 @@ class CountryHistogram extends Component {
                 "ISO":d.ISO,
                 "Country": d.Country,
                 "urbanAgglos": d.NumAgglos_sel,
-                "urbanAgglosScaled": d.NumAgglos_Scaled_sel,
+                "urbanAgglosScaled": d.NumAgglos_sel,
                 "title": "Number of agglomerations",
                 "info": "Total number of urban agglomerations in country"
             }

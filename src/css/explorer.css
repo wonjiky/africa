@@ -50,6 +50,10 @@
     letter-spacing:0px;
 }
 
+.explore_mixer-list p{
+    margin-bottom:10px;
+}
+
 .explore_mixer-list h6 {
     font-size: 1.1rem;
     font-weight: 600;

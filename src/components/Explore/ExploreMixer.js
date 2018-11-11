@@ -102,9 +102,7 @@ class ExploreMixer extends Component {
                     <ul>
                         <li>
                             <h6> Timeslider </h6>
-                            <p>Use slider to toggle view of different years</p>
                             <p><span>{this.props.timeSliderValue}</span></p>
-                            
                             <StepRangeSlider
                                 value={2015}
                                 range={this.props.timeSliderRange}

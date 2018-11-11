@@ -19,11 +19,7 @@ input{
 .histogram-wrapper{
   margin-bottom:15px;
 }
-.country-histogram-wrapper{
-  display:flex;
-  justify-content:flex-start;
-  align-items: center;
-}
+
 
 .no-padding span{
   font-size: 20px;

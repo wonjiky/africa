@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Map from '../Map';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Paper from '@material-ui/core/Paper';
 import Fade from 'react-reveal/Fade';

@@ -19,6 +19,7 @@ export const WHATSNEW = [
     {
       "ID": 0,
       "content": 'narrative',
+      "content_title": 'What is Africapolis',
       "title": "Africapolis",
       "subtitle": "How the case of Onitsha challenges the rural exodus hypothesis of urbanization in Africa",
       "whatsnew": "What makes us closer",

@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
+import HomeMixer from './HomeMixer';
 import HomeContent from './HomeContent';
-import Map from '../Map';
-import { Grid, Row, Col } from 'react-flexbox-grid';
+import MapHome from './MapHome';
+import '../../css/home.css';
 
 class HomeWrapper extends Component {
 
     constructor(props){
         super(props);
         this.state = {
-            homeWrapperIsMounted: true,
             selectedContent:0,
             contentFilter:'narrative',
-
         };
         this.handleValueFromMixer = this.handleValueFromMixer.bind(this);
-        this.handleValueFromMap = this.handleValueFromMap.bind(this);
-        this.handleValueFromSearch = this.handleValueFromSearch.bind(this);
-        this.handleValueFromTreemap = this.handleValueFromTreemap.bind(this);
-        this.handleValueFromTreemap_click = this.handleValueFromTreemap_click.bind(this);
+        this.valueFromTreemap = this.valueFromTreemap.bind(this);
+        this.valueFromTreemap_click = this.valueFromTreemap_click.bind(this);
     }
 
     handleValueFromMixer(e){
@@ -25,32 +22,15 @@ class HomeWrapper extends Component {
             selectedContent: e.ID,
             contentFilter: e.content
         })
-        console.log(this.state.contentFilter, this.state.selectedContent);
     }
 
-    handleValueFromSearch(valueFromSearch){
-        this.setState({
-            origin:'search',
-            selectedCountry: valueFromSearch.value,
-            selectedValue: valueFromSearch,
-        })
-    }
-
-    handleValueFromMap(valueFromMap){
-        this.setState({
-            origin:'map',
-            selectedCountry: valueFromMap.value,
-            selectedValue: valueFromMap,
-        })
-    }
-
-    handleValueFromTreemap(e){
+    valueFromTreemap(e){
         this.setState({
             treemapSelect: e
         })
     }
 
-    handleValueFromTreemap_click(e){
+    valueFromTreemap_click(e){
         this.setState({
             treemapSelect_click: e
         })
@@ -60,41 +40,42 @@ class HomeWrapper extends Component {
         const story = this.props.narratives.map((narrative) => {
             return(narrative);
         })
+
         return(
-            <Grid fluid className="full-height">
-                <Row className="full-height">
-                    <Col md={4} className="no-margin">
-                    {/* {this._mapExpand(this.state.mapToggle)} */}
-                        <Map
-                            //Check Home or Explore
-                            homeWrapperIsMounted={this.state.homeWrapperIsMounted}
-                            //Receving
-                            africaOne={this.props.africaOne}
-                            africaContinent={this.props.africaContinent}
-                            agglosGeo={this.props.agglosGeo}
-                            treemap_buildup={this.props.treemap_buildup}
-                            sendValueToContent={this.handleValueFromMap}
-                            //Sending
-                            treemapValue={this.state.selectedContent}
-                            treemapFilter={this.state.contentFilter}
-                            treemapSelect={this.state.treemapSelect}
-                            treemapSelect_click={this.state.treemapSelect_click}
-                        />
-                    </Col>
-                    <Col md={8} className="no-margin">
-                        <HomeContent
-                            whatsnew={this.props.whatsnew}
-                            narratives={story}
-                            treemap={this.props.treemap}
-                            contentSelect={this.handleValueFromMixer}
-                            selectedContent={this.state.selectedContent}
-                            valueFromTreemap={this.handleValueFromTreemap}
-                            valueFromTreemap_click={this.handleValueFromTreemap_click}
-                            contentFilter={this.state.contentFilter}
-                        />
-                    </Col>
-                </Row>
-            </Grid>
+            <main className="home_main-wrapper">
+                <div className="home_map-wrapper">
+                    <MapHome
+                     //Receving
+                     africaOne={this.props.africaOne}
+                     treemap_buildup={this.props.treemap_buildup}
+                     //Sending
+                     treemapValue={this.state.selectedContent}
+                     treemapFilter={this.state.contentFilter}
+                     treemapSelect={this.state.treemapSelect}
+                     treemapSelect_click={this.state.treemapSelect_click}
+                    />
+                </div>
+                <div className="home_content-wrapper">
+                    <HomeMixer 
+                        whatsnew={this.props.whatsnew}
+                        narratives={story}
+                        treemap={this.props.treemap}
+                        contentSelect={this.handleValueFromMixer}
+                        selectedContent={this.state.selectedContent}
+                        contentFilter={this.state.contentFilter}
+                    />
+                    <HomeContent
+                        //Sending
+                        narratives={story}
+                        treemap={this.props.treemap}
+                        selectedContent={this.state.selectedContent}
+                        contentFilter={this.state.contentFilter}
+                        //Receiving
+                        valueFromTreemap={this.valueFromTreemap.bind(this)}
+                        valueFromTreemap_click={this.valueFromTreemap_click.bind(this)}
+                    />
+                </div>                
+            </main>
         );
     }
 }

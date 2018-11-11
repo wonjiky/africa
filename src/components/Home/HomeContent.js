@@ -1,86 +1,94 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col } from 'react-flexbox-grid';
-import RenderContent from './RenderContent';
-import RenderList from './RenderList';
-import ChevronRight from '@material-ui/icons/ChevronRight';
-import ChevronLeft from '@material-ui/icons/ChevronLeft';
-import Button from '@material-ui/core/Button';
+import RenderTreemap from './RenderTreemap';
+// import { Events } from 'react-scroll'
+
 
 class HomeContent extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          scrollTop: 0,
-        };
-      }
-    _storyButtons(){
-        return(
-            <div>
-                <Button color="primary" id="story-button-right" onClick={this._goToNextSlide}>
-                    <ChevronRight/>
-                </Button>
-                <Button color="primary" id="story-button-left" onClick={this._goToPrevSlide}>
-                    <ChevronLeft/>
-                </Button>
-            </div>
-        )
+
+    content(selectedContent, contentFilter, narratives, treemap){
+        const storyList = narratives.find(s => s.ID === selectedContent);
+        const treemapList = treemap.find(t => t.ID === selectedContent);
+        if(storyList.ID === 0 && contentFilter === 'narrative'){
+            return(
+                <div className="home_content-1">
+                        <div className="home_content-1-1">
+                            <h2>{narratives[0].story[0].storyTitle}</h2>
+                            <hr id="overview_hr"/>
+                            <p>{narratives[0].story[0].storyText}</p>
+                        </div>
+                        <div className="home_content-1-2">
+                            <h2>{narratives[0].story[1].storyTitle}</h2>
+                            <hr id="overview_hr"/>
+                            <p>{narratives[0].story[1].storyText}</p>
+                        </div>
+                        <div className="home_content-1-3">
+                            <h2>{narratives[0].story[2].storyTitle}</h2>
+                            <hr id="overview_hr"/>
+                            <p>{narratives[0].story[2].storyText}</p>
+                        </div>
+                </div>
+            )
+        } else if (storyList.ID !== 0 && contentFilter === 'narrative'){
+            return(
+                <div className="home_content-2">
+                    <ul className="list-unstyled">
+                        <li>
+                            <h2>{storyList.title}</h2>
+                            <h4>{storyList.subtitle}</h4>
+                            <hr id="b_narrative_hr"/>
+                        </li>
+                        <br/>
+                        <li>
+                            {this.renderNarrative_Text(storyList.story)}
+                        </li>
+                    </ul>
+                </div>
+            )
+        } else if ((selectedContent === 0 && contentFilter === 'treemap') || (selectedContent && contentFilter === 'treemap')){
+            return(
+                <RenderTreemap
+                    data={treemapList}
+                    receiveValue={this.receiveValue.bind(this)}
+                    receiveValue_click={this.receiveValue_click.bind(this)}
+                />
+            )
+        }
     }
 
-    valueFromTreemap(e){
+    // componentWillUnmount() {
+    //     Events.scrollEvent.remove('begin');
+    //     Events.scrollEvent.remove('end');
+    //   }
+
+    receiveValue(e) {
         this.props.valueFromTreemap(e);
     }
 
-    valueFromTreemap_click(e){
+    receiveValue_click = (e) => {
         this.props.valueFromTreemap_click(e);
     }
-    contentSelect(e){
-        this.props.contentSelect(e);
-    }
 
-    normalize(num, in_min, in_max, out_min, out_max){
-        return (num-in_min) * (out_max-out_min) / (in_max-in_min) + out_min;
-    }
-
-    handleScroll = event => {
-        let num = event.target.scrollTop
-        let number = this.normalize(num, 0, 16293, 0, 1)
-        let value = Math.round(number * 1000) / 1000;
-        this.setState({
-          scrollTop: value,
-        });
-      };
-
-
-    render() {
+    renderNarrative_Text(stories){
         return(
-            <Grid fluid className="content">
-                <Row className="content-row">
-                    <Col md={3} className="mixers">
-                        <RenderList
-                            whatsnew={this.props.whatsnew}
-                            contentSelect={this.contentSelect.bind(this)}
-                            narratives={this.props.narratives}
-                            treemap={this.props.treemap}
-                            selectedContent={this.props.selectedContent}
-                            contentFilter={this.props.contentFilter}
-                        />
-                    </Col>
-                    <Col md={9} className="homeContent">
-                        <RenderContent
-                            //Sending
-                            narratives={this.props.narratives}
-                            treemap={this.props.treemap}
-                            selectedContent={this.props.selectedContent}
-                            contentFilter={this.props.contentFilter}
-                            //Receiving
-                            valueFromTreemap={this.valueFromTreemap.bind(this)}
-                            valueFromTreemap_click={this.valueFromTreemap_click.bind(this)}
-                        />
-                    </Col>
-                </Row>
-            </Grid>
-        );
+            stories.map((story,i) => (
+            <div key={i}>
+                <h5 id="n_h6">{story.storyTitle}</h5>
+                <p>{story.storyText}</p>
+                <br/>
+                <br/>
+            </div>
+        )))
+    }
 
+    render () {
+        return(
+            <div className="home_content-container">
+                {this.content(this.props.selectedContent,
+                    this.props.contentFilter,
+                    this.props.narratives,
+                    this.props.treemap)}
+            </div>
+        )
     }
 }
 

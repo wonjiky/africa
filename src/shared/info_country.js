@@ -1403,7 +1403,7 @@ export const COUNTRYINFO =[
     "Country": "Morocco",
     "ISO": "MAR",
     "ID": 26,
-    "Upop2015": 20309320.64,
+    "Upop2015": 20309320,
     "Upop_Scaled2015": 0.314,
     "Ulvl_Scaled2015": 0.59,
     "NumAgglos2015": 170,

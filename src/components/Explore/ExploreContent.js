@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import  InfoWrapper  from './InfoWrapper';
-import { Grid, Row, Col } from 'react-flexbox-grid';
+import  KeyFigure  from './KeyFigure';
 import Select from "react-select";
 import { FixedSizeList as List } from "react-window";
-import RenderFilter from './RenderFilter';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import "react-tabs/style/react-tabs.css";
 
 const height = 35;
 
@@ -31,7 +31,9 @@ class ExploreContent extends Component {
         this.state = {
             isClearable: true,
             isSearchable: true,
-            agglosList: ''
+            agglosList: '',
+            // selectedIndex: 1,
+            // tabIndex: 0
         };
     }
 
@@ -77,11 +79,6 @@ class ExploreContent extends Component {
         }
     }
 
-    // componentDidUpdate(prevState, prevProps){
-    //     console.log(this.props.selectedCountry, prevState.selectedCountry);
-    //     console.log(this.props.selectedAgglos, prevState.selectedAgglos);
-    // }
-
     displayAgglos(selectedAgglos, data){
         const list = data.find(u => u.City_ID === selectedAgglos);
         if(selectedAgglos) {
@@ -91,12 +88,75 @@ class ExploreContent extends Component {
         }
     }
 
-    handleSliderValue(e) {
-        this.props.handleSliderValue(e);
+    singleSelect(countryList, agglosList, displayCountry, displayAgglos){
+        return(
+            <div className="explore_container-wrapper">
+                <div className="explore_search-country">
+                    <Select
+                        placeholder="Select country"
+                        isClearable={this.state.isClearable}
+                        isSearchable={this.state.isSearchable}
+                        value={displayCountry}
+                        onChange={this.sendCountryValueToMap.bind(this)}
+                        options={countryList}
+                        // styles={customStyles}
+                        theme={(theme) => ({
+                            ...theme,
+                            borderRadius: 0,
+                            colors: {
+                            ...theme.colors,
+                            primary25: '#E8AE40',
+                            primary: '#E8AE40',
+                            },
+                        })}
+                        // isMulti={true}
+                        />
+                </div>
+                <div className="explore_search-agglos">
+                    <Select
+                        placeholder="Select agglomeration"
+                        isClearable={this.state.isClearable}
+                        isSearchable={this.state.isSearchable}
+                        value={displayAgglos}
+                        components={{ MenuList }}
+                        onChange={this.sendAgglosValueToMap.bind(this)}
+                        options={agglosList}
+                        theme={(theme) => ({
+                            ...theme,
+                            borderRadius: 0,
+                            colors: {
+                            ...theme.colors,
+                            text: 'orangered',
+                            primary25: '#C3533E',
+                            primary: '#C3533E',
+                            },
+                        })}
+                    />
+                </div>
+                <KeyFigure
+                    timeSliderValue={this.props.timeSliderValue}
+                    reveal={this.props.reveal}
+                    accordionToggle={this.props.accordionToggle}
+                    selectedCountry={this.props.selectedCountry}
+                    selectedAgglos={this.props.selectedAgglos}
+                    agglosData={this.props.agglosData}
+                    countryData={this.props.countryData}
+                    valueFromCountryHistogram={this.sendCountryValueToMap.bind(this)}
+                    />
+            </div>
+        )
     }
 
-    buttonHandle(e){
-        console.log(e);
+    compareCountries(){
+        return(<div></div>)
+    }
+
+    handleSelect = index => {
+        this.props.tabIndex(index);
+    };
+    
+    state = {
+        selectedIndex: 0
     }
 
     render() {
@@ -105,9 +165,7 @@ class ExploreContent extends Component {
             selectedAgglos,
             selectedCountry,
             countryData,
-            countryData_past
         } = this.props;
-
 
         const countryList = this.filterCountry(countryData);
         const agglosList = this.filterAgglos(agglosData, selectedCountry);
@@ -115,55 +173,21 @@ class ExploreContent extends Component {
         const displayAgglos = this.displayAgglos(selectedAgglos, agglosData);
 
         return(
-            <Grid fluid className="content">
-                <Row className="explore-row">
-                    <Col md={3} className="mixers">
-                        <RenderFilter
-                            sizeArray={this.props.sizeArray}
-                            sliderRange={this.props.sliderRange}
-                            handleSliderValue={this.handleSliderValue.bind(this)}
-                            />
-                    </Col>
-                    <Col md={9} className="exp-content">
-                          <button onClick={(e) => this.buttonHandle}> BUTTON </button>
-                        <Col md={9} mdOffset={1} className="searchPadding">
-                            <Select
-                                placeholder="Select country"
-                                isClearable={this.state.isClearable}
-                                isSearchable={this.state.isSearchable}
-                                value={displayCountry}
-                                onChange={this.sendCountryValueToMap.bind(this)}
-                                options={countryList}
-                                // isMulti={true}
-                            />
-                        </Col>
-                        <Col md={9} mdOffset={1}>
-                            <Select
-                                placeholder="Select agglomeration"
-                                isClearable={this.state.isClearable}
-                                isSearchable={this.state.isSearchable}
-                                value={displayAgglos}
-                                components={{ MenuList }}
-                                onChange={this.sendAgglosValueToMap.bind(this)}
-                                options={agglosList}
-                            />
-                        </Col>
-                        <InfoWrapper
-                            selectedCountry={this.props.selectedCountry}
-                            selectedAgglos={this.props.selectedAgglos}
-                            agglosData={this.props.agglosData}
-                            countryData={this.props.countryData}
-                            countryData_past={this.props.countryData_past}
-                            valueFromCountryHistogram={this.sendCountryValueToMap.bind(this)}
-                            sliderValue={this.props.sliderValue}
-                            />
-                        <br/>
-                        {/* //change from countryValueForSearch to selectedCountry */}
-
-                    </Col>
-                </Row>
-
-            </Grid>
+            <div className="explore_content-container">
+                <Tabs className="tab-wrapper" selectedIndex={this.state.selectedIndex} onSelect={this.handleSelect}>
+                    <TabList>
+                        <Tab>Single Select</Tab>
+                        <Tab>Compare Countries</Tab>
+                    </TabList>
+                       
+                    <TabPanel>
+                        {this.singleSelect(countryList, agglosList, displayCountry, displayAgglos)}
+                    </TabPanel>
+                    <TabPanel>
+                        {this.compareCountries(countryList, agglosList, displayCountry, displayAgglos)}
+                    </TabPanel>
+                </Tabs>
+            </div>
         );
     }
 }

@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import {Row, Col} from 'react-flexbox-grid';
 import { BarChart, Cell, Bar, Tooltip } from 'recharts';
 import MaterialIcon from 'material-icons-react';
-import Paper from '@material-ui/core/Paper';
-
 
 class CountryHistogram extends Component {
-
-
     constructor(props){
         super(props);
         this.state={
@@ -96,83 +91,93 @@ class CountryHistogram extends Component {
         else{}
       }
 
-
-
     renderUrbanPopulation(data, selectedCountry){
         return(
+            <div className="country-histogram-wrapper">
                 <BarChart width={200} height={60} data={data}>
                     <Bar dataKey='urbanPopulationScaled' onClick={this.sendValueFromHistogram.bind(this)} id="color">
                         {data.map((entry, index) => (
-                            <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#c95d47' : '#e0e0e0' }/>
+                            <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#e8ae40' : '#e0e0e0' }/>
                         ))}
                     </Bar>
                     <Tooltip content={this.customTooltipOnYourLine} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
                 </BarChart>
+            </div>
         )
     }
 
     renderUrbanizationLevel(data, selectedCountry){
         return(
-            <BarChart width={200} height={60} data={data}>
-                <Bar dataKey='urbanizationLevel' onClick={this.sendValueFromHistogram.bind(this)} id="color">
-                    {data.map((entry, index) => (
-                        <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#c95d47' : '#e0e0e0' }/>
-                    ))}
-                </Bar>
-                <Tooltip content={this.customTooltipOnYourLine} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
-            </BarChart>
+            <div className="country-histogram-wrapper">
+                <BarChart width={200} height={60} data={data}>
+                    <Bar dataKey='urbanizationLevel' onClick={this.sendValueFromHistogram.bind(this)} id="color">
+                        {data.map((entry, index) => (
+                            <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#e8ae40' : '#e0e0e0' }/>
+                        ))}
+                    </Bar>
+                    <Tooltip content={this.customTooltipOnYourLine} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
+                </BarChart>
+            </div>
         )
     }
 
     renderAgglos(data, selectedCountry){
         return(
-            <BarChart width={200} height={60} data={data}>
-                <Bar dataKey='urbanAgglos' onClick={this.sendValueFromHistogram.bind(this)} id="color">
-                    {data.map((entry, index) => (
-                        <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#c95d47' : '#e0e0e0' }/>
-                    ))}
-                </Bar>
-                <Tooltip content={this.customTooltipOnYourLine} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
-            </BarChart>
+            <div className="country-histogram-wrapper">
+                <BarChart width={200} height={60} data={data}>
+                    <Bar dataKey='urbanAgglos' onClick={this.sendValueFromHistogram.bind(this)} id="color">
+                        {data.map((entry, index) => (
+                            <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#e8ae40' : '#e0e0e0' }/>
+                        ))}
+                    </Bar>
+                    <Tooltip content={this.customTooltipOnYourLine} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
+                </BarChart>
+            </div>
         )
     }
 
     renderMetropolitan(data, selectedCountry){
         return(
-            <BarChart width={200} height={60} data={data}>
-                <Bar dataKey='metropolitanPop' onClick={this.sendValueFromHistogram.bind(this)} id="color">
-                    {data.map((entry, index) => (
-                        <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#c95d47' : '#e0e0e0' }/>
-                    ))}
-                </Bar>
-                <Tooltip content={this.customTooltipOnYourLine} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
-            </BarChart>
+            <div className="country-histogram-wrapper">
+                <BarChart width={200} height={60} data={data}>
+                    <Bar dataKey='metropolitanPop' onClick={this.sendValueFromHistogram.bind(this)} id="color">
+                        {data.map((entry, index) => (
+                            <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#e8ae40' : '#e0e0e0' }/>
+                        ))}
+                    </Bar>
+                    <Tooltip content={this.customTooltipOnYourLine} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
+                </BarChart>
+            </div>
         )
     }
 
     renderAvgDist(data, selectedCountry){
         return(
-            <BarChart width={200} height={60} data={data}>
-                <Bar dataKey='AverageDistScaled' onClick={this.sendValueFromHistogram.bind(this)} id="color">
-                    {data.map((entry, index) => (
-                        <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#c95d47' : '#e0e0e0' }/>
-                    ))}
-                </Bar>
-                <Tooltip content={this.customTooltipOnYourLine} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
-            </BarChart>
+            <div className="country-histogram-wrapper">
+                <BarChart width={200} height={60} data={data}>
+                    <Bar dataKey='AverageDistScaled' onClick={this.sendValueFromHistogram.bind(this)} id="color">
+                        {data.map((entry, index) => (
+                            <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#e8ae40' : '#e0e0e0' }/>
+                        ))}
+                    </Bar>
+                    <Tooltip content={this.customTooltipOnYourLine} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
+                </BarChart>
+            </div>
         )
     }
 
     renderUrbanSurf(data, selectedCountry){
         return(
-            <BarChart width={200} height={60} data={data}>
-                <Bar dataKey='urbanSurface' onClick={this.sendValueFromHistogram.bind(this)} id="color">
-                    {data.map((entry, index) => (
-                        <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#c95d47' : '#e0e0e0' }/>
-                    ))}
-                </Bar>
-              <Tooltip content={this.customTooltipOnYourLine} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
-            </BarChart>
+            <div className="country-histogram-wrapper">
+                <BarChart width={200} height={60} data={data}>
+                    <Bar dataKey='urbanSurface' onClick={this.sendValueFromHistogram.bind(this)} id="color">
+                        {data.map((entry, index) => (
+                            <Cell cursor="pointer" key={`cell-${index}`} fill={entry.ID ===  selectedCountry ? '#e8ae40' : '#e0e0e0' }/>
+                        ))}
+                    </Bar>
+                <Tooltip content={this.customTooltipOnYourLine} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
+                </BarChart>
+            </div>
         )
     }
 
@@ -185,86 +190,93 @@ class CountryHistogram extends Component {
         let d = data.map(u => u.ID)
         let rank = data.length - (d.findIndex(this.check) + 1)
         return(
-            <p>Rank: <br/><span>{ rank + 1 }</span>/{data.length}</p>
+            <div className="histogram-ranking">
+                <p>Rank: <br/><span>{ rank + 1 }</span>/{data.length}</p>
+            </div>
         )
     }
 
     population(data, value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{d.urbanPopulation.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</p>
+            <div className="histogram-value">
+                <p>{d.urbanPopulation.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</p>
+            </div>
         )
     }
 
     urbanisationlevel(data, value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{Math.round(d.urbanizationLevel*100)+'%'}</p>
+            <div className="histogram-value">
+                <p>{Math.round(d.urbanizationLevel*100)+'%'}</p>
+            </div>
         )
     }
 
     numofagglomeration(data,value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{d.urbanAgglos.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} agglos</p>
+            <div className="histogram-value">
+                <p>{d.urbanAgglos.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</p>
+            </div>
         )
     }
 
     metropolitan(data, value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{Math.round(d.metropolitanPop*100)+'%'}</p>
+            <div className="histogram-value">
+                <p>{Math.round(d.metropolitanPop*100)+'%'}</p>
+            </div>
         )
     }
 
     averagedist(data,value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{Math.round(d.AverageDist)} km</p>
+            <div className="histogram-value">
+                <p>{Math.round(d.AverageDist)}km</p>
+            </div>
         )
     }
 
     urbanland(data,value){
         let d = data.find(u => u.ID === value)
         return(
-            <p>{Math.round(d.urbanSurface*10000)/100} %</p>
+            <div className="histogram-value">
+                <p>{Math.round(d.urbanSurface*10000)/100}%</p>
+            </div>
         )
     }
 
     renderInfo(info, title){
         return(
-            <div className="info-wrapper">{title}
-            <MaterialIcon icon="info" size={15} className="icon-color"/>
-                <span className="infotext"> {info} </span>
+            <div className="histogram-title">
+                {title}
+                <MaterialIcon icon="info" size={15} className="icon-color"/>
+                <p className="infotext"> {info} </p>
             </div>
         )
     }
 
     render() {
-
-
-        console.log(this.props.sliderValue);
-        let value = this.props.sliderValue;
-      if (this.props.countryData) {
-        for (var j = 0; j < 5; ++j)
-        {let variables = ["Upop","NumAgglos","ADBC","Mpop","Ulvl_Scaled"]
-          for(var i = 0; i < 50; ++i) {
-
-
-            if(this.props.countryData[i][variables[j]+"_sel"])
-            {delete this.props.countryData[i][variables[j]+"_sel"];}
-            Object.defineProperty(this.props.countryData[i], variables[j]+"_sel",
-            Object.getOwnPropertyDescriptor(this.props.countryData[i], variables[j] + value));
-
-          }
+        // console.log(this.props.timeSliderValue);
+        let value = this.props.timeSliderValue;
+        //@@ Change value to sliderValue;
+        // let value = 2015;
+        if (this.props.countryData) {
+            for (var j = 0; j < 5; ++j){
+                let variables = ["Upop","NumAgglos","ADBC","Mpop","Ulvl_Scaled"]
+                for(var i = 0; i < 50; ++i) {
+                    if(this.props.countryData[i][variables[j]+"_sel"]) {
+                        delete this.props.countryData[i][variables[j]+"_sel"];
+                    }
+                    Object.defineProperty(this.props.countryData[i], variables[j]+"_sel",
+                    Object.getOwnPropertyDescriptor(this.props.countryData[i], variables[j] + value));
+                }
+            }
         }
-
-        }
-
-
-
-
-
         const dataUrbanPopulation = this.props.countryData.map((d, i) => (
             {
                 "ID":d.ID,
@@ -340,72 +352,47 @@ class CountryHistogram extends Component {
         const metroPolitanData = dataMetropolitan.sort((a,b) => a.metropolitanPop - b.metropolitanPop);
         const averageDistData = dataAverageDist.sort((a,b) => a.AverageDistScaled - b.AverageDistScaled);
         const urbanSurfData = dataUrbanSurf.sort((a,b) => a.urbanSurface - b.urbanSurface);
-
-
         const { selectedCountry } = this.props;
+
         return(
-            <Row className="no-padding">
-                <Col md={12} className="histogram-wrapper">
-                    <Paper square={true}>
-                        <Row>
-                            <Col md={4} className="keyfigureTitle"><p>{this.renderInfo(dataUrbanPopulation[0].info, dataUrbanPopulation[0].title)}</p></Col>
-                            <Col md={3} className="country-histogram-value"> {this.population(urbanPopulationData, selectedCountry)}</Col>
-                            <Col md={1} className="rankingWrapper">{this.renderRanking(urbanPopulationData)}</Col>
-                            <Col md={4} className="country-histogram-wrapper"> {this.renderUrbanPopulation(urbanPopulationData, selectedCountry)} </Col>
-                        </Row>
-                    </Paper>
-                </Col>
-                <Col md={12} className="histogram-wrapper">
-                    <Paper square={true}>
-                        <Row>
-                            <Col md={4} className="keyfigureTitle"><p>{this.renderInfo(dataUrbanizationLevel[0].info, dataUrbanizationLevel[0].title)}</p></Col>
-                            <Col md={3} className="country-histogram-value"> {this.urbanisationlevel(urbanizationLevelData, selectedCountry)}</Col>
-                            <Col md={1} className="rankingWrapper">{this.renderRanking(urbanizationLevelData)}</Col>
-                            <Col md={4}className="country-histogram-wrapper">{this.renderUrbanizationLevel(urbanizationLevelData, selectedCountry)}</Col>
-                        </Row>
-                    </Paper>
-                </Col>
-                <Col md={12} className="histogram-wrapper">
-                    <Paper square={true}>
-                        <Row>
-                            <Col md={4} className="keyfigureTitle"><p>{this.renderInfo(dataAgglomerations[0].info, dataAgglomerations[0].title)}</p></Col>
-                            <Col md={3} className="country-histogram-value"> {this.numofagglomeration(agglomerationData, selectedCountry)}</Col>
-                            <Col md={1} className="rankingWrapper">{this.renderRanking(agglomerationData)}</Col>
-                            <Col md={4}className="country-histogram-wrapper">{this.renderAgglos(agglomerationData, selectedCountry)}</Col>
-                        </Row>
-                    </Paper>
-                </Col>
-                <Col md={12} className="histogram-wrapper">
-                    <Paper square={true}>
-                        <Row>
-                            <Col md={4} className="keyfigureTitle"><p>{this.renderInfo(dataMetropolitan[0].info, dataMetropolitan[0].title)}</p></Col>
-                            <Col md={3} className="country-histogram-value"> {this.metropolitan(metroPolitanData, selectedCountry)}</Col>
-                            <Col md={1} className="rankingWrapper">{this.renderRanking(metroPolitanData)}</Col>
-                            <Col md={4}className="country-histogram-wrapper">{this.renderMetropolitan(metroPolitanData, selectedCountry)}</Col>
-                        </Row>
-                    </Paper>
-                </Col>
-                <Col md={12} className="histogram-wrapper">
-                    <Paper square={true}>
-                        <Row>
-                            <Col md={4} className="keyfigureTitle"><p>{this.renderInfo(dataAverageDist[0].info, dataAverageDist[0].title)}</p></Col>
-                            <Col md={3} className="country-histogram-value"> {this.averagedist(averageDistData, selectedCountry)}</Col>
-                            <Col md={1} className="rankingWrapper">{this.renderRanking(averageDistData)}</Col>
-                            <Col md={4}className="country-histogram-wrapper">{this.renderAvgDist(averageDistData, selectedCountry)}</Col>
-                        </Row>
-                    </Paper>
-                </Col>
-                <Col md={12} className="histogram-wrapper">
-                    <Paper square={true}>
-                        <Row>
-                            <Col md={4} className="keyfigureTitle"><p>{this.renderInfo(dataUrbanSurf[0].info, dataUrbanSurf[0].title)}</p></Col>
-                            <Col md={3} className="country-histogram-value"> {this.urbanland(urbanSurfData, selectedCountry)}</Col>
-                            <Col md={1} className="rankingWrapper">{this.renderRanking(urbanSurfData)}</Col>
-                            <Col md={4}className="country-histogram-wrapper">{this.renderUrbanSurf(urbanSurfData, selectedCountry)}</Col>
-                        </Row>
-                    </Paper>
-                </Col>
-            </Row>
+            <div className="histogram_country-wrapper">
+                <div className="indicator-wrapper">
+                    {this.renderInfo(dataUrbanPopulation[0].info, dataUrbanPopulation[0].title)}
+                    {this.population(urbanPopulationData, selectedCountry)}
+                    {this.renderRanking(urbanPopulationData)}
+                    {this.renderUrbanPopulation(urbanPopulationData, selectedCountry)}
+                </div>
+                <div className="indicator-wrapper">
+                    {this.renderInfo(dataUrbanizationLevel[0].info, dataUrbanizationLevel[0].title)}
+                    {this.urbanisationlevel(urbanizationLevelData, selectedCountry)}
+                    {this.renderRanking(urbanizationLevelData)}
+                    {this.renderUrbanizationLevel(urbanizationLevelData, selectedCountry)}
+                </div>
+                <div className="indicator-wrapper">
+                    {this.renderInfo(dataAgglomerations[0].info, dataAgglomerations[0].title)}
+                    {this.numofagglomeration(agglomerationData, selectedCountry)}
+                    {this.renderRanking(agglomerationData)}
+                    {this.renderAgglos(agglomerationData, selectedCountry)}
+                </div>
+                <div className="indicator-wrapper">
+                    {this.renderInfo(dataMetropolitan[0].info, dataMetropolitan[0].title)}
+                    {this.metropolitan(metroPolitanData, selectedCountry)}
+                    {this.renderRanking(metroPolitanData)}
+                    {this.renderMetropolitan(metroPolitanData, selectedCountry)}
+                </div>
+                <div className="indicator-wrapper">
+                    {this.renderInfo(dataAverageDist[0].info, dataAverageDist[0].title)}
+                    {this.averagedist(averageDistData, selectedCountry)}
+                    {this.renderRanking(averageDistData)}
+                    {this.renderAvgDist(averageDistData, selectedCountry)}
+                </div>
+                <div className="indicator-wrapper">
+                    {this.renderInfo(dataUrbanSurf[0].info, dataUrbanSurf[0].title)}
+                    {this.urbanland(urbanSurfData, selectedCountry)}
+                    {this.renderRanking(urbanSurfData)}
+                    {this.renderUrbanSurf(urbanSurfData, selectedCountry)}
+                </div>
+            </div>
         );
     }
 }

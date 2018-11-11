@@ -31,7 +31,6 @@ class KeyFigures extends Component {
                             selectedCountry={selectedCountry} 
                             countryData={countryData} 
                             valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}
-                            sliderValue={this.props.sliderValue}
                             />
                     </Col>
                     <Col md={12} className="countryHistogram-Wrapper" >

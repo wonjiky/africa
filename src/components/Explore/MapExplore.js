@@ -182,7 +182,7 @@ class LeafletMap extends Component {
 						const ISO3_NAME = feature.properties.NAME_EN;
 						const e = { value: ISO3_ID, label:ISO3_NAME}
 						this.props.sendCountryValueToContent(e);
-						
+
 					});
 
 					layer._leaflet_id = feature.properties.ID;

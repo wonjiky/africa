@@ -3,7 +3,7 @@ import createClass from 'create-react-class';
 import StepRangeSlider from 'react-step-range-slider'
 
 class ExploreMixer extends Component {
-    
+
     legend(data) {
         let Circle = createClass({
             render:function() {
@@ -26,7 +26,7 @@ class ExploreMixer extends Component {
         let colors = ['#E73741','#df521e','#e1b400','#32a674','#0b68af','#993484'];
         let sizes = [24,21,18,15,12,9];
         let renderCircle = [];
-        
+
         for (let i = 0; i < colors.length; i++) {
             let color = colors[i];
             let size = sizes[i];
@@ -34,7 +34,7 @@ class ExploreMixer extends Component {
         }
 
         let result = {};
-        
+
         if(data){
             for(let i = 0; i < data.length; ++i) {
                 if(!result[data[i]])
@@ -44,7 +44,7 @@ class ExploreMixer extends Component {
             for(let i = 0; i < 7; ++i){
                 if(!result[i]){result[i]=0}
             }
-            result[["7"]]=data.length;
+            result[["7"]]=result[["1"]]+result[["2"]]+result[["3"]]+result[["4"]]+result[["5"]]+result[["6"]];
         }
 
         return (
@@ -95,7 +95,7 @@ class ExploreMixer extends Component {
 
     render() {
 
-        const renderLenged = this.legend(this.props.sizeArray); 
+        const renderLenged = this.legend(this.props.sizeArray);
         return(
             <div className="explore_mixer-wrapper">
                 <div className="explore_mixer-list">

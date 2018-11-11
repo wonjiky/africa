@@ -136,8 +136,8 @@ class LeafletMap extends Component {
 		}).addTo(map);
 
 
-	
-		
+
+
 
 
 		L.easyButton({
@@ -174,14 +174,12 @@ class LeafletMap extends Component {
 
 	selectedStyle(layer){
 		layer.setStyle({
-			weight : 2,
-			color : 'black',
-			fillColor : 'yellow',
-			fillOpacity : 0.03,
+			weight : 3,
+			color : '#c2523e',
+			stroke:true,
+			fillOpacity: 0,
 		});
-		if (!L.Browser.ie && !L.Browser.opera) {
-				layer.bringToFront();
-			}
+
 	}
 
 	hoverStyle(){
@@ -193,190 +191,246 @@ class LeafletMap extends Component {
 		})
 	}
 
-	deselect(layer, prevState, selected) {
-		if (selected === null || selected._leaflet_id !== layer._leaflet_id) {
-		  this.markerGroup.resetStyle(layer);
-	  }
-	}
+
+
 
 	componentDidUpdate(prevProps, prevState){
 		// If Explore Wrapper is Mounted :
 
-		var selected = null;
-		var previous= null;
-		this.markerGroup = L.geoJson(this.props.africaContinent,{
 
-			onEachFeature: (feature, layer) => {
-				layer.on('mouseover', () => {
-					layer.setStyle(this.hoverStyle());
-				});
+		//@@@@@@@@@@@@@@@@@@@@@@@COMPARE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+		// var selected_first = null;
+		// var selected_second = null;
+		// this.markerGroup = L.geoJson(this.props.africaContinent,{
+		//
+		// 	onEachFeature: (feature, layer) => {
+		// 		layer.on('mouseover', (e) => {
+		//
+		// 			// if (selected_second !== null || selected_first._leaflet_id !== layer._leaflet_id || selected_second._leaflet_id !== layer._leaflet_id) {
+		// 			// 	layer.setStyle(this.hoverStyle());}
+		// 			//
+		// 			// if (selected_first !== null || selected_first._leaflet_id !== layer._leaflet_id ) {
+		// 			// 		layer.setStyle(this.hoverStyle());}
+		// 			//
+		// 			// if (selected_first === null && selected_second === null) {
+		// 			// 		layer.setStyle(this.hoverStyle());}
+		// 		});
+		//
+		// 		layer.on('mouseout', (e) => {
+		// 			// if (selected_second !== null || selected_first._leaflet_id !== layer._leaflet_id || selected_second._leaflet_id !== layer._leaflet_id) {
+		// 			// 		this.markerGroup.resetStyle(layer);}
+		// 			//
+		// 			// if (selected_first !== null || selected_first._leaflet_id !== layer._leaflet_id ) {
+		// 			// 		this.markerGroup.resetStyle(layer);}
+		// 			//
+		// 			// if (selected_first === null && selected_second === null) {
+		// 			// 		this.markerGroup.resetStyle(layer);}
+		//
+		//
+		// 		});
+		//
+		// 		layer.on('click', (e) => {
+		// 			if (selected_second !== null) {
+		// 				this.markerGroup.resetStyle(selected_first);
+		// 				this.markerGroup.resetStyle(selected_second);
+		// 				selected_first = null;
+		// 				selected_second = null;
+		// 			}
+		//
+		// 			if (selected_first !== null && selected_first._leaflet_id !== layer._leaflet_id) {
+		// 				layer.bringToFront();
+		// 				layer.setStyle(this.hoverStyle());
+		// 				selected_second = layer;
+		//
+		// 				this.props.sendCountryValueToContent_compare(e);
+		// 			}
+		//
+		// 			if (selected_first === null && selected_second === null){
+		// 				layer.bringToFront();
+		// 				this.selectedStyle(e.target);
+		// 				selected_first = layer;
+		// 			}
+		//
+		//
+		// 			console.log(selected_first)
+		// 			console.log(selected_second)
+		// 		});
+		// 	}
+		// });
+		//
+		// this.state.map.addLayer(this.markerGroup);
+		//@@@@@@@@@@@@@@@@@@@@@@@COMPARE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+		let {selectedCountry,selectedAgglos} = this.props;
 
-				layer.on('mouseout', (e) => {
-					this.deselect(e.target, prevState, selected );
-				});
 
-				layer.on('click', (e) => {
-					if (selected !== null) {
-						var previous = selected;
-					}
 
-					this.selectedStyle(e.target);
-					selected = layer;
-					if (previous) {
-						if (selected === null || selected._leaflet_id !== layer._leaflet_id) {
-						this.markerGroup.resetStyle(layer);}
-			  		}
-				});
+		if (this.props.exploreWrapperIsMounted === true){
+
+			console.log(this.props.sliderValue)
+			let value=this.props.sliderValue
+			console.log(this.props.agglosGeo[0]["features"])
+			for(var i = 0; i < 7447; ++i) {
+
+
+				if(this.props.agglosGeo[0]["features"][i]["properties"]["Size_sel"])
+				{delete this.props.agglosGeo[0]["features"][i]["properties"]["Size_sel"];}
+				Object.defineProperty(this.props.agglosGeo[0]["features"][i]["properties"], "Size_sel",
+				Object.getOwnPropertyDescriptor(this.props.agglosGeo[0]["features"][i]["properties"], "Size" + value));
+
 			}
-		});
+			let currCountryValue = selectedCountry;
+			let prevCountryValue = prevProps.selectedCountry;
+			let currAgglosValue = selectedAgglos;
+			let prevAgglosValue = prevProps.seectedAgglos;
+			let Size = []
 
-		this.state.map.addLayer(this.markerGroup);
-	
-	// 	if (this.props.exploreWrapperIsMounted === true){
-	// 		let currCountryValue = selectedCountry;
-	// 		let prevCountryValue = prevProps.selectedCountry;
-	// 		let currAgglosValue = selectedAgglos;
-	// 		let prevAgglosValue = prevProps.seectedAgglos;
-	// 		let Size = []
+			this.mapOverlay = L.geoJson(this.props.africaContinent, {
+				style: () => {return {color: 'transparent'}},
+				onEachFeature: (feature, layer) => {
 
-	// 		this.mapOverlay = L.geoJson(this.props.africaContinent, {
-	// 			style: () => {return {color: 'transparent'}},
-	// 			onEachFeature: (feature, layer) => {
- 
-	// 				layer.on('mouseover', () => {
-	// 					layer.setStyle(this.hoverStyle());
-	// 				});
+					layer.on('mouseover', () => {
+						layer.setStyle(this.hoverStyle());
+					});
 
-	// 				layer.on('mouseout', (e) => {
-	// 					this.mapOverlay.resetStyle(e.target);
-	// 				});
+					layer.on('mouseout', (e) => {
+						this.mapOverlay.resetStyle(e.target);
+					});
 
-	// 				layer.on('change', (e) => {
-	// 					this.placeHolder.clearLayers();
-	// 					this.state.map.fitBounds(layer.getBounds());
-	// 					this.ID = feature.properties.ID;
-	// 					this.agglos = L.geoJson(this.props.agglosGeo, {
-	// 						onEachFeature: (feature, layer) => {
-	// 							Size.push(feature.properties.Size);
-	// 							layer._leaflet_id = feature.properties.city_ID;
+					layer.on('change', (e) => {
+						this.placeHolder.clearLayers();
+						this.state.map.fitBounds(layer.getBounds());
+						this.ID = feature.properties.ID;
+						this.agglos = L.geoJson(this.props.agglosGeo, {
+							onEachFeature: (feature, layer) => {
+								Size.push(feature.properties.Size_sel);
+								layer._leaflet_id = feature.properties.city_ID;
 
-	// 							layer.on('mouseover', (e) => {
-	// 								e.target.setStyle(this.highlightAgglosStyle(feature))
-	// 								let popupContent = "<table margin={{top: -20, right: 0, left: 0, bottom: 0}}>";//feature.properties.NAME
-	// 										popupContent += "<tr></td><td class='data'>" + feature.properties.NAME + "</td></tr>";
-	// 								// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
-	// 										popupContent += "</table>";
+								layer.on('mouseover', (e) => {
+									e.target.setStyle(this.highlightAgglosStyle(feature))
+									let popupContent = "<table margin={{top: -20, right: 0, left: 0, bottom: 0}}>";//feature.properties.NAME
+											popupContent += "<tr></td><td class='data'>" + feature.properties.NAME + "</td></tr>";
+									// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
+											popupContent += "</table>";
 
-	// 								layer.bindTooltip(popupContent,{closeButton:false}).openTooltip();
-	// 							})
+									layer.bindTooltip(popupContent,{closeButton:false}).openTooltip();
+								})
 
-	// 							layer.on('mouseout', (e) => {
-	// 								e.target.setStyle(this.defaultAgglosStyle(feature))
-	// 																})
+								layer.on('mouseout', (e) => {
+									e.target.setStyle(this.defaultAgglosStyle(feature))
+																	})
 
-	// 							layer.on('change', () => {
-	// 								e.target.setStyle(this.selectedAgglosStyle())
+								layer.on('change', () => {
+									e.target.setStyle(this.selectedAgglosStyle())
 
 
-	// 							})
+								})
 
-	// 							layer.on('click', (e) => {
-	// 								const cityID = feature.properties.city_ID;
-	// 								const cityName = feature.properties.NAME;
-	// 								const value = { value:cityID, label:cityName}
-	// 								this.props.agglosValueToMap(value);
-	// 								this.state.map.setView(layer._latlng, 12);
+								layer.on('click', (e) => {
+									const cityID = feature.properties.city_ID;
+									const cityName = feature.properties.NAME;
+									const value = { value:cityID, label:cityName}
+									this.props.agglosValueToMap(value);
+									this.state.map.setView(layer._latlng, 12);
 
-	// 								let popupContent = "<table>";//feature.properties.NAME
-	// 										popupContent += "<tr></td><td class='data'>" + feature.properties.NAME + "</td></tr>";
-	// 								// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
-	// 										popupContent += "</table>";
-	// 								 layer.bindPopup(popupContent,{closeButton:false}).openPopup();
-	// 							})
+									let popupContent = "<table>";//feature.properties.NAME
+											popupContent += "<tr></td><td class='data'>" + feature.properties.NAME + "</td></tr>";
+									// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
+											popupContent += "</table>";
+									 layer.bindPopup(popupContent,{closeButton:false}).openPopup();
+								})
 
 
 
 
 
-	// 						},
-	// 						filter: this.agglos_cityFilter,
-	// 						pointToLayer: this.agglos_pointToLayer
-	// 					});
+							},
+							filter: this.agglos_cityFilter,
+							pointToLayer: this.agglos_pointToLayer
+						});
 
-	// 					this.props.sizeArray(Size);
+						this.props.sizeArray(Size);
 
-	// 					this.placeHolder.addLayer(this.agglos);
-	// 				});
+						this.placeHolder.addLayer(this.agglos);
+					});
 
-	// 				layer.on('click', () => {
-	// 					const ISO3_ID = feature.properties.ID;
-	// 					const ISO3_NAME = feature.properties.NAME_EN;
-	// 					const e = { value: ISO3_ID, label:ISO3_NAME}
-	// 					this.props.sendCountryValueToContent(e);
-	// 				});
+					layer.on('click', () => {
+						const ISO3_ID = feature.properties.ID;
+						const ISO3_NAME = feature.properties.NAME_EN;
+						const e = { value: ISO3_ID, label:ISO3_NAME}
+						this.props.sendCountryValueToContent(e);
+					});
 
-	// 				layer._leaflet_id = feature.properties.ID;
-	// 			}
-	// 		})
-	// 		this.mapOverlay.addTo(this.state.map);
+					layer._leaflet_id = feature.properties.ID;
+				}
+			})
+			this.mapOverlay.addTo(this.state.map);
 
-	// 		if(currCountryValue !== prevCountryValue && currCountryValue !== ''){
-	// 			let layer = this.mapOverlay.getLayer(currCountryValue);
-	// 			layer.fire('change')
-	// 		} else if (currCountryValue !== prevCountryValue && currCountryValue === ''){
-	// 			this.placeHolder.clearLayers();
-	// 		}
+			if(currCountryValue !== prevCountryValue && currCountryValue !== ''){
+				let layer = this.mapOverlay.getLayer(currCountryValue);
+				layer.fire('change')
+			} else if (currCountryValue !== prevCountryValue && currCountryValue === ''){
+				this.placeHolder.clearLayers();
+			}
 
-	// 		if (currAgglosValue !== prevAgglosValue && currAgglosValue !== ''){
-	// 			let agglosLayer = this.agglos.getLayer(currAgglosValue)
-	// 			agglosLayer.fire('click');
-	// 		}
+			if (currAgglosValue !== prevAgglosValue && currAgglosValue !== ''){
+				let agglosLayer = this.agglos.getLayer(currAgglosValue)
+				agglosLayer.fire('click');
+			}
 
-	// 	// If Home Wrapper is Mounted :
-	// 	} else if(this.props.homeWrapperIsMounted) {
+			if (this.props.sliderValue !== prevProps.sliderValue)
+			{let layer = this.mapOverlay.getLayer(currCountryValue);
+			layer.fire('change')}
 
-
-	// 		let treemapcurrValue = this.props.treemapSelect;
-	// 		let treemapprevValue = prevProps.treemapSelect;
-	// 		let treemap_click = this.props.treemapSelect_click;
-	// 		console.log(treemap_click)
-
-	// 		if(this.props.treemapFilter === 'treemap'){ // && this.props.treemapValue === 0){
+		// If Home Wrapper is Mounted :
+		} else if(this.props.homeWrapperIsMounted) {
 
 
-	// 			if(this.treemap){
-	// 				this.treemap.clearLayers(this.treemap);
-	// 			}
-	// 			this.treemap = L.geoJson(this.props.treemap_buildup, {
-	// 				filter: this.treemap_filter,
-	// 				onEachFeature: this.treemap_onEachFeature,
-	// 				pointToLayer: this.treemap_pointToLayer})
-	// 			this.state.map.addLayer(this.treemap);
-	// 		}
+			let treemapcurrValue = this.props.treemapSelect;
+			let treemapprevValue = prevProps.treemapSelect;
+			let treemap_click = this.props.treemapSelect_click;
+			let treemap_click_prev = prevProps.treemapSelect_click;
 
-	// 		if (treemap_click)
-	// 		{let layer = this.treemap.getLayer(treemap_click);
-	// 			if(layer)
-	// 			{layer.fire('click')}}
 
-	// 		if (treemapcurrValue){
-	// 			this.currLayer = this.treemap.getLayer(treemapcurrValue);
-	// 			this.prevLayer = this.treemap.getLayer(treemapprevValue);
-	// 		}
 
-	// 		if(treemapcurrValue !== treemapprevValue){
-	// 			let layer = this.treemap.getLayer(treemapcurrValue);
-	// 			layer.fire('mouseover')
-	// 			if(treemapprevValue){
-	// 			let layerprev = this.treemap.getLayer(treemapprevValue);
-	// 			if(layerprev)
-	// 			{layerprev.fire('mouseout')}
-	// 		}
-	// 		}
-	// 	}
-	// }else if(this.state.compareButton === true){
-	// 	console.log(this.state.compareButton)
-	// }
+			if(this.props.treemapFilter === 'treemap'){ // && this.props.treemapValue === 0){
+
+
+				if(this.treemap){
+					this.treemap.clearLayers(this.treemap);
+				}
+				this.treemap = L.geoJson(this.props.treemap_buildup, {
+					filter: this.treemap_filter,
+					onEachFeature: this.treemap_onEachFeature,
+					pointToLayer: this.treemap_pointToLayer})
+				this.state.map.addLayer(this.treemap);
+			}
+
+			if (treemap_click)
+			{	if (treemap_click_prev !== treemap_click){
+				let layer = this.treemap.getLayer(treemap_click);
+				if(layer)
+				{this.state.map.setView(layer._latlng, 10);
+					layer.fire('click')}
+			treemap_click = null;
+			layer=null;}
+			}
+
+			if (treemapcurrValue){
+				this.currLayer = this.treemap.getLayer(treemapcurrValue);
+				this.prevLayer = this.treemap.getLayer(treemapprevValue);
+			}
+
+			if(treemapcurrValue !== treemapprevValue){
+				let layer = this.treemap.getLayer(treemapcurrValue);
+				layer.fire('mouseover')
+				if(treemapprevValue){
+				let layerprev = this.treemap.getLayer(treemapprevValue);
+				if(layerprev)
+				{layerprev.fire('mouseout')}
+			}
+			}
+		}
+
 	}
 
 
@@ -403,7 +457,6 @@ class LeafletMap extends Component {
 
 		layer.on('click', (e) => {
 			e.target.setStyle(this.treemapHighlightStyle(feature))
-			this.state.map.setView(layer._latlng, 10);
 		})
 
 		let popupContent = "<table class='tooltip-table'>";
@@ -468,7 +521,7 @@ class LeafletMap extends Component {
 
 	highlightAgglosStyle(feature){
 		return({
-			radius: feature.properties.Size*3+6,
+			radius: feature.properties.Size_sel*3+6,
 			// fillColor: '#E8AE40',
 			fillOpacity: 1,
 			stroke: true,
@@ -490,11 +543,11 @@ class LeafletMap extends Component {
 
 	defaultAgglosStyle(feature){
 		return({
-			radius: this.getRadius(feature.properties.Size),
-			fillColor: this.getColor(feature.properties.Size),
+			radius: this.getRadius(feature.properties.Size_sel),
+			fillColor: this.getColor(feature.properties.Size_sel),
 			fillOpacity: 0.4,
 			stroke: true,
-			color: this.getColor(feature.properties.Size),
+			color: this.getColor(feature.properties.Size_sel),
 			weight: 1,
 		})
 	}
@@ -517,7 +570,7 @@ class LeafletMap extends Component {
 			d === 4 ? '#e1b400' :
 			d === 3 ? '#32a674' :
 			d === 2 ? '#0b68af' :
-			d === 1 ? '#993484' : 'black'
+			d === 1 ? '#993484' : ''
 		)
 	}
 

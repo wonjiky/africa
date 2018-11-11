@@ -95,6 +95,10 @@ class ExploreContent extends Component {
         this.props.handleSliderValue(e);
     }
 
+    buttonHandle(e){
+        console.log(e);
+    }
+
     render() {
         const {
             agglosData,
@@ -114,13 +118,14 @@ class ExploreContent extends Component {
             <Grid fluid className="content">
                 <Row className="explore-row">
                     <Col md={3} className="mixers">
-                        <RenderFilter 
+                        <RenderFilter
                             sizeArray={this.props.sizeArray}
                             sliderRange={this.props.sliderRange}
                             handleSliderValue={this.handleSliderValue.bind(this)}
                             />
                     </Col>
                     <Col md={9} className="exp-content">
+                          <button onClick={(e) => this.buttonHandle}> BUTTON </button>
                         <Col md={9} mdOffset={1} className="searchPadding">
                             <Select
                                 placeholder="Select country"

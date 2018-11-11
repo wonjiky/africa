@@ -75,12 +75,13 @@ class RenderFilter extends Component {
             if(!result[data[i]])
                 result[data[i]] = 0;
             ++result[data[i]];
+
         }
         for(var i = 0; i < 7; ++i)
         {if(!result[i])
             {result[i]=0}
         }
-        result[["7"]]=data.length;
+        result[["7"]]=result[["1"]]+result[["2"]]+result[["3"]]+result[["4"]]+result[["5"]]+result[["6"]]
     }
       return (
         <li className="slider">
@@ -138,7 +139,7 @@ class RenderFilter extends Component {
         ]
 
         const hi= this.hello(this.props.sizeArray)
-        
+
         return(
             <Grid fluid id="mixer">
                 <Col md={12} className="explore-mixer-list">

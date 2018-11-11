@@ -31,7 +31,7 @@ class ExploreWrapper extends Component {
         this.handleAgglosValueFromSearch = this.handleAgglosValueFromSearch.bind(this);
         this.handleSizeArray=this.handleSizeArray.bind(this);
         this.handleSliderValue = this.handleSliderValue.bind(this);
-    
+
     }
 
     // componentDidUpdate(prevState, prevProps){
@@ -126,9 +126,7 @@ class ExploreWrapper extends Component {
       })
     }
 
-    buttonHandle(e){
-        console.log(e);
-    }
+
 
     render() {
 
@@ -152,7 +150,7 @@ class ExploreWrapper extends Component {
                         selectedCountry={this.state.selectedCountry}
                         selectedAgglos={this.state.selectedAgglos}
                         exploreWrapperIsMounted={this.state.exploreWrapperIsMounted}
-
+                        sliderValue={this.state.sliderValue}
                         //data from Map
                         sendCountryValueToContent={this.handleCountryValueFromMap}
                         agglosValueToMap={this.handleAgglosValueFromMap}
@@ -160,13 +158,13 @@ class ExploreWrapper extends Component {
                     />
                 </Col>
                 <Col md={8} className="no-margin">
-                <button onClick={(e) => this.buttonHandle}> BUTTON </button>
+
                 {/* className="exp-content"> */}
                     <ExploreContent
                         handleSliderValue={this.handleSliderValue}
                         sliderRange = {this.state.sliderRange}
                         sliderValue = {this.state.sliderValue}
-                        
+
                         //data to Content
                         countryData={this.props.countryData}
                         countryData_past={this.props.countryData_past}

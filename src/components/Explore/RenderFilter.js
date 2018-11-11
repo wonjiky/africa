@@ -38,8 +38,6 @@ class RenderFilter extends Component {
         }
     }
 
-
-
     hello(data){
       let Circle = createClass({
         render:function(){

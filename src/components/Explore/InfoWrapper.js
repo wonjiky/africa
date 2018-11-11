@@ -58,6 +58,7 @@ class InfoWrapper extends Component {
 						countryData={countryData}
 						selectedCountry={selectedCountry}
 						valueFromCountryHistogram = {this.valueFromCountryHistogram.bind(this)}
+						
 						sliderValue={this.props.sliderValue}
 
 						//city data

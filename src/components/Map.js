@@ -260,6 +260,7 @@ class LeafletMap extends Component {
 		//
 		// this.state.map.addLayer(this.markerGroup);
 		//@@@@@@@@@@@@@@@@@@@@@@@COMPARE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+		
 		let {selectedCountry,selectedAgglos} = this.props;
 
 
@@ -393,8 +394,7 @@ class LeafletMap extends Component {
 
 
 			if(this.props.treemapFilter === 'treemap'){ // && this.props.treemapValue === 0){
-
-
+			
 				if(this.treemap){
 					this.treemap.clearLayers(this.treemap);
 				}
@@ -406,13 +406,18 @@ class LeafletMap extends Component {
 			}
 
 			if (treemap_click)
+
 			{	if (treemap_click_prev !== treemap_click){
 				let layer = this.treemap.getLayer(treemap_click);
-				if(layer)
-				{this.state.map.setView(layer._latlng, 10);
+				console.log(treemap_click);
+				if(layer) {
+					this.state.map.setView(layer._latlng, 10);
 					layer.fire('click')}
-			treemap_click = null;
-			layer=null;}
+					treemap_click = null;
+					layer=null;
+					console.log(treemap_click);
+				}
+					
 			}
 
 			if (treemapcurrValue){
@@ -421,13 +426,20 @@ class LeafletMap extends Component {
 			}
 
 			if(treemapcurrValue !== treemapprevValue){
+				
 				let layer = this.treemap.getLayer(treemapcurrValue);
 				layer.fire('mouseover')
+					
 				if(treemapprevValue){
-				let layerprev = this.treemap.getLayer(treemapprevValue);
-				if(layerprev)
-				{layerprev.fire('mouseout')}
-			}
+
+					let layerprev = this.treemap.getLayer(treemapprevValue);
+						
+						if(layerprev){
+
+							layerprev.fire('mouseout')
+
+						}
+				}
 			}
 		}
 

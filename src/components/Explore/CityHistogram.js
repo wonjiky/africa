@@ -280,12 +280,7 @@ class CityHistogram extends Component {
             selectedCountry
         } = this.props;
 
-
-
-
         const agglos = this.filterAgglosForHistogram(agglosData, selectedCountry);
-
-
 
         const PopulationData = agglos.map((d) => (
             {

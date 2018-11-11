@@ -119,6 +119,7 @@ class ExploreWrapper extends Component {
     }
 
     handleAgglosValueFromMap(d){
+        console.log(d);
         this.setState({
             origin:'map',
             selectedAgglos: d.value,
@@ -150,6 +151,7 @@ class ExploreWrapper extends Component {
     }
 
     render() {
+        console.log(this.state.selectedAgglos);
         return(
             <main className="explore_main-wrapper">
                 <div className="explore_map-wrapper">

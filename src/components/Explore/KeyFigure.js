@@ -49,7 +49,7 @@ class KeyFigure extends Component {
 	}
 
     render() {
-
+		
 		const { selectedCountry, countryData, selectedAgglos, agglosData } = this.props;
         if(selectedCountry || selectedAgglos){
 			return(

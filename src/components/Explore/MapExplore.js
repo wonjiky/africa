@@ -135,7 +135,8 @@ class LeafletMap extends Component {
 						this.agglos = L.geoJson(this.props.agglosGeo, {
 							onEachFeature: (feature, layer) => {
 								Size.push(feature.properties.Size_sel);
-								layer._leaflet_id = feature.properties.city_ID;
+								
+								layer._leaflet_id = feature.properties.City_ID;
 
 								layer.on('mouseover', (e) => {
 									e.target.setStyle(this.highlightAgglosStyle(feature))
@@ -156,7 +157,7 @@ class LeafletMap extends Component {
 								})
 
 								layer.on('click', (e) => {
-									const cityID = feature.properties.city_ID;
+									const cityID = feature.properties.City_ID;
 									const cityName = feature.properties.NAME;
 									const value = { value:cityID, label:cityName}
 									this.props.agglosValueToMap(value);
@@ -182,7 +183,7 @@ class LeafletMap extends Component {
 						const ISO3_NAME = feature.properties.NAME_EN;
 						const e = { value: ISO3_ID, label:ISO3_NAME}
 						this.props.sendCountryValueToContent(e);
-						
+
 					});
 
 					layer._leaflet_id = feature.properties.ID;

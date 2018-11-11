@@ -174,6 +174,7 @@ class ExploreWrapper extends Component {
                     <ExploreMixer 
                         sizeArray={this.state.sizeArray} 
                         timeSliderRange={this.state.timeSliderRange}
+                        timeSliderValue={this.state.timeSliderValue}
                         handleSliderValue={this.handleSliderValue.bind(this)}
                     />
                     <ExploreContent

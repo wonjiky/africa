@@ -177,7 +177,7 @@ class ExploreContent extends Component {
                 <Tabs className="tab-wrapper" selectedIndex={this.state.selectedIndex} onSelect={this.handleSelect}>
                     <TabList>
                         <Tab>Single Select</Tab>
-                        <Tab>Compare Countries</Tab>
+                        <Tab>Compare</Tab>
                     </TabList>
                        
                     <TabPanel>

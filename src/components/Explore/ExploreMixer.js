@@ -94,7 +94,7 @@ class ExploreMixer extends Component {
     }
 
     render() {
-
+        console.log(this.props.timeSliderValue)
         const renderLenged = this.legend(this.props.sizeArray); 
         return(
             <div className="explore_mixer-wrapper">
@@ -103,10 +103,10 @@ class ExploreMixer extends Component {
                         <li>
                             <h6> Timeslider </h6>
                             <p>Use slider to toggle view of different years</p>
-                            <br/><br/>
+                            <p><span>{this.props.timeSliderValue}</span></p>
+                            
                             <StepRangeSlider
                                 value={2015}
-                                // range={range}
                                 range={this.props.timeSliderRange}
                                 onChange={value => this.props.handleSliderValue(value)}
                             />

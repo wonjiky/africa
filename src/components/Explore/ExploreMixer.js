@@ -106,7 +106,6 @@ class ExploreMixer extends Component {
                                 value={2015}
                                 range={this.props.timeSliderRange}
                                 onChange={value => this.props.handleSliderValue(value)}
-                                // disabled={this.props.selectedCountry ? true : false}
                             />
                             <hr/>
                         </li>

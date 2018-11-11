@@ -113,7 +113,7 @@ class LeafletMap extends Component {
 			let currCountryValue = selectedCountry;
 			let prevCountryValue = prevProps.selectedCountry;
 			let currAgglosValue = selectedAgglos;
-			let prevAgglosValue = prevProps.seectedAgglos;
+			let prevAgglosValue = prevProps.selectedAgglos;
 			let Size = []
 
 			this.mapOverlay = L.geoJson(this.props.africaContinent, {
@@ -150,7 +150,7 @@ class LeafletMap extends Component {
 
 								layer.on('mouseout', (e) => {
 									e.target.setStyle(this.defaultAgglosStyle(feature))
-																	})
+								})
 
 								layer.on('change', () => {
 									e.target.setStyle(this.selectedAgglosStyle())
@@ -183,10 +183,10 @@ class LeafletMap extends Component {
 						const ISO3_NAME = feature.properties.NAME_EN;
 						const e = { value: ISO3_ID, label:ISO3_NAME}
 						this.props.sendCountryValueToContent(e);
-
 					});
 
 					layer._leaflet_id = feature.properties.ID;
+				
 				}
 			})
 			this.mapOverlay.addTo(this.state.map);
@@ -203,9 +203,10 @@ class LeafletMap extends Component {
 				agglosLayer.fire('click');
 			}
 
-			if (this.props.timeSliderValue !== prevProps.timeSliderValue)
-			{let layer = this.mapOverlay.getLayer(currCountryValue);
-			layer.fire('change')}
+			if (this.props.timeSliderValue !== prevProps.timeSliderValue){
+				let layer = this.mapOverlay.getLayer(currCountryValue);
+				layer.fire('change')
+		}
 
 	}
 

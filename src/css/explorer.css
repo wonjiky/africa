@@ -178,6 +178,7 @@ button.accordion {
     cursor: pointer;
     border:none;
     padding:0;
+    background: none;
     text-align: left;
     display:flex;
     justify-content: space-between;
@@ -294,7 +295,7 @@ button.accordion {
 /* TABS */
 .tab-wrapper {
     width:70%;
-    min-width:70%;
+    min-width:400px;
     padding: 15% 20px 0 20px;
 }
 
@@ -401,4 +402,11 @@ and (max-width: 768px) {
         flex:1;
         justify-content:flex-end;
       }
+
+    /* Explore Content */ 
+
+    .tab-wrapper {
+        width:100%;
+    }
+    
 }

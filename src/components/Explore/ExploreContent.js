@@ -171,7 +171,7 @@ class ExploreContent extends Component {
         const agglosList = this.filterAgglos(agglosData, selectedCountry);
         const displayCountry = this.displayCountry(selectedCountry, countryData);
         const displayAgglos = this.displayAgglos(selectedAgglos, agglosData);
-
+        
         return(
             <div className="explore_content-container">
                 <Tabs className="tab-wrapper" selectedIndex={this.state.selectedIndex} onSelect={this.handleSelect}>

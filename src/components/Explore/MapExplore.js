@@ -25,7 +25,8 @@ config.params = {
 	maxBounds:mybounds,
 	opacity:0,
   	defaultExtentControl: true,
-	measureControl:true
+	measureControl:true,
+
 
 };
 config.tileLayer = {
@@ -42,12 +43,17 @@ class LeafletMap extends Component {
 		this.state = {
 			map: null,
 			tileLayer: null,
+			firstLayer: null,
+			secondLayer: null,
+			selected_first: null,
+            selected_second: null,
 		};
 		this.agglos_pointToLayer = this.agglos_pointToLayer.bind(this);
 		this.agglos_cityFilter = this.agglos_cityFilter.bind(this);
 		this.placeHolder_filter = this.placeHolder_filter.bind(this);
 		this.hoverStyle = this.hoverStyle.bind(this);
 		this.selectedStyle = this.selectedStyle.bind(this);
+		this.secondStyle = this.secondStyle.bind(this);
 		this.selectedAgglosStyle = this.selectedAgglosStyle.bind(this);
 	}
 
@@ -91,6 +97,15 @@ class LeafletMap extends Component {
 		});
 	}
 
+	secondStyle(layer){
+		layer.setStyle({
+			weight : 3,
+			color: '#E8AE40',
+			stroke:true,
+			fillOpacity: 0,
+		});
+	}
+
 	hoverStyle(){
 		return({
 			color: '#E8AE40',
@@ -100,7 +115,53 @@ class LeafletMap extends Component {
 		})
 	}
 
+
+
 	componentDidUpdate(prevProps, prevState){
+		// var selected_first=null;
+		// var selected_second=null;
+
+		// this.markerGroup = L.geoJson(this.props.africaContinent,{
+		// 	style: () => {return {color: 'transparent'}},
+		// 	onEachFeature: (feature, layer) => {
+		// 		layer.on('click', (e) => {
+		// 			// ***** ORIGINAL
+		// 			if (selected_second !== null) {
+		// 				this.markerGroup.resetStyle(selected_first);
+		// 				this.markerGroup.resetStyle(selected_second);
+		// 				selected_first = null;
+		// 				selected_second = null;
+		// 			}
+
+		// 			if (selected_first !== null && selected_first._leaflet_id !== layer._leaflet_id) {
+		// 				layer.setStyle(this.hoverStyle());
+		// 				selected_second = layer;
+		// 				const first_ID = selected_first.feature.properties.ID;
+		// 				const second_ID = selected_second.feature.properties.ID;
+		// 				// this.props.secondValueToMap(second_ID);
+		// 				const pair = { first: first_ID, second: second_ID}
+		// 				this.props.handleValues(pair)
+		// 			}
+
+		// 			if (selected_first === null && selected_second === null){
+		// 				// layer.bringToFront();
+		// 				this.selectedStyle(e.target);
+		// 				selected_first = layer;
+		// 				const first_ID = selected_first.feature.properties.ID;
+		// 				// this.props.firstValueToMap(first_ID);
+		// 			}			
+		// 		});
+		// 	}
+		// });
+		// this.markerGroup.addTo(this.state.map);
+		// this.state.map.addLayer(this.markerGroup);
+		
+		// else if (currCountryValue !== prevCountryValue && currCountryValue === ''){
+		// 	this.placeHolder.clearLayers();
+		// }
+
+		// @@@@@@@@@@@@@@@@@@@@@@@@ SINGLE SELECT FUNCTION @@@@@@@@@@@@@@@@@@@@@@//
+
 			let {selectedCountry,selectedAgglos} = this.props;
 			let value = this.props.timeSliderValue
 			for(var i = 0; i < 7447; ++i) {
@@ -188,7 +249,7 @@ class LeafletMap extends Component {
 					layer._leaflet_id = feature.properties.ID;
 				
 				}
-			})
+			});
 			this.mapOverlay.addTo(this.state.map);
 
 			if(currCountryValue !== prevCountryValue && currCountryValue !== ''){

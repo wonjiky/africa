@@ -225,7 +225,7 @@ and (max-width: 768px) {
   and (orientation: portrait) 
   and (-webkit-min-device-pixel-ratio: 2) {
     .home_content-wrapper {
-        background: lightgreen;
+        /* background: lightgreen; */
     }
 }
 

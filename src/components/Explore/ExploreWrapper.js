@@ -28,7 +28,7 @@ class ExploreWrapper extends Component {
             searchOption: 0,
             firstCompareValue: null,
             secondCompareValue: null,
-       
+
         };
         this.handleCountryValueFromMap = this.handleCountryValueFromMap.bind(this);
         this.handleCountryValueFromSearch = this.handleCountryValueFromSearch.bind(this);
@@ -36,6 +36,8 @@ class ExploreWrapper extends Component {
         this.handleAgglosValueFromSearch = this.handleAgglosValueFromSearch.bind(this);
         this.handleSizeArray=this.handleSizeArray.bind(this);
         this.handleTabIndex = this.handleTabIndex.bind(this);
+        this.firstCompareValue = this.firstCompareValue.bind(this);
+        this.secondCompareValue = this.secondCompareValue.bind(this);
     }
 
     // componentDidUpdate(preProps, prevState) {
@@ -226,7 +228,7 @@ class ExploreWrapper extends Component {
 			return {accordionOpen: !prevState.accordionOpen}
         });
     };
-    
+
     handleSliderValue(e) {
         this.setState({
             timeSliderValue: e
@@ -261,7 +263,8 @@ class ExploreWrapper extends Component {
                         selectedAgglos={this.state.selectedAgglos}
                         searchOption={this.state.searchOption}
                         compareValue={this.state.compareValue}
-                        selected_first={this.state.selected_first}
+                        firstCompareValue={this.state.firstCompareValue}
+                        secondCompareValue={this.state.secondCompareValue}
 
                         //data from Map
                         sendCountryValueToContent={this.handleCountryValueFromMap}
@@ -273,8 +276,8 @@ class ExploreWrapper extends Component {
                     />
                 </div>
                 <div className="explore_content-wrapper">
-                    <ExploreMixer 
-                        sizeArray={this.state.sizeArray} 
+                    <ExploreMixer
+                        sizeArray={this.state.sizeArray}
                         timeSliderRange={this.state.timeSliderRange}
                         timeSliderValue={this.state.timeSliderValue}
                         handleSliderValue={this.handleSliderValue.bind(this)}

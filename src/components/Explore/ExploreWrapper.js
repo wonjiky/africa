@@ -36,8 +36,8 @@ class ExploreWrapper extends Component {
         this.handleAgglosValueFromSearch = this.handleAgglosValueFromSearch.bind(this);
         this.handleSizeArray=this.handleSizeArray.bind(this);
         this.handleTabIndex = this.handleTabIndex.bind(this);
-        this.firstCompareValue = this.firstCompareValue.bind(this);
-        this.secondCompareValue = this.secondCompareValue.bind(this);
+        // this.firstCompareValue = this.firstCompareValue.bind(this);
+        // this.secondCompareValue = this.secondCompareValue.bind(this);
     }
 
     // componentDidUpdate(preProps, prevState) {
@@ -241,12 +241,7 @@ class ExploreWrapper extends Component {
         })
     }
 
-    truth(agglos, country){
-        // console.log(agglos, country)
-    }
-
     render() {
-        const truthFilter = this.truth(this.state.selectedAgglos, this.state.selectedCountry);
         // console.log(truthFilter);
         return(
             <main className="explore_main-wrapper">

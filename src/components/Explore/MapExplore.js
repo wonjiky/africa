@@ -74,7 +74,6 @@ class LeafletMap extends Component {
 		this.placeHolder = L.featureGroup();
 		this.placeHolder.addTo(map);
 
-
 		const printer = L.easyPrint({
       		sizeModes: ['Current'],
       		filename: 'Africapolis',
@@ -120,64 +119,64 @@ class LeafletMap extends Component {
 
 	componentDidUpdate(prevProps, prevState){
 
-		var selected_first=null;
-		var selected_second=null;
-		this.placeHolder.clearLayers();
+		// var selected_first=null;
+		// var selected_second=null;
+		// this.placeHolder.clearLayers();
 
-		this.select1 = L.geoJson(this.props.africaContinent,{
-			style: () => {return {color: 'transparent'}},
-			onEachFeature: (feature, layer) => {
-				layer.on('click', (e) => {
+		// this.select1 = L.geoJson(this.props.africaContinent,{
+		// 	style: () => {return {color: 'transparent'}},
+		// 	onEachFeature: (feature, layer) => {
+		// 		layer.on('click', (e) => {
 
-						selected_first = layer;
-						const first_ID = selected_first.feature.properties.ID;
-						// this.props.firstValueToMap(first_ID);
-						// console.log(selected_second)
-						 this.props.firstValueToMap(first_ID);
-						 //this.select2.resetStyle(selected_first);
-						 	// console.log('pass1')
-							// layer.fire('change')
-					});
+		// 				selected_first = layer;
+		// 				const first_ID = selected_first.feature.properties.ID;
+		// 				// this.props.firstValueToMap(first_ID);
+		// 				// console.log(selected_second)
+		// 				 this.props.firstValueToMap(first_ID);
+		// 				 //this.select2.resetStyle(selected_first);
+		// 				 	// console.log('pass1')
+		// 					// layer.fire('change')
+		// 			});
 
-				layer.on('change', (e) => {
+		// 		layer.on('change', (e) => {
 
-					this.selectedStyle(e.target);
-					this.select2 = L.geoJson(this.props.africaContinent,{
-						style: () => {return {color: 'transparent'}},
-						onEachFeature: (feature, layer) => {
+		// 			this.selectedStyle(e.target);
+		// 			this.select2 = L.geoJson(this.props.africaContinent,{
+		// 				style: () => {return {color: 'transparent'}},
+		// 				onEachFeature: (feature, layer) => {
 
-							layer.on('click', (e) => {
-								// ***** ORIGINAL
-								//console.log(selected_second._leaflet_id)
+		// 					layer.on('click', (e) => {
+		// 						// ***** ORIGINAL
+		// 						//console.log(selected_second._leaflet_id)
 
-								//if (layer._leaflet_id !== selected_first._leaflet_id) {
-									//this.select2.resetStyle(selected_second);
-									console.log('passsss')
-									selected_second = layer;
-								  const second_ID = selected_second.feature.properties.ID;
-									this.props.secondValueToMap(second_ID);
-							});
-
-
-							layer.on('change', (e) => {
-								layer.setStyle(this.hoverStyle());
-								//this.placeHolder.clearLayers();
-								//this.placeHolder.addLayer(this.select1);
-								console.log('pass4')
-							});
-
-						layer._leaflet_id = feature.properties.ID+"selB";
-
-						}
-					});
-					 this.placeHolder.addLayer(this.select2);
-			});
+		// 						//if (layer._leaflet_id !== selected_first._leaflet_id) {
+		// 							//this.select2.resetStyle(selected_second);
+		// 							console.log('passsss')
+		// 							selected_second = layer;
+		// 						  const second_ID = selected_second.feature.properties.ID;
+		// 							this.props.secondValueToMap(second_ID);
+		// 					});
 
 
-					layer._leaflet_id = feature.properties.ID+"selA";
-				}
-		});
-		this.placeHolder.addLayer(this.select1);
+		// 					layer.on('change', (e) => {
+		// 						layer.setStyle(this.hoverStyle());
+		// 						//this.placeHolder.clearLayers();
+		// 						//this.placeHolder.addLayer(this.select1);
+		// 						console.log('pass4')
+		// 					});
+
+		// 				layer._leaflet_id = feature.properties.ID+"selB";
+
+		// 				}
+		// 			});
+		// 			 this.placeHolder.addLayer(this.select2);
+		// 	});
+
+
+		// 			layer._leaflet_id = feature.properties.ID+"selA";
+		// 		}
+		// });
+		// this.placeHolder.addLayer(this.select1);
 
 
 
@@ -187,25 +186,24 @@ class LeafletMap extends Component {
 		// 	this.placeHolder.clearLayers();
 		// }
 
-		// @@@@@@@@@@@@@@@@@@@@@@@@ SINGLE SELECT FUNCTION @@@@@@@@@@@@@@@@@@@@@@//
-
 			let {selectedCountry,selectedAgglos,firstCompareValue,secondCompareValue } = this.props;
-
-
 			let value = this.props.timeSliderValue
-			for(var i = 0; i < 7447; ++i) {
-				if(this.props.agglosGeo[0]["features"][i]["properties"]["Size_sel"]) {
-					delete this.props.agglosGeo[0]["features"][i]["properties"]["Size_sel"];
-				}
-					Object.defineProperty(this.props.agglosGeo[0]["features"][i]["properties"], "Size_sel",
-					Object.getOwnPropertyDescriptor(this.props.agglosGeo[0]["features"][i]["properties"], "Size" + value));
-			}
 			let currCountryValue = selectedCountry;
 			let prevCountryValue = prevProps.selectedCountry;
 			let currAgglosValue = selectedAgglos;
 			let prevAgglosValue = prevProps.selectedAgglos;
 			let Size = []
+			
+			// ** Timeslider 
+			for(var i = 0; i < 7447; ++i) {
+				if(this.props.agglosGeo[0]["features"][i]["properties"]["Size_sel"]) {
+					delete this.props.agglosGeo[0]["features"][i]["properties"]["Size_sel"];
+				}
+				Object.defineProperty(this.props.agglosGeo[0]["features"][i]["properties"], "Size_sel",
+				Object.getOwnPropertyDescriptor(this.props.agglosGeo[0]["features"][i]["properties"], "Size" + value));
+			}
 
+			// ** Single Select
 			this.mapOverlay = L.geoJson(this.props.africaContinent, {
 				style: () => {return {color: 'transparent'}},
 				onEachFeature: (feature, layer) => {
@@ -254,10 +252,10 @@ class LeafletMap extends Component {
 									this.state.map.setView(layer._latlng, 12);
 
 									let popupContent = "<table>";//feature.properties.NAME
-											popupContent += "<tr></td><td class='data'>" + feature.properties.NAME + "</td></tr>";
+									popupContent += "<tr></td><td class='data'>" + feature.properties.NAME + "</td></tr>";
 									// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
-											popupContent += "</table>";
-										layer.bindPopup(popupContent,{closeButton:false}).openPopup();
+									popupContent += "</table>";
+									layer.bindPopup(popupContent,{closeButton:false}).openPopup();
 								})
 							},
 							filter: this.agglos_cityFilter,
@@ -275,14 +273,13 @@ class LeafletMap extends Component {
 						this.props.sendCountryValueToContent(e);
 					});
 
-
-
 					layer._leaflet_id = feature.properties.ID;
 
 				}
 			});
 			this.mapOverlay.addTo(this.state.map);
 
+			// ** Single select COUNTRY layer trigger
 			if(currCountryValue !== prevCountryValue && currCountryValue !== ''){
 				let layer = this.mapOverlay.getLayer(currCountryValue);
 				layer.fire('change')
@@ -290,27 +287,28 @@ class LeafletMap extends Component {
 				this.placeHolder.clearLayers();
 			}
 
+			// ** Single select AGGLOMERATION layer trigger
 			if (currAgglosValue !== prevAgglosValue && currAgglosValue !== ''){
 				let agglosLayer = this.agglos.getLayer(currAgglosValue)
 				agglosLayer.fire('click');
 			}
 
+			// ** Time slider trigger
 			if (this.props.timeSliderValue !== prevProps.timeSliderValue){
 				let layer = this.mapOverlay.getLayer(currCountryValue);
 				layer.fire('change')
-		}
+			}
 
-
+			// ** Compare FIRST value trigger  
 			if (firstCompareValue)
 			{let layer = this.select1.getLayer(firstCompareValue+"selA");
 			layer.fire('change')
-			console.log('pass3')
 			}
-
+			
+			// ** Compare SECOND value trigger
 			if (secondCompareValue)
 			{let layer = this.select2.getLayer(secondCompareValue+"selB");
 			layer.fire('change')
-			console.log('pass5')
 			}
 	}
 

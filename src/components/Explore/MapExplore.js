@@ -46,7 +46,7 @@ class LeafletMap extends Component {
 			firstLayer: null,
 			secondLayer: null,
 			selected_first: null,
-            selected_second: null,
+      selected_second: null,
 		};
 		this.agglos_pointToLayer = this.agglos_pointToLayer.bind(this);
 		this.agglos_cityFilter = this.agglos_cityFilter.bind(this);
@@ -73,6 +73,7 @@ class LeafletMap extends Component {
 
 		this.placeHolder = L.featureGroup();
 		this.placeHolder.addTo(map);
+
 
 		const printer = L.easyPrint({
       		sizeModes: ['Current'],
@@ -118,51 +119,79 @@ class LeafletMap extends Component {
 
 
 	componentDidUpdate(prevProps, prevState){
-		// var selected_first=null;
-		// var selected_second=null;
 
-		// this.markerGroup = L.geoJson(this.props.africaContinent,{
-		// 	style: () => {return {color: 'transparent'}},
-		// 	onEachFeature: (feature, layer) => {
-		// 		layer.on('click', (e) => {
-		// 			// ***** ORIGINAL
-		// 			if (selected_second !== null) {
-		// 				this.markerGroup.resetStyle(selected_first);
-		// 				this.markerGroup.resetStyle(selected_second);
-		// 				selected_first = null;
-		// 				selected_second = null;
-		// 			}
+		var selected_first=null;
+		var selected_second=null;
+		this.placeHolder.clearLayers();
 
-		// 			if (selected_first !== null && selected_first._leaflet_id !== layer._leaflet_id) {
-		// 				layer.setStyle(this.hoverStyle());
-		// 				selected_second = layer;
-		// 				const first_ID = selected_first.feature.properties.ID;
-		// 				const second_ID = selected_second.feature.properties.ID;
-		// 				// this.props.secondValueToMap(second_ID);
-		// 				const pair = { first: first_ID, second: second_ID}
-		// 				this.props.handleValues(pair)
-		// 			}
+		this.select1 = L.geoJson(this.props.africaContinent,{
+			style: () => {return {color: 'transparent'}},
+			onEachFeature: (feature, layer) => {
+				layer.on('click', (e) => {
 
-		// 			if (selected_first === null && selected_second === null){
-		// 				// layer.bringToFront();
-		// 				this.selectedStyle(e.target);
-		// 				selected_first = layer;
-		// 				const first_ID = selected_first.feature.properties.ID;
-		// 				// this.props.firstValueToMap(first_ID);
-		// 			}			
-		// 		});
-		// 	}
-		// });
-		// this.markerGroup.addTo(this.state.map);
-		// this.state.map.addLayer(this.markerGroup);
-		
+						selected_first = layer;
+						const first_ID = selected_first.feature.properties.ID;
+						// this.props.firstValueToMap(first_ID);
+						// console.log(selected_second)
+						 this.props.firstValueToMap(first_ID);
+						 //this.select2.resetStyle(selected_first);
+						 	// console.log('pass1')
+							// layer.fire('change')
+					});
+
+				layer.on('change', (e) => {
+
+					this.selectedStyle(e.target);
+					this.select2 = L.geoJson(this.props.africaContinent,{
+						style: () => {return {color: 'transparent'}},
+						onEachFeature: (feature, layer) => {
+
+							layer.on('click', (e) => {
+								// ***** ORIGINAL
+								//console.log(selected_second._leaflet_id)
+
+								//if (layer._leaflet_id !== selected_first._leaflet_id) {
+									//this.select2.resetStyle(selected_second);
+									console.log('passsss')
+									selected_second = layer;
+								  const second_ID = selected_second.feature.properties.ID;
+									this.props.secondValueToMap(second_ID);
+							});
+
+
+							layer.on('change', (e) => {
+								layer.setStyle(this.hoverStyle());
+								//this.placeHolder.clearLayers();
+								//this.placeHolder.addLayer(this.select1);
+								console.log('pass4')
+							});
+
+						layer._leaflet_id = feature.properties.ID+"selB";
+
+						}
+					});
+					 this.placeHolder.addLayer(this.select2);
+			});
+
+
+					layer._leaflet_id = feature.properties.ID+"selA";
+				}
+		});
+		this.placeHolder.addLayer(this.select1);
+
+
+
+
+
 		// else if (currCountryValue !== prevCountryValue && currCountryValue === ''){
 		// 	this.placeHolder.clearLayers();
 		// }
 
 		// @@@@@@@@@@@@@@@@@@@@@@@@ SINGLE SELECT FUNCTION @@@@@@@@@@@@@@@@@@@@@@//
 
-			let {selectedCountry,selectedAgglos} = this.props;
+			let {selectedCountry,selectedAgglos,firstCompareValue,secondCompareValue } = this.props;
+
+
 			let value = this.props.timeSliderValue
 			for(var i = 0; i < 7447; ++i) {
 				if(this.props.agglosGeo[0]["features"][i]["properties"]["Size_sel"]) {
@@ -196,7 +225,7 @@ class LeafletMap extends Component {
 						this.agglos = L.geoJson(this.props.agglosGeo, {
 							onEachFeature: (feature, layer) => {
 								Size.push(feature.properties.Size_sel);
-								
+
 								layer._leaflet_id = feature.properties.City_ID;
 
 								layer.on('mouseover', (e) => {
@@ -246,8 +275,10 @@ class LeafletMap extends Component {
 						this.props.sendCountryValueToContent(e);
 					});
 
+
+
 					layer._leaflet_id = feature.properties.ID;
-				
+
 				}
 			});
 			this.mapOverlay.addTo(this.state.map);
@@ -269,6 +300,18 @@ class LeafletMap extends Component {
 				layer.fire('change')
 		}
 
+
+			if (firstCompareValue)
+			{let layer = this.select1.getLayer(firstCompareValue+"selA");
+			layer.fire('change')
+			console.log('pass3')
+			}
+
+			if (secondCompareValue)
+			{let layer = this.select2.getLayer(secondCompareValue+"selB");
+			layer.fire('change')
+			console.log('pass5')
+			}
 	}
 
 	placeHolder_filter(feature) {

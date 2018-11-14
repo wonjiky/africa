@@ -36,183 +36,54 @@ class ExploreWrapper extends Component {
         this.handleAgglosValueFromSearch = this.handleAgglosValueFromSearch.bind(this);
         this.handleSizeArray=this.handleSizeArray.bind(this);
         this.handleTabIndex = this.handleTabIndex.bind(this);
-        // this.firstCompareValue = this.firstCompareValue.bind(this);
-        // this.secondCompareValue = this.secondCompareValue.bind(this);
     }
 
-    // componentDidUpdate(preProps, prevState) {
-    //     if(prevState.searchOption !== this.state.searchOption){
-    //             this.setState({
-    //                 origin: '',
-    //                 selectedAgglos: '',
-    //                 selectedCountry: '',
-    //                 timeSliderValue: 2015,
-    //                 sizeArray: '',
-    //                 timeSliderRange: [
-    //                     { value: 1950, step: 10 },
-    //                     { value: 1960, step: 10 },
-    //                     { value: 1970, step: 10 },
-    //                     { value: 1980, step: 10 },
-    //                     { value: 1990, step: 10 },
-    //                     { value: 2000, step: 10 },
-    //                     { value: 2010, step: 5 },
-    //                     { value: 2015 }
-    //                 ],
-    //             })
-    //         }
-    //     }
-
-
-    // handleAgglosValueFromSearch(c){
-    //     let selectedCountry = c === null ? '' : c.countryID
-    //     let selected = c === null ? '' : c.value
-    //     let value = c === null ? '' : c
-    //     let selectedIsArray = selected === null ? false : value.constructor === Array;
-
-    //     if(selectedIsArray){
-    //         this.setState({
-    //             origin:'search',
-    //             selectedAgglos: '',
-    //         })
-    //     }else{
-    //         this.setState({
-    //             origin:'search',
-    //             selectedCountry: selectedCountry,
-    //             selectedAgglos: selected,
-    //         })
-    //     }
-    // }
-
-    // filterAgglos(data, selectedCountry){
-    //     const sortedAgglosList = data.sort((a, b) => a.cityName.localeCompare(b.cityName))
-    //     if(selectedCountry){
-    //         const agglosValue = sortedAgglosList.filter(u => (u.ID === selectedCountry))
-    //         const filteredAgglosList = agglosValue.map((a,i) => ({value: a.City_ID, label: a.cityName, countryID: a.ID}))
-    //         return(
-    //             filteredAgglosList
-    //         )
-    //     }else{
-    //         return(
-    //             sortedAgglosList.map((a,i) => ({
-    //                 value: a.City_ID, label: a.cityName, countryID: a.ID
-    //         })))
-    //     }
-    // }
-
-    // componentDidUpdate(){
-    //     console.log(this.state.selectedAgglos);
-    //     console.log(this.state.selectedCountry);
-    // }
-
-    // shouldComponentUpdate(prevState){
-    //     if(this.state.selectedCountry !== prevState.selectedCountry){
-    //         return true;
-    //     }
-
-    //     if(this.state.selectedCountry === prevState.selectedCountry){
-    //         return false;
-    //     }
-    // }
-
-    // componentDidUpdate(prevState){
-    //     if(this.state.selectedCountry !== prevState.selectedCountry){
-    //         // this.setState({
-    //         //     selectedAgglos: null
-    //         // })
-    //         console.log('hi')
-    //     }
-    // }
+    componentDidUpdate(preProps, prevState) {
+        if(prevState.searchOption !== this.state.searchOption){
+                this.setState({
+                    origin: '',
+                    selectedAgglos: '',
+                    selectedCountry: '',
+                    timeSliderValue: 2015,
+                    sizeArray: '',
+                    timeSliderRange: [
+                        { value: 1950, step: 10 },
+                        { value: 1960, step: 10 },
+                        { value: 1970, step: 10 },
+                        { value: 1980, step: 10 },
+                        { value: 1990, step: 10 },
+                        { value: 2000, step: 10 },
+                        { value: 2010, step: 5 },
+                        { value: 2015 }
+                    ],
+                })
+            }
+        }
 
     handleCountryValueFromSearch(a){
-        let selectedValue = a === null ? '' : a.value;        
-        if(this.state.selectedCountry === null || this.state.selectedCountry === ''){
-            this.setState({
-                selectedCountry: selectedValue
-            })
-        }else if(this.state.selectedCountry !== null) {
-            this.setState({
-                selectedCountry: selectedValue,
-                // selectedAgglos: ''
-            })
+        if(a !== null){
+            if(a.value !== this.state.selectedCountry){
+                this.setState({selectedAgglos: ''})
+            }
         }
-        
-
-        
-
-        // let selected = a === null ? '' : a.value
-        // let value = a === null ? '' : a
-        // let selectedIsArray = selected === null ? false : value.constructor === Array;
-        // if(selectedIsArray === true){
-        //     this.setState({
-        //         selectedCountry: '',
-        //         selectedAgglos: '',
-        //     })
-        // }else{
-        //     this.setState({
-        //         selectedCountry: selected,
-        //     })
-        // }
+        let selectedValue = a === null ? '' : a.value;        
+        this.setState({ selectedCountry: selectedValue})
     }
 
     handleAgglosValueFromSearch(c){
         let country = c === null ? this.state.selectedCountry : c.countryID
         let selectedValue = c === null ? '' : c.value
-        console.log(this.state.selectedCountry);
-        if(this.state.selectedAgglos === null || this.state.selectedAgglos === ''){
-            this.setState({
-                selectedCountry: country,
-                selectedAgglos: selectedValue
-            })
-
-            console.log('agglo and country update')
-        }else if(this.state.selectedAgglos !== null && this.state.selectedCountry !== null) {
-            this.setState({
-                selectedAgglos: selectedValue
-            })
-            console.log('only agglo updates')
-        }
-        // let value = c === null ? '' : c
-        // let selectedIsArray = selected === null ? false : value.constructor === Array;
-        // if(selectedIsArray){
-        //     this.setState({
-        //         // origin:'search',
-        //         selectedAgglos: '',
-        //     })
-        // }else{
-        //     this.setState({
-        //         // origin:'search',
-        //         selectedCountry: selectedCountry,
-        //         selectedAgglos: selected,
-        //     })
-        // }
-    }
-
-    filterAgglos(data, selectedCountry){
-        const sortedAgglosList = data.sort((a, b) => a.cityName.localeCompare(b.cityName))
-        if(selectedCountry){
-            const agglosValue = sortedAgglosList.filter(u => (u.ID === selectedCountry))
-            const filteredAgglosList = agglosValue.map((a,i) => ({value: a.City_ID, label: a.cityName, countryID: a.ID}))
-            return(
-                filteredAgglosList
-            )
-        }else{
-            return(
-                sortedAgglosList.map((a,i) => ({
-                    value: a.City_ID, label: a.cityName, countryID: a.ID
-            })))
-        }
+        this.setState({selectedAgglos:selectedValue, selectedCountry: country})
     }
 
     handleCountryValueFromMap(e){
         this.setState({
-            // origin:'map',
             selectedCountry: e.value,
         })
     }
 
     handleAgglosValueFromMap(d){
         this.setState({
-            // origin:'map',
             selectedAgglos: d.value,
         })
     }
@@ -242,7 +113,9 @@ class ExploreWrapper extends Component {
     }
 
     render() {
-        // console.log(truthFilter);
+        if(this.state.selectedCountry === '') {
+            // console.log('hi');
+        }
         return(
             <main className="explore_main-wrapper">
                 <div className="explore_map-wrapper">

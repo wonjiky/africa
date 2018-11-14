@@ -50,8 +50,7 @@ class KeyFigure extends Component {
 
     render() {
 		const { selectedCountry, countryData, selectedAgglos, agglosData } = this.props;
-
-        if(selectedCountry || selectedAgglos){
+        if((selectedCountry || selectedAgglos) && (selectedCountry !== '')){
 			return(
 				<div className="histogram_container">
 					<div className="explore_country-wrapper">
@@ -61,6 +60,8 @@ class KeyFigure extends Component {
 							countryData={countryData} 
 							valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}
 							timeSliderValue = {this.props.timeSliderValue}
+							selectedAgglos={selectedAgglos}
+							agglosData={agglosData}
 						/>
 					</div>
 					<div className="explore_agglos-wrapper">
@@ -70,15 +71,12 @@ class KeyFigure extends Component {
 							 countryData={countryData} 
 							 agglosData={agglosData}
 							 valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}
-							//  valueFromCityHistogram={this.valueFromCityHistogram.bind(this)}
 						/>
 					</div>
 				</div>
 			);
 		}else{
-			return(
-				<div></div>
-		  );
+			return <div></div>
 		}
     }
 }

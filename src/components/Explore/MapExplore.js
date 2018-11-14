@@ -149,13 +149,14 @@ class LeafletMap extends Component {
 		// 						// ***** ORIGINAL
 		// 						//console.log(selected_second._leaflet_id)
 
-		// 						//if (layer._leaflet_id !== selected_first._leaflet_id) {
-		// 							//this.select2.resetStyle(selected_second);
-		// 							console.log('passsss')
-		// 							selected_second = layer;
-		// 						  const second_ID = selected_second.feature.properties.ID;
-		// 							this.props.secondValueToMap(second_ID);
-		// 					});
+							// layer.on('change', (e) => {
+							// 	layer.setStyle(this.hoverStyle());
+							// 	//this.placeHolder.clearLayers();
+							// 	//this.placeHolder.addLayer(this.select1);
+							// 	console.log('pass4')
+							// 	this.placeHolder.removeLayer(this.select1);
+							// 	this.placeHolder.addLayer(this.select1);
+							// });
 
 
 		// 					layer.on('change', (e) => {

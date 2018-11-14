@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import  KeyFigure  from './KeyFigure';
+import KeyFigure  from './KeyFigure';
 import Select from "react-select";
 import { FixedSizeList as List } from "react-window";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -48,7 +48,6 @@ class ExploreContent extends Component {
     filterAgglos(data, selectedCountry){
 
         const sortedAgglosList = data.sort((a, b) => a.cityName.localeCompare(b.cityName))
-
         if(selectedCountry){
             const agglosValue = sortedAgglosList.filter(u => (u.ID === selectedCountry))
             const filteredAgglosList = agglosValue.map((a,i) => ({value: a.City_ID, label: a.cityName, countryID: a.ID}))
@@ -71,6 +70,7 @@ class ExploreContent extends Component {
     }
 
     displayCountry(selectedCountry, data){
+        
         const list = data.find(u => u.ID === selectedCountry);
         if(selectedCountry){
             return(
@@ -79,13 +79,16 @@ class ExploreContent extends Component {
         }
     }
 
-    displayAgglos(selectedAgglos, data){
-        
+    displayAgglos(selectedAgglos, data,selectedCountry){
+
         const list = data.find(u => u.City_ID === selectedAgglos);
-        if(selectedAgglos) {
+        
+        if(selectedAgglos && selectedCountry){
             return(
                 ({ value: list.City_ID, label: list.cityName})
             )
+        }else if (selectedCountry === '' || selectedAgglos === '') {
+            return null;
         }
     }
 
@@ -174,7 +177,7 @@ class ExploreContent extends Component {
         const agglosList = this.filterAgglos(agglosData, selectedCountry);
         const displayCountry = this.displayCountry(selectedCountry, countryData);
         const displayAgglos = this.displayAgglos(selectedAgglos, agglosData, selectedCountry);
-        
+        // console.log(selectedAgglos);
         return(
             <div className="explore_content-container">
                 <Tabs className="tab-wrapper" selectedIndex={this.state.selectedIndex} onSelect={this.handleSelect}>

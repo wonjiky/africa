@@ -359,7 +359,7 @@ class CityHistogram extends Component {
             ]
         }
         )).map(e => e.data);
-
+        // if(selectedAgglos === '') {console.log(' is : ', 'blank');}
         if(selectedAgglos && PopulationData.find(u => u.ID === selectedAgglos)){
             return(
                 <div className="histogram_country-wrapper">

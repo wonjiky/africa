@@ -117,7 +117,6 @@ class ExploreMixer extends Component {
                                 <h6>Urban Population</h6>
                                 <div className="legend-wrapper">{renderLenged}</div>
                             </li>
-
                         </ul>
                     </div>
                     <div className="home_mixer-download">

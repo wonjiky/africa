@@ -131,57 +131,48 @@ class LeafletMap extends Component {
 
 						selected_first = layer;
 						const first_ID = selected_first.feature.properties.ID;
-						// this.props.firstValueToMap(first_ID);
-						// console.log(selected_second)
 						 this.props.firstValueToMap(first_ID);
-						 //this.select2.resetStyle(selected_first);
-						 	// console.log('pass1')
-							// layer.fire('change')
+						 this.placeHolder.removeLayer(this.select2);
+ 						 this.placeHolder.addLayer(this.select2);
 					});
 
 				layer.on('change', (e) => {
-
 					this.selectedStyle(e.target);
-					this.select2 = L.geoJson(this.props.africaContinent,{
-						style: () => {return {color: 'transparent'}},
-						onEachFeature: (feature, layer) => {
-
-							layer.on('click', (e) => {
-								// ***** ORIGINAL
-								//console.log(selected_second._leaflet_id)
-
-								//if (layer._leaflet_id !== selected_first._leaflet_id) {
-									//this.select2.resetStyle(selected_second);
-									console.log('passsss')
-									selected_second = layer;
-								  const second_ID = selected_second.feature.properties.ID;
-									this.props.secondValueToMap(second_ID);
-							});
-
-
-							layer.on('change', (e) => {
-								layer.setStyle(this.hoverStyle());
-								//this.placeHolder.clearLayers();
-								//this.placeHolder.addLayer(this.select1);
-								console.log('pass4')
-								this.placeHolder.removeLayer(this.select1);
-								this.placeHolder.addLayer(this.select1);
-							});
-
-						layer._leaflet_id = feature.properties.ID+"selB";
-
-						}
-					});
-					 this.placeHolder.addLayer(this.select2);
+					console.log('passsing')
 			});
 
 
 					layer._leaflet_id = feature.properties.ID+"selA";
 				}
 		});
-		this.placeHolder.addLayer(this.select1);
 
 
+
+		this.select2 = L.geoJson(this.props.africaContinent,{
+			style: () => {return {color: 'transparent'}},
+			onEachFeature: (feature, layer) => {
+
+				layer.on('click', (e) => {
+
+						selected_second = layer;
+						const second_ID = selected_second.feature.properties.ID;
+						this.props.secondValueToMap(second_ID);
+						this.placeHolder.removeLayer(this.select1);
+						this.placeHolder.addLayer(this.select1);
+				});
+
+
+				layer.on('change', (e) => {
+					layer.setStyle(this.hoverStyle());
+					console.log('pass4')
+				});
+
+			layer._leaflet_id = feature.properties.ID+"selB";
+
+			}
+		});
+		 this.placeHolder.addLayer(this.select1);
+		 this.placeHolder.addLayer(this.select2);
 
 
 
@@ -304,15 +295,13 @@ class LeafletMap extends Component {
 
 
 			if (firstCompareValue)
-			{let layer = this.select1.getLayer(firstCompareValue+"selA");
-			layer.fire('change')
-			console.log('pass3')
+			{let layer_selA = this.select1.getLayer(firstCompareValue+"selA");
+			layer_selA.fire('change')
 			}
 
 			if (secondCompareValue)
-			{let layer = this.select2.getLayer(secondCompareValue+"selB");
-			layer.fire('change')
-			console.log('pass5')
+			{let layer_selB = this.select2.getLayer(secondCompareValue+"selB");
+			layer_selB.fire('change')
 			}
 	}
 

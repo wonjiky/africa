@@ -163,6 +163,7 @@ class LeafletMap extends Component {
 		// @@@@@@@@@@@@@@@@@@@@@@@@ SINGLE SELECT FUNCTION @@@@@@@@@@@@@@@@@@@@@@//
 
 			let {selectedCountry,selectedAgglos} = this.props;
+			// console.log('MAP :', selectedCountry, selectedAgglos);
 			let value = this.props.timeSliderValue
 			for(var i = 0; i < 7447; ++i) {
 				if(this.props.agglosGeo[0]["features"][i]["properties"]["Size_sel"]) {

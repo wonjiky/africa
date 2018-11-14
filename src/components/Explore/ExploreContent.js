@@ -80,6 +80,7 @@ class ExploreContent extends Component {
     }
 
     displayAgglos(selectedAgglos, data){
+        
         const list = data.find(u => u.City_ID === selectedAgglos);
         if(selectedAgglos) {
             return(
@@ -99,6 +100,7 @@ class ExploreContent extends Component {
                         value={displayCountry}
                         onChange={this.sendCountryValueToMap.bind(this)}
                         options={countryList}
+                        backspaceRemovesValue={false}
                         // styles={customStyles}
                         theme={(theme) => ({
                             ...theme,
@@ -114,13 +116,14 @@ class ExploreContent extends Component {
                 </div>
                 <div className="explore_search-agglos">
                     <Select
-                        placeholder="Select agglomeration"
+                        placeholder= "Select agglomeration"
                         isClearable={this.state.isClearable}
                         isSearchable={this.state.isSearchable}
                         value={displayAgglos}
                         components={{ MenuList }}
                         onChange={this.sendAgglosValueToMap.bind(this)}
                         options={agglosList}
+                        backspaceRemovesValue={false}
                         theme={(theme) => ({
                             ...theme,
                             borderRadius: 0,
@@ -170,7 +173,7 @@ class ExploreContent extends Component {
         const countryList = this.filterCountry(countryData);
         const agglosList = this.filterAgglos(agglosData, selectedCountry);
         const displayCountry = this.displayCountry(selectedCountry, countryData);
-        const displayAgglos = this.displayAgglos(selectedAgglos, agglosData);
+        const displayAgglos = this.displayAgglos(selectedAgglos, agglosData, selectedCountry);
         
         return(
             <div className="explore_content-container">

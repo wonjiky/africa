@@ -10,8 +10,8 @@ class ExploreWrapper extends Component {
         super(props);
         this.state = {
             // selectedCountry: null,
-            selectedCountry: '',
-            selectedAgglos: '',
+            selectedCountry: null,
+            selectedAgglos: null,
             origin: '',
             mapForSingleSelectIsMounted: false,
             timeSliderRange : [
@@ -38,64 +38,151 @@ class ExploreWrapper extends Component {
         this.handleTabIndex = this.handleTabIndex.bind(this);
     }
 
-    componentDidUpdate(preProps, prevState) {
-        if(prevState.searchOption !== this.state.searchOption){
-                this.setState({
-                    origin: '',
-                    selectedAgglos: '',
-                    selectedCountry: '',
-                    timeSliderValue: 2015,
-                    sizeArray: '',
-                    timeSliderRange: [
-                        { value: 1950, step: 10 },
-                        { value: 1960, step: 10 },
-                        { value: 1970, step: 10 },
-                        { value: 1980, step: 10 },
-                        { value: 1990, step: 10 },
-                        { value: 2000, step: 10 },
-                        { value: 2010, step: 5 },
-                        { value: 2015 }
-                    ],
-                })
-            }
-        }
+    // componentDidUpdate(preProps, prevState) {
+    //     if(prevState.searchOption !== this.state.searchOption){
+    //             this.setState({
+    //                 origin: '',
+    //                 selectedAgglos: '',
+    //                 selectedCountry: '',
+    //                 timeSliderValue: 2015,
+    //                 sizeArray: '',
+    //                 timeSliderRange: [
+    //                     { value: 1950, step: 10 },
+    //                     { value: 1960, step: 10 },
+    //                     { value: 1970, step: 10 },
+    //                     { value: 1980, step: 10 },
+    //                     { value: 1990, step: 10 },
+    //                     { value: 2000, step: 10 },
+    //                     { value: 2010, step: 5 },
+    //                     { value: 2015 }
+    //                 ],
+    //             })
+    //         }
+    //     }
+
+
+    // handleAgglosValueFromSearch(c){
+    //     let selectedCountry = c === null ? '' : c.countryID
+    //     let selected = c === null ? '' : c.value
+    //     let value = c === null ? '' : c
+    //     let selectedIsArray = selected === null ? false : value.constructor === Array;
+
+    //     if(selectedIsArray){
+    //         this.setState({
+    //             origin:'search',
+    //             selectedAgglos: '',
+    //         })
+    //     }else{
+    //         this.setState({
+    //             origin:'search',
+    //             selectedCountry: selectedCountry,
+    //             selectedAgglos: selected,
+    //         })
+    //     }
+    // }
+
+    // filterAgglos(data, selectedCountry){
+    //     const sortedAgglosList = data.sort((a, b) => a.cityName.localeCompare(b.cityName))
+    //     if(selectedCountry){
+    //         const agglosValue = sortedAgglosList.filter(u => (u.ID === selectedCountry))
+    //         const filteredAgglosList = agglosValue.map((a,i) => ({value: a.City_ID, label: a.cityName, countryID: a.ID}))
+    //         return(
+    //             filteredAgglosList
+    //         )
+    //     }else{
+    //         return(
+    //             sortedAgglosList.map((a,i) => ({
+    //                 value: a.City_ID, label: a.cityName, countryID: a.ID
+    //         })))
+    //     }
+    // }
+
+    // componentDidUpdate(){
+    //     console.log(this.state.selectedAgglos);
+    //     console.log(this.state.selectedCountry);
+    // }
+
+    // shouldComponentUpdate(prevState){
+    //     if(this.state.selectedCountry !== prevState.selectedCountry){
+    //         return true;
+    //     }
+
+    //     if(this.state.selectedCountry === prevState.selectedCountry){
+    //         return false;
+    //     }
+    // }
+
+    // componentDidUpdate(prevState){
+    //     if(this.state.selectedCountry !== prevState.selectedCountry){
+    //         // this.setState({
+    //         //     selectedAgglos: null
+    //         // })
+    //         console.log('hi')
+    //     }
+    // }
 
     handleCountryValueFromSearch(a){
-        let selected = a === null ? '' : a.value
-        let value = a === null ? '' : a
-        let selectedIsArray = selected === null ? false : value.constructor === Array;
-
-        if(selectedIsArray === true){
+        let selectedValue = a === null ? '' : a.value;        
+        if(this.state.selectedCountry === null || this.state.selectedCountry === ''){
             this.setState({
-                origin:'search',
-                selectedCountry: '',
+                selectedCountry: selectedValue
             })
-        }else{
+        }else if(this.state.selectedCountry !== null) {
             this.setState({
-                origin:'search',
-                selectedCountry: selected,
+                selectedCountry: selectedValue,
+                // selectedAgglos: ''
             })
         }
+        
+
+        
+
+        // let selected = a === null ? '' : a.value
+        // let value = a === null ? '' : a
+        // let selectedIsArray = selected === null ? false : value.constructor === Array;
+        // if(selectedIsArray === true){
+        //     this.setState({
+        //         selectedCountry: '',
+        //         selectedAgglos: '',
+        //     })
+        // }else{
+        //     this.setState({
+        //         selectedCountry: selected,
+        //     })
+        // }
     }
 
     handleAgglosValueFromSearch(c){
-        let selectedCountry = c === null ? '' : c.countryID
+        let country = c === null ? this.state.selectedCountry : c.countryID
+        let selectedValue = c === null ? '' : c.value
+        console.log(this.state.selectedCountry);
+        if(this.state.selectedAgglos === null || this.state.selectedAgglos === ''){
+            this.setState({
+                selectedCountry: country,
+                selectedAgglos: selectedValue
+            })
 
-        let selected = c === null ? '' : c.value
-        let value = c === null ? '' : c
-        let selectedIsArray = selected === null ? false : value.constructor === Array;
-        if(selectedIsArray){
+            console.log('agglo and country update')
+        }else if(this.state.selectedAgglos !== null && this.state.selectedCountry !== null) {
             this.setState({
-                origin:'search',
-                selectedAgglos: '',
+                selectedAgglos: selectedValue
             })
-        }else{
-            this.setState({
-                origin:'search',
-                selectedCountry: selectedCountry,
-                selectedAgglos: selected,
-            })
+            console.log('only agglo updates')
         }
+        // let value = c === null ? '' : c
+        // let selectedIsArray = selected === null ? false : value.constructor === Array;
+        // if(selectedIsArray){
+        //     this.setState({
+        //         // origin:'search',
+        //         selectedAgglos: '',
+        //     })
+        // }else{
+        //     this.setState({
+        //         // origin:'search',
+        //         selectedCountry: selectedCountry,
+        //         selectedAgglos: selected,
+        //     })
+        // }
     }
 
     filterAgglos(data, selectedCountry){
@@ -116,14 +203,14 @@ class ExploreWrapper extends Component {
 
     handleCountryValueFromMap(e){
         this.setState({
-            origin:'map',
+            // origin:'map',
             selectedCountry: e.value,
         })
     }
 
     handleAgglosValueFromMap(d){
         this.setState({
-            origin:'map',
+            // origin:'map',
             selectedAgglos: d.value,
         })
     }
@@ -152,30 +239,13 @@ class ExploreWrapper extends Component {
         })
     }
 
-    firstCompareValue = (d) => {
-        if(this.state.secondCompareValue === null){
-            return;
-        }else if(this.state.secondCompareValue !== null){
-            this.setState({
-                firstCompareValue:d
-            })
-        }
-    }
- 
-    secondCompareValue = (e) => {
-        this.setState({
-            secondCompareValue: e
-        })
-        console.log(this.state.firstCompareValue, this.state.secondCompareValue)
-    }
-
-    handleValues = e => {
-        console.log(e.first)
-        this.setState({hi:e})
-        console.log(this.state.hi);
+    truth(agglos, country){
+        // console.log(agglos, country)
     }
 
     render() {
+        const truthFilter = this.truth(this.state.selectedAgglos, this.state.selectedCountry);
+        // console.log(truthFilter);
         return(
             <main className="explore_main-wrapper">
                 <div className="explore_map-wrapper">
@@ -197,9 +267,9 @@ class ExploreWrapper extends Component {
                         sendCountryValueToContent={this.handleCountryValueFromMap}
                         agglosValueToMap={this.handleAgglosValueFromMap}
                         sizeArray={this.handleSizeArray}
-                        firstValueToMap={(d) => this.firstCompareValue(d)}
-                        secondValueToMap={(e) => this.secondCompareValue(e)}
-                        handleValues={e => this.handleValues(e)}
+                        // firstValueToMap={(d) => this.firstCompareValue(d)}
+                        // secondValueToMap={(e) => this.secondCompareValue(e)}
+                        // handleValues={e => this.handleValues(e)}
                     />
                 </div>
                 <div className="explore_content-wrapper">
@@ -208,6 +278,7 @@ class ExploreWrapper extends Component {
                         timeSliderRange={this.state.timeSliderRange}
                         timeSliderValue={this.state.timeSliderValue}
                         handleSliderValue={this.handleSliderValue.bind(this)}
+                        language={this.props.language}
                     />
                     <ExploreContent
                         //data to Content
@@ -215,13 +286,14 @@ class ExploreWrapper extends Component {
                         agglosData={this.props.agglosData}
 
                         //values to Content
-                        firstCompareValue={this.state.firstCompareValue}
-                        secondCompareValue={this.state.secondCompareValue}
+                        // firstCompareValue={this.state.firstCompareValue}
+                        // secondCompareValue={this.state.secondCompareValue}
                         reveal={this.state.accordionOpen}
                         timeSliderValue={this.state.timeSliderValue}
                         selectedCountry={this.state.selectedCountry}
                         selectedAgglos={this.state.selectedAgglos}
                         sizeArray={this.state.sizeArray}
+                        language={this.props.language}
 
                         //data from Content
                         tabIndex={this.handleTabIndex}

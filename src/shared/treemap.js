@@ -2,9 +2,12 @@ export const TREEMAP = [
    {
         "ID": 0,
         "content": 'treemap',
-        "content_title": 'Data driven stories',
-        "title": "Largest urban areas by population",
-        "description": "Among the five largest urban agglomerations in Africa are four familiar hubs of global business, media and policy making – Cairo, Lagos, Johannesburg and Kinshasa. The continent’s third largest urban area with 8.5 million inhabitants - Onitsha, Nigeria - is however not (yet) a familiar household name. A large urban area is emerging – driven by growth and the merging of built-up areas forming one large agglomeration.",
+        "content_title_en": 'Data driven stories',
+        "content_title_fr": 'Anecdotes et données',
+        "title_en": "Largest urban areas by population",
+        "title_fr": "Les plus grandes agglomérations par population",
+        "description_en": "Among the five largest urban agglomerations in Africa are four familiar hubs of global business, media and policy making – Cairo, Lagos, Johannesburg and Kinshasa. The continent’s third largest urban area with 8.5 million inhabitants - Onitsha, Nigeria - is however not (yet) a familiar household name. A large urban area is emerging – driven by growth and the merging of built-up areas forming one large agglomeration.",
+        "description_fr": "Among the five largest urban agglomerations in Africa are four familiar hubs of global business, media and policy making – Cairo, Lagos, Johannesburg and Kinshasa. The continent’s third largest urban area with 8.5 million inhabitants - Onitsha, Nigeria - is however not (yet) a familiar household name. A large urban area is emerging – driven by growth and the merging of built-up areas forming one large agglomeration.",
         "measure": " inhabitants",
         "data":[
   {
@@ -362,8 +365,10 @@ export const TREEMAP = [
    {
         "ID": 1,
         "content": 'treemap',
-        "title": "Largest urban areas by built-up area",
-        "description": "Twenty of the 50 largest agglomeration by built-up area are in Nigeria and Kenya. One of the main drivers of urban growth in Africa is the expansion of built-up areas, leading to an absorption of and merging with urban agglomerations and smaller settlements. Environmental characteristics, such as relief and land use, impact urban forms and the size of built-up areas.",
+        "title_en": "Largest urban areas by built-up area",
+        "title_fr": "Les plus grandes agglomerations par bâti urbain",
+        "description_en": "Twenty of the 50 largest agglomeration by built-up area are in Nigeria and Kenya. One of the main drivers of urban growth in Africa is the expansion of built-up areas, leading to an absorption of and merging with urban agglomerations and smaller settlements. Environmental characteristics, such as relief and land use, impact urban forms and the size of built-up areas.",
+        "description_fr": "Twenty of the 50 largest agglomeration by built-up area are in Nigeria and Kenya. One of the main drivers of urban growth in Africa is the expansion of built-up areas, leading to an absorption of and merging with urban agglomerations and smaller settlements. Environmental characteristics, such as relief and land use, impact urban forms and the size of built-up areas.",
         "measure": " km&sup2;",
         "data":[
             {
@@ -721,8 +726,10 @@ export const TREEMAP = [
     {
         "ID": 2,
         "content": 'treemap',
-        "title": "Densest urban areas",
-        "description": "Forty-five of the 50 urban areas with the highest density in terms of inhabitants per square kilometre are in Egypt. Urban forms are influenced by a variety of factors – history and culture, policy and environment. The aridity of Egypt’s climate drives a particular pattern of land use leading to exceptionally high population densities.",
+        "title_en": "Densest urban areas",
+        "title_fr": "Les agglomérations les plus denses",
+        "description_en": "Forty-five of the 50 urban areas with the highest density in terms of inhabitants per square kilometre are in Egypt. Urban forms are influenced by a variety of factors – history and culture, policy and environment. The aridity of Egypt’s climate drives a particular pattern of land use leading to exceptionally high population densities.",
+        "description_fr": "Forty-five of the 50 urban areas with the highest density in terms of inhabitants per square kilometre are in Egypt. Urban forms are influenced by a variety of factors – history and culture, policy and environment. The aridity of Egypt’s climate drives a particular pattern of land use leading to exceptionally high population densities.",
         "measure": " Inhabitants &frasl; km&sup2;",
         "data":[
   {
@@ -1080,8 +1087,10 @@ export const TREEMAP = [
     {
         "ID": 3,
         "content": 'treemap',
-        "title": "Least-connected urban areas",
-        "description": "Ninety percent of the least connected agglomerations are in the Sahara and Kalahari Desert. The map is based on the size of an agglomeration’s Voronoi cell. The Voronoi cell is based on a nearest neighbour calculation – the closest agglomeration is inside the cell. Larger cells indicate a less dense urban network.",
+        "title_en": "Least-connected urban areas",
+        "title_fr": " Les agglomérations les moins connectées",
+        "description_en": "Ninety percent of the least connected agglomerations are in the Sahara and Kalahari Desert. The map is based on the size of an agglomeration’s Voronoi cell. The Voronoi cell is based on a nearest neighbour calculation – the closest agglomeration is inside the cell. Larger cells indicate a less dense urban network.",
+        "description_fr": "Ninety percent of the least connected agglomerations are in the Sahara and Kalahari Desert. The map is based on the size of an agglomeration’s Voronoi cell. The Voronoi cell is based on a nearest neighbour calculation – the closest agglomeration is inside the cell. Larger cells indicate a less dense urban network.",
         "measure": " km&sup2;",
         "data":[
   {

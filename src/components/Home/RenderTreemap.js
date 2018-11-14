@@ -30,23 +30,41 @@ class RenderTreemap extends Component {
 				padding:0.2
 				//overflow:10
 		}}};
-
-	return(
-		<div className="home_treemap-wrapper">
-			<div className="home_treemap-title">
-				<h2>{data.title}</h2>
-				<hr id="hr-treemap"/>
-			</div>
-			<div className="home_treemap-content">
-				<div className="home_treemap-treemap">
-					<Treemap config={build}/>
+	if(this.props.language === 0){
+		return(
+			<div className="home_treemap-wrapper">
+				<div className="home_treemap-title">
+					<h2>{data.title_en}</h2>
+					<hr id="hr-treemap"/>
+				</div>
+				<div className="home_treemap-content">
+					<div className="home_treemap-treemap">
+						<Treemap config={build}/>
+					</div>	
+					<div className="home_treemap-text">
+						<p>{data.description_en}</p>
+					</div>			
 				</div>	
-				<div className="home_treemap-text">
-					<p>{data.description}</p>
-				</div>			
-			</div>	
-		</div>
+			</div>
 		);
+	}else{
+		return(
+			<div className="home_treemap-wrapper">
+				<div className="home_treemap-title">
+					<h2>{data.title_fr}</h2>
+					<hr id="hr-treemap"/>
+				</div>
+				<div className="home_treemap-content">
+					<div className="home_treemap-treemap">
+						<Treemap config={build}/>
+					</div>	
+					<div className="home_treemap-text">
+						<p>{data.description_fr}</p>
+					</div>			
+				</div>	
+			</div>
+		);
+	}
 	}
 }
 

@@ -167,6 +167,16 @@ td {
     color: #E8AE40;
 }
 
+.material-icons {
+    color: #2d2d2d;
+}
+.material-icons.active {
+    color: #E8AE40;
+}
+/* .material-icons:hover  {
+    color:#E8AE40;
+} */
+
 .explore_country-info ul {
     list-style: none;
     padding:0;
@@ -199,15 +209,6 @@ button.accordion {
     flex-flow: column wrap;
 }
 
-.material-icons {
-    color: #2d2d2d;
-}
-.material-icons.active {
-    color: #E8AE40;
-}
-.material-icons:hover  {
-    color:#E8AE40;
-}
 
 .indicator-wrapper {
     display:flex;

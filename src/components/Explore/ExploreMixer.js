@@ -46,7 +46,7 @@ class ExploreMixer extends Component {
             }
             result[["7"]]=result[["1"]]+result[["2"]]+result[["3"]]+result[["4"]]+result[["5"]]+result[["6"]];
         }
-
+        
         return (
             <table className="explore-legend">
                 <tbody>
@@ -55,6 +55,9 @@ class ExploreMixer extends Component {
                         <th>Total</th>
                     </tr>
                     <tr>
+                        {/* {renderCircle.map((circle,i) => (
+                            <td key={i}className="legend-diagram">{circle}</td>
+                        ))} */}
                         <td className="legend-title">Above 2 million</td>
                         <td className="legend-diagram">{renderCircle[0]}</td>
                         <td className="legend-value">{result["6"]}</td>
@@ -95,34 +98,64 @@ class ExploreMixer extends Component {
 
     render() {
         const renderLenged = this.legend(this.props.sizeArray); 
-        return(
-            <div className="explore_mixer-wrapper">
-                <div className="explore_mixer-list">
-                    <ul>
-                        <li>
-                            <h6> Timeslider </h6>
-                            <p><span>{this.props.timeSliderValue}</span></p>
-                            <StepRangeSlider
-                                value={2015}
-                                range={this.props.timeSliderRange}
-                                onChange={value => this.props.handleSliderValue(value)}
-                            />
-                            <hr/>
-                        </li>
-                        <li>
-                            <h6>Urban Population</h6>
-                            <div className="legend-wrapper">{renderLenged}</div>
-                        </li>
+        if(this.props.language === 0) {
+            return(
+                <div className="explore_mixer-wrapper">
+                    <div className="explore_mixer-list">
+                        <ul>
+                            <li>
+                                <h6> Timeslider </h6>
+                                <p><span>{this.props.timeSliderValue}</span></p>
+                                <StepRangeSlider
+                                    value={2015}
+                                    range={this.props.timeSliderRange}
+                                    onChange={value => this.props.handleSliderValue(value)}
+                                />
+                                <hr/>
+                            </li>
+                            <li>
+                                <h6>Urban Population</h6>
+                                <div className="legend-wrapper">{renderLenged}</div>
+                            </li>
 
-                    </ul>
+                        </ul>
+                    </div>
+                    <div className="home_mixer-download">
+                            {/* {this._renderDownloadFullData()} */}
+                            <img src="assets/images/oecd_en.png" width="100%"
+                            alt="Africapolis Visualise Urbanisation in Africa"/>
+                    </div>
                 </div>
-                <div className="home_mixer-download">
-                        {/* {this._renderDownloadFullData()} */}
-                        <img src="assets/images/swac-oecd.png" width="100%"
-                        alt="Africapolis Visualise Urbanisation in Africa"/>
+            );
+        }else{
+            return(
+                <div className="explore_mixer-wrapper">
+                    <div className="explore_mixer-list">
+                        <ul>
+                            <li>
+                                <h6> Timeslider </h6>
+                                <p><span>{this.props.timeSliderValue}</span></p>
+                                <StepRangeSlider
+                                    value={2015}
+                                    range={this.props.timeSliderRange}
+                                    onChange={value => this.props.handleSliderValue(value)}
+                                />
+                                <hr/>
+                            </li>
+                            <li>
+                                <h6>Population urbaine</h6>
+                                <div className="legend-wrapper">{renderLenged}</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="home_mixer-download">
+                            {/* {this._renderDownloadFullData()} */}
+                            <img src="assets/images/oecd_fr.png" width="100%"
+                            alt="Africapolis Visualise Urbanisation in Africa"/>
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        }
     }
 }
 export default ExploreMixer;

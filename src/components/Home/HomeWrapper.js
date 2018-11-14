@@ -16,13 +16,24 @@ class HomeWrapper extends Component {
         this.valueFromTreemap = this.valueFromTreemap.bind(this);
         this.valueFromTreemap_click = this.valueFromTreemap_click.bind(this);
     }
-
+   
     handleValueFromMixer(e){
         this.setState({
             selectedContent: e.ID,
             contentFilter: e.content
         })
     }
+
+    // shouldComponentUpdate(nextProps){
+    //     console.log(this.props.menuButton, nextProps.menuButton);
+    //     console.log(this.props.selectedContent, nextProps.selectedContent);
+    //     if(this.props.menuButton === nextProps.menuButton){
+    //         return false;
+    //     }else if (this.props.menuButton === undefined && nextProps.menuButton === undefined){
+    //         return true;
+    //     }
+        
+    // }
 
     valueFromTreemap(e){
         this.setState({
@@ -40,7 +51,6 @@ class HomeWrapper extends Component {
         const story = this.props.narratives.map((narrative) => {
             return(narrative);
         })
-
         return(
             <main className="home_main-wrapper">
                 <div className="home_map-wrapper">
@@ -63,16 +73,21 @@ class HomeWrapper extends Component {
                         contentSelect={this.handleValueFromMixer}
                         selectedContent={this.state.selectedContent}
                         contentFilter={this.state.contentFilter}
+                        language={this.props.language}
                     />
                     <HomeContent
                         //Sending
                         narratives={story}
-                        treemap={this.props.treemap}
+                        props={this.props}
                         selectedContent={this.state.selectedContent}
                         contentFilter={this.state.contentFilter}
                         //Receiving
                         valueFromTreemap={this.valueFromTreemap.bind(this)}
-                        valueFromTreemap_click={this.valueFromTreemap_click.bind(this)}
+                        valueFromTreemap_click={this.valueFromTreemap_click.bind(this)}                        
+                        //Props
+                        treemap={this.props.treemap}
+                        language={this.props.language}
+
                     />
                 </div>                
             </main>

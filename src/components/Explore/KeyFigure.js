@@ -27,7 +27,7 @@ class KeyFigure extends Component {
 				<div className="explore_country-info">
 					<div className="info-button">
 						<button className='accordion' onClick={this.handleClick}>
-						<h3>Country</h3>{this.state.height === 0 ? <i className="material-icons">keyboard_arrow_down</i> : <i className="material-icons active">keyboard_arrow_up</i>}
+							<h3 className="material-icons">Country</h3>{this.state.height === 0 ? <i className="material-icons">keyboard_arrow_down</i> : <i className="material-icons active">keyboard_arrow_up</i>}
 						</button>
 					</div>
 					<hr className="country_hr"/>
@@ -49,8 +49,8 @@ class KeyFigure extends Component {
 	}
 
     render() {
-		
 		const { selectedCountry, countryData, selectedAgglos, agglosData } = this.props;
+
         if(selectedCountry || selectedAgglos){
 			return(
 				<div className="histogram_container">

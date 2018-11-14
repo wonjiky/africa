@@ -30,7 +30,8 @@ class MainWrapper extends Component {
 			geo_agglomeration: AGGLOS,
 			info_agglomeration: AGGLOMERATIONINFO,
 			treemap: TREEMAP,
-			treemap_buildup: TREEMAP_BUILDUP
+			treemap_buildup: TREEMAP_BUILDUP,
+			language: 0
 		};
 		// window.countrydata = africa_continent;
 
@@ -44,36 +45,75 @@ class MainWrapper extends Component {
 		this.setState({sideDrawerOpen: false});
 	};
 
+	langHandler = (e) => {
+		this.setState({language:e.target.value})
+	}
+
     render() {
 		let backdrop;
 		if (this.state.sideDrawerOpen){
 			backdrop = <Headers.Backdrop click={this.backdropClickHandler} />;
 		}
-		return (   
-			<div style={{height: '100%'}}>
-				<Headers.Header drawerClickHandler={this.drawerToggleClick}/>
-				<Headers.SideDrawer show={this.state.sideDrawerOpen}/>
-				{backdrop}
-				<Switch>
-					<Route path="/home" component={() => <HomeWrapper 
+		if(this.state.language === 0) {
+			return (  
+				<div style={{height: '100%'}}>
+					<Headers.Header drawerClickHandler={this.drawerToggleClick} languageHandler={this.langHandler} language={this.state.language}/>
+					<Headers.SideDrawer show={this.state.sideDrawerOpen}/>
+					{backdrop}
+					<Switch>
+						<Route path="/home" component={() => <HomeWrapper 
 							narratives={this.state.narratives}
 							whatsnew={this.state.whatsnew}
 							treemap={this.state.treemap}
 							africaOne={this.state.geo_shades}
 							treemap_buildup={this.state.treemap_buildup}
+							menuButton = {this.state.sideDrawerOpen}
+							language={this.state.language}
 							/>}/>
-					<Route exact path={`/explore`} component={() => <ExploreWrapper 
-						africaOne={this.state.geo_shades}
-						africaContinent={this.state.geo_country}
-						agglosGeo={this.state.geo_agglomeration}
-						countryData={this.state.countryData}
-						agglosData={this.state.info_agglomeration}
-						/> } />
-					<Route exact path={`/aboutus`} component={() => <AboutWrapper/> } />
-					<Redirect to="/home" />
-				</Switch>
-			</div>
-		);
+						<Route exact path={`/explore`} component={() => <ExploreWrapper 
+							africaOne={this.state.geo_shades}
+							africaContinent={this.state.geo_country}
+							agglosGeo={this.state.geo_agglomeration}
+							countryData={this.state.countryData}
+							agglosData={this.state.info_agglomeration}
+							menuButton = {this.state.sideDrawerOpen}
+							language={this.state.language}
+							/> } />
+						<Route exact path={`/aboutus`} component={() => <AboutWrapper/> } />
+						<Redirect to="/home" />
+					</Switch>
+				</div>
+			);
+		}else{
+			return(
+				<div style={{height: '100%'}}>
+					<Headers.Header drawerClickHandler={this.drawerToggleClick} languageHandler={this.langHandler}/>
+					<Headers.SideDrawer show={this.state.sideDrawerOpen}/>
+					{backdrop}
+					<Switch>
+						<Route path="/home" component={() => <HomeWrapper 
+							narratives={this.state.narratives}
+							whatsnew={this.state.whatsnew}
+							treemap={this.state.treemap}
+							africaOne={this.state.geo_shades}
+							treemap_buildup={this.state.treemap_buildup}
+							menuButton = {this.state.sideDrawerOpen}
+							language={this.state.language}
+							/>}/>
+						<Route exact path={`/explore`} component={() => <ExploreWrapper 
+							africaOne={this.state.geo_shades}
+							africaContinent={this.state.geo_country}
+							agglosGeo={this.state.geo_agglomeration}
+							countryData={this.state.countryData}
+							agglosData={this.state.info_agglomeration}
+							menuButton = {this.state.sideDrawerOpen}
+							/> } />
+						<Route exact path={`/aboutus`} component={() => <AboutWrapper/> } />
+						<Redirect to="/home" />
+					</Switch>
+				</div>
+			)
+		}
 	}
 }
 

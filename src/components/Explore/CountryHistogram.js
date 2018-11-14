@@ -277,6 +277,7 @@ class CountryHistogram extends Component {
                 }
             }
         }
+
         const dataUrbanPopulation = this.props.countryData.map((d, i) => (
             {
                 "ID":d.ID,
@@ -353,6 +354,7 @@ class CountryHistogram extends Component {
         const averageDistData = dataAverageDist.sort((a,b) => a.AverageDistScaled - b.AverageDistScaled);
         const urbanSurfData = dataUrbanSurf.sort((a,b) => a.urbanSurface - b.urbanSurface);
         const { selectedCountry } = this.props;
+        // console.log('HISTOGRAM :', selectedCountry);
 
         return(
             <div className="histogram_country-wrapper">

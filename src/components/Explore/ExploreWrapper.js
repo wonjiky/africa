@@ -36,10 +36,13 @@ class ExploreWrapper extends Component {
         this.handleAgglosValueFromSearch = this.handleAgglosValueFromSearch.bind(this);
         this.handleSizeArray=this.handleSizeArray.bind(this);
         this.handleTabIndex = this.handleTabIndex.bind(this);
+        this.firstCompareValue = this.firstCompareValue.bind(this);
+        this.secondCompareValue = this.secondCompareValue.bind(this);
     }
 
     componentDidUpdate(preProps, prevState) {
         if(prevState.searchOption !== this.state.searchOption){
+            
                 this.setState({
                     origin: '',
                     selectedAgglos: '',
@@ -56,6 +59,8 @@ class ExploreWrapper extends Component {
                         { value: 2010, step: 5 },
                         { value: 2015 }
                     ],
+                    firstCompareValue: null,
+                    secondCompareValue: null,
                 })
             }
         }
@@ -78,12 +83,14 @@ class ExploreWrapper extends Component {
 
     handleCountryValueFromMap(e){
         this.setState({
+            // origin:'map',
             selectedCountry: e.value,
         })
     }
 
     handleAgglosValueFromMap(d){
         this.setState({
+            // origin:'map',
             selectedAgglos: d.value,
         })
     }
@@ -112,10 +119,21 @@ class ExploreWrapper extends Component {
         })
     }
 
+    firstCompareValue(d){
+        this.setState({
+            origin:'map',
+            firstCompareValue:d
+        })
+    }
+
+    secondCompareValue(d){
+        this.setState({
+            origin:'map',
+            secondCompareValue:d
+        })
+    }
+
     render() {
-        if(this.state.selectedCountry === '') {
-            // console.log('hi');
-        }
         return(
             <main className="explore_main-wrapper">
                 <div className="explore_map-wrapper">
@@ -138,9 +156,8 @@ class ExploreWrapper extends Component {
                         sendCountryValueToContent={this.handleCountryValueFromMap}
                         agglosValueToMap={this.handleAgglosValueFromMap}
                         sizeArray={this.handleSizeArray}
-                        // firstValueToMap={(d) => this.firstCompareValue(d)}
-                        // secondValueToMap={(e) => this.secondCompareValue(e)}
-                        // handleValues={e => this.handleValues(e)}
+                        firstValueToMap={this.firstCompareValue}
+                        secondValueToMap={this.secondCompareValue}
                     />
                 </div>
                 <div className="explore_content-wrapper">
@@ -157,8 +174,6 @@ class ExploreWrapper extends Component {
                         agglosData={this.props.agglosData}
 
                         //values to Content
-                        // firstCompareValue={this.state.firstCompareValue}
-                        // secondCompareValue={this.state.secondCompareValue}
                         reveal={this.state.accordionOpen}
                         timeSliderValue={this.state.timeSliderValue}
                         selectedCountry={this.state.selectedCountry}

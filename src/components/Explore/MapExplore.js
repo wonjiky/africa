@@ -119,91 +119,31 @@ class LeafletMap extends Component {
 
 	componentDidUpdate(prevProps, prevState){
 
-		// var selected_first=null;
-		// var selected_second=null;
+		let selected_first = null;
+		let selected_second = null;
+		let {selectedCountry,selectedAgglos,firstCompareValue,secondCompareValue } = this.props;
+		let value = this.props.timeSliderValue
+		let currCountryValue = selectedCountry;
+		let prevCountryValue = prevProps.selectedCountry;
+		let currAgglosValue = selectedAgglos;
+		let prevAgglosValue = prevProps.selectedAgglos;
+		let Size = []
+		let searchOption = this.props.searchOption;
+
 		// this.placeHolder.clearLayers();
+		this.placeHolder.removeLayer(this.mapOverlay);
 
-		// this.select1 = L.geoJson(this.props.africaContinent,{
-		// 	style: () => {return {color: 'transparent'}},
-		// 	onEachFeature: (feature, layer) => {
-		// 		layer.on('click', (e) => {
-
-		// 				selected_first = layer;
-		// 				const first_ID = selected_first.feature.properties.ID;
-		// 				// this.props.firstValueToMap(first_ID);
-		// 				// console.log(selected_second)
-		// 				 this.props.firstValueToMap(first_ID);
-		// 				 //this.select2.resetStyle(selected_first);
-		// 				 	// console.log('pass1')
-		// 					// layer.fire('change')
-		// 			});
-
-		// 		layer.on('change', (e) => {
-
-		// 			this.selectedStyle(e.target);
-		// 			this.select2 = L.geoJson(this.props.africaContinent,{
-		// 				style: () => {return {color: 'transparent'}},
-		// 				onEachFeature: (feature, layer) => {
-
-		// 					layer.on('click', (e) => {
-		// 						// ***** ORIGINAL
-		// 						//console.log(selected_second._leaflet_id)
-
-							// layer.on('change', (e) => {
-							// 	layer.setStyle(this.hoverStyle());
-							// 	//this.placeHolder.clearLayers();
-							// 	//this.placeHolder.addLayer(this.select1);
-							// 	console.log('pass4')
-							// 	this.placeHolder.removeLayer(this.select1);
-							// 	this.placeHolder.addLayer(this.select1);
-							// });
-
-
-		// 					layer.on('change', (e) => {
-		// 						layer.setStyle(this.hoverStyle());
-		// 						//this.placeHolder.clearLayers();
-		// 						//this.placeHolder.addLayer(this.select1);
-		// 						console.log('pass4')
-		// 					});
-
-		// 				layer._leaflet_id = feature.properties.ID+"selB";
-
-		// 				}
-		// 			});
-		// 			 this.placeHolder.addLayer(this.select2);
-		// 	});
-
-
-		// 			layer._leaflet_id = feature.properties.ID+"selA";
-		// 		}
-		// });
-		// this.placeHolder.addLayer(this.select1);
-
-
-
-
-
-		// else if (currCountryValue !== prevCountryValue && currCountryValue === ''){
-		// 	this.placeHolder.clearLayers();
-		// }
-
-			let {selectedCountry,selectedAgglos,firstCompareValue,secondCompareValue } = this.props;
-			let value = this.props.timeSliderValue
-			let currCountryValue = selectedCountry;
-			let prevCountryValue = prevProps.selectedCountry;
-			let currAgglosValue = selectedAgglos;
-			let prevAgglosValue = prevProps.selectedAgglos;
-			let Size = []
-			
-			// ** Timeslider 
-			for(var i = 0; i < 7447; ++i) {
-				if(this.props.agglosGeo[0]["features"][i]["properties"]["Size_sel"]) {
-					delete this.props.agglosGeo[0]["features"][i]["properties"]["Size_sel"];
-				}
-				Object.defineProperty(this.props.agglosGeo[0]["features"][i]["properties"], "Size_sel",
-				Object.getOwnPropertyDescriptor(this.props.agglosGeo[0]["features"][i]["properties"], "Size" + value));
+		// ** Timeslider 
+		for(var i = 0; i < 7447; ++i) {
+			if(this.props.agglosGeo[0]["features"][i]["properties"]["Size_sel"]) {
+				delete this.props.agglosGeo[0]["features"][i]["properties"]["Size_sel"];
 			}
-
+			Object.defineProperty(this.props.agglosGeo[0]["features"][i]["properties"], "Size_sel",
+			Object.getOwnPropertyDescriptor(this.props.agglosGeo[0]["features"][i]["properties"], "Size" + value));
+		}
+			
+		if(searchOption === 0 && searchOption !== 1) {
+			
 			// ** Single Select
 			this.mapOverlay = L.geoJson(this.props.africaContinent, {
 				style: () => {return {color: 'transparent'}},
@@ -279,38 +219,89 @@ class LeafletMap extends Component {
 				}
 			});
 			this.mapOverlay.addTo(this.state.map);
-
-			// ** Single select COUNTRY layer trigger
-			if(currCountryValue !== prevCountryValue && currCountryValue !== ''){
-				let layer = this.mapOverlay.getLayer(currCountryValue);
-				layer.fire('change')
-			} else if (currCountryValue !== prevCountryValue && currCountryValue === ''){
-				this.placeHolder.clearLayers();
-			}
-
-			// ** Single select AGGLOMERATION layer trigger
-			if (currAgglosValue !== prevAgglosValue && currAgglosValue !== ''){
-				let agglosLayer = this.agglos.getLayer(currAgglosValue)
-				agglosLayer.fire('click');
-			}
-
-			// ** Time slider trigger
-			if (this.props.timeSliderValue !== prevProps.timeSliderValue){
-				let layer = this.mapOverlay.getLayer(currCountryValue);
-				layer.fire('change')
-			}
-
-			// ** Compare FIRST value trigger  
-			if (firstCompareValue)
-			{let layer = this.select1.getLayer(firstCompareValue+"selA");
-			layer.fire('change')
-			}
+		
+		}else if( searchOption === 1 && searchOption !== 0){
+			console.log('hi');
 			
-			// ** Compare SECOND value trigger
-			if (secondCompareValue)
-			{let layer = this.select2.getLayer(secondCompareValue+"selB");
+			this.placeHolder.clearLayers();
+			
+			this.select1 = L.geoJson(this.props.africaContinent,{
+				style: () => {return {color: 'transparent'}},
+				onEachFeature: (feature, layer) => {
+					layer.on('click', (e) => {
+
+							selected_first = layer;
+							const first_ID = selected_first.feature.properties.ID;
+							this.props.firstValueToMap(first_ID);
+							this.placeHolder.removeLayer(this.select2);
+							this.placeHolder.addLayer(this.select2);
+						});
+
+					layer.on('change', (e) => {
+						this.selectedStyle(e.target);
+						// console.log('passsing')
+					});
+						layer._leaflet_id = feature.properties.ID+"selA";
+					}
+			});
+
+			this.select2 = L.geoJson(this.props.africaContinent,{
+				style: () => {return {color: 'transparent'}},
+				onEachFeature: (feature, layer) => {
+
+					layer.on('click', (e) => {
+						selected_second = layer;
+						const second_ID = selected_second.feature.properties.ID;
+						this.props.secondValueToMap(second_ID);
+						this.placeHolder.removeLayer(this.select1);
+						this.placeHolder.addLayer(this.select1);
+					});
+
+					layer.on('change', (e) => {
+						layer.setStyle(this.hoverStyle());
+						// console.log('pass4')
+					});
+
+				layer._leaflet_id = feature.properties.ID+"selB";
+
+				}
+			});
+			this.placeHolder.addLayer(this.select1);
+			this.placeHolder.addLayer(this.select2);
+		}
+
+		// ** Single select COUNTRY layer trigger
+		if(currCountryValue !== prevCountryValue && currCountryValue !== ''){
+			let layer = this.mapOverlay.getLayer(currCountryValue);
 			layer.fire('change')
-			}
+		} else if (currCountryValue !== prevCountryValue && currCountryValue === ''){
+			this.placeHolder.clearLayers();
+		}
+
+		// ** Single select AGGLOMERATION layer trigger
+		if (currAgglosValue !== prevAgglosValue && currAgglosValue !== ''){
+			let agglosLayer = this.agglos.getLayer(currAgglosValue)
+			agglosLayer.fire('click');
+		}
+
+		// ** Time slider trigger
+		if (this.props.timeSliderValue !== prevProps.timeSliderValue){
+			let layer = this.mapOverlay.getLayer(currCountryValue);
+			layer.fire('change')
+		}
+
+		// // ** Compare FIRST value trigger  
+		if (firstCompareValue) {
+			let layer_selA = this.select1.getLayer(firstCompareValue+"selA");
+			// console.log(layer_selA);
+			layer_selA.fire('change');
+		}
+		
+		// // ** Compare SECOND value trigger
+		if (secondCompareValue) {
+			let layer_selB = this.select2.getLayer(secondCompareValue+"selB");
+			layer_selB.fire('change')
+		}
 	}
 
 	placeHolder_filter(feature) {

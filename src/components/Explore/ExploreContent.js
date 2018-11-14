@@ -154,13 +154,15 @@ class ExploreContent extends Component {
     }
 
     compareCountries(){
-        return(<div></div>)
+        return(<div>
+        
+          </div>)
     }
 
     handleSelect = index => {
         this.props.tabIndex(index);
     };
-    
+
     state = {
         selectedIndex: 0
     }
@@ -185,7 +187,7 @@ class ExploreContent extends Component {
                         <Tab>Single Select</Tab>
                         <Tab>Compare</Tab>
                     </TabList>
-                       
+
                     <TabPanel>
                         {this.singleSelect(countryList, agglosList, displayCountry, displayAgglos)}
                     </TabPanel>

@@ -164,6 +164,8 @@ class LeafletMap extends Component {
 								//this.placeHolder.clearLayers();
 								//this.placeHolder.addLayer(this.select1);
 								console.log('pass4')
+								this.placeHolder.removeLayer(this.select1);
+								this.placeHolder.addLayer(this.select1);
 							});
 
 						layer._leaflet_id = feature.properties.ID+"selB";

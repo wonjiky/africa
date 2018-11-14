@@ -1438,7 +1438,7 @@ export const AGGLOS = [
     "Size1990":4,
     "Size2000":4,
     "Size2010":4,
-    "Size2015":4,
+    "Size2015":5,
     "NAME":"Tanger"
     }
   },
@@ -1478,7 +1478,7 @@ export const AGGLOS = [
     "Size1990":4,
     "Size2000":4,
     "Size2010":4,
-    "Size2015":4,
+    "Size2015":5,
     "NAME":"Marrakech"
     }
   },
@@ -1518,7 +1518,7 @@ export const AGGLOS = [
     "Size1990":5,
     "Size2000":5,
     "Size2010":5,
-    "Size2015":4,
+    "Size2015":5,
     "NAME":"Rabat"
     }
   },
@@ -15618,7 +15618,7 @@ export const AGGLOS = [
     "Size1990":1,
     "Size2000":2,
     "Size2010":2,
-    "Size2015":2,
+    "Size2015":3,
     "NAME":"Oulad Teima"
     }
   },
@@ -52698,7 +52698,7 @@ export const AGGLOS = [
     "Size1990":0,
     "Size2000":0,
     "Size2010":0,
-    "Size2015":1,
+    "Size2015":2,
     "NAME":"Arbaoua"
     }
   },
@@ -90658,7 +90658,7 @@ export const AGGLOS = [
     "Size1990":0,
     "Size2000":0,
     "Size2010":0,
-    "Size2015":1,
+    "Size2015":2,
     "NAME":"Kalaat MGouna"
     }
   },
@@ -101998,7 +101998,7 @@ export const AGGLOS = [
     "Size1990":0,
     "Size2000":0,
     "Size2010":0,
-    "Size2015":1,
+    "Size2015":2,
     "NAME":"Taghezoute"
     }
   },

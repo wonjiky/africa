@@ -1,6 +1,9 @@
 import React from 'react';
 import HamburgerButton from './HamburgerButton';
 import { NavLink } from 'react-router-dom';
+import ReactGA from 'react-ga';
+ReactGA.initialize('UA-128268752-1');
+
 
 // const DrawerToggleButton = props => (
 //     <button className="toggle-button" onClick={props.click}>
@@ -25,7 +28,7 @@ export const Header = props => {
                         <img src="assets/images/africapolis_en.png" height='100%' className="logo_long"
                                     alt="Africapolis Visualise Urbanisation in Africa"/>
                         <img src="assets/images/africapolis_logo_short.png" height='110%' className="logo_short"
-                                    alt="Africapolis Visualise Urbanisation in Africa"/>            
+                                    alt="Africapolis Visualise Urbanisation in Africa"/>
                         </a>
                     </div>
                     <div className="header_spacer"></div>
@@ -67,7 +70,7 @@ export const Header = props => {
                         <img src="assets/images/africapolis_fr.png" height='100%' className="logo_long"
                                     alt="Africapolis Visualise Urbanisation in Africa"/>
                         <img src="assets/images/africapolis_logo_short.png" height='100%' className="logo_short"
-                                    alt="Africapolis Visualise Urbanisation in Africa"/>            
+                                    alt="Africapolis Visualise Urbanisation in Africa"/>
                         </a>
                     </div>
                     <div className="header_spacer"></div>

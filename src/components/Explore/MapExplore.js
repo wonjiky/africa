@@ -268,7 +268,7 @@ class LeafletMap extends Component {
 			});
 			this.placeHolder.addLayer(this.select1);
 			this.placeHolder.addLayer(this.select2);
-			
+
 		}
 
 		// ** Single select COUNTRY layer trigger
@@ -288,7 +288,7 @@ class LeafletMap extends Component {
 		// ** Time slider trigger
 		if (this.props.timeSliderValue !== prevProps.timeSliderValue){
 			let layer = this.mapOverlay.getLayer(currCountryValue+"con");
-			layer.fire('change')
+			if (layer) {layer.fire('change')}
 		}
 
 		// // ** Compare FIRST value trigger

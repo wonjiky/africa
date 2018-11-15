@@ -46,11 +46,11 @@ export const Header = props => {
                     <div className="header_nav_items">
                         <div className="language-toggle">
                             <ul>
-                            {/*sns Icons*/}
-                            <a href="https://twitter.com/SWAC_OECD"><TwitterIcon size={32} round={true} /></a>
-                            <a href="http://www.facebook.com/OECDSWAC"><FacebookIcon size={32} round={true}/></a>
-                            <a href="https://www.linkedin.com/company/sahel-and-west-africa-club-club-du-sahel-et-l-afrique-de-l-ouest/"><LinkedinIcon size={32} round={true} /></a>
-                            {/*sns Icons*/}
+                              {/*sns Icons*/}
+                              <a href="https://twitter.com/SWAC_OECD"><TwitterIcon size={32} round={true} /></a>
+                              <a href="http://www.facebook.com/OECDSWAC"><FacebookIcon size={32} round={true}/></a>
+                              <a href="https://www.linkedin.com/company/sahel-and-west-africa-club-club-du-sahel-et-l-afrique-de-l-ouest/"><LinkedinIcon size={32} round={true} /></a>
+                              {/*sns Icons*/}
                                 <li id={props.language === 0 ? 'selected_language' : ' '} className="language-option" value="0" onClick={props.languageHandler}>EN</li>
                                 {/* <li>/</li> */}
                                 <li className="language-option" value="1" onClick={props.languageHandler}>FR</li>
@@ -87,6 +87,11 @@ export const Header = props => {
                     <div className="header_nav_items">
                         <div className="language-toggle">
                                 <ul>
+                                  {/*sns Icons*/}
+                                  <a href="https://twitter.com/SWAC_OECD"><TwitterIcon size={32} round={true} /></a>
+                                  <a href="http://www.facebook.com/OECDSWAC"><FacebookIcon size={32} round={true}/></a>
+                                  <a href="https://www.linkedin.com/company/sahel-and-west-africa-club-club-du-sahel-et-l-afrique-de-l-ouest/"><LinkedinIcon size={32} round={true} /></a>
+                                  {/*sns Icons*/}
                                     <li className="language-option" value="0" onClick={props.languageHandler}>EN</li>
                                     {/* <li>/</li> */}
                                     <li id='selected_language' className="language-option" value="1" onClick={props.languageHandler}>FR</li>

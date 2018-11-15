@@ -223,7 +223,6 @@ class LeafletMap extends Component {
 			this.placeHolder.addLayer(this.mapOverlay);
 		}else if( searchOption === 1 && searchOption !== 0){
 			this.state.map.setView([1.46,18.3],3);
-			console.log('isit')
 			this.placeHolder.clearLayers();
 
 			this.select1 = L.geoJson(this.props.africaContinent,{
@@ -269,7 +268,7 @@ class LeafletMap extends Component {
 			});
 			this.placeHolder.addLayer(this.select1);
 			this.placeHolder.addLayer(this.select2);
-			console.log(this.placeHolder)
+			
 		}
 
 		// ** Single select COUNTRY layer trigger

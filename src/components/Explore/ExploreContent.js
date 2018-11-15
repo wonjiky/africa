@@ -45,6 +45,15 @@ class ExploreContent extends Component {
         this.props.handleAgglosValueFromSearch(e);
     }
 
+    sendfirstValueToMap(e){
+        this.props.handlefirstValueFromSearch(e);
+    }
+
+    sendsecondValueToMap(e){
+        this.props.handlesecondValueFromSearch(e);
+    }
+
+
     filterAgglos(data, selectedCountry){
 
         const sortedAgglosList = data.sort((a, b) => a.cityName.localeCompare(b.cityName))
@@ -70,7 +79,7 @@ class ExploreContent extends Component {
     }
 
     displayCountry(selectedCountry, data){
-        
+      console.log(selectedCountry)
         const list = data.find(u => u.ID === selectedCountry);
         if(selectedCountry){
             return(
@@ -79,10 +88,12 @@ class ExploreContent extends Component {
         }
     }
 
+
+
     displayAgglos(selectedAgglos, data,selectedCountry){
 
         const list = data.find(u => u.City_ID === selectedAgglos);
-        
+
         if(selectedAgglos && selectedCountry){
             return(
                 ({ value: list.City_ID, label: list.cityName})
@@ -153,9 +164,41 @@ class ExploreContent extends Component {
         )
     }
 
-    compareCountries(){
+    compareCountries(countryList, displayCountry_first, displayCountry_second){
         return(<div>
-        
+            <Select
+            placeholder= "Select 1st country to compare"
+            options={countryList}
+            value={displayCountry_first}
+            onChange={this.sendfirstValueToMap.bind(this)}
+            theme={(theme) => ({
+                ...theme,
+                borderRadius: 0,
+                colors: {
+                ...theme.colors,
+                primary25: '#E8AE40',
+                primary: '#E8AE40',
+                },
+            })}
+
+            />
+
+            <Select
+            placeholder= "Select 2nd country to compare"
+            options={countryList}
+            value={displayCountry_second}
+            onChange={this.sendsecondValueToMap.bind(this)}
+            theme={(theme) => ({
+                ...theme,
+                borderRadius: 0,
+                colors: {
+                ...theme.colors,
+                text: 'orangered',
+                primary25: '#C3533E',
+                primary: '#C3533E',
+                },
+            })}
+            />
           </div>)
     }
 
@@ -173,12 +216,16 @@ class ExploreContent extends Component {
             selectedAgglos,
             selectedCountry,
             countryData,
+            firstCompareValue,
+            secondCompareValue
         } = this.props;
 
         const countryList = this.filterCountry(countryData);
         const agglosList = this.filterAgglos(agglosData, selectedCountry);
         const displayCountry = this.displayCountry(selectedCountry, countryData);
         const displayAgglos = this.displayAgglos(selectedAgglos, agglosData, selectedCountry);
+        const displayCountry_first = this.displayCountry(firstCompareValue, countryData);
+        const displayCountry_second = this.displayCountry(secondCompareValue, countryData);
         // console.log(selectedAgglos);
         return(
             <div className="explore_content-container">
@@ -192,7 +239,7 @@ class ExploreContent extends Component {
                         {this.singleSelect(countryList, agglosList, displayCountry, displayAgglos)}
                     </TabPanel>
                     <TabPanel>
-                        {this.compareCountries(countryList, agglosList, displayCountry, displayAgglos)}
+                        {this.compareCountries(countryList, displayCountry_first, displayCountry_second)}
                     </TabPanel>
                 </Tabs>
             </div>

@@ -38,6 +38,8 @@ class ExploreWrapper extends Component {
         this.handleTabIndex = this.handleTabIndex.bind(this);
         this.firstCompareValue = this.firstCompareValue.bind(this);
         this.secondCompareValue = this.secondCompareValue.bind(this);
+        this.handlefirstValueFromSearch = this.handlefirstValueFromSearch.bind(this);
+        this.handlesecondValueFromSearch = this.handlesecondValueFromSearch.bind(this);
     }
 
     componentDidUpdate(preProps, prevState) {
@@ -79,6 +81,17 @@ class ExploreWrapper extends Component {
         let country = c === null ? this.state.selectedCountry : c.countryID
         let selectedValue = c === null ? '' : c.value
         this.setState({selectedAgglos:selectedValue, selectedCountry: country})
+    }
+
+    handlefirstValueFromSearch(a){
+
+        let selectedValue = a.value;
+        this.setState({ firstCompareValue: selectedValue})
+    }
+
+    handlesecondValueFromSearch(a){
+      let selectedValue = a.value;
+      this.setState({ secondCompareValue: selectedValue})
     }
 
     handleCountryValueFromMap(e){
@@ -180,12 +193,16 @@ class ExploreWrapper extends Component {
                         selectedAgglos={this.state.selectedAgglos}
                         sizeArray={this.state.sizeArray}
                         language={this.props.language}
+                        firstCompareValue={this.state.firstCompareValue}
+                        secondCompareValue={this.state.secondCompareValue}
 
                         //data from Content
                         tabIndex={this.handleTabIndex}
                         accordionToggle={this.accordionToggle}
                         handleCountryValueFromSearch={this.handleCountryValueFromSearch}
                         handleAgglosValueFromSearch={this.handleAgglosValueFromSearch}
+                        handlefirstValueFromSearch={this.handlefirstValueFromSearch}
+                        handlesecondValueFromSearch={this.handlesecondValueFromSearch}
                         />
                 </div>
             </main>

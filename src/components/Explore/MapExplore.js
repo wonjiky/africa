@@ -63,13 +63,13 @@ class LeafletMap extends Component {
 		const tileLayer = L.tileLayer(config.tileLayer.uri, config.tileLayer.params).addTo(map);
 		this.setState({ map, tileLayer });
 
-		this.mapShades = L.geoJson(this.props.africaOne, {
-			invert:true,
-			color:"grey",
-			stroke: false,
-			fillOpacity:0.8
-		})
-		this.mapShades.addTo(map);
+		// this.mapShades = L.geoJson(this.props.africaOne, {
+		// 	invert:true,
+		// 	color:"grey",
+		// 	stroke: false,
+		// 	fillOpacity:0.8
+		// })
+		// this.mapShades.addTo(map);
 
 		this.placeHolder = L.featureGroup();
 		this.placeHolder.addTo(map);
@@ -131,9 +131,9 @@ class LeafletMap extends Component {
 		let searchOption = this.props.searchOption;
 
 		// this.placeHolder.clearLayers();
-		this.placeHolder.removeLayer(this.mapOverlay);
+		//this.placeHolder.removeLayer(this.mapOverlay);
 
-		// ** Timeslider 
+		// ** Timeslider
 		for(var i = 0; i < 7447; ++i) {
 			if(this.props.agglosGeo[0]["features"][i]["properties"]["Size_sel"]) {
 				delete this.props.agglosGeo[0]["features"][i]["properties"]["Size_sel"];
@@ -141,9 +141,10 @@ class LeafletMap extends Component {
 			Object.defineProperty(this.props.agglosGeo[0]["features"][i]["properties"], "Size_sel",
 			Object.getOwnPropertyDescriptor(this.props.agglosGeo[0]["features"][i]["properties"], "Size" + value));
 		}
-			
+
 		if(searchOption === 0 && searchOption !== 1) {
-			
+			this.placeHolder.removeLayer(this.select1);
+			this.placeHolder.removeLayer(this.select2);
 			// ** Single Select
 			this.mapOverlay = L.geoJson(this.props.africaContinent, {
 				style: () => {return {color: 'transparent'}},
@@ -158,7 +159,8 @@ class LeafletMap extends Component {
 					});
 
 					layer.on('change', (e) => {
-						this.placeHolder.clearLayers();
+
+						this.placeHolder.removeLayer(this.agglos);
 						this.state.map.fitBounds(layer.getBounds());
 						this.ID = feature.properties.ID;
 						this.agglos = L.geoJson(this.props.agglosGeo, {
@@ -191,7 +193,6 @@ class LeafletMap extends Component {
 									const value = { value:cityID, label:cityName}
 									this.props.agglosValueToMap(value);
 									this.state.map.setView(layer._latlng, 12);
-
 									let popupContent = "<table>";//feature.properties.NAME
 									popupContent += "<tr></td><td class='data'>" + feature.properties.NAME + "</td></tr>";
 									// popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
@@ -214,17 +215,17 @@ class LeafletMap extends Component {
 						this.props.sendCountryValueToContent(e);
 					});
 
-					layer._leaflet_id = feature.properties.ID;
+					layer._leaflet_id = feature.properties.ID+"con";
 
 				}
 			});
-			this.mapOverlay.addTo(this.state.map);
-		
+			//this.mapOverlay.addTo(this.state.map);
+			this.placeHolder.addLayer(this.mapOverlay);
 		}else if( searchOption === 1 && searchOption !== 0){
-			console.log('hi');
-			
+			this.state.map.setView([1.46,18.3],3);
+			console.log('isit')
 			this.placeHolder.clearLayers();
-			
+
 			this.select1 = L.geoJson(this.props.africaContinent,{
 				style: () => {return {color: 'transparent'}},
 				onEachFeature: (feature, layer) => {
@@ -268,11 +269,12 @@ class LeafletMap extends Component {
 			});
 			this.placeHolder.addLayer(this.select1);
 			this.placeHolder.addLayer(this.select2);
+			console.log(this.placeHolder)
 		}
 
 		// ** Single select COUNTRY layer trigger
 		if(currCountryValue !== prevCountryValue && currCountryValue !== ''){
-			let layer = this.mapOverlay.getLayer(currCountryValue);
+			let layer = this.mapOverlay.getLayer(currCountryValue+"con");
 			layer.fire('change')
 		} else if (currCountryValue !== prevCountryValue && currCountryValue === ''){
 			this.placeHolder.clearLayers();
@@ -286,17 +288,17 @@ class LeafletMap extends Component {
 
 		// ** Time slider trigger
 		if (this.props.timeSliderValue !== prevProps.timeSliderValue){
-			let layer = this.mapOverlay.getLayer(currCountryValue);
+			let layer = this.mapOverlay.getLayer(currCountryValue+"con");
 			layer.fire('change')
 		}
 
-		// // ** Compare FIRST value trigger  
+		// // ** Compare FIRST value trigger
 		if (firstCompareValue) {
 			let layer_selA = this.select1.getLayer(firstCompareValue+"selA");
 			// console.log(layer_selA);
 			layer_selA.fire('change');
 		}
-		
+
 		// // ** Compare SECOND value trigger
 		if (secondCompareValue) {
 			let layer_selB = this.select2.getLayer(secondCompareValue+"selB");

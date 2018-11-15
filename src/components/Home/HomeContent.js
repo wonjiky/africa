@@ -14,17 +14,20 @@ class HomeContent extends Component {
     content(selectedContent, contentFilter, narratives, treemap, language){
         const storyList = narratives.find(s => s.ID === selectedContent);
         const treemapList = treemap.find(t => t.ID === selectedContent);
+
+        console.log(selectedContent, contentFilter, narratives)
+
         if(language === 0) {
             //ENGLSISH
             if(storyList.ID === 0 && contentFilter === 'narrative'){
                 return(
                     <div className="home_content-1">
                             <div className="home_content-1-1">
-                                <h2>{narratives[0].story[0].storytitle_en}</h2>
+                                <h2>{narratives[0].story_en[0].storytitle}</h2>
                                 <hr id="overview_hr"/>
-                                <p>{narratives[0].story[0].storyText_en}</p>
+                                <p>{narratives[0].story_en[0].storyText}</p>
                             </div>
-                            <div className="home_content-1-2">
+                            {/* <div className="home_content-1-2">
                                 <h2>{narratives[0].story[1].storytitle_en}</h2>
                                 <hr id="overview_hr"/>
                                 <p>{narratives[0].story[1].storyText_en}</p>
@@ -33,7 +36,7 @@ class HomeContent extends Component {
                                 <h2>{narratives[0].story[2].storytitle_en}</h2>
                                 <hr id="overview_hr"/>
                                 <p>{narratives[0].story[2].storyText_en}</p>
-                            </div>
+                            </div> */}
                     </div>
                 )
             } else if (storyList.ID !== 0 && contentFilter === 'narrative'){

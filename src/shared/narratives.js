@@ -23,29 +23,40 @@ export const WHATSNEW = [
       "content_title_fr": "Qu'est-ce qu'Africapolis?",
       "title_en": "Africapolis",
       "title_fr": "Africapolis",
-      "story": [
+      "story_en": [
         {
           "storyID": 0,
-          "storytitle_en": "1. Understanding urbanisation dynamics in Africa",
-          "storytitle_fr": "1. Understanding urbanisation dynamics in Africa",
-          "storyText_en": "Africa is projected to have the fastest urban growth rate in the world - by 2050, Africa’s cities will be home to an additional 950 million people. There is a continuous need to better understand urbanisation, what it looks like today and what this means for the future. ",
-          "storyText_fr": "Africa is projected to have the fastest urban growth rate in the world - by 2050, Africa’s cities will be home to an additional 950 million people. There is a continuous need to better understand urbanisation, what it looks like today and what this means for the future. "
+          "storytitle": "1. Understanding urbanisation dynamics in Africa",
+          "storyText": "Africa is projected to have the fastest urban growth rate in the world - by 2050, Africa’s cities will be home to an additional 950 million people. There is a continuous need to better understand urbanisation, what it looks like today and what this means for the future. ",
         },
         {
           "storyID": 1,
-          "storytitle_en": "2. Africapolis: A unique platform on cities and urbanisation in Africa",
+          "storytitle": "2. Africapolis: A unique platform on cities and urbanisation in Africa",
+          "storyText": "Africapolis is the only comprehensive and standardised geospatial database on cities and urbanisation dynamics in Africa. It is designed to enable comparative and long-term analyses of urban dynamics - covering 7 500 agglomerations in 50 countries. ",
+        },
+        {
+          "storyID": 2,
+          "storytitle": "3. Planning for Africa’s urban future  ",
+          "storyText": "Managing urbanisation is one of Africa’s great development challenges. More data and a stronger evidence-base is needed to support cities and governments to make urban areas more inclusive, livable and productive.",
+        },
+      ],
+    "story_fr": [
+      {
+        "storyID": 0,
+          "storytitle": "1. Understanding urbanisation dynamics in Africa",
+          "storyText": "Africa is projected to have the fastest urban growth rate in the world - by 2050, Africa’s cities will be home to an additional 950 million people. There is a continuous need to better understand urbanisation, what it looks like today and what this means for the future. "
+        },
+        {
+          "storyID": 1,
           "storytitle_fr": "2. Africapolis: A unique platform on cities and urbanisation in Africa",
-          "storyText_en": "Africapolis is the only comprehensive and standardised geospatial database on cities and urbanisation dynamics in Africa. It is designed to enable comparative and long-term analyses of urban dynamics - covering 7 500 agglomerations in 50 countries. ",
           "storyText_fr": "Africapolis is the only comprehensive and standardised geospatial database on cities and urbanisation dynamics in Africa. It is designed to enable comparative and long-term analyses of urban dynamics - covering 7 500 agglomerations in 50 countries. "
         },
         {
           "storyID": 2,
-          "storytitle_en": "3. Planning for Africa’s urban future  ",
-          "storytitle_fr": "3. Planning for Africa’s urban future  ",
-          "storyText_en": "Managing urbanisation is one of Africa’s great development challenges. More data and a stronger evidence-base is needed to support cities and governments to make urban areas more inclusive, livable and productive.",
-          "storyText_fr": "Managing urbanisation is one of Africa’s great development challenges. More data and a stronger evidence-base is needed to support cities and governments to make urban areas more inclusive, livable and productive."
-        },
-      ]
+          "storytitle": "3. Planning for Africa’s urban future  ",
+          "storyText": "Managing urbanisation is one of Africa’s great development challenges. More data and a stronger evidence-base is needed to support cities and governments to make urban areas more inclusive, livable and productive."
+      }
+    ]
     },
     {
       "ID": 1,

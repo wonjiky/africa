@@ -45,25 +45,25 @@ class ExploreWrapper extends Component {
     componentDidUpdate(preProps, prevState) {
         if(prevState.searchOption !== this.state.searchOption){
 
-                // this.setState({
-                //     origin: '',
-                //     selectedAgglos: '',
-                //     selectedCountry: '',
-                //     timeSliderValue: 2015,
-                //     sizeArray: '',
-                //     timeSliderRange: [
-                //         { value: 1950, step: 10 },
-                //         { value: 1960, step: 10 },
-                //         { value: 1970, step: 10 },
-                //         { value: 1980, step: 10 },
-                //         { value: 1990, step: 10 },
-                //         { value: 2000, step: 10 },
-                //         { value: 2010, step: 5 },
-                //         { value: 2015 }
-                //     ],
-                //     firstCompareValue: null,
-                //     secondCompareValue: null,
-                // })
+                this.setState({
+                    origin: '',
+                    selectedAgglos: '',
+                    selectedCountry: '',
+                    timeSliderValue: 2015,
+                    sizeArray: '',
+                    timeSliderRange: [
+                        { value: 1950, step: 10 },
+                        { value: 1960, step: 10 },
+                        { value: 1970, step: 10 },
+                        { value: 1980, step: 10 },
+                        { value: 1990, step: 10 },
+                        { value: 2000, step: 10 },
+                        { value: 2010, step: 5 },
+                        { value: 2015 }
+                    ],
+                    firstCompareValue: null,
+                    secondCompareValue: null,
+                })
             }
         }
 

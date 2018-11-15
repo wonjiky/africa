@@ -5,17 +5,14 @@ import RenderTreemap from './RenderTreemap';
 
 class HomeContent extends Component {
     componentDidUpdate(prevProps) {
-        // console.log(prevProps.selectedContent, this.props.selectedContent)
         if(prevProps.selectedContent !== this.props.selectedContent){
             document.getElementById('home_content-container').scrollTo(0,0)
         }
     }
-
+    
     content(selectedContent, contentFilter, narratives, treemap, language){
         const storyList = narratives.find(s => s.ID === selectedContent);
         const treemapList = treemap.find(t => t.ID === selectedContent);
-
-        console.log(selectedContent, contentFilter, narratives)
 
         if(language === 0) {
             //ENGLSISH
@@ -27,30 +24,30 @@ class HomeContent extends Component {
                                 <hr id="overview_hr"/>
                                 <p>{narratives[0].story_en[0].storyText}</p>
                             </div>
-                            {/* <div className="home_content-1-2">
-                                <h2>{narratives[0].story[1].storytitle_en}</h2>
+                            <div className="home_content-1-2">
+                                <h2>{narratives[0].story_en[1].storytitle}</h2>
                                 <hr id="overview_hr"/>
-                                <p>{narratives[0].story[1].storyText_en}</p>
+                                <p>{narratives[0].story_en[1].storyText}</p>
                             </div>
                             <div className="home_content-1-3">
-                                <h2>{narratives[0].story[2].storytitle_en}</h2>
+                                <h2>{narratives[0].story_en[2].storytitle}</h2>
                                 <hr id="overview_hr"/>
-                                <p>{narratives[0].story[2].storyText_en}</p>
-                            </div> */}
+                                <p>{narratives[0].story_en[2].storyText}</p>
+                            </div>
                     </div>
                 )
             } else if (storyList.ID !== 0 && contentFilter === 'narrative'){
+                // let stories = storyList.story_en.map((story) => story);
                 return(
                     <div className="home_content-2">
                         <ul className="list-unstyled">
                             <li>
                                 <h2>{storyList.title_en}</h2>
-                                <h4>{storyList.subtitle_en}</h4>
                                 <hr id="b_narrative_hr"/>
                             </li>
                             <br/>
                             <li>
-                                {this.renderNarrative_Text(storyList.story)}
+                                {this.renderNarrative_Text(storyList.story_en)}
                             </li>
                         </ul>
                     </div>
@@ -70,21 +67,21 @@ class HomeContent extends Component {
             if(storyList.ID === 0 && contentFilter === 'narrative'){
                 return(
                     <div className="home_content-1">
-                            <div className="home_content-1-1">
-                                <h2>{narratives[0].story[0].storytitle_fr}</h2>
-                                <hr id="overview_hr"/>
-                                <p>{narratives[0].story[0].storyText_fr}</p>
-                            </div>
-                            <div className="home_content-1-2">
-                                <h2>{narratives[0].story[1].storytitle_fr}</h2>
-                                <hr id="overview_hr"/>
-                                <p>{narratives[0].story[1].storyText_fr}</p>
-                            </div>
-                            <div className="home_content-1-3">
-                                <h2>{narratives[0].story[2].storytitle_fr}</h2>
-                                <hr id="overview_hr"/>
-                                <p>{narratives[0].story[2].storyText_fr}</p>
-                            </div>
+                        <div className="home_content-1-1">
+                            <h2>{narratives[0].story_fr[0].storytitle}</h2>
+                            <hr id="overview_hr"/>
+                            <p>{narratives[0].story_fr[0].storyText}</p>
+                        </div>
+                        <div className="home_content-1-2">
+                            <h2>{narratives[0].story_fr[1].storytitle}</h2>
+                            <hr id="overview_hr"/>
+                            <p>{narratives[0].story_fr[1].storyText}</p>
+                        </div>
+                        <div className="home_content-1-3">
+                            <h2>{narratives[0].story_fr[2].storytitle}</h2>
+                            <hr id="overview_hr"/>
+                            <p>{narratives[0].story_fr[2].storyText}</p>
+                        </div>
                     </div>
                 )
             } else if (storyList.ID !== 0 && contentFilter === 'narrative'){
@@ -93,12 +90,11 @@ class HomeContent extends Component {
                         <ul className="list-unstyled">
                             <li>
                                 <h2>{storyList.title_fr}</h2>
-                                <h4>{storyList.subtitle_fr}</h4>
                                 <hr id="b_narrative_hr"/>
                             </li>
                             <br/>
                             <li>
-                                {this.renderNarrative_Text(storyList.story)}
+                                {this.renderNarrative_Text(storyList.story_fr)}
                             </li>
                         </ul>
                     </div>
@@ -132,12 +128,26 @@ class HomeContent extends Component {
         return(
             stories.map((story,i) => (
             <div key={i}>
-                <h5 id="n_h6">{story.storytitle_en}</h5>
-                <p>{story.storyText_en}</p>
+                <h5 id="n_h6">{story.storytitle}</h5>
+                {/* <p>{story.storyText}</p> */}
+                {this.renderNarrative(story.storyText)}
                 <br/>
                 <br/>
             </div>
         )))
+    }
+
+    renderNarrative(story){
+        return(
+            story.map((text, i) => (
+                <div key={i}>
+                    <p> {text.text1}</p><br/>
+                    <p> {text.text2}</p><br/>
+                    <p> {text.text3}</p><br/>
+                    <p> {text.text4}</p><br/>
+                </div>
+            ))
+        )
     }
 
     render () {

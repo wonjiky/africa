@@ -63,13 +63,13 @@ class LeafletMap extends Component {
 		const tileLayer = L.tileLayer(config.tileLayer.uri, config.tileLayer.params).addTo(map);
 		this.setState({ map, tileLayer });
 
-		// this.mapShades = L.geoJson(this.props.africaOne, {
-		// 	invert:true,
-		// 	color:"grey",
-		// 	stroke: false,
-		// 	fillOpacity:0.8
-		// })
-		// this.mapShades.addTo(map);
+		this.mapShades = L.geoJson(this.props.africaOne, {
+			invert:true,
+			color:"grey",
+			stroke: false,
+			fillOpacity:0.8
+		})
+		this.mapShades.addTo(map);
 
 		this.placeHolder = L.featureGroup();
 		this.placeHolder.addTo(map);

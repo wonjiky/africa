@@ -14,6 +14,7 @@ class HomeWrapper extends Component {
         };
         this.handleValueFromMixer = this.handleValueFromMixer.bind(this);
         this.valueFromTreemap = this.valueFromTreemap.bind(this);
+        this.handlePageOffset = this.handlePageOffset.bind(this);
         this.valueFromTreemap_click = this.valueFromTreemap_click.bind(this);
     }
    
@@ -23,17 +24,6 @@ class HomeWrapper extends Component {
             contentFilter: e.content
         })
     }
-
-    // shouldComponentUpdate(nextProps){
-    //     console.log(this.props.menuButton, nextProps.menuButton);
-    //     console.log(this.props.selectedContent, nextProps.selectedContent);
-    //     if(this.props.menuButton === nextProps.menuButton){
-    //         return false;
-    //     }else if (this.props.menuButton === undefined && nextProps.menuButton === undefined){
-    //         return true;
-    //     }
-        
-    // }
 
     valueFromTreemap(e){
         this.setState({
@@ -45,6 +35,11 @@ class HomeWrapper extends Component {
         this.setState({
             treemapSelect_click: e
         })
+    }
+
+    
+    handlePageOffset(e){
+        console.log(e);
     }
 
     render() {
@@ -78,10 +73,10 @@ class HomeWrapper extends Component {
                     <HomeContent
                         //Sending
                         narratives={story}
-                        props={this.props}
                         selectedContent={this.state.selectedContent}
                         contentFilter={this.state.contentFilter}
                         //Receiving
+                        pageOffset={this.handlePageOffset.bind(this)}
                         valueFromTreemap={this.valueFromTreemap.bind(this)}
                         valueFromTreemap_click={this.valueFromTreemap_click.bind(this)}                        
                         //Props

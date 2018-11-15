@@ -1,6 +1,14 @@
 import React from 'react';
 import HamburgerButton from './HamburgerButton';
 import { NavLink } from 'react-router-dom';
+import ReactGA from 'react-ga';
+import {  FacebookIcon,  TwitterIcon,  LinkedinIcon} from 'react-share';
+
+
+ReactGA.initialize('UA-128268752-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
+
+
 
 // const DrawerToggleButton = props => (
 //     <button className="toggle-button" onClick={props.click}>
@@ -25,7 +33,7 @@ export const Header = props => {
                         <img src="assets/images/africapolis_en.png" height='100%' className="logo_long"
                                     alt="Africapolis Visualise Urbanisation in Africa"/>
                         <img src="assets/images/africapolis_logo_short.png" height='110%' className="logo_short"
-                                    alt="Africapolis Visualise Urbanisation in Africa"/>            
+                                    alt="Africapolis Visualise Urbanisation in Africa"/>
                         </a>
                     </div>
                     <div className="header_spacer"></div>
@@ -38,6 +46,11 @@ export const Header = props => {
                     <div className="header_nav_items">
                         <div className="language-toggle">
                             <ul>
+                              {/*sns Icons*/}
+                              <a href="https://twitter.com/SWAC_OECD"><TwitterIcon size={32} round={true} /></a>
+                              <a href="http://www.facebook.com/OECDSWAC"><FacebookIcon size={32} round={true}/></a>
+                              <a href="https://www.linkedin.com/company/sahel-and-west-africa-club-club-du-sahel-et-l-afrique-de-l-ouest/"><LinkedinIcon size={32} round={true} /></a>
+                              {/*sns Icons*/}
                                 <li id={props.language === 0 ? 'selected_language' : ' '} className="language-option" value="0" onClick={props.languageHandler}>EN</li>
                                 {/* <li>/</li> */}
                                 <li className="language-option" value="1" onClick={props.languageHandler}>FR</li>
@@ -67,13 +80,18 @@ export const Header = props => {
                         <img src="assets/images/africapolis_fr.png" height='100%' className="logo_long"
                                     alt="Africapolis Visualise Urbanisation in Africa"/>
                         <img src="assets/images/africapolis_logo_short.png" height='100%' className="logo_short"
-                                    alt="Africapolis Visualise Urbanisation in Africa"/>            
+                                    alt="Africapolis Visualise Urbanisation in Africa"/>
                         </a>
                     </div>
                     <div className="header_spacer"></div>
                     <div className="header_nav_items">
                         <div className="language-toggle">
                                 <ul>
+                                  {/*sns Icons*/}
+                                  <a href="https://twitter.com/SWAC_OECD"><TwitterIcon size={32} round={true} /></a>
+                                  <a href="http://www.facebook.com/OECDSWAC"><FacebookIcon size={32} round={true}/></a>
+                                  <a href="https://www.linkedin.com/company/sahel-and-west-africa-club-club-du-sahel-et-l-afrique-de-l-ouest/"><LinkedinIcon size={32} round={true} /></a>
+                                  {/*sns Icons*/}
                                     <li className="language-option" value="0" onClick={props.languageHandler}>EN</li>
                                     {/* <li>/</li> */}
                                     <li id='selected_language' className="language-option" value="1" onClick={props.languageHandler}>FR</li>

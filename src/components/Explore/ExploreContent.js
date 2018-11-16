@@ -33,9 +33,14 @@ class ExploreContent extends Component {
             isClearable: true,
             isSearchable: true,
             agglosList: '',
+            isDisabled: true,
             // selectedIndex: 1,
             // tabIndex: 0
         };
+    }
+
+    componentDidUpdate(){
+
     }
 
     sendCountryValueToMap(e){
@@ -163,25 +168,6 @@ class ExploreContent extends Component {
     compareCountries(countryList, firstCountry, secondCountry){
         return(
             <div className="explore_container-wrapper">
-                <div className="explore_search-country">
-                    <Select
-                        placeholder= "Select first country" 
-                        options={countryList}
-                        value={firstCountry}
-                        backspaceRemovesValue={false}
-                        onChange={this.sendfirstValueToMap.bind(this)}
-                        theme={(theme) => ({
-                            ...theme,
-                            borderRadius: 0,
-                            colors: {
-                            ...theme.colors,
-                            text: 'orangered',
-                            primary25: '#E8AE40',
-                            primary: '#E8AE40',
-                            },
-                        })}
-                    />
-                </div>
                 <div className="explore_search-agglos">
                     <Select
                         placeholder= "Select second country"
@@ -196,6 +182,26 @@ class ExploreContent extends Component {
                             ...theme.colors,
                             primary25: '#C3533E',
                             primary: '#C3533E',
+                            },
+                        })}
+                    />
+                </div>
+                <div className="explore_search-country">
+                    <Select
+                        placeholder= "Select first country" 
+                        options={countryList}
+                        value={firstCountry}
+                        backspaceRemovesValue={false}
+                        onChange={this.sendfirstValueToMap.bind(this)}
+                        // isDisabled={secondCountry !== undef ? true : false}
+                        theme={(theme) => ({
+                            ...theme,
+                            borderRadius: 0,
+                            colors: {
+                            ...theme.colors,
+                            text: 'orangered',
+                            primary25: '#E8AE40',
+                            primary: '#E8AE40',
                             },
                         })}
                     />

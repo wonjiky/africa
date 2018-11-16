@@ -113,8 +113,12 @@ class CompareHistogram extends Component {
 
 
     renderFirstCountry(firstCountry){
-        const country = this.props.countryData.find(u => u.ID === firstCountry);
-        return <div className="first-country-label">{country.Country}</div>
+        if(firstCountry){
+            const country = this.props.countryData.find(u => u.ID === firstCountry);
+            return <div className="first-country-label">{country.Country}</div>
+        }else{
+            return(<div className="first-country-label"></div>)
+        }
     }
 
     renderSecondCountry(secondCountry){
@@ -155,17 +159,18 @@ class CompareHistogram extends Component {
     }
 
     larger(data, firstCountry, secondCountry){
-        if(firstCountry, secondCountry){
+        if(firstCountry && secondCountry){
             const pop = data.find(u => u.ID === firstCountry);
             const pop2 = data.find(u => u.ID === secondCountry);
             let popOne = pop.urbanPopulation;
             let popTwo = pop2.urbanPopulation;
             if(popOne > popTwo){
-                return <div className="comparison"> &gt; </div>
+                return <div className="comparison"> &lt; </div>
+                
             }else if(popOne === popTwo){
                 return <div className="comparison"> &#61; </div>
             }else{
-                return <div className="comparison"> &lt; </div>
+                return <div className="comparison"> &gt; </div>
             }
         }
     }
@@ -267,15 +272,15 @@ class CompareHistogram extends Component {
             <div className="histogram_compare-wrapper">
                 <div className="compare-wrapper-titles">
                     <div className="compare-title-keyfigure"> Key Figure </div>
-                    {this.renderFirstCountry(firstCountry)}
-                    <div className="comparison"></div>
                     {this.renderSecondCountry(secondCountry)}
+                    <div className="comparison"></div>
+                    {this.renderFirstCountry(firstCountry)}
                 </div>
                 <div className="compare-wrapper">
                     {this.renderInfo(dataUrbanPopulation[0].info, dataUrbanPopulation[0].title)}
-                    {this.firstCountry(urbanPopulationData, firstCountry)}
-                    {this.larger(urbanPopulationData, firstCountry,secondCountry)}
                     {this.secondCountry(urbanPopulationData, secondCountry)}
+                    {this.larger(urbanPopulationData, firstCountry,secondCountry)}
+                    {this.firstCountry(urbanPopulationData, firstCountry)}
                 </div>
                 {/* <div className="compare-wrapper">
                     {this.renderInfo(dataUrbanizationLevel[0].info, dataUrbanizationLevel[0].title)}

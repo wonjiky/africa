@@ -61,7 +61,7 @@ class MainWrapper extends Component {
 					<Headers.SideDrawer show={this.state.sideDrawerOpen}/>
 					{backdrop}
 					<Switch>
-						<Route path="/home" component={() => <HomeWrapper 
+						<Route path={`/home`}component={() => <HomeWrapper 
 							narratives={this.state.narratives}
 							whatsnew={this.state.whatsnew}
 							treemap={this.state.treemap}
@@ -80,7 +80,7 @@ class MainWrapper extends Component {
 							language={this.state.language}
 							/> } />
 						<Route exact path={`/aboutus`} component={() => <AboutWrapper/> } />
-						<Redirect to="/home" />
+						<Redirect to="/" />
 					</Switch>
 				</div>
 			);
@@ -91,7 +91,7 @@ class MainWrapper extends Component {
 					<Headers.SideDrawer show={this.state.sideDrawerOpen}/>
 					{backdrop}
 					<Switch>
-						<Route path="/home" component={() => <HomeWrapper 
+						<Route path={`/home`} component={() => <HomeWrapper 
 							narratives={this.state.narratives}
 							whatsnew={this.state.whatsnew}
 							treemap={this.state.treemap}
@@ -109,7 +109,7 @@ class MainWrapper extends Component {
 							menuButton = {this.state.sideDrawerOpen}
 							/> } />
 						<Route exact path={`/aboutus`} component={() => <AboutWrapper/> } />
-						<Redirect to="/home" />
+						<Redirect to="/" />
 					</Switch>
 				</div>
 			)

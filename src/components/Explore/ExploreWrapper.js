@@ -83,14 +83,15 @@ class ExploreWrapper extends Component {
     }
 
     handlefirstValueFromSearch(a){
-
+        console.log(a);
         let selectedValue = a.value;
         this.setState({ firstCompareValue: selectedValue})
     }
 
     handlesecondValueFromSearch(a){
-      let selectedValue = a.value;
-      this.setState({ secondCompareValue: selectedValue})
+        console.log(a);    
+        let selectedValue = a.value;
+        this.setState({ secondCompareValue: selectedValue})
     }
 
     handleCountryValueFromMap(e){
@@ -132,6 +133,7 @@ class ExploreWrapper extends Component {
     }
 
     firstCompareValue(d){
+        console.log(d);
         this.setState({
             origin:'map',
             firstCompareValue:d
@@ -139,6 +141,7 @@ class ExploreWrapper extends Component {
     }
 
     secondCompareValue(d){
+        console.log(d);
         this.setState({
             origin:'map',
             secondCompareValue:d

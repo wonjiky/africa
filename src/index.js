@@ -10,5 +10,9 @@ import 'react-input-range/lib/css/index.css'
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Router basename={process.env.PUBLIC_URL}>< App /></Router>, document.getElementById('root'));
+ReactDOM.render(
+    <Router basename={process.env.PUBLIC_URL} >
+        <App />
+    </Router>, document.getElementById('root'));
+    
 registerServiceWorker();

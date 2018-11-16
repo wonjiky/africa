@@ -559,6 +559,10 @@ button:focus{
   color:#E8AE40;
 }
 
+.language-option {
+  transition: all 2ms ease-in-out;
+}
+
 .language-option:hover{
   color:#E8AE40;
 }
@@ -573,16 +577,17 @@ button:focus{
   width:100%;
   display: inline-block;
   padding:0;
+  transition: all .2s ease-in-out;
 }
 
 .nav-link.active{
   color: #E8AE40;
-  border-bottom: 3px solid #E8AE40;
+  border-bottom: 5px solid #E8AE40;
 }
 
  .nav-link:hover {
   color: #E8AE40;
-  border-bottom: 3px solid #E8AE40;
+  /* border-bottom: 5px solid #E8AE40; */
 }
 
 .side-nav-link {

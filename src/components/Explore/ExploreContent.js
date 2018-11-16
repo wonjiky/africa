@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import KeyFigure  from './KeyFigure';
+import KeyFigure from './KeyFigure';
+import CompareCountries from './CompareCountries';
 import Select from "react-select";
 import { FixedSizeList as List } from "react-window";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -53,9 +54,7 @@ class ExploreContent extends Component {
         this.props.handlesecondValueFromSearch(e);
     }
 
-
     filterAgglos(data, selectedCountry){
-
         const sortedAgglosList = data.sort((a, b) => a.cityName.localeCompare(b.cityName))
         if(selectedCountry){
             const agglosValue = sortedAgglosList.filter(u => (u.ID === selectedCountry))
@@ -114,7 +113,6 @@ class ExploreContent extends Component {
                         onChange={this.sendCountryValueToMap.bind(this)}
                         options={countryList}
                         backspaceRemovesValue={false}
-                        // styles={customStyles}
                         theme={(theme) => ({
                             ...theme,
                             borderRadius: 0,
@@ -124,7 +122,6 @@ class ExploreContent extends Component {
                             primary: '#E8AE40',
                             },
                         })}
-                        // isMulti={true}
                         />
                 </div>
                 <div className="explore_search-agglos">
@@ -163,42 +160,54 @@ class ExploreContent extends Component {
         )
     }
 
-    compareCountries(countryList, displayCountry_first, displayCountry_second){
-        return(<div>
-            <Select
-            placeholder= "Select 1st country to compare"
-            options={countryList}
-            value={displayCountry_first}
-            onChange={this.sendfirstValueToMap.bind(this)}
-            theme={(theme) => ({
-                ...theme,
-                borderRadius: 0,
-                colors: {
-                ...theme.colors,
-                primary25: '#E8AE40',
-                primary: '#E8AE40',
-                },
-            })}
-
-            />
-
-            <Select
-            placeholder= "Select 2nd country to compare"
-            options={countryList}
-            value={displayCountry_second}
-            onChange={this.sendsecondValueToMap.bind(this)}
-            theme={(theme) => ({
-                ...theme,
-                borderRadius: 0,
-                colors: {
-                ...theme.colors,
-                text: 'orangered',
-                primary25: '#C3533E',
-                primary: '#C3533E',
-                },
-            })}
-            />
-          </div>)
+    compareCountries(countryList, firstCountry, secondCountry){
+        return(
+            <div className="explore_container-wrapper">
+                <div className="explore_search-country">
+                    <Select
+                        placeholder= "Select first country" 
+                        options={countryList}
+                        value={firstCountry}
+                        backspaceRemovesValue={false}
+                        onChange={this.sendfirstValueToMap.bind(this)}
+                        theme={(theme) => ({
+                            ...theme,
+                            borderRadius: 0,
+                            colors: {
+                            ...theme.colors,
+                            text: 'orangered',
+                            primary25: '#E8AE40',
+                            primary: '#E8AE40',
+                            },
+                        })}
+                    />
+                </div>
+                <div className="explore_search-agglos">
+                    <Select
+                        placeholder= "Select second country"
+                        options={countryList}
+                        value={secondCountry}
+                        backspaceRemovesValue={false}
+                        onChange={this.sendsecondValueToMap.bind(this)}
+                        theme={(theme) => ({
+                            ...theme,
+                            borderRadius: 0,
+                            colors: {
+                            ...theme.colors,
+                            primary25: '#C3533E',
+                            primary: '#C3533E',
+                            },
+                        })}
+                    />
+                </div>
+                <CompareCountries
+                    timeSliderValue={this.props.timeSliderValue}
+                    firstCountry={this.props.firstCompareValue}
+                    secondCountry={this.props.secondCompareValue}
+                    countryData={this.props.countryData}
+                />
+            </div>
+        )
     }
 
     handleSelect = index => {
@@ -225,7 +234,7 @@ class ExploreContent extends Component {
         const displayAgglos = this.displayAgglos(selectedAgglos, agglosData, selectedCountry);
         const displayCountry_first = this.displayCountry(firstCompareValue, countryData);
         const displayCountry_second = this.displayCountry(secondCompareValue, countryData);
-        // console.log(selectedAgglos);
+
         return(
             <div className="explore_content-container">
                 <Tabs className="tab-wrapper" selectedIndex={this.state.selectedIndex} onSelect={this.handleSelect}>

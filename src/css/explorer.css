@@ -203,14 +203,66 @@ button.accordion {
     font-size: 14px;
 }
 
-.histogram_country-wrapper {
+.histogram_country-wrapper,
+.histogram_compare-wrapper {
     margin-top: 20px;
     display: flex;
     flex-flow: column wrap;
 }
 
+.compare-wrapper-titles {
+    font-family:'Oswald';
+    display:flex;
+    flex-flow: row wrap;
+    padding: 2%;
+    text-transform: uppercase;
+}
 
-.indicator-wrapper {
+.comparison {
+    flex:1;
+    max-width:20px;
+    justify-content: center;
+    align-items:center;
+    display:flex;
+    font-size:2rem;
+}
+
+.first-country-label{
+    color: #e8ae40;
+}
+.second-country-label {
+    color:  #c5543f;
+}
+
+.compare-title-keyfigure,
+.first-country-label,
+.second-country-label {
+    flex:2;
+    display:flex;
+    justify-content: center;
+    align-items:flex-end;    
+    font-weight:400;
+    text-align:center;
+    height:70px;
+    font-size:1.2rem;
+}
+
+.first-country-wrapper,
+.second-country-wrapper {
+    flex:2;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+}
+
+.compare-wrapper {
+    max-height: 115px;
+    min-height: 115px;
+}
+
+.indicator-wrapper,
+.compare-wrapper {
     display:flex;
     flex-flow: row wrap;
     padding: 3%;
@@ -219,6 +271,16 @@ button.accordion {
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 
     0px 3px 1px -2px rgba(0, 0, 0, 0.12);
 }
+ 
+.histogram-title.compare {
+    flex:2;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    line-height: 1.2rem;
+    font-weight: 600;
+}
+
     .histogram-title {
         flex:2;
         display:flex;
@@ -235,10 +297,20 @@ button.accordion {
         align-items:center;
     }
 
+    .first-histogram-ranking span{
+        color: #e8ae40;
+        font-weight:600;
+    }
+    .second-histogram-ranking span {
+        color: #c2523e;
+        font-weight:600;
+    }
+
     .histogram-ranking span {
         color: #e8ae40;
         font-weight:600;
     }
+
     .histogram-ranking-agglos span{
         color: #c5543f;
         font-weight:600;
@@ -302,23 +374,35 @@ button.accordion {
 
 .react-tabs__tab {
     font-family: 'Oswald';
-    color:white;
+    color:#5B5D62;
     text-transform: uppercase;
     width:50%;
     text-align: center;
     border-radius: 0;
     border: none !important;
+    background-color: #efefef;
+    bottom:0 !important;
+    /* opacity: 0.5; */
+    transition: all .2s ease-in-out;
+}
+
+.react-tabs__tab:hover {
+    /* transform:scale(1.1); */
     background-color: #5B5D62 !important;
     opacity: 0.5;
+    color: white;
+}
+
+.react-tabs__tab-list {
+    border-bottom: none;
 }
 
 .react-tabs__tab.react-tabs__tab--selected {
+    color: white;
     background-color: #5B5D62 !important;
     z-index:5;
     opacity: 1;
-    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 
-    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 
-    0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+    bottom:0 !important;
 }
 
 @media only screen
@@ -365,7 +449,8 @@ and (max-width: 768px) {
         min-width:400px; */
     }
 
-    .indicator-wrapper {
+    .indicator-wrapper,
+    .compare-wrapper {
         display:flex;
         flex-flow: row wrap;
         padding: 3%;

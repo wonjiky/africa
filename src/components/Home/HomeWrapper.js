@@ -38,8 +38,8 @@ class HomeWrapper extends Component {
     }
 
     
-    handlePageOffset(e){
-        console.log(e);
+    handlePageOffset(top, bottom){
+        console.log(top, bottom);
     }
 
     render() {
@@ -76,7 +76,7 @@ class HomeWrapper extends Component {
                         selectedContent={this.state.selectedContent}
                         contentFilter={this.state.contentFilter}
                         //Receiving
-                        pageOffset={this.handlePageOffset.bind(this)}
+                        pageOffset={this.handlePageOffset}
                         valueFromTreemap={this.valueFromTreemap.bind(this)}
                         valueFromTreemap_click={this.valueFromTreemap_click.bind(this)}                        
                         //Props

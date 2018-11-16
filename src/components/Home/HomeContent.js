@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
 import RenderTreemap from './RenderTreemap';
-import { Events } from 'react-scroll'
-
 
 class HomeContent extends Component {
-    constructor(props){
-        super(props);
-    }
+
     componentDidMount() {
         document.getElementById('home_content-container').addEventListener('scroll', this.handleScroll);
     }
     
-    // componentWillUnmount() {
-    //     document.getElementById('home_content-container').removeEventListener('scroll', this.handleScroll);
-    // }
+    componentWillUnmount() {
+        document.getElementById('home_content-container').removeEventListener('scroll', this.handleScroll);
+    }
     
     handleScroll = (event) => {
-        let scrollTop = event.srcElement.scrollTop;
-        this.props.pageOffset(scrollTop);
+        let top = Math.round(event.srcElement.scrollTop);
+        let bottom = Math.round(top + window.innerHeight);
+        this.props.pageOffset(top, bottom);
+    }
+
+    normalize(value, min, max){
+        return (value - min) / (max - min);
     }
 
     componentDidUpdate(prevProps) {

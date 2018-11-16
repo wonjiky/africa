@@ -47,10 +47,12 @@
 
     .home_mixer-list li {
         cursor: pointer;
+        transition: all .2s ease-in-out;
     }
 
     .home_mixer_lists:hover {
         font-weight:600;
+        /* transform: scale(1.1); */
     }
 
 
@@ -76,6 +78,20 @@
         display: block;
     }
 
+    .social-icons {
+        display: flex;
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+
+    .social-icons > a {
+        padding: 0 10px;
+        transition: all .2s ease-in-out;
+    }
+
+    .social-icons >a:hover {
+        transform: scale(1.1);
+    }
 
     #home_content-container {
         overflow-y: scroll;
@@ -211,7 +227,8 @@ and (max-width: 768px) {
         display: block;
     }
 
-    .home_mixer-download {
+    .home_mixer-download,
+    .social-icons {
         display: none;
     }
   

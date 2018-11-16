@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import createClass from 'create-react-class';
 import StepRangeSlider from 'react-step-range-slider'
+import {  FacebookIcon,  TwitterIcon,  LinkedinIcon} from 'react-share';
 
 class ExploreMixer extends Component {
 
@@ -120,9 +121,13 @@ class ExploreMixer extends Component {
                         </ul>
                     </div>
                     <div className="home_mixer-download">
-                            {/* {this._renderDownloadFullData()} */}
-                            <img src="assets/images/oecd_en.png" width="100%"
-                            alt="Africapolis Visualise Urbanisation in Africa"/>
+                        <div className="social-icons">
+                            <a href="https://twitter.com/SWAC_OECD" target="_blank" rel="noopener noreferrer"><TwitterIcon size={32} round={true} /></a>
+                            <a href="http://www.facebook.com/OECDSWAC" target="_blank" rel="noopener noreferrer"><FacebookIcon size={32} round={true}/></a>
+                            <a href="https://www.linkedin.com/company/sahel-and-west-africa-club-club-du-sahel-et-l-afrique-de-l-ouest/" target="_blank" rel="noopener noreferrer"><LinkedinIcon size={32} round={true} /></a>
+                        </div>
+                        <img src="assets/images/oecd_en.png" width="100%"
+                        alt="Africapolis Visualise Urbanisation in Africa"/>
                     </div>
                 </div>
             );
@@ -148,9 +153,13 @@ class ExploreMixer extends Component {
                         </ul>
                     </div>
                     <div className="home_mixer-download">
-                            {/* {this._renderDownloadFullData()} */}
-                            <img src="assets/images/oecd_fr.png" width="100%"
-                            alt="Africapolis Visualise Urbanisation in Africa"/>
+                        <div className="social-icons">
+                            <a href="https://twitter.com/SWAC_OECD" target="_blank" rel="noopener noreferrer"><TwitterIcon size={32} round={true} /></a>
+                            <a href="http://www.facebook.com/OECDSWAC" target="_blank" rel="noopener noreferrer"><FacebookIcon size={32} round={true}/></a>
+                            <a href="https://www.linkedin.com/company/sahel-and-west-africa-club-club-du-sahel-et-l-afrique-de-l-ouest/" target="_blank" rel="noopener noreferrer"><LinkedinIcon size={32} round={true} /></a>
+                        </div>
+                        <img src="assets/images/oecd_fr.png" width="100%"
+                        alt="Africapolis Visualise Urbanisation in Africa"/>
                     </div>
                 </div>
             );

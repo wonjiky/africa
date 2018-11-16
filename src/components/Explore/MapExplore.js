@@ -221,24 +221,34 @@ class LeafletMap extends Component {
 			});
 			//this.mapOverlay.addTo(this.state.map);
 			this.placeHolder.addLayer(this.mapOverlay);
+
 		}else if( searchOption === 1 && searchOption !== 0){
+			
 			this.state.map.setView([1.46,18.3],3);
 			this.placeHolder.clearLayers();
 
 			this.select1 = L.geoJson(this.props.africaContinent,{
 				style: () => {return {color: 'transparent'}},
 				onEachFeature: (feature, layer) => {
-					layer.on('click', (e) => {
+					layer.on('mouseover', (e) => {
+						layer.setStyle(this.hoverStyle());
+					});
 
-							selected_first = layer;
-							const first_ID = selected_first.feature.properties.ID;
-							this.props.firstValueToMap(first_ID);
-							this.placeHolder.removeLayer(this.select2);
-							this.placeHolder.addLayer(this.select2);
-						});
+					layer.on('mouseout', (e) => {
+						this.select1.resetStyle(e.target);
+					});
+					
+					layer.on('click', (e) => {
+						selected_first = layer;
+						const first_ID = selected_first.feature.properties.ID;
+						this.props.firstValueToMap(first_ID);
+						this.placeHolder.removeLayer(this.select2);
+						this.placeHolder.addLayer(this.select2);
+					});
 
 					layer.on('change', (e) => {
-						this.selectedStyle(e.target);
+						
+						layer.setStyle(this.hoverStyle());
 						// console.log('passsing')
 					});
 						layer._leaflet_id = feature.properties.ID+"selA";
@@ -248,7 +258,13 @@ class LeafletMap extends Component {
 			this.select2 = L.geoJson(this.props.africaContinent,{
 				style: () => {return {color: 'transparent'}},
 				onEachFeature: (feature, layer) => {
+					layer.on('mouseover', (e) => {
+						this.selectedStyle(e.target);
+					});
 
+					layer.on('mouseout', (e) => {
+						this.select2.resetStyle(e.target);
+					});
 					layer.on('click', (e) => {
 						selected_second = layer;
 						const second_ID = selected_second.feature.properties.ID;
@@ -258,7 +274,8 @@ class LeafletMap extends Component {
 					});
 
 					layer.on('change', (e) => {
-						layer.setStyle(this.hoverStyle());
+						// layer.setStyle(this.hoverStyle());
+						this.selectedStyle(e.target);
 						// console.log('pass4')
 					});
 

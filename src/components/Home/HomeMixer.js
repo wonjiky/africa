@@ -1,6 +1,6 @@
 import React from 'react';
 import MaterialIcon from 'material-icons-react';
-// import { Link, Events, scroller } from 'react-scroll'
+import {  FacebookIcon,  TwitterIcon,  LinkedinIcon} from 'react-share';
     
 const HomeMixer = props => {
     if(props.language === 0 ) {
@@ -31,6 +31,11 @@ const HomeMixer = props => {
                 </div>
                 <div className="home_mixer-download">
                         {/* {this._renderDownloadFullData()} */}
+                        <div className="social-icons">
+                            <a href="https://twitter.com/SWAC_OECD" target="_blank" rel="noopener noreferrer"><TwitterIcon size={32} round={true} /></a>
+                            <a href="http://www.facebook.com/OECDSWAC" target="_blank" rel="noopener noreferrer"><FacebookIcon size={32} round={true}/></a>
+                            <a href="https://www.linkedin.com/company/sahel-and-west-africa-club-club-du-sahel-et-l-afrique-de-l-ouest/" target="_blank" rel="noopener noreferrer"><LinkedinIcon size={32} round={true} /></a>
+                        </div>
                         <img src="assets/images/oecd_en.png" width="100%"
                         alt="Africapolis Visualise Urbanisation in Africa"/>
                 </div>
@@ -64,6 +69,11 @@ const HomeMixer = props => {
                 </div>
                 <div className="home_mixer-download">
                         {/* {this._renderDownloadFullData()} */}
+                        <div className="social-icons">
+                            <a href="https://twitter.com/SWAC_OECD" target="_blank" rel="noopener noreferrer"><TwitterIcon size={32} round={true} /></a>
+                            <a href="http://www.facebook.com/OECDSWAC" target="_blank" rel="noopener noreferrer"><FacebookIcon size={32} round={true}/></a>
+                            <a href="https://www.linkedin.com/company/sahel-and-west-africa-club-club-du-sahel-et-l-afrique-de-l-ouest/" target="_blank" rel="noopener noreferrer"><LinkedinIcon size={32} round={true} /></a>
+                        </div>
                         <img src="assets/images/oecd_fr.png" width="100%"
                         alt="Africapolis Visualise Urbanisation in Africa"/>
                 </div>

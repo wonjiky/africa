@@ -79,7 +79,7 @@ class App extends Component {
 					<Headers.SideDrawer show={this.state.sideDrawerOpen}/>
 					{backdrop}
 					<Switch>
-						<Route path={`/`}component={() => <HomeWrapper 
+						<Route path={`/home`}component={() => <HomeWrapper
 							narratives={this.state.narratives}
 							whatsnew={this.state.whatsnew}
 							treemap={this.state.treemap}
@@ -88,7 +88,7 @@ class App extends Component {
 							menuButton = {this.state.sideDrawerOpen}
 							language={this.state.language}
 							/>}/>
-						<Route exact path={`/explore`} component={() => <ExploreWrapper 
+						<Route exact path={`/explore`} component={() => <ExploreWrapper
 							africaOne={this.state.geo_shades}
 							africaContinent={this.state.geo_country}
 							agglosGeo={this.state.geo_agglomeration}
@@ -98,7 +98,7 @@ class App extends Component {
 							language={this.state.language}
 							/> } />
 						<Route exact path={`/aboutus`} component={() => <AboutWrapper/> } />
-						<Redirect to="/"/>
+						<Redirect to="/home"/>
 					</Switch>
 				</div>
 			</BrowserRouter>
@@ -107,5 +107,3 @@ class App extends Component {
 }
 
 export default App;
-
-

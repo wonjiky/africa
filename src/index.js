@@ -7,12 +7,14 @@ import 'font-awesome/css/font-awesome.css';
 import 'bootstrap-social/bootstrap-social.css';
 import 'react-vis/dist/style.css';
 import 'react-input-range/lib/css/index.css'
+import './css/main.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
-    <Router basename={process.env.PUBLIC_URL} >
+    // </Router>basename={process.env.PUBLIC_URL} >
+    <Router >
         <App />
     </Router>, document.getElementById('root'));
-    
+
 registerServiceWorker();

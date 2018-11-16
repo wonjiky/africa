@@ -34,7 +34,7 @@ import { AFRICA_CONTINENT } from './shared/geo_country';
 import { AGGLOS } from './shared/geo_agglomeration';
 
 import { }from 'react-fontawesome';
-import './css/main.css';
+// import './css/main.css';
 import {Switch, Route, Redirect } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -79,7 +79,7 @@ class App extends Component {
 					<Headers.SideDrawer show={this.state.sideDrawerOpen}/>
 					{backdrop}
 					<Switch>
-						<Route path={`/`}component={() => <HomeWrapper 
+						<Route path={`/home`}component={() => <HomeWrapper 
 							narratives={this.state.narratives}
 							whatsnew={this.state.whatsnew}
 							treemap={this.state.treemap}
@@ -88,7 +88,7 @@ class App extends Component {
 							menuButton = {this.state.sideDrawerOpen}
 							language={this.state.language}
 							/>}/>
-						<Route exact path={`/explore`} component={() => <ExploreWrapper 
+						<Route path={`/explore`} component={() => <ExploreWrapper 
 							africaOne={this.state.geo_shades}
 							africaContinent={this.state.geo_country}
 							agglosGeo={this.state.geo_agglomeration}
@@ -97,8 +97,8 @@ class App extends Component {
 							menuButton = {this.state.sideDrawerOpen}
 							language={this.state.language}
 							/> } />
-						<Route exact path={`/aboutus`} component={() => <AboutWrapper/> } />
-						<Redirect to="/"/>
+						<Route path={`/aboutus`} component={() => <AboutWrapper/> } />
+						{/* <Redirect to="/"/> */}
 					</Switch>
 				</div>
 			</BrowserRouter>

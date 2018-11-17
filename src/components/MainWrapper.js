@@ -80,7 +80,7 @@ class MainWrapper extends Component {
 							language={this.state.language}
 							/> } />
 						<Route exact path={`/aboutus`} component={() => <AboutWrapper/> } />
-						<Redirect to="/" />
+						{/* <Redirect to="/" /> */}
 					</Switch>
 				</div>
 			);

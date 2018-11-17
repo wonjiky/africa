@@ -16,6 +16,7 @@ ReactGA.pageview(window.location.pathname + window.location.search);
 
 
 export const Header = props => {
+
     if(props.language === 0){
         return(
             <header className="header">
@@ -24,12 +25,12 @@ export const Header = props => {
                         <HamburgerButton click={props.drawerClickHandler}/>
                     </div>
                     <div className="header_logo">
-                        <a href="/">
-                        <img src="assets/images/africapolis_en.png" height='100%' className="logo_long"
-                                    alt="Africapolis Visualise Urbanisation in Africa"/>
-                        <img src="assets/images/africapolis_logo_short.png" height='110%' className="logo_short"
-                                    alt="Africapolis Visualise Urbanisation in Africa"/>
-                        </a>
+                        <NavLink to="/">
+                            <img src="assets/images/africapolis_en.png" height='100%' className="logo_long"
+                                        alt="Africapolis Visualise Urbanisation in Africa"/>
+                            <img src="assets/images/africapolis_logo_short.png" height='110%' className="logo_short"
+                                        alt="Africapolis Visualise Urbanisation in Africa"/>
+                        </NavLink>
                     </div>
                     <div className="header_spacer"></div>
                     <div className="header_nav_items">
@@ -41,10 +42,10 @@ export const Header = props => {
                         </div>
                         <div className="header_main_nav">
                             <ul>
-                                <li><NavLink className="nav-link" to="/home">Home</NavLink></li>
-                                <li><NavLink className="nav-link" to="/explore">Explore</NavLink></li>
-                                <li><NavLink className="nav-link" to="/research">Research</NavLink></li>
-                                <li><NavLink className="nav-link" to="/aboutus">About Us</NavLink></li>
+                                <li><NavLink exact to="/" className="nav-link">Home</NavLink></li>
+                                <li><NavLink to="/explore" className="nav-link">Explore</NavLink></li>
+                                <li><NavLink to="/research" className="nav-link">Research</NavLink></li>
+                                <li><NavLink to="/aboutus" className="nav-link">About Us</NavLink></li>
                             </ul>
                         </div>
                     </div>
@@ -76,10 +77,10 @@ export const Header = props => {
                             </div>
                             <div className="header_main_nav">
                                 <ul>
-                                <li><NavLink className="nav-link" to="/home">Accueil</NavLink></li>
-                            <li><NavLink className="nav-link" to="/explore">Explorer</NavLink></li>
-                            <li><NavLink className="nav-link" to="/research">Analyses</NavLink></li>
-                            <li><NavLink className="nav-link" to="/aboutus">À propos</NavLink></li>
+                                    <li><NavLink className="nav-link" to="/home">Accueil</NavLink></li>
+                                    <li><NavLink className="nav-link" to="/explore">Explorer</NavLink></li>
+                                    <li><NavLink className="nav-link" to="/research">Analyses</NavLink></li>
+                                    <li><NavLink className="nav-link" to="/aboutus">À propos</NavLink></li>
                                 </ul>
                         </div>
                     </div>

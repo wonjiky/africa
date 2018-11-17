@@ -17,9 +17,7 @@
 
 
 import React, { Component } from 'react';
-import MainWrapper from './components/MainWrapper';
-
-
+import {Switch, Route, Redirect, BrowserRouter} from 'react-router-dom';
 import HomeWrapper from './components/Home/HomeWrapper';
 import ExploreWrapper from './components/Explore/ExploreWrapper';
 import AboutWrapper from './components/Aboutus/AboutWrapper';
@@ -32,11 +30,8 @@ import { AFRICA_ONE } from './shared/geo_shades';
 import { AGGLOMERATIONINFO } from './shared/info_agglomeration';
 import { AFRICA_CONTINENT } from './shared/geo_country';
 import { AGGLOS } from './shared/geo_agglomeration';
+import { } from 'react-fontawesome';
 
-import { }from 'react-fontawesome';
-// import './css/main.css';
-import {Switch, Route, Redirect } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom';
 
 class App extends Component {
 	state = {
@@ -74,12 +69,12 @@ class App extends Component {
 		}
 		return (
 			<BrowserRouter>
-				<div style={{height: '100%'}}>
+				<div className="App" style={{height: '100%'}}>
 					<Headers.Header drawerClickHandler={this.drawerToggleClick} languageHandler={this.langHandler} language={this.state.language}/>
 					<Headers.SideDrawer show={this.state.sideDrawerOpen}/>
 					{backdrop}
 					<Switch>
-						<Route path={`/home`}component={() => <HomeWrapper 
+						<Route exact path="/" component={() => <HomeWrapper 
 							narratives={this.state.narratives}
 							whatsnew={this.state.whatsnew}
 							treemap={this.state.treemap}
@@ -87,8 +82,8 @@ class App extends Component {
 							treemap_buildup={this.state.treemap_buildup}
 							menuButton = {this.state.sideDrawerOpen}
 							language={this.state.language}
-							/>}/>
-						<Route path={`/explore`} component={() => <ExploreWrapper 
+						/>}/>
+						<Route path="/explore" component={() => <ExploreWrapper 
 							africaOne={this.state.geo_shades}
 							africaContinent={this.state.geo_country}
 							agglosGeo={this.state.geo_agglomeration}
@@ -97,11 +92,11 @@ class App extends Component {
 							menuButton = {this.state.sideDrawerOpen}
 							language={this.state.language}
 							/> } />
-						<Route path={`/aboutus`} component={() => <AboutWrapper/> } />
-						{/* <Redirect to="/"/> */}
+						<Route path="/aboutus" component={() => <AboutWrapper/> } />
 					</Switch>
 				</div>
 			</BrowserRouter>
+		
 		);
 	}
 }

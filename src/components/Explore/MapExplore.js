@@ -31,6 +31,9 @@ config.params = {
 };
 config.tileLayer = {
 	//Original:
+
+  //api.mapbox.com/styles/v1/mkmd/cjok90ksaadt12st8byurc9bp/wmts?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA
+	//uri: 'https://api.mapbox.com/styles/v1/mkmd/cjok90ksaadt12st8byurc9bp/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
 	uri: 'https://api.mapbox.com/styles/v1/mkmd/cjj041lbo07vo2rphltlukpya/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
 	params: {
 		maxZoom: 18,
@@ -223,7 +226,7 @@ class LeafletMap extends Component {
 			this.placeHolder.addLayer(this.mapOverlay);
 
 		}else if( searchOption === 1 && searchOption !== 0){
-			
+
 			this.state.map.setView([1.46,18.3],3);
 			this.placeHolder.clearLayers();
 
@@ -237,7 +240,7 @@ class LeafletMap extends Component {
 					layer.on('mouseout', (e) => {
 						this.select1.resetStyle(e.target);
 					});
-					
+
 					layer.on('click', (e) => {
 						selected_first = layer;
 						const first_ID = selected_first.feature.properties.ID;
@@ -247,7 +250,7 @@ class LeafletMap extends Component {
 					});
 
 					layer.on('change', (e) => {
-						
+
 						layer.setStyle(this.hoverStyle());
 						// console.log('passsing')
 					});

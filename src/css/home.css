@@ -38,7 +38,7 @@
     color: #474747;
     min-width:275px;
     max-width: 280px;
-    height: 100%;
+    height: calc(100vh - 80px);
 }
     .home_mixer-list {
         flex: 1;
@@ -93,8 +93,15 @@
         transform: scale(1.1);
     }
 
-    #home_content-container {
+    #home_content-container-wrapper {
         overflow-y: scroll;
+        width:100%;
+        height:calc(100vh - 80px);
+    }
+
+    #home_content-container {
+        /* overflow-y: scroll; */
+        width:100%;
         flex:1;
         display: flex;
         justify-content: center;

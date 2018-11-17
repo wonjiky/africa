@@ -117,8 +117,14 @@ td {
     padding:4px 0 4px 0;
 }
 
-.explore_content-container {
+#explore_content-container-wrapper {
     overflow-y: scroll;
+    width: 100%;
+    height: calc(100vh - 80px);
+
+}
+
+.explore_content-container {
     flex:1;
     display: flex;
     justify-content: center;

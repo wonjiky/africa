@@ -39,9 +39,12 @@ class ExploreContent extends Component {
         };
     }
 
-    componentDidUpdate(){
-
-    }
+    // componentDidUpdate(prevProps) {
+    //     if(prevProps.selectedCountry !== this.props.selectedCountry){
+    //         // document.getElementById('home_content-container').scrollTo(0,0)
+    //         document.getElementById('explore_content-container-wrapper').scrollTop = 0;
+    //     }
+    // }
 
     sendCountryValueToMap(e){
         this.props.handleCountryValueFromSearch(e);
@@ -242,20 +245,22 @@ class ExploreContent extends Component {
         const displayCountry_second = this.displayCountry(secondCompareValue, countryData);
 
         return(
-            <div className="explore_content-container">
-                <Tabs className="tab-wrapper" selectedIndex={this.state.selectedIndex} onSelect={this.handleSelect}>
-                    <TabList>
-                        <Tab>Single Select</Tab>
-                        <Tab>Compare</Tab>
-                    </TabList>
+            <div id="explore_content-container-wrapper">
+                <div className="explore_content-container">
+                    <Tabs className="tab-wrapper" selectedIndex={this.state.selectedIndex} onSelect={this.handleSelect}>
+                        <TabList>
+                            <Tab>Single Select</Tab>
+                            <Tab>Compare</Tab>
+                        </TabList>
 
-                    <TabPanel>
-                        {this.singleSelect(countryList, agglosList, displayCountry, displayAgglos)}
-                    </TabPanel>
-                    <TabPanel>
-                        {this.compareCountries(countryList, displayCountry_first, displayCountry_second)}
-                    </TabPanel>
-                </Tabs>
+                        <TabPanel>
+                            {this.singleSelect(countryList, agglosList, displayCountry, displayAgglos)}
+                        </TabPanel>
+                        <TabPanel>
+                            {this.compareCountries(countryList, displayCountry_first, displayCountry_second)}
+                        </TabPanel>
+                    </Tabs>
+                </div>
             </div>
         );
     }

@@ -23,7 +23,8 @@ class HomeContent extends Component {
 
     componentDidUpdate(prevProps) {
         if(prevProps.selectedContent !== this.props.selectedContent){
-            document.getElementById('home_content-container').scrollTo(0,0)
+            // document.getElementById('home_content-container').scrollTo(0,0)
+            document.getElementById('home_content-container-wrapper').scrollTop = 0;
         }
     }
     
@@ -36,27 +37,20 @@ class HomeContent extends Component {
             if(storyList.ID === 0 && contentFilter === 'narrative'){
                 return(
                     <div className="home_content-1" >
-                            <div className="home_content-1-1">
-                                <div>
-                                    <h2>{narratives[0].story_en[0].storytitle}</h2>
-                                    <hr id="overview_hr"/>
-                                    <p>{narratives[0].story_en[0].storyText}</p>
-                                </div>
+                        <div className="home_content-1-1">
+                            <div>
+                                <h2>{narratives[0].story_en[0].storytitle}</h2>
+                                <hr id="overview_hr"/>
+                                <p>{narratives[0].story_en[0].storyText}</p>
                             </div>
-                            <div className="home_content-1-2">
-                                <div>
-                                    <h2>{narratives[0].story_en[1].storytitle}</h2>
-                                    <hr id="overview_hr"/>
-                                    <p>{narratives[0].story_en[1].storyText}</p>
-                                </div>
+                        </div>
+                        <div className="home_content-1-2">
+                            <div>
+                                <h2>{narratives[0].story_en[1].storytitle}</h2>
+                                <hr id="overview_hr"/>
+                                <p>{narratives[0].story_en[1].storyText}</p>
                             </div>
-                            <div className="home_content-1-3">
-                                <div>
-                                    <h2>{narratives[0].story_en[2].storytitle}</h2>
-                                    <hr id="overview_hr"/>
-                                    <p>{narratives[0].story_en[2].storyText}</p>
-                                </div>
-                            </div>
+                        </div>
                     </div>
                 )
             } else if (storyList.ID !== 0 && contentFilter === 'narrative'){
@@ -180,12 +174,14 @@ class HomeContent extends Component {
 
     render () {
         return(
-            <div id="home_content-container">
-                {this.content(this.props.selectedContent,
-                    this.props.contentFilter,
-                    this.props.narratives,
-                    this.props.treemap,
-                    this.props.language)}
+            <div id="home_content-container-wrapper">
+                <div id="home_content-container">
+                    {this.content(this.props.selectedContent,
+                        this.props.contentFilter,
+                        this.props.narratives,
+                        this.props.treemap,
+                        this.props.language)}
+                </div>
             </div>
         )
     }

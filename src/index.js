@@ -12,6 +12,6 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 console.log('Your process.env.PUBLIC_URL', process.env.PUBLIC_URL) 
-ReactDOM.render(<BrowserRouter basename="/"><App /></BrowserRouter>, document.getElementById('root'));
+ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById('root'));
     // </Router>basename={process.env.PUBLIC_URL} >
 registerServiceWorker();

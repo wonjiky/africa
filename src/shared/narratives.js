@@ -26,19 +26,14 @@ export const WHATSNEW = [
       "story_en": [
         {
           "storyID": 0,
-          "storytitle": "1. Understanding urbanisation dynamics in Africa",
-          "storyText": "Africa is projected to have the fastest urban growth rate in the world - by 2050, Africa’s cities will be home to an additional 950 million people. There is a continuous need to better understand urbanisation, what it looks like today and what this means for the future. ",
+          "storytitle": "Informing policies for Africa’s urban future",
+          "storyText": "Africa is projected to have the fastest urban growth rate in the world — by 2050, Africa’s cities will be home to an additional 950 million people. Urban planning and management are essential development challenges. Understanding urbanisation, its drivers, dynamics and  impacts, is key to designing targeted, inclusive and foward-looking policies at the local, national and continental levels. Africapolis data and evidence supports cities and governments to make urban areas more inclusive, productive and sustainable.",
         },
         {
           "storyID": 1,
-          "storytitle": "2. Africapolis: A unique platform on cities and urbanisation in Africa",
-          "storyText": "Africapolis is the only comprehensive and standardised geospatial database on cities and urbanisation dynamics in Africa. It is designed to enable comparative and long-term analyses of urban dynamics - covering 7 500 agglomerations in 50 countries. ",
-        },
-        {
-          "storyID": 2,
-          "storytitle": "3. Planning for Africa’s urban future",
-          "storyText": "Managing urbanisation is one of Africa’s great development challenges. More data and a stronger evidence-base is needed to support cities and governments to make urban areas more inclusive, livable and productive.",
-        },
+          "storytitle": "A unique database on cities and urbanisation in Africa",
+          "storyText": "Produced by the OECD Sahel and West Africa Club, Africapolis.org is the only comprehensive and standardised geospatial database on cities and urbanisation dynamics in Africa. Combining demographic sources, satellite and aerial imagery and other cartographic sources, it is designed to enable comparative and long-term analyses of urban dynamics - covering 7 500 agglomerations in 50 countries.",
+        }
       ],
     "story_fr": [
       {

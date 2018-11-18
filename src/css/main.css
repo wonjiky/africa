@@ -577,7 +577,7 @@ button:focus{
   width:100%;
   display: inline-block;
   padding:0;
-  transition: color .2s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 
 .nav-link.active{

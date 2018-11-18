@@ -13,24 +13,40 @@ const AboutWrapper = props => {
         return (
             <div className="about_main-container-wrapper">
                 <div className="about_main-container">
-                    <div className="about_africapolis">
-                        <Fade bottom>
+                    <Fade bottom>
+                        <div className="about_africapolis">
                             {english.intro_1}<br/>
                             {english.intro_2}
-                            {/* <img src="assets/images/SDG-11.png" height="5%"
-                                alt="Africapolis Visualise Urbanisation in Africa"/> */}
-                        </Fade>
-                    </div>
-                    <div className="about_africapolis-logos">
-                        <Fade bottom>
-                        <div className="africapolis_logos">
-                            <img src="assets/images/swac-oecd.png" width="80%"
-                                alt="Africapolis Visualise Urbanisation in Africa"/>
-                            <img src="assets/images/e-geopolis.png" width="40%"
-                                alt="Africapolis Visualise Urbanisation in Africa"/>
                         </div>
-                        </Fade>
-                    </div>
+                        <div className="about_africapolis-logos">
+                            <div className="africapolis_logos">
+                                <img src="assets/images/swac-oecd.png" width="100%"
+                                    alt="Africapolis Visualise Urbanisation in Africa"/>
+                            </div>
+                            <div className="africapolis_logos">
+                                <img src="assets/images/e-geopolis.png" width="80%"
+                                    alt="Africapolis Visualise Urbanisation in Africa"/>
+                            </div>
+                        </div>
+                    </Fade>
+                    <Fade bottom>
+                        <div className="about_africapolis">
+                            {english.intro_3}
+                        </div>
+                        <div className="about_africapolis-logos">
+                            <div className="africapolis_logos">
+                                <img src="assets/images/SDG-11.png" width="60%"
+                                    alt="Africapolis Visualise Urbanisation in Africa"/>
+                            </div>
+                        </div>
+                    </Fade>
+                    <Fade bottom>
+                        <div className="about_africapolis">
+                            <span>{english.swac_title}</span><br/>
+                            {english.swac_text_1}
+                            {english.swac_text_2}
+                        </div>
+                    </Fade>
                 </div>
             </div>
         )

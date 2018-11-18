@@ -28,8 +28,8 @@ config.params = {
 config.tileLayer = {
 	//Original:
 	uri: 'https://api.mapbox.com/styles/v1/mkmd/cjok8tye50dmu2smqd1uh51z0/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
-	//uri: 'https://api.mapbox.com/styles/v1/mkmd/cjok90ksaadt12st8byurc9bp/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
 	uri2: 'https://api.mapbox.com/styles/v1/mkmd/cjj041lbo07vo2rphltlukpya/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
+	uri3: 'https://api.mapbox.com/styles/v1/mkmd/cjok90ksaadt12st8byurc9bp/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
 
 	params: {
 		maxZoom: 18,
@@ -65,8 +65,9 @@ class LeafletMap extends Component {
 
 		const tileLayer = L.tileLayer(config.tileLayer.uri, config.tileLayer.params)
 		const tileLayer2 = L.tileLayer(config.tileLayer.uri2, config.tileLayer.params)
+		const tileLayer3 = L.tileLayer(config.tileLayer.uri3, config.tileLayer.params)
 
-		this.setState({ map, tileLayer, tileLayer2});
+		this.setState({ map, tileLayer, tileLayer2, tileLayer3});
 		this.mapShades = L.geoJson(this.props.africaOne, {
 			invert:true,
 			color:"grey",
@@ -133,14 +134,43 @@ class LeafletMap extends Component {
 
 
 		if(this.props.treemapFilter === 'narrative' && this.props.treemapValue === 0){
-			  this.state.map.setView([1.46,18.3],3)}
+			  this.state.map.setView([1.46,18.3],3)
+					if (this.props.triggerAnim > prevProps.triggerAnim)
+					{		//this.state.map.removeLayer(this.state.tileLayer);
+							this.state.map.addLayer(this.state.tileLayer3);    }
+					else if (this.props.triggerAnim < prevProps.triggerAnim)
+					{		this.state.map.removeLayer(this.state.tileLayer3);
+							this.state.map.addLayer(this.state.tileLayer);     }
+			}
 		else if(this.props.treemapFilter === 'narrative' && this.props.treemapValue === 1) {
-			this.state.map.flyTo([-23.502,32.106],16)
+
+				if (prevProps.treemapValue !== this.props.treemapValue)
+				{this.state.map.flyTo([-23.502,32.106],16)}
+			  else if (this.props.triggerAnim 	> prevProps.triggerAnim)
+				{console.log('aba')
+					this.state.map.flyTo([-25.945, 32.587],10)}
+				else if (this.props.triggerAnim < prevProps.triggerAnim)
+				{console.log('tutu')
+					this.state.map.flyTo([-23.502,32.106],16)}
+
+
 
 		} else if (this.props.treemapFilter === 'narrative' && this.props.treemapValue === 2)
-		{ this.state.map.flyTo([5.75372, 6.993606],10)}
+		{ this.state.map.flyTo([5.75372, 6.993606],10)
+				if (this.props.triggerAnim > prevProps.triggerAnim)
+				{console.log('fuck')}
+				else if (this.props.triggerAnim < prevProps.triggerAnim)
+				{console.log('fuck2')}
+
+
+		}
 		else if (this.props.treemapFilter === 'narrative' && this.props.treemapValue === 3)
-		{this.state.map.flyTo([1.46,18.3],3)}
+		{this.state.map.flyTo([1.46,18.3],3)
+			if (this.props.triggerAnim > prevProps.triggerAnim)
+			{console.log('fuck')}
+			else if (this.props.triggerAnim < prevProps.triggerAnim)
+			{console.log('fuck2')}
+}
 	}
 
 	else if(this.props.treemapFilter === 'treemap') {
@@ -193,7 +223,12 @@ class LeafletMap extends Component {
 					if(layerprev){
 						layerprev.fire('mouseout')
 			}}}
+
+
 	}
+
+
+
 }
 	treemap_onEachFeature(feature,layer){
 		if(feature.geometry.type==="MultiPolygon"){

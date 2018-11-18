@@ -47,6 +47,12 @@ const AboutWrapper = props => {
                             {english.swac_text_2}
                         </div>
                     </Fade>
+                    <Fade bottom>
+                        <div className="about_africapolis">
+                            <span>{english.member_title}</span><br/>
+                            {english.members}
+                        </div>
+                    </Fade>
                 </div>
             </div>
         )

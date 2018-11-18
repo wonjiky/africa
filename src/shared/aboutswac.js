@@ -6,7 +6,7 @@ export const ABOUTSWAC_EN = [
     "swac_title":"THE SAHEL AND WEST AFRICA CLUB",
     "swac_text_1":"SWAC is is an independent, international platform. Its Secretariat is hosted at the Organisation for Economic Co-operation and Development (OECD).",
     "swac_text_2":"Its mission is to promote regional policies that will improve the economic and social well-being of people in the Sahel and West Africa.",
-    "member_title":"Its members are",
+    "member_title":"ITS MEMBERS ARE",
     "members":"Austria, Belgium, Canada, CILSS, the ECOWAS Commission, the European Union, France, Luxembourg, the Netherlands, Switzerland, the UEMOA Commission and the United States."
   }
 ]

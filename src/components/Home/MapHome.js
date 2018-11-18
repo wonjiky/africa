@@ -145,7 +145,7 @@ class LeafletMap extends Component {
 
 	else if(this.props.treemapFilter === 'treemap') {
 		this.state.map.removeLayer(this.state.tileLayer)
-		this.state.map.addLayer(this.state.	tileLayer2)
+		this.state.map.addLayer(this.state.tileLayer2)
 		if(this.props.treemapFilter === 'treemap') {
 			if(this.treemap){
 				this.treemap.clearLayers(this.treemap);

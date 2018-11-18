@@ -1,19 +1,4 @@
-export const WHATSNEW = [
-  {
-    "ID": 0,
-    "whatsNew": 'whatsNew',
-    "title_en": "Africapolis report 2019",
-  },
-  {
-    "ID": 1,
-    "whatsNew": 'whatsNew',
-    "title_en": "Africa's largest cities 2019",
-  },{
-    "ID": 2,
-    "whatsNew": 'whatsNew',
-    "title_en": "Madagascar data available",
-  }
-]
+
 
 export const NARRATIVES = [
 	{

@@ -1,3 +1,9 @@
+.about_main-container-wrapper {
+    overflow-y: scroll;
+    width: 100%;
+    height: calc(100vh - 80px);
+}
+
 .hello{
     margin-bottom: 50px;
 }

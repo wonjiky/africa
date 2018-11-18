@@ -22,7 +22,7 @@ import HomeWrapper from './components/Home/HomeWrapper';
 import ExploreWrapper from './components/Explore/ExploreWrapper';
 import AboutWrapper from './components/Aboutus/AboutWrapper';
 import * as Headers from './components/Header';
-import { NARRATIVES, WHATSNEW } from './shared/narratives';
+import { NARRATIVES } from './shared/narratives';
 import { TREEMAP } from './shared/treemap';
 import { COUNTRYINFO } from './shared/info_country';
 import { TREEMAP_BUILDUP } from './shared/treemap_buildup'
@@ -30,13 +30,13 @@ import { AFRICA_ONE } from './shared/geo_shades';
 import { AGGLOMERATIONINFO } from './shared/info_agglomeration';
 import { AFRICA_CONTINENT } from './shared/geo_country';
 import { AGGLOS } from './shared/geo_agglomeration';
+import { ABOUTSWAC } from './shared/aboutswac';
 import { } from 'react-fontawesome';
 
 
 class App extends Component {
 	state = {
 		narratives: NARRATIVES,
-		whatsnew: WHATSNEW,
 		countryData: COUNTRYINFO,
 		geo_shades: AFRICA_ONE,
 		geo_country: AFRICA_CONTINENT,
@@ -44,6 +44,7 @@ class App extends Component {
 		info_agglomeration: AGGLOMERATIONINFO,
 		treemap: TREEMAP,
 		treemap_buildup: TREEMAP_BUILDUP,
+		aboutUs: ABOUTSWAC,
 		language: 0
 	};
 	// window.countrydata = africa_continent;
@@ -94,7 +95,9 @@ class App extends Component {
 							menuButton = {this.state.sideDrawerOpen}
 							language={this.state.language}
 							/> } />
-						<Route exact path="/aboutus" component={() => <AboutWrapper/> } />
+						<Route exact path="/aboutus" component={() => <AboutWrapper
+							aboutSwac={this.state.aboutUs}
+							/> } />
 						<Redirect to="/" />
 					</Switch>
 				</div>

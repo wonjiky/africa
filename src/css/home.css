@@ -22,6 +22,25 @@
     height:100%;
 }
 
+.story-0,
+.story-1,
+.story-2 {
+    margin-top:20px;
+    margin-bottom: 100px;
+}
+
+.story-0>p,
+.story-1>p,
+.story-2>p {
+    margin-bottom:20px;
+}
+
+.story-0>h5,
+.story-1>h5,
+.story-2>h5 {
+    margin-bottom:20px;
+}
+
 .home_content-wrapper {
     flex: 2;
     display:flex;

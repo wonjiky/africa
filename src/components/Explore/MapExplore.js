@@ -240,7 +240,9 @@ class LeafletMap extends Component {
 				style: () => {return {color: 'transparent'}},
 				onEachFeature: (feature, layer) => {
 					layer.on('mouseover', (e) => {
-						layer.setStyle(this.hoverStyle());
+						// layer.setStyle(this.hoverStyle());
+						this.selectedStyle(e.target);
+
 					});
 
 					layer.on('mouseout', (e) => {
@@ -256,8 +258,8 @@ class LeafletMap extends Component {
 					});
 
 					layer.on('change', (e) => {
-
-						layer.setStyle(this.hoverStyle());
+						this.selectedStyle(e.target);
+						// layer.setStyle(this.hoverStyle());
 						// console.log('passsing')
 					});
 						layer._leaflet_id = feature.properties.ID+"selA";
@@ -268,7 +270,8 @@ class LeafletMap extends Component {
 				style: () => {return {color: 'transparent'}},
 				onEachFeature: (feature, layer) => {
 					layer.on('mouseover', (e) => {
-						this.selectedStyle(e.target);
+						// this.selectedStyle(e.target);
+						layer.setStyle(this.hoverStyle());
 					});
 
 					layer.on('mouseout', (e) => {
@@ -283,8 +286,8 @@ class LeafletMap extends Component {
 					});
 
 					layer.on('change', (e) => {
-						// layer.setStyle(this.hoverStyle());
-						this.selectedStyle(e.target);
+						layer.setStyle(this.hoverStyle());
+						// this.selectedStyle(e.target);
 						// console.log('pass4')
 					});
 
@@ -292,9 +295,9 @@ class LeafletMap extends Component {
 
 				}
 			});
-			this.placeHolder.addLayer(this.select1);
+			
 			this.placeHolder.addLayer(this.select2);
-
+			this.placeHolder.addLayer(this.select1);
 		}
 
 		// ** Single select COUNTRY layer trigger

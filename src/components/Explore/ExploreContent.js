@@ -173,11 +173,11 @@ class ExploreContent extends Component {
             <div className="explore_container-wrapper">
                 <div className="explore_search-agglos">
                     <Select
-                        placeholder= "Select second country"
+                        placeholder= "Select first country"
                         options={countryList}
-                        value={secondCountry}
+                        value={firstCountry}
                         backspaceRemovesValue={false}
-                        onChange={this.sendsecondValueToMap.bind(this)}
+                        onChange={this.sendfirstValueToMap.bind(this)}
                         theme={(theme) => ({
                             ...theme,
                             borderRadius: 0,
@@ -191,13 +191,12 @@ class ExploreContent extends Component {
                 </div>
                 <div className="explore_search-country">
                     <Select
-                        placeholder= "Select first country" 
+                        placeholder= "Select second country" 
                         options={countryList}
-                        value={firstCountry}
+                        value={secondCountry}
                         backspaceRemovesValue={false}
-                        onChange={this.sendfirstValueToMap.bind(this)}
-                        // isDisabled={secondCountry !== undef ? true : false}
-                        theme={(theme) => ({
+                        onChange={this.sendsecondValueToMap.bind(this)}
+                        theme={(theme) => ({  
                             ...theme,
                             borderRadius: 0,
                             colors: {

@@ -116,7 +116,7 @@
     #home_content-container-wrapper {
         overflow-y: scroll;
         width:100%;
-        /* height:calc(100vh - 80px); */
+        height:calc(100vh - 80px);
     }
 
     #home_content-container {

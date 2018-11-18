@@ -148,7 +148,7 @@ class LeafletMap extends Component {
 							this.placeHolder.addLayer(this.state.tileLayer)}
 
 					if (this.props.triggerAnim > prevProps.triggerAnim)
-					{		this.placeHolder.removeLayer(this.state.tileLayer);
+					{		//this.placeHolder.removeLayer(this.state.tileLayer);
 							this.placeHolder.addLayer(this.state.tileLayer3);
 						console.log('fuck2')}
 					else if (this.props.triggerAnim < prevProps.triggerAnim)
@@ -204,7 +204,8 @@ class LeafletMap extends Component {
 	}
 
 	else if(this.props.treemapFilter === 'treemap') {
-		this.placeHolder.removeLayer(this.state.tileLayer)
+		this.state.map.setView([1.46,18.3],3)
+		this.placeHolder.clearLayers();
 		this.placeHolder.addLayer(this.state.tileLayer2)
 		if(this.props.treemapFilter === 'treemap') {
 			if(this.treemap){

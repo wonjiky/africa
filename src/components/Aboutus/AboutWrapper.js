@@ -1,21 +1,53 @@
 import React, { Component } from 'react';
 import Fade from 'react-reveal/Fade';
-import {Col, Grid, Row} from 'react-flexbox-grid';
 import '../../css/aboutus.css'
 
 
-class AboutWrapper extends Component {
 
-    constructor(props){
-        super(props);
-        this.state = {
-        };
-    }
-    render() {
-        return(
+const AboutWrapper = props => {
+
+    const english = props.aboutSwac_EN[0];
+    const french = props.aboutSwac_FR[0];
+
+    if(props.language === 0){
+        return (
             <div className="about_main-container-wrapper">
-
+                <div className="about_main-container">
+                    <div className="about_africapolis">
+                        <Fade bottom>
+                            {english.intro_1}<br/>
+                            {english.intro_2}
+                            {/* <img src="assets/images/SDG-11.png" height="5%"
+                                alt="Africapolis Visualise Urbanisation in Africa"/> */}
+                        </Fade>
+                    </div>
+                    <div className="about_africapolis-logos">
+                        <Fade bottom>
+                        <div className="africapolis_logos">
+                            <img src="assets/images/swac-oecd.png" width="80%"
+                                alt="Africapolis Visualise Urbanisation in Africa"/>
+                            <img src="assets/images/e-geopolis.png" width="40%"
+                                alt="Africapolis Visualise Urbanisation in Africa"/>
+                        </div>
+                        </Fade>
+                    </div>
+                </div>
             </div>
+        )
+    }else{
+        return(
+            <div></div>
+        )
+    }
+}
+
+// class AboutWrapper extends Component {
+
+    // render() {
+    //     return(
+    //         <div className="about_main-container-wrapper">
+
+    //         </div>
             // <Grid fluid className="aboutus-wrapper">
             //     <Col md={8} mdOffset={2}>
             //         <Fade bottom>
@@ -138,8 +170,8 @@ class AboutWrapper extends Component {
             //         </Fade>
             //     </Col>
             // </Grid>
-        );
-    }
-}
+//         );
+//     }
+// }
 
-export default AboutWrapper
+export default AboutWrapper;

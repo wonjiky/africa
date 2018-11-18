@@ -16,7 +16,6 @@ ReactGA.pageview(window.location.pathname + window.location.search);
 
 
 export const Header = props => {
-
     if(props.language === 0){
         return(
             <header className="header">

@@ -1,7 +1,40 @@
 .about_main-container-wrapper {
     overflow-y: scroll;
     width: 100%;
+    position: fixed;
+    margin-top: 80px;
     height: calc(100vh - 80px);
+}
+
+.about_main-container {
+    display:flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+.about_africapolis {
+    margin-top:250px;
+    max-width:70%;
+    text-align:center;
+    line-height:30px;
+    width:800px;
+}
+
+.about_africapolis-logos {
+    max-width:70%;
+    text-align:center;
+    width:800px;
+    display:flex;
+    flex-direction:row;
+    margin-top: 30px;
+}
+
+.africapolis_logos{
+    flex:1;
+    max-width:50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hello{

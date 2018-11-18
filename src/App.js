@@ -30,7 +30,7 @@ import { AFRICA_ONE } from './shared/geo_shades';
 import { AGGLOMERATIONINFO } from './shared/info_agglomeration';
 import { AFRICA_CONTINENT } from './shared/geo_country';
 import { AGGLOS } from './shared/geo_agglomeration';
-import { ABOUTSWAC } from './shared/aboutswac';
+import { ABOUTSWAC_EN, ABOUTSWAC_FR } from './shared/aboutswac';
 import { } from 'react-fontawesome';
 
 
@@ -44,7 +44,8 @@ class App extends Component {
 		info_agglomeration: AGGLOMERATIONINFO,
 		treemap: TREEMAP,
 		treemap_buildup: TREEMAP_BUILDUP,
-		aboutUs: ABOUTSWAC,
+		aboutUs_EN: ABOUTSWAC_EN,
+		aboutUs_FR: ABOUTSWAC_FR,
 		language: 0
 	};
 	// window.countrydata = africa_continent;
@@ -95,9 +96,12 @@ class App extends Component {
 							menuButton = {this.state.sideDrawerOpen}
 							language={this.state.language}
 							/> } />
-						<Route exact path="/aboutus" component={() => <AboutWrapper
-							aboutSwac={this.state.aboutUs}
-							/> } />
+						<Route exact path="/aboutus" component={ () =>
+							<AboutWrapper 
+								aboutSwac_EN={this.state.aboutUs_EN}
+								aboutSwac_FR={this.state.aboutUs_FR}
+								language={this.state.language}
+							/>}/>
 						<Redirect to="/" />
 					</Switch>
 				</div>

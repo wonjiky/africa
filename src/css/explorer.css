@@ -234,10 +234,10 @@ button.accordion {
 }
 
 .first-country-label{
-    color: #e8ae40;
+    color:  #c5543f;
 }
 .second-country-label {
-    color:  #c5543f;
+    color: #e8ae40;
 }
 
 .compare-title-keyfigure,
@@ -284,6 +284,7 @@ button.accordion {
     align-items:center;
     justify-content:center;
     line-height: 1.2rem;
+    text-align: center;
     font-weight: 600;
 }
 
@@ -304,11 +305,11 @@ button.accordion {
     }
 
     .first-histogram-ranking span{
-        color: #e8ae40;
+        color: #c2523e;
         font-weight:600;
     }
     .second-histogram-ranking span {
-        color: #c2523e;
+        color: #e8ae40;
         font-weight:600;
     }
 

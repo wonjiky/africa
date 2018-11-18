@@ -27,8 +27,10 @@ config.params = {
 };
 config.tileLayer = {
 	//Original:
-	uri: 'https://api.mapbox.com/styles/v1/mkmd/cjok90ksaadt12st8byurc9bp/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
+	uri: 'https://api.mapbox.com/styles/v1/mkmd/cjok8tye50dmu2smqd1uh51z0/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
+	//uri: 'https://api.mapbox.com/styles/v1/mkmd/cjok90ksaadt12st8byurc9bp/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
 	uri2: 'https://api.mapbox.com/styles/v1/mkmd/cjj041lbo07vo2rphltlukpya/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
+
 	params: {
 		maxZoom: 18,
 	}
@@ -71,7 +73,7 @@ class LeafletMap extends Component {
 			stroke: false,
 			fillOpacity:0.8
 		})
-		this.mapShades.addTo(map);
+		//this.mapShades.addTo(map);
 		this.placeHolder = L.featureGroup();
 		this.placeHolder.addTo(map);
 
@@ -154,7 +156,7 @@ class LeafletMap extends Component {
 			this.state.map.scrollWheelZoom.enable();
 			this.state.map.boxZoom.enable();
 			this.state.map.keyboard.enable();
-		
+
 
 
 

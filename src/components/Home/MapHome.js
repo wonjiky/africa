@@ -27,9 +27,9 @@ config.params = {
 };
 config.tileLayer = {
 	//Original:
-	uri: 'https://api.mapbox.com/styles/v1/mkmd/cjok8tye50dmu2smqd1uh51z0/tiles/512/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
-	uri2: 'https://api.mapbox.com/styles/v1/mkmd/cjj041lbo07vo2rphltlukpya/tiles/512/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
-	uri3: 'https://api.mapbox.com/styles/v1/mkmd/cjok90ksaadt12st8byurc9bp/tiles/512/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
+	uri: 'https://api.mapbox.com/styles/v1/mkmd/cjok8tye50dmu2smqd1uh51z0/tiles/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
+	uri2: 'https://api.mapbox.com/styles/v1/mkmd/cjj041lbo07vo2rphltlukpya/tiles/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
+	uri3: 'https://api.mapbox.com/styles/v1/mkmd/cjok90ksaadt12st8byurc9bp/tiles/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
 
 	params: {
 		maxZoom: 18,
@@ -79,6 +79,7 @@ class LeafletMap extends Component {
 		//this.mapShades.addTo(map);
 		this.placeHolder = L.featureGroup();
 		this.placeHolder.addTo(map);
+		this.placeHolder.addLayer(tileLayer);
 
 		this.abovefive = L.geoJson( [ { "type": "FeatureCollection", "features": [ { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 31.255,30.13 ] }, "properties": { "ID":1, "NAME":"al-Qahira", "ISO":"EGY", "PTA2015":22995802 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 3.337584742,6.589961167 ] }, "properties": { "ID":2, "NAME":"Lagos", "ISO":"NGA", "PTA2015":11810523 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 7.045712305,5.812861246 ] }, "properties": { "ID":3, "NAME":"Onitsha", "ISO":"NGA", "PTA2015":8530514 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 28.13184538,-26.06703456 ] }, "properties": { "ID":4, "NAME":"Johannesburg", "ISO":"ZAF", "PTA2015":8314220 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 15.33483552,-4.396663245 ] }, "properties": { "ID":5, "NAME":"Kinshasa", "ISO":"ZAR", "PTA2015":7270000 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 13.31293462,-8.926452268 ] }, "properties": { "ID":6, "NAME":"Luanda", "ISO":"AGO", "PTA2015":6979211 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 30.586,31.125 ] }, "properties": { "ID":7, "NAME":"al-Iskandariya", "ISO":"EGY", "PTA2015":6585102 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 36.7942443,-1.21047772 ] }, "properties": { "ID":8, "NAME":"Nairobi aggl.", "ISO":"KEN", "PTA2015":5877118 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 39.16785785,-6.819328852 ] }, "properties": { "ID":9, "NAME":"Dar es Salaam", "ISO":"TZA", "PTA2015":5325879 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 32.51556821,15.58927334 ] }, "properties": { "ID":10, "NAME":"Khartum", "ISO":"SUD", "PTA2015":5264746 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 34.74913174,0.38159039 ] }, "properties": { "ID":11, "NAME":"Kisumu aggl.", "ISO":"KEN", "PTA2015":5040159 } } ] } ],{pointToLayer: this.treemap_pointToLayer}	)
 
@@ -126,9 +127,11 @@ class LeafletMap extends Component {
 
 		if(this.props.treemapFilter === 'narrative'){
 			//this.state.map.removeLayer(this.tileLayer)
-			this.state.map.addLayer(this.state.tileLayer)
+			this.placeHolder.removeLayer(this.tileLayer2)
+			console.log('fuck4')
+			//this.placeHolder.addLayer(this.state.tileLayer)
 			if(this.treemap)
-			{this.state.map.removeLayer(this.treemap)}
+			{this.placeHolder.removeLayer(this.treemap)}
 			this.state.map.dragging.disable();
 			this.state.map.touchZoom.disable();
 			this.state.map.doubleClickZoom.disable();
@@ -139,17 +142,26 @@ class LeafletMap extends Component {
 
 		if(this.props.treemapFilter === 'narrative' && this.props.treemapValue === 0){
 			  this.state.map.setView([1.46,18.3],3)
+				if (prevProps.treemapValue !== this.props.treemapValue || prevProps.treemapFilter !== this.props.treemapFilter)
+				{console.log('fuck1')
+							this.placeHolder.clearLayers()
+							this.placeHolder.addLayer(this.state.tileLayer)}
+
 					if (this.props.triggerAnim > prevProps.triggerAnim)
-					{		//this.state.map.removeLayer(this.state.tileLayer);
-							this.state.map.addLayer(this.state.tileLayer3);    }
+					{		this.placeHolder.removeLayer(this.state.tileLayer);
+							this.placeHolder.addLayer(this.state.tileLayer3);
+						console.log('fuck2')}
 					else if (this.props.triggerAnim < prevProps.triggerAnim)
-					{		this.state.map.removeLayer(this.state.tileLayer3);
-							this.state.map.addLayer(this.state.tileLayer);     }
+					{		this.placeHolder.removeLayer(this.state.tileLayer3);
+							this.placeHolder.addLayer(this.state.tileLayer);
+						console.log('fuck3')}
 			}
 		else if(this.props.treemapFilter === 'narrative' && this.props.treemapValue === 1) {
 
-				if (prevProps.treemapValue !== this.props.treemapValue)
-				{this.state.map.flyTo([-23.502,32.106],16)}
+				if (prevProps.treemapValue !== this.props.treemapValue || prevProps.treemapFilter !== this.props.treemapFilter)
+				{	this.placeHolder.clearLayers()
+					this.placeHolder.addLayer(this.state.tileLayer3)
+					this.state.map.flyTo([-23.502,32.106],16)}
 			  else if (this.props.triggerAnim 	> prevProps.triggerAnim)
 				{
 					this.state.map.flyTo([-25.945, 32.587],10)}
@@ -160,30 +172,40 @@ class LeafletMap extends Component {
 
 
 		} else if (this.props.treemapFilter === 'narrative' && this.props.treemapValue === 2)
-		{ this.state.map.flyTo([5.75372, 6.993606],10)
+		{ 	if (prevProps.treemapValue !== this.props.treemapValue || prevProps.treemapFilter !== this.props.treemapFilter)
+			{	this.placeHolder.clearLayers()
+				this.placeHolder.addLayer(this.state.tileLayer3)
+			this.state.map.flyTo([5.75372, 6.993606],10)}
 
 
 
 		}
 		else if (this.props.treemapFilter === 'narrative' && this.props.treemapValue === 3)
-		{this.state.map.setView([1.46,18.3],3)
-
-
-}
-		else if (this.props.treemapFilter === 'narrative' && this.props.treemapValue === 4)
-		{
-			if (this.props.triggerAnim > prevProps.triggerAnim)
+		{	if (prevProps.treemapValue !== this.props.treemapValue || prevProps.treemapFilter !== this.props.treemapFilter)
+			{	this.placeHolder.clearLayers()
+				this.placeHolder.addLayer(this.state.tileLayer3)
+			this.state.map.setView([1.46,18.3],3)}
+			else if (this.props.triggerAnim > prevProps.triggerAnim)
 			{this.placeHolder.addLayer(this.abovefive)
 				}
 			else if (this.props.triggerAnim < prevProps.triggerAnim)
 			{this.placeHolder.removeLayer(this.abovefive)}
 
+
+}
+		else if (this.props.treemapFilter === 'narrative' && this.props.treemapValue === 4)
+		{	if (prevProps.treemapValue !== this.props.treemapValue || prevProps.treemapFilter !== this.props.treemapFilter)
+			{	this.placeHolder.clearLayers()
+				this.placeHolder.addLayer(this.state.tileLayer3)
+			this.state.map.setView([1.46,18.3],3)}
+
+
 		}
 	}
 
 	else if(this.props.treemapFilter === 'treemap') {
-		this.state.map.removeLayer(this.state.tileLayer)
-		this.state.map.addLayer(this.state.tileLayer2)
+		this.placeHolder.removeLayer(this.state.tileLayer)
+		this.placeHolder.addLayer(this.state.tileLayer2)
 		if(this.props.treemapFilter === 'treemap') {
 			if(this.treemap){
 				this.treemap.clearLayers(this.treemap);
@@ -202,7 +224,7 @@ class LeafletMap extends Component {
 				filter: this.treemap_filter,
 				onEachFeature: this.treemap_onEachFeature,
 				pointToLayer: this.treemap_pointToLayer})
-			this.state.map.addLayer(this.treemap);
+			this.placeHolder.addLayer(this.treemap);
 		}
 
 		if (treemap_click) {

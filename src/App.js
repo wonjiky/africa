@@ -52,6 +52,8 @@ class App extends Component {
 		this.setState((prevState) => {
 			return {sideDrawerOpen: !prevState.sideDrawerOpen}
 		});
+
+		console.log(this.state.sideDrawerOpen);
 	};
 
 	backdropClickHandler = () => {
@@ -74,7 +76,7 @@ class App extends Component {
 					<Headers.SideDrawer show={this.state.sideDrawerOpen}/>
 					{backdrop}
 					<Switch>
-						<Route exact path="/" component={() => <HomeWrapper 
+						<Route exact path="/" component={() => <HomeWrapper
 							narratives={this.state.narratives}
 							whatsnew={this.state.whatsnew}
 							treemap={this.state.treemap}
@@ -83,7 +85,7 @@ class App extends Component {
 							menuButton = {this.state.sideDrawerOpen}
 							language={this.state.language}
 						/>}/>
-						<Route path="/explore" component={() => <ExploreWrapper 
+						<Route exact path="/explore" component={() => <ExploreWrapper
 							africaOne={this.state.geo_shades}
 							africaContinent={this.state.geo_country}
 							agglosGeo={this.state.geo_agglomeration}
@@ -92,7 +94,8 @@ class App extends Component {
 							menuButton = {this.state.sideDrawerOpen}
 							language={this.state.language}
 							/> } />
-						<Route path="/aboutus" component={() => <AboutWrapper/> } />
+						<Route exact path="/aboutus" component={() => <AboutWrapper/> } />
+						<Redirect to="/" />
 					</Switch>
 				</div>
 			</BrowserRouter>

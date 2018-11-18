@@ -1,14 +1,12 @@
 import React from 'react';
 import { Component } from 'react';
 import  L  from 'leaflet';
-import 'leaflet.defaultextent';
 import 'leaflet-easyprint';
 import 'leaflet-draw';
 import 'leaflet.measurecontrol';
 import 'leaflet-easybutton';
 import '../../shared/leaflet.snogylop.js';
 import "../../../node_modules/leaflet/dist/leaflet.css";
-import "../../../node_modules/leaflet.defaultextent/dist/leaflet.defaultextent.css";
 import "../../../node_modules/leaflet-draw/dist/leaflet.draw.css";
 import "../../../node_modules/leaflet.measurecontrol/docs/leaflet.measurecontrol.css";
 
@@ -24,12 +22,13 @@ config.params = {
 	minZoom: 3,
 	maxBounds:mybounds,
 	opacity:0,
-	defaultExtentControl: true,
 	measureControl:true
+	,zoomControl:false
 };
 config.tileLayer = {
 	//Original:
-	uri: 'https://api.mapbox.com/styles/v1/mkmd/cjj041lbo07vo2rphltlukpya/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
+	uri: 'https://api.mapbox.com/styles/v1/mkmd/cjok90ksaadt12st8byurc9bp/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
+	uri2: 'https://api.mapbox.com/styles/v1/mkmd/cjj041lbo07vo2rphltlukpya/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
 	params: {
 		maxZoom: 18,
 	}
@@ -62,9 +61,10 @@ class LeafletMap extends Component {
 	componentDidMount() {
 		let map = L.map('map', config.params);
 
-		const tileLayer = L.tileLayer(config.tileLayer.uri, config.tileLayer.params).addTo(map);
-		
-		this.setState({ map, tileLayer });
+		const tileLayer = L.tileLayer(config.tileLayer.uri, config.tileLayer.params)
+		const tileLayer2 = L.tileLayer(config.tileLayer.uri2, config.tileLayer.params)
+
+		this.setState({ map, tileLayer, tileLayer2});
 		this.mapShades = L.geoJson(this.props.africaOne, {
 			invert:true,
 			color:"grey",
@@ -75,17 +75,21 @@ class LeafletMap extends Component {
 		this.placeHolder = L.featureGroup();
 		this.placeHolder.addTo(map);
 
-		const printer = L.easyPrint({
-      		sizeModes: ['Current'],
-      		filename: 'Africapolis',
-      		exportOnly: true,
-      		hideControlContainer: true,
-					hidden: true,
-					customWindowTitle: "Copyright: SWAC"
+		L.easyButton( 'fa-search-minus', function(){
+			map.setView([1.46,18.3],3);
 		}).addTo(map);
 
 		L.easyButton( 'fa-camera', function(){
 			printer.printMap('CurrentSize', 'Africapolis');
+		}).addTo(map);
+
+		const printer = L.easyPrint({
+					sizeModes: ['Current'],
+					filename: 'Africapolis',
+					exportOnly: true,
+					hideControlContainer: true,
+					hidden: true,
+					customWindowTitle: "Copyright: SWAC"
 		}).addTo(map);
 	}
 
@@ -113,10 +117,47 @@ class LeafletMap extends Component {
 		let treemap_click = this.props.treemapSelect_click;
 		let treemap_click_prev = prevProps.treemapSelect_click;
 
+		if(this.props.treemapFilter === 'narrative'){
+			//this.state.map.removeLayer(this.tileLayer)
+			this.state.map.addLayer(this.state.tileLayer)
+			if(this.treemap)
+			{this.state.map.removeLayer(this.treemap)}
+			this.state.map.dragging.disable();
+			this.state.map.touchZoom.disable();
+			this.state.map.doubleClickZoom.disable();
+			this.state.map.scrollWheelZoom.disable();
+			this.state.map.boxZoom.disable();
+			this.state.map.keyboard.disable();
+
+
+		if(this.props.treemapFilter === 'narrative' && this.props.treemapValue === 0){
+			  this.state.map.setView([1.46,18.3],3)}
+		else if(this.props.treemapFilter === 'narrative' && this.props.treemapValue === 1) {
+			this.state.map.flyTo([-23.502,32.106],16)
+
+		} else if (this.props.treemapFilter === 'narrative' && this.props.treemapValue === 2)
+		{ this.state.map.flyTo([5.75372, 6.993606],10)}
+		else if (this.props.treemapFilter === 'narrative' && this.props.treemapValue === 3)
+		{this.state.map.flyTo([1.46,18.3],3)}
+	}
+
+	else if(this.props.treemapFilter === 'treemap') {
+		this.state.map.removeLayer(this.state.tileLayer)
+		this.state.map.addLayer(this.state.	tileLayer2)
 		if(this.props.treemapFilter === 'treemap') {
 			if(this.treemap){
 				this.treemap.clearLayers(this.treemap);
 			}
+			this.state.map.dragging.enable();
+			this.state.map.touchZoom.enable();
+			this.state.map.doubleClickZoom.enable();
+			this.state.map.scrollWheelZoom.enable();
+			this.state.map.boxZoom.enable();
+			this.state.map.keyboard.enable();
+		
+
+
+
 			this.treemap = L.geoJson(this.props.treemap_buildup, {
 				filter: this.treemap_filter,
 				onEachFeature: this.treemap_onEachFeature,
@@ -124,7 +165,7 @@ class LeafletMap extends Component {
 			this.state.map.addLayer(this.treemap);
 		}
 
-		if (treemap_click) {	
+		if (treemap_click) {
 			if (treemap_click_prev !== treemap_click) {
 				let layer = this.treemap.getLayer(treemap_click);
 
@@ -144,18 +185,18 @@ class LeafletMap extends Component {
 		if(treemapcurrValue !== treemapprevValue){
 			let layer = this.treemap.getLayer(treemapcurrValue);
 			layer.fire('mouseover')
-				
+
 			if(treemapprevValue){
 				let layerprev = this.treemap.getLayer(treemapprevValue);
 					if(layerprev){
 						layerprev.fire('mouseout')
 			}}}
 	}
-
+}
 	treemap_onEachFeature(feature,layer){
 		if(feature.geometry.type==="MultiPolygon"){
 			layer.setStyle({fillColor: feature.properties.Color,color:feature.properties.Color,weight:0.5})
-		} else { 
+		} else {
 			layer.on('mouseover', (e) => {
 			e.target.setStyle(this.treemapHighlightStyle(feature))
 			layer.bindTooltip(popupContent).openTooltip();
@@ -167,6 +208,7 @@ class LeafletMap extends Component {
 
 			layer.on('click', (e) => {
 				e.target.setStyle(this.treemapHighlightStyle(feature))
+				this.state.map.setView(layer._latlng, 10);
 			})
 
 			let popupContent = "<table class='tooltip-table'>";

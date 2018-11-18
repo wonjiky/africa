@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
 import RenderTreemap from './RenderTreemap';
+import { Link, Events, scroller } from 'react-scroll'
+
 
 class HomeContent extends Component {
-
     componentDidMount() {
-        document.getElementById('home_content-container').addEventListener('scroll', this.handleScroll);
-    }
-    
-    componentWillUnmount() {
-        document.getElementById('home_content-container').removeEventListener('scroll', this.handleScroll);
-    }
-    
-    handleScroll = (event) => {
-        let top = Math.round(event.srcElement.scrollTop);
-        let bottom = Math.round(top + window.innerHeight);
-        this.props.pageOffset(top, bottom);
+        document.getElementById('home_content-container-wrapper').addEventListener('scroll', this.handleScroll);
+        Events.scrollEvent.register('begin', function() {
+        });
+        Events.scrollEvent.register('end', function() {
+        });
     }
 
     normalize(value, min, max){
@@ -23,10 +18,11 @@ class HomeContent extends Component {
 
     componentDidUpdate(prevProps) {
         if(prevProps.selectedContent !== this.props.selectedContent){
-            // document.getElementById('home_content-container').scrollTo(0,0)
             document.getElementById('home_content-container-wrapper').scrollTop = 0;
         }
     }
+
+
     
     content(selectedContent, contentFilter, narratives, treemap, language){
         const storyList = narratives.find(s => s.ID === selectedContent);
@@ -42,9 +38,14 @@ class HomeContent extends Component {
                                 <h2>{narratives[0].story_en[0].storytitle}</h2>
                                 <hr id="overview_hr"/>
                                 <p>{narratives[0].story_en[0].storyText}</p>
+                                <div className="button-wrapper">
+                                <Link containerId="home_content-container-wrapper" activeClass="selectedContent" to="second" spy={true} smooth={true} duration={500}>
+                                    <i className="material-icons scrollTo_next">keyboard_arrow_down</i>
+                                </Link> 
+                                </div>
                             </div>
                         </div>
-                        <div className="home_content-1-2">
+                        <div id="home_content-container-wrapper" name={'second'} className="home_content-1-2">
                             <div>
                                 <h2>{narratives[0].story_en[1].storytitle}</h2>
                                 <hr id="overview_hr"/>
@@ -61,7 +62,7 @@ class HomeContent extends Component {
                                 <h2>{storyList.title_en}</h2>
                                 <hr id="b_narrative_hr"/>
                             </li>
-                            <br/>
+                            {/* <br/> */}
                             <li>
                                 {this.renderNarrative_Text(storyList.story_en)}
                             </li>
@@ -169,6 +170,19 @@ class HomeContent extends Component {
                     <p> {text.text4}</p><br/>
                 </div>
             ))
+        )
+    }
+
+    navigateArrows() {
+        return(
+            <div>
+                <button className='accordion' onClick={this.handleClick}>
+                    <i className="material-icons">keyboard_arrow_down</i>
+                </button>
+                <button className='accordion' onClick={this.handleClick}>
+                    <i className="material-icons">keyboard_arrow_down</i>
+                </button>
+            </div>
         )
     }
 

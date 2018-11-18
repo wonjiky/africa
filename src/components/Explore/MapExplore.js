@@ -1,14 +1,12 @@
 import React from 'react';
 import { Component } from 'react';
 import  L  from 'leaflet';
-import 'leaflet.defaultextent';
 import 'leaflet-easyprint';
 import 'leaflet-draw';
 import 'leaflet.measurecontrol';
 import 'leaflet-easybutton';
 import '../../shared/leaflet.snogylop.js';
 import "../../../node_modules/leaflet/dist/leaflet.css";
-import "../../../node_modules/leaflet.defaultextent/dist/leaflet.defaultextent.css";
 import "../../../node_modules/leaflet-draw/dist/leaflet.draw.css";
 import "../../../node_modules/leaflet.measurecontrol/docs/leaflet.measurecontrol.css";
 
@@ -24,8 +22,8 @@ config.params = {
 	minZoom: 3,
 	maxBounds:mybounds,
 	opacity:0,
-  	defaultExtentControl: true,
 	measureControl:true,
+
 
 
 };
@@ -77,6 +75,16 @@ class LeafletMap extends Component {
 		this.placeHolder = L.featureGroup();
 		this.placeHolder.addTo(map);
 
+		L.easyButton( 'fa-search-minus', function(){
+			map.setView([1.46,18.3],3);
+		}).addTo(map);
+
+
+
+		L.easyButton( 'fa-camera', function(){
+			printer.printMap('CurrentSize', 'Africapolis');
+		}).addTo(map);
+
 		const printer = L.easyPrint({
       		sizeModes: ['Current'],
       		filename: 'Africapolis',
@@ -84,10 +92,6 @@ class LeafletMap extends Component {
       		hideControlContainer: true,
 					hidden: true,
 					customWindowTitle: "Copyright: SWAC"
-		}).addTo(map);
-
-		L.easyButton( 'fa-camera', function(){
-			printer.printMap('CurrentSize', 'Africapolis');
 		}).addTo(map);
 	}
 
@@ -228,7 +232,9 @@ class LeafletMap extends Component {
 		}else if( searchOption === 1 && searchOption !== 0){
 
 			this.state.map.setView([1.46,18.3],3);
+			//this.placeHolder.removeLayer(this.mapOverlay)
 			this.placeHolder.clearLayers();
+
 
 			this.select1 = L.geoJson(this.props.africaContinent,{
 				style: () => {return {color: 'transparent'}},
@@ -296,7 +302,7 @@ class LeafletMap extends Component {
 			let layer = this.mapOverlay.getLayer(currCountryValue+"con");
 			layer.fire('change')
 		} else if (currCountryValue !== prevCountryValue && currCountryValue === ''){
-			this.placeHolder.clearLayers();
+			this.placeHolder.removeLayer(this.mapOverlay);
 		}
 
 		// ** Single select AGGLOMERATION layer trigger

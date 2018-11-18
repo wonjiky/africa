@@ -11,10 +11,12 @@ class HomeWrapper extends Component {
         this.state = {
             selectedContent:0,
             contentFilter:'narrative',
+            bottom: false,
+
         };
         this.handleValueFromMixer = this.handleValueFromMixer.bind(this);
         this.valueFromTreemap = this.valueFromTreemap.bind(this);
-        this.handlePageOffset = this.handlePageOffset.bind(this);
+        // this.handlePageOffset = this.handlePageOffset.bind(this);
         this.valueFromTreemap_click = this.valueFromTreemap_click.bind(this);
     }
    
@@ -37,9 +39,8 @@ class HomeWrapper extends Component {
         })
     }
 
-    
     handlePageOffset(top, bottom){
-        console.log(top, bottom);
+        // console.log(top, bottom);
     }
 
     render() {
@@ -76,7 +77,8 @@ class HomeWrapper extends Component {
                         selectedContent={this.state.selectedContent}
                         contentFilter={this.state.contentFilter}
                         //Receiving
-                        pageOffset={this.handlePageOffset}
+                        scrollToBottom={this.scrollToBottom}
+                        // pageOffset={this.handlePageOffset}
                         valueFromTreemap={this.valueFromTreemap.bind(this)}
                         valueFromTreemap_click={this.valueFromTreemap_click.bind(this)}                        
                         //Props

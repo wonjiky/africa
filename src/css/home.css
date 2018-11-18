@@ -96,7 +96,7 @@
     #home_content-container-wrapper {
         overflow-y: scroll;
         width:100%;
-        height:calc(100vh - 80px);
+        /* height:calc(100vh - 80px); */
     }
 
     #home_content-container {
@@ -132,9 +132,24 @@
         max-width:500px;
     }
 
-    .home_content-1-1 {
-        /* margin-top: 100px; */
+    .button-wrapper {
+        margin-top:40px;
+        display:flex;
+        justify-content:center;
     }
+
+    .scrollTo_next {
+        transition: all .2s ease-in-out;
+        cursor:pointer;
+        transform:scale(1.2);
+        color:#E8AE40 !important;
+        opacity:.6;
+    }
+    .scrollTo_next:hover {
+        transform:scale(1.5);
+        opacity:1;
+    }
+
     .home_content-1-1,
     .home_content-1-2,
     .home_content-1-3{

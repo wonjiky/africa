@@ -20,37 +20,37 @@ export const Header = props => {
     if(props.language === 0){
         return(
             <header className="header">
-                <nav className="header_navigation">
-                    <div className="header_toggle-button">
-                        <HamburgerButton click={props.drawerClickHandler}/>
+            <nav className="header_navigation">
+                <div className="header_toggle-button">
+                    <HamburgerButton click={props.drawerClickHandler}/>
+                </div>
+                <div className="header_logo">
+                    <NavLink to="/">
+                        <img src="assets/images/africapolis_en.png" height='100%' className="logo_long"
+                                    alt="Africapolis Visualise Urbanisation in Africa"/>
+                        <img src="assets/images/africapolis_logo_short.png" height='110%' className="logo_short"
+                                    alt="Africapolis Visualise Urbanisation in Africa"/>
+                    </NavLink>
+                </div>
+                <div className="header_spacer"></div>
+                <div className="header_nav_items">
+                    <div className="language-toggle">
+                        <ul>
+                            <li id={props.language === 0 ? 'selected_language' : ' '} className="language-option" value="0" onClick={props.languageHandler}>EN</li>
+                            <li className="language-option" value="1" onClick={props.languageHandler}>FR</li>
+                        </ul>
                     </div>
-                    <div className="header_logo">
-                        <NavLink to="/">
-                            <img src="assets/images/africapolis_en.png" height='100%' className="logo_long"
-                                        alt="Africapolis Visualise Urbanisation in Africa"/>
-                            <img src="assets/images/africapolis_logo_short.png" height='110%' className="logo_short"
-                                        alt="Africapolis Visualise Urbanisation in Africa"/>
-                        </NavLink>
+                    <div className="header_main_nav">
+                        <ul>
+                            <li><NavLink exact to="/" className="nav-link">Home</NavLink></li>
+                            <li><NavLink exact to="/explore" className="nav-link">Explore</NavLink></li>
+                            <li><NavLink exact to="/research" className="nav-link">Research</NavLink></li>
+                            <li><NavLink exact to="/aboutus" className="nav-link">About Us</NavLink></li>
+                        </ul>
                     </div>
-                    <div className="header_spacer"></div>
-                    <div className="header_nav_items">
-                        <div className="language-toggle">
-                            <ul>
-                                <li id={props.language === 0 ? 'selected_language' : ' '} className="language-option" value="0" onClick={props.languageHandler}>EN</li>
-                                <li className="language-option" value="1" onClick={props.languageHandler}>FR</li>
-                            </ul>
-                        </div>
-                        <div className="header_main_nav">
-                            <ul>
-                                <li><NavLink exact to="/" className="nav-link">Home</NavLink></li>
-                                <li><NavLink to="/explore" className="nav-link">Explore</NavLink></li>
-                                <li><NavLink to="/research" className="nav-link">Research</NavLink></li>
-                                <li><NavLink to="/aboutus" className="nav-link">About Us</NavLink></li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </header>
+                </div>
+            </nav>
+        </header>
         )
     }else{
         return (

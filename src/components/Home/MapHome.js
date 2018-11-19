@@ -30,6 +30,7 @@ config.tileLayer = {
 	uri: 'https://api.mapbox.com/styles/v1/mkmd/cjok8tye50dmu2smqd1uh51z0/tiles/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
 	uri2: 'https://api.mapbox.com/styles/v1/mkmd/cjj041lbo07vo2rphltlukpya/tiles/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
 	uri3: 'https://api.mapbox.com/styles/v1/mkmd/cjok90ksaadt12st8byurc9bp/tiles/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
+	uri4: 'https://api.mapbox.com/styles/v1/mkmd/cjooa2k5e47qh2sl8vu8z2o4f/tiles/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWttZCIsImEiOiJjajBqYjJpY2owMDE0Mndsbml0d2V1ZXczIn0.el8wQmA-TSJp2ggX8fJ1rA',
 
 	params: {
 		maxZoom: 18,
@@ -68,8 +69,8 @@ class LeafletMap extends Component {
 		const tileLayer = L.tileLayer(config.tileLayer.uri, config.tileLayer.params)
 		const tileLayer2 = L.tileLayer(config.tileLayer.uri2, config.tileLayer.params)
 		const tileLayer3 = L.tileLayer(config.tileLayer.uri3, config.tileLayer.params)
-
-		this.setState({ map, tileLayer, tileLayer2, tileLayer3});
+		const tileLayer4 = L.tileLayer(config.tileLayer.uri4, config.tileLayer.params)
+		this.setState({ map, tileLayer, tileLayer2, tileLayer3, tileLayer4});
 		this.mapShades = L.geoJson(this.props.africaOne, {
 			invert:true,
 			color:"grey",
@@ -81,7 +82,10 @@ class LeafletMap extends Component {
 		this.placeHolder.addTo(map);
 		this.placeHolder.addLayer(tileLayer);
 
-		this.abovefive = L.geoJson( [ { "type": "FeatureCollection", "features": [ { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 31.255,30.13 ] }, "properties": { "ID":1, "NAME":"al-Qahira", "ISO":"EGY", "PTA2015":22995802 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 3.337584742,6.589961167 ] }, "properties": { "ID":2, "NAME":"Lagos", "ISO":"NGA", "PTA2015":11810523 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 7.045712305,5.812861246 ] }, "properties": { "ID":3, "NAME":"Onitsha", "ISO":"NGA", "PTA2015":8530514 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 28.13184538,-26.06703456 ] }, "properties": { "ID":4, "NAME":"Johannesburg", "ISO":"ZAF", "PTA2015":8314220 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 15.33483552,-4.396663245 ] }, "properties": { "ID":5, "NAME":"Kinshasa", "ISO":"ZAR", "PTA2015":7270000 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 13.31293462,-8.926452268 ] }, "properties": { "ID":6, "NAME":"Luanda", "ISO":"AGO", "PTA2015":6979211 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 30.586,31.125 ] }, "properties": { "ID":7, "NAME":"al-Iskandariya", "ISO":"EGY", "PTA2015":6585102 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 36.7942443,-1.21047772 ] }, "properties": { "ID":8, "NAME":"Nairobi aggl.", "ISO":"KEN", "PTA2015":5877118 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 39.16785785,-6.819328852 ] }, "properties": { "ID":9, "NAME":"Dar es Salaam", "ISO":"TZA", "PTA2015":5325879 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 32.51556821,15.58927334 ] }, "properties": { "ID":10, "NAME":"Khartum", "ISO":"SUD", "PTA2015":5264746 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 34.74913174,0.38159039 ] }, "properties": { "ID":11, "NAME":"Kisumu aggl.", "ISO":"KEN", "PTA2015":5040159 } } ] } ],{pointToLayer: this.treemap_pointToLayer}	)
+		this.abovefive = L.geoJson( { "type": "FeatureCollection", "features": [ { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 31.255,30.13 ] }, "properties": { "Name":"Cairo", "Population":22995802 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 3.337584742,6.589961167 ] }, "properties": { "Name":"Lagos", "Population":11810523 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 7.045712305,5.812861246 ] }, "properties": { "Name":"Onitsha", "Population":8530514 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 28.13184538,-26.06703456 ] }, "properties": { "Name":"Johannesburg", "Population":8314220 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 15.33483552,-4.396663245 ] }, "properties": { "Name":"Kinshasa", "Population":7270000 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 13.31293462,-8.926452268 ] }, "properties": { "Name":"Luanda", "Population":6979211 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 30.586,31.125 ] }, "properties": { "Name":"Alexandrie", "Population":6585102 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 36.7942443,-1.21047772 ] }, "properties": { "Name":"Nairobi aggl.", "Population":5877118 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 39.16785785,-6.819328852 ] }, "properties": { "Name":"Dar es Salaam", "Population":5325879 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 32.51556821,15.58927334 ] }, "properties": { "Name":"Khartum", "Population":5264746 } }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 34.74913174,0.38159039 ] }, "properties": { "Name":"Kisumu aggl.", "Population":5040159 } } ] }
+		,{pointToLayer: this.abovefive_pointToLayer,
+		  onEachFeature: this.onEachFeature_f
+			 }	)
 
 		L.easyButton( 'fa-search-minus', function(){
 			map.setView([1.46,18.3],3);
@@ -161,7 +165,7 @@ class LeafletMap extends Component {
 				if (prevProps.treemapValue !== this.props.treemapValue || prevProps.treemapFilter !== this.props.treemapFilter)
 				{	this.placeHolder.clearLayers()
 					this.placeHolder.addLayer(this.state.tileLayer3)
-					this.state.map.flyTo([-23.502,32.106],16)}
+					this.state.map.flyTo([-25.416,31.932],16)}
 			  else if (this.props.triggerAnim 	> prevProps.triggerAnim)
 				{
 					this.state.map.flyTo([-25.945, 32.587],10)}
@@ -183,10 +187,11 @@ class LeafletMap extends Component {
 		else if (this.props.treemapFilter === 'narrative' && this.props.treemapValue === 3)
 		{	if (prevProps.treemapValue !== this.props.treemapValue || prevProps.treemapFilter !== this.props.treemapFilter)
 			{	this.placeHolder.clearLayers()
-				this.placeHolder.addLayer(this.state.tileLayer3)
+				this.placeHolder.addLayer(this.state.tileLayer4)
 			this.state.map.setView([1.46,18.3],3)}
 			else if (this.props.triggerAnim > prevProps.triggerAnim)
 			{this.placeHolder.addLayer(this.abovefive)
+				
 				}
 			else if (this.props.triggerAnim < prevProps.triggerAnim)
 			{this.placeHolder.removeLayer(this.abovefive)}
@@ -288,6 +293,15 @@ class LeafletMap extends Component {
 		}
 	}
 
+	onEachFeature_f(feature,layer){
+
+		let popupContent = "<tr><td class='title'></td>" + "Name: " + feature.properties.Name + "</tr>";
+		popupContent += "</br><tr><td class='title'></td>" + "Population: " + feature.properties.Population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + "</tr>";
+
+		layer.bindPopup(popupContent).openPopup();
+
+	}
+
 	treemapHighlightStyle(feature){
 		return({
 			radius: 13,
@@ -316,6 +330,19 @@ class LeafletMap extends Component {
 			const geojsonMarker = this.treemapAgglosStyle(feature);
 			return L.circleMarker(latlng, geojsonMarker);
 	}}
+
+	abovefive_pointToLayer(feature, latlng){
+
+			const geojsonMarker = 		{
+				radius: 4,
+				fillColor: '#E8AE40',
+				fillOpacity: 0.4,
+				stroke: true,
+				color: '#E8AE40',
+				weight: 1,
+			};
+			return L.circleMarker(latlng, geojsonMarker);
+	}
 
 	// placeHolder_filter(feature) {
 	// 	if (feature.properties.Year === "a") {

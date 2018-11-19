@@ -128,7 +128,6 @@ class LeafletMap extends Component {
 		if(this.props.treemapFilter === 'narrative'){
 			//this.state.map.removeLayer(this.tileLayer)
 			this.placeHolder.removeLayer(this.tileLayer2)
-			console.log('fuck4')
 			//this.placeHolder.addLayer(this.state.tileLayer)
 			if(this.treemap)
 			{this.placeHolder.removeLayer(this.treemap)}
@@ -143,18 +142,18 @@ class LeafletMap extends Component {
 		if(this.props.treemapFilter === 'narrative' && this.props.treemapValue === 0){
 			  this.state.map.setView([1.46,18.3],3)
 				if (prevProps.treemapValue !== this.props.treemapValue || prevProps.treemapFilter !== this.props.treemapFilter)
-				{console.log('fuck1')
+				{
 							this.placeHolder.clearLayers()
 							this.placeHolder.addLayer(this.state.tileLayer)}
 
 					if (this.props.triggerAnim > prevProps.triggerAnim)
 					{		//this.placeHolder.removeLayer(this.state.tileLayer);
 							this.placeHolder.addLayer(this.state.tileLayer3);
-						console.log('fuck2')}
+						}
 					else if (this.props.triggerAnim < prevProps.triggerAnim)
 					{		this.placeHolder.removeLayer(this.state.tileLayer3);
 							this.placeHolder.addLayer(this.state.tileLayer);
-						console.log('fuck3')}
+					}
 			}
 		else if(this.props.treemapFilter === 'narrative' && this.props.treemapValue === 1) {
 
@@ -205,7 +204,8 @@ class LeafletMap extends Component {
 
 	else if(this.props.treemapFilter === 'treemap') {
 		this.state.map.setView([1.46,18.3],3)
-		this.placeHolder.clearLayers();
+		this.placeHolder.removeLayer(this.state.tileLayer)
+		this.placeHolder.removeLayer(this.state.tileLayer3)
 		this.placeHolder.addLayer(this.state.tileLayer2)
 		if(this.props.treemapFilter === 'treemap') {
 			if(this.treemap){
@@ -217,10 +217,6 @@ class LeafletMap extends Component {
 			this.state.map.scrollWheelZoom.enable();
 			this.state.map.boxZoom.enable();
 			this.state.map.keyboard.enable();
-
-
-
-
 			this.treemap = L.geoJson(this.props.treemap_buildup, {
 				filter: this.treemap_filter,
 				onEachFeature: this.treemap_onEachFeature,

@@ -11,7 +11,7 @@ class KeyFigure extends Component {
 			height:0
 		}
     }
-	
+
 	handleClick = () => {
 		this.setState({
 			height: this.state.height === 0 ? "auto" : 0
@@ -25,7 +25,6 @@ class KeyFigure extends Component {
     render() {
 		const { selectedCountry, countryData, selectedAgglos, agglosData, language } = this.props;
 		const { height } = this.state;
-		
 		if(this.props.language === 0) {
 			if((selectedCountry || selectedAgglos) && (selectedCountry !== '')){
 				return(
@@ -36,10 +35,11 @@ class KeyFigure extends Component {
 								selectedCountry={selectedCountry}
 								countryData={countryData}
 								height={height}
+                language={language}
 							/>
-							<CountryHistogram 
-								selectedCountry={selectedCountry} 
-								countryData={countryData} 
+							<CountryHistogram
+								selectedCountry={selectedCountry}
+								countryData={countryData}
 								valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}
 								timeSliderValue = {this.props.timeSliderValue}
 								selectedAgglos={selectedAgglos}
@@ -47,10 +47,10 @@ class KeyFigure extends Component {
 							/>
 						</div>
 						<div className="explore_agglos-wrapper">
-							<CityHistogram 
+							<CityHistogram
 								selectedAgglos={selectedAgglos}
 								selectedCountry={selectedCountry}
-								countryData={countryData} 
+								countryData={countryData}
 								agglosData={agglosData}
 								valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}
 							/>
@@ -74,8 +74,8 @@ class KeyFigure extends Component {
 							/>
 							<CountryHistogram
 								language={language}
-								selectedCountry={selectedCountry} 
-								countryData={countryData} 
+								selectedCountry={selectedCountry}
+								countryData={countryData}
 								valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}
 								timeSliderValue = {this.props.timeSliderValue}
 								selectedAgglos={selectedAgglos}
@@ -83,10 +83,10 @@ class KeyFigure extends Component {
 							/>
 						</div>
 						<div className="explore_agglos-wrapper">
-							<CityHistogram 
+							<CityHistogram
 								selectedAgglos={selectedAgglos}
 								selectedCountry={selectedCountry}
-								countryData={countryData} 
+								countryData={countryData}
 								agglosData={agglosData}
 								valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}
 							/>

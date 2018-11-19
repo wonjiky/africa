@@ -159,7 +159,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":6,
     "Size2015":6,
-    "NAME":"Nairobi aggl."
+    "NAME":"Nairobi "
     }
   },
   {
@@ -219,7 +219,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":2,
     "Size2015":6,
-    "NAME":"Kisumu aggl."
+    "NAME":"Kisumu "
     }
   },
   {
@@ -419,7 +419,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":2,
     "Size2015":6,
-    "NAME":"Kisii aggl."
+    "NAME":"Kisii "
     }
   },
   {
@@ -819,7 +819,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":6,
-    "NAME":"Embu aggl."
+    "NAME":"Embu "
     }
   },
   {
@@ -1139,7 +1139,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":4,
     "Size2015":5,
-    "NAME":"Mombasa aggl."
+    "NAME":"Mombasa "
     }
   },
   {
@@ -1639,7 +1639,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":4,
-    "NAME":"Maua aggl."
+    "NAME":"Maua "
     }
   },
   {
@@ -1859,7 +1859,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":4,
-    "NAME":"Bomet aggl."
+    "NAME":"Bomet "
     }
   },
   {
@@ -2479,7 +2479,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":3,
     "Size2015":4,
-    "NAME":"Nakuru aggl."
+    "NAME":"Nakuru "
     }
   },
   {
@@ -2719,7 +2719,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":4,
-    "NAME":"Meru aggl."
+    "NAME":"Meru "
     }
   },
   {
@@ -2859,7 +2859,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":2,
     "Size2015":4,
-    "NAME":"Kericho aggl."
+    "NAME":"Kericho "
     }
   },
   {
@@ -2959,7 +2959,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":2,
     "Size2015":4,
-    "NAME":"Eldoret aggl."
+    "NAME":"Eldoret "
     }
   },
   {
@@ -3639,7 +3639,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":4,
-    "NAME":"Runyenjes aggl."
+    "NAME":"Runyenjes "
     }
   },
   {
@@ -4639,7 +4639,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":3,
-    "NAME":"Kikima aggl."
+    "NAME":"Kikima "
     }
   },
   {
@@ -4979,7 +4979,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":3,
-    "NAME":"Migori aggl."
+    "NAME":"Migori "
     }
   },
   {
@@ -5179,7 +5179,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":3,
-    "NAME":"Kitale aggl."
+    "NAME":"Kitale "
     }
   },
   {
@@ -5279,7 +5279,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":3,
-    "NAME":"Machakos aggl."
+    "NAME":"Machakos "
     }
   },
   {
@@ -5559,7 +5559,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":3,
-    "NAME":"Kipkelion aggl."
+    "NAME":"Kipkelion "
     }
   },
   {
@@ -5839,7 +5839,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":3,
-    "NAME":"Kehancha aggl."
+    "NAME":"Kehancha "
     }
   },
   {
@@ -6679,7 +6679,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":2,
     "Size2015":3,
-    "NAME":"Malindi aggl."
+    "NAME":"Malindi "
     }
   },
   {
@@ -7759,7 +7759,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":3,
-    "NAME":"Busia [KEN] aggl."
+    "NAME":"Busia [KEN] "
     }
   },
   {
@@ -7819,7 +7819,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":3,
-    "NAME":"Mau Narok aggl."
+    "NAME":"Mau Narok "
     }
   },
   {
@@ -8659,7 +8659,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":3,
     "Size2015":3,
-    "NAME":"Kakuma aggl."
+    "NAME":"Kakuma "
     }
   },
   {
@@ -9359,7 +9359,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":3,
-    "NAME":"Tala/Kangundo aggl."
+    "NAME":"Tala/Kangundo "
     }
   },
   {
@@ -9379,7 +9379,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":3,
-    "NAME":"Kapenguria aggl."
+    "NAME":"Kapenguria "
     }
   },
   {
@@ -9619,7 +9619,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":3,
-    "NAME":"Naivasha aggl."
+    "NAME":"Naivasha "
     }
   },
   {
@@ -10699,7 +10699,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":3,
-    "NAME":"Wundyani aggl."
+    "NAME":"Wundyani "
     }
   },
   {
@@ -10719,7 +10719,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":2,
     "Size2015":3,
-    "NAME":"Thika aggl."
+    "NAME":"Thika "
     }
   },
   {
@@ -11459,7 +11459,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":2,
     "Size2015":3,
-    "NAME":"Mandera [KEN] aggl."
+    "NAME":"Mandera [KEN] "
     }
   },
   {
@@ -12739,7 +12739,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":2,
     "Size2015":3,
-    "NAME":"Moi's Bridge aggl."
+    "NAME":"Moi's Bridge "
     }
   },
   {
@@ -13719,7 +13719,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":3,
-    "NAME":"Gatukuyu aggl."
+    "NAME":"Gatukuyu "
     }
   },
   {
@@ -13919,7 +13919,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":3,
-    "NAME":"Chuka aggl."
+    "NAME":"Chuka "
     }
   },
   {
@@ -14119,7 +14119,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":3,
-    "NAME":"Kitui aggl."
+    "NAME":"Kitui "
     }
   },
   {
@@ -14459,7 +14459,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Ki Li Fi aggl."
+    "NAME":"Ki Li Fi "
     }
   },
   {
@@ -14759,7 +14759,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":2,
-    "NAME":"Nanyuky aggl."
+    "NAME":"Nanyuky "
     }
   },
   {
@@ -15819,7 +15819,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Nyahururu aggl."
+    "NAME":"Nyahururu "
     }
   },
   {
@@ -15999,7 +15999,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":2,
     "Size2015":2,
-    "NAME":"Ukunda aggl."
+    "NAME":"Ukunda "
     }
   },
   {
@@ -16419,7 +16419,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Subokia aggl."
+    "NAME":"Subokia "
     }
   },
   {
@@ -16479,7 +16479,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":2,
-    "NAME":"Bumala aggl."
+    "NAME":"Bumala "
     }
   },
   {
@@ -17259,7 +17259,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Lodwar aggl."
+    "NAME":"Lodwar "
     }
   },
   {
@@ -18099,7 +18099,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":2,
-    "NAME":"Malaba [KEN] aggl."
+    "NAME":"Malaba [KEN] "
     }
   },
   {
@@ -18179,7 +18179,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":2,
     "Size2015":2,
-    "NAME":"Njoro (Nakuru) aggl."
+    "NAME":"Njoro (Nakuru) "
     }
   },
   {
@@ -18919,7 +18919,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Murugi (Smeru) aggl."
+    "NAME":"Murugi (Smeru) "
     }
   },
   {
@@ -18979,7 +18979,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Garissa aggl."
+    "NAME":"Garissa "
     }
   },
   {
@@ -19699,7 +19699,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":2,
-    "NAME":"Funyula aggl."
+    "NAME":"Funyula "
     }
   },
   {
@@ -21059,7 +21059,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Athi River aggl."
+    "NAME":"Athi River "
     }
   },
   {
@@ -22719,7 +22719,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":2,
-    "NAME":"Mubwokhola aggl."
+    "NAME":"Mubwokhola "
     }
   },
   {
@@ -24799,7 +24799,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":2,
     "Size2015":2,
-    "NAME":"Elburgon aggl."
+    "NAME":"Elburgon "
     }
   },
   {
@@ -25179,7 +25179,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Wajir aggl."
+    "NAME":"Wajir "
     }
   },
   {
@@ -26059,7 +26059,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":2,
-    "NAME":"Siaya aggl."
+    "NAME":"Siaya "
     }
   },
   {
@@ -26519,7 +26519,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Ruru (Nyandurua) aggl."
+    "NAME":"Ruru (Nyandurua) "
     }
   },
   {
@@ -28239,7 +28239,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Isiolo aggl."
+    "NAME":"Isiolo "
     }
   },
   {
@@ -30379,7 +30379,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Ndunyu aggl."
+    "NAME":"Ndunyu "
     }
   },
   {
@@ -31019,7 +31019,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":2,
     "Size2015":2,
-    "NAME":"Narok aggl."
+    "NAME":"Narok "
     }
   },
   {
@@ -32159,7 +32159,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Mariakani aggl."
+    "NAME":"Mariakani "
     }
   },
   {
@@ -32599,7 +32599,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Wanguru aggl."
+    "NAME":"Wanguru "
     }
   },
   {
@@ -32659,7 +32659,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Gilgil aggl."
+    "NAME":"Gilgil "
     }
   },
   {
@@ -33019,7 +33019,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":2,
-    "NAME":"Moyale [KEN] aggl."
+    "NAME":"Moyale [KEN] "
     }
   },
   {
@@ -33319,7 +33319,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Kahuru/Muruaki aggl."
+    "NAME":"Kahuru/Muruaki "
     }
   },
   {
@@ -33479,7 +33479,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Maralal aggl."
+    "NAME":"Maralal "
     }
   },
   {
@@ -34059,7 +34059,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Mtito-Andei aggl."
+    "NAME":"Mtito-Andei "
     }
   },
   {
@@ -34219,7 +34219,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Mununga aggl."
+    "NAME":"Mununga "
     }
   },
   {
@@ -35879,7 +35879,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":2,
-    "NAME":"Njabini aggl."
+    "NAME":"Njabini "
     }
   },
   {
@@ -36259,7 +36259,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Usenge aggl."
+    "NAME":"Usenge "
     }
   },
   {
@@ -41499,7 +41499,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Oloitokitok aggl."
+    "NAME":"Oloitokitok "
     }
   },
   {
@@ -42459,7 +42459,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Bondo aggl."
+    "NAME":"Bondo "
     }
   },
   {
@@ -43099,7 +43099,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Taveta aggl."
+    "NAME":"Taveta "
     }
   },
   {
@@ -43439,7 +43439,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":2,
-    "NAME":"Ugunia aggl."
+    "NAME":"Ugunia "
     }
   },
   {
@@ -44499,7 +44499,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Rurii aggl."
+    "NAME":"Rurii "
     }
   },
   {
@@ -44719,7 +44719,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Magutuni aggl."
+    "NAME":"Magutuni "
     }
   },
   {
@@ -45359,7 +45359,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"Voi aggl."
+    "NAME":"Voi "
     }
   },
   {
@@ -48479,7 +48479,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":2,
-    "NAME":"El Wak aggl."
+    "NAME":"El Wak "
     }
   },
   {
@@ -52519,7 +52519,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Kaplelach aggl."
+    "NAME":"Kaplelach "
     }
   },
   {
@@ -52899,7 +52899,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Kabarnet aggl."
+    "NAME":"Kabarnet "
     }
   },
   {
@@ -53119,7 +53119,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Marsabit aggl."
+    "NAME":"Marsabit "
     }
   },
   {
@@ -54159,7 +54159,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":1,
-    "NAME":"Nsambweni aggl."
+    "NAME":"Nsambweni "
     }
   },
   {
@@ -56919,7 +56919,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Karagatha aggl."
+    "NAME":"Karagatha "
     }
   },
   {
@@ -58379,7 +58379,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":1,
-    "NAME":"Rhamu aggl."
+    "NAME":"Rhamu "
     }
   },
   {
@@ -60939,7 +60939,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Ethi aggl."
+    "NAME":"Ethi "
     }
   },
   {
@@ -62479,7 +62479,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Kathatwa aggl."
+    "NAME":"Kathatwa "
     }
   },
   {
@@ -63419,7 +63419,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Sumba aggl."
+    "NAME":"Sumba "
     }
   },
   {
@@ -65599,7 +65599,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Eldama Ravine aggl."
+    "NAME":"Eldama Ravine "
     }
   },
   {
@@ -66059,7 +66059,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":1,
-    "NAME":"Lokichoggio aggl."
+    "NAME":"Lokichoggio "
     }
   },
   {
@@ -66839,7 +66839,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":1,
-    "NAME":"Visoi aggl."
+    "NAME":"Visoi "
     }
   },
   {
@@ -72739,7 +72739,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":1,
-    "NAME":"Lamu aggl."
+    "NAME":"Lamu "
     }
   },
   {
@@ -73339,7 +73339,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":1,
-    "NAME":"Wamumu aggl."
+    "NAME":"Wamumu "
     }
   },
   {
@@ -74599,7 +74599,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Kajiado aggl."
+    "NAME":"Kajiado "
     }
   },
   {
@@ -75059,7 +75059,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Ndunyu Njeru aggl."
+    "NAME":"Ndunyu Njeru "
     }
   },
   {
@@ -80179,7 +80179,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":1,
-    "NAME":"Simkumbe aggl."
+    "NAME":"Simkumbe "
     }
   },
   {
@@ -82339,7 +82339,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Iten aggl."
+    "NAME":"Iten "
     }
   },
   {
@@ -82419,7 +82419,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Kamburaini aggl."
+    "NAME":"Kamburaini "
     }
   },
   {
@@ -85319,7 +85319,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":1,
-    "NAME":"Muhoroni aggl."
+    "NAME":"Muhoroni "
     }
   },
   {
@@ -87739,7 +87739,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":1,
-    "NAME":"Mwingi aggl."
+    "NAME":"Mwingi "
     }
   },
   {
@@ -89699,7 +89699,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":1,
-    "NAME":"Sultan Hamud aggl."
+    "NAME":"Sultan Hamud "
     }
   },
   {
@@ -91839,7 +91839,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Gathanje aggl."
+    "NAME":"Gathanje "
     }
   },
   {
@@ -97099,7 +97099,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Mitunguu aggl."
+    "NAME":"Mitunguu "
     }
   },
   {
@@ -102919,7 +102919,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Sori aggl."
+    "NAME":"Sori "
     }
   },
   {
@@ -103919,7 +103919,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":1,
     "Size2015":1,
-    "NAME":"Mbita aggl."
+    "NAME":"Mbita "
     }
   },
   {
@@ -110979,7 +110979,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Ndathi aggl."
+    "NAME":"Ndathi "
     }
   },
   {
@@ -114339,7 +114339,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Sindo aggl."
+    "NAME":"Sindo "
     }
   },
   {
@@ -118799,7 +118799,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Ihururu aggl."
+    "NAME":"Ihururu "
     }
   },
   {
@@ -121499,7 +121499,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Ndubenet (Ug) aggl."
+    "NAME":"Ndubenet (Ug) "
     }
   },
   {
@@ -121739,7 +121739,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Hola aggl."
+    "NAME":"Hola "
     }
   },
   {
@@ -121819,7 +121819,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Mogoto aggl."
+    "NAME":"Mogoto "
     }
   },
   {
@@ -124659,7 +124659,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Kibuyu aggl."
+    "NAME":"Kibuyu "
     }
   },
   {
@@ -141959,7 +141959,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Siakago aggl."
+    "NAME":"Siakago "
     }
   },
   {
@@ -148679,7 +148679,7 @@ export const AGGLOS = [
     "Size2000":0,
     "Size2010":0,
     "Size2015":1,
-    "NAME":"Makindu aggl."
+    "NAME":"Makindu "
     }
   },
   {

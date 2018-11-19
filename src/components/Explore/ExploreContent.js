@@ -155,7 +155,7 @@ class ExploreContent extends Component {
                     />
                 </div>
                 <KeyFigure
-                    language={this.props.langauge}
+                    language={this.props.language}
                     timeSliderValue={this.props.timeSliderValue}
                     reveal={this.props.reveal}
                     accordionToggle={this.props.accordionToggle}
@@ -192,12 +192,12 @@ class ExploreContent extends Component {
                 </div>
                 <div className="explore_search-country">
                     <Select
-                        placeholder= "Select second country" 
+                        placeholder= "Select second country"
                         options={countryList}
                         value={secondCountry}
                         backspaceRemovesValue={false}
                         onChange={this.sendsecondValueToMap.bind(this)}
-                        theme={(theme) => ({  
+                        theme={(theme) => ({
                             ...theme,
                             borderRadius: 0,
                             colors: {

@@ -146,7 +146,7 @@ export const TREEMAP_BUILDUP =[{
       "properties": {
         "ID": 22,
         "City_ID": "a8",
-        "NAME": "Nairobi aggl.",
+        "NAME": "Nairobi ",
         "value": 5877118,
         "Color": "#e1b400",
         "lon": 36.7942443,
@@ -206,7 +206,7 @@ export const TREEMAP_BUILDUP =[{
       "properties": {
         "ID": 22,
         "City_ID": "a11",
-        "NAME": "Kisumu aggl.",
+        "NAME": "Kisumu ",
         "value": 5040159,
         "Color": "#e1b400",
         "lon": 34.74913174,
@@ -406,7 +406,7 @@ export const TREEMAP_BUILDUP =[{
       "properties": {
         "ID": 22,
         "City_ID": "a21",
-        "NAME": "Kisii aggl.",
+        "NAME": "Kisii ",
         "value": 3407476,
         "Color": "#e1b400",
         "lon": 34.72965228,
@@ -806,7 +806,7 @@ export const TREEMAP_BUILDUP =[{
       "properties": {
         "ID": 22,
         "City_ID": "a41",
-        "NAME": "Embu aggl.",
+        "NAME": "Embu ",
         "value": 2046897,
         "Color": "#e1b400",
         "lon": 37.09504014,
@@ -1006,7 +1006,7 @@ export const TREEMAP_BUILDUP =[{
      "properties": {
        "ID": 22,
        "City_ID": "b11",
-       "NAME": "Kisumu aggl.",
+       "NAME": "Kisumu ",
        "value": 5862.59,
        "Color": "#E73741",
        "treemap_ID": 1
@@ -1024,7 +1024,7 @@ export const TREEMAP_BUILDUP =[{
      "properties": {
        "ID": 22,
        "City_ID": "b21",
-       "NAME": "Kisii aggl.",
+       "NAME": "Kisii ",
        "value": 5000.77,
        "Color": "#E73741",
        "treemap_ID": 1
@@ -1150,7 +1150,7 @@ export const TREEMAP_BUILDUP =[{
      "properties": {
        "ID": 22,
        "City_ID": "b41",
-       "NAME": "Embu aggl.",
+       "NAME": "Embu ",
        "value": 1554.74,
        "Color": "#E73741",
        "treemap_ID": 1
@@ -1168,7 +1168,7 @@ export const TREEMAP_BUILDUP =[{
      "properties": {
        "ID": 22,
        "City_ID": "b93",
-       "NAME": "Bomet aggl.",
+       "NAME": "Bomet ",
        "value": 1503.97,
        "Color": "#E73741",
        "treemap_ID": 1
@@ -1186,7 +1186,7 @@ export const TREEMAP_BUILDUP =[{
      "properties": {
        "ID": 22,
        "City_ID": "b8",
-       "NAME": "Nairobi aggl.",
+       "NAME": "Nairobi ",
        "value": 1340.26,
        "Color": "#E73741",
        "treemap_ID": 1
@@ -1330,7 +1330,7 @@ export const TREEMAP_BUILDUP =[{
      "properties": {
        "ID": 22,
        "City_ID": "b82",
-       "NAME": "Maua aggl.",
+       "NAME": "Maua ",
        "value": 943.26,
        "Color": "#E73741",
        "treemap_ID": 1
@@ -1636,7 +1636,7 @@ export const TREEMAP_BUILDUP =[{
      "properties": {
        "ID": 22,
        "City_ID": "b136",
-       "NAME": "Meru aggl.",
+       "NAME": "Meru ",
        "value": 498.65,
        "Color": "#E73741",
        "treemap_ID": 1
@@ -1690,7 +1690,7 @@ export const TREEMAP_BUILDUP =[{
      "properties": {
        "ID": 22,
        "City_ID": "b232",
-       "NAME": "Kikima aggl.",
+       "NAME": "Kikima ",
        "value": 437.98,
        "Color": "#E73741",
        "treemap_ID": 1
@@ -1726,7 +1726,7 @@ export const TREEMAP_BUILDUP =[{
      "properties": {
        "ID": 22,
        "City_ID": "b292",
-       "NAME": "Kehancha aggl.",
+       "NAME": "Kehancha ",
        "value": 431.23,
        "Color": "#E73741",
        "treemap_ID": 1
@@ -1816,7 +1816,7 @@ export const TREEMAP_BUILDUP =[{
      "properties": {
        "ID": 22,
        "City_ID": "b143",
-       "NAME": "Kericho aggl.",
+       "NAME": "Kericho ",
        "value": 381.59,
        "Color": "#E73741",
        "treemap_ID": 1
@@ -1888,7 +1888,7 @@ export const TREEMAP_BUILDUP =[{
      "properties": {
        "ID": 22,
        "City_ID": "b182",
-       "NAME": "Runyenjes aggl.",
+       "NAME": "Runyenjes ",
        "value": 355.98,
        "Color": "#E73741",
        "treemap_ID": 1

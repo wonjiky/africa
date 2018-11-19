@@ -190,7 +190,7 @@ class LeafletMap extends Component {
 			this.state.map.setView([1.46,18.3],3)}
 			else if (this.props.triggerAnim > prevProps.triggerAnim)
 			{this.placeHolder.addLayer(this.abovefive)
-				
+
 				}
 			else if (this.props.triggerAnim < prevProps.triggerAnim)
 			{this.placeHolder.removeLayer(this.abovefive)}
@@ -329,11 +329,11 @@ class LeafletMap extends Component {
 	abovefive_pointToLayer(feature, latlng){
 
 			const geojsonMarker = 		{
-				radius: 4,
-				fillColor: '#E8AE40',
+				radius: 6,
+				fillColor: '#c2523e',
 				fillOpacity: 0.4,
 				stroke: true,
-				color: '#E8AE40',
+				color: '#c2523e',
 				weight: 1,
 			};
 			return L.circleMarker(latlng, geojsonMarker);

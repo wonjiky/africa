@@ -1088,7 +1088,7 @@ export const TREEMAP = [
         "ID": 3,
         "content": 'treemap',
         "title_en": "Least-connected urban areas",
-        "title_fr": " Les agglomérations les moins connectées",
+        "title_fr": "Les agglomérations les moins connectées",
         "description_en": "Ninety percent of the least connected agglomerations are in the Sahara and Kalahari Desert. The map is based on the size of an agglomeration’s Voronoi cell. The Voronoi cell is based on a nearest neighbour calculation – the closest agglomeration is inside the cell. Larger cells indicate a less dense urban network.",
         "description_fr": "Ninety percent of the least connected agglomerations are in the Sahara and Kalahari Desert. The map is based on the size of an agglomeration’s Voronoi cell. The Voronoi cell is based on a nearest neighbour calculation – the closest agglomeration is inside the cell. Larger cells indicate a less dense urban network.",
         "measure": " km&sup2;",

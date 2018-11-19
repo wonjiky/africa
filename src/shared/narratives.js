@@ -130,7 +130,7 @@ export const NARRATIVES = [
 		"ID": 2,
 		"content": 'narrative',
 		"title_en": "Urbanisation dynamics and drivers",
-		"title_fr": "Urbanisation dynamics and drivers in french",
+		"title_fr": "Dynamiques et vecteurs d'urbanisation",
 		"story_en": [
 			{
 				"storyID": 0,
@@ -306,7 +306,7 @@ export const NARRATIVES = [
 		"ID": 4,
 		"content": 'narrative',
 		"title_en": "About the data",
-		"title_fr": "About the data",
+		"title_fr": "A propos des données",
 		"story_en": [
 			{
 				"storyID": 0,

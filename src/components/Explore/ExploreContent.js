@@ -94,8 +94,6 @@ class ExploreContent extends Component {
         }
     }
 
-
-
     displayAgglos(selectedAgglos, data,selectedCountry){
 
         const list = data.find(u => u.City_ID === selectedAgglos);

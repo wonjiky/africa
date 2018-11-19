@@ -54,8 +54,6 @@ class App extends Component {
 		this.setState((prevState) => {
 			return {sideDrawerOpen: !prevState.sideDrawerOpen}
 		});
-
-		console.log(this.state.sideDrawerOpen);
 	};
 
 	backdropClickHandler = () => {
@@ -99,7 +97,7 @@ class App extends Component {
 						<Route exact path="/aboutus" component={ () =>
 							<AboutWrapper 
 								aboutSwac_EN={this.state.aboutUs_EN}
-								aboutSwac_FR={this.state.aboutUs_FR}
+								aboutSwac_FR={this.state.aboutUs_FR}ㅅ
 								language={this.state.language}
 							/>}/>
 						<Redirect to="/" />

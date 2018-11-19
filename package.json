@@ -92,8 +92,7 @@
     "build": "node --max_old_space_size=8192 scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "predeploy": "npm run build",
-    "fix-memory-limit": "cross-env LIMIT=8192 increase-memory-limit",
-    "deploy": "gh-pages -d build"
+    "fix-memory-limit": "cross-env LIMIT=8192 increase-memory-limit"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -139,7 +138,6 @@
   },
   "devDependencies": {
     "cross-env": "^5.0.5",
-    "gh-pages": "^1.2.0",
     "increase-memory-limit": "^1.0.3"
   }
 }

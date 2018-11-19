@@ -122,6 +122,10 @@ module.exports = {
         ],
         include: paths.appSrc,
       },
+      { 
+        test: /\.(config)$/, 
+        loader: 'file-loader?name=[name].[ext]'
+      },
       {
         // "oneOf" will traverse all following loaders until one will
         // match the requirements. When no loader matches it will fall

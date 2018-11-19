@@ -25,7 +25,6 @@ class KeyFigure extends Component {
     render() {
 		const { selectedCountry, countryData, selectedAgglos, agglosData, language } = this.props;
 		const { height } = this.state;
-		
 		if(this.props.language === 0) {
 			if((selectedCountry || selectedAgglos) && (selectedCountry !== '')){
 				return(
@@ -35,6 +34,7 @@ class KeyFigure extends Component {
 								handleClick={this.handleClick}
 								selectedCountry={selectedCountry}
 								countryData={countryData}
+								language={language}
 								height={height}
 							/>
 							<CountryHistogram 

@@ -34,8 +34,6 @@ class ExploreContent extends Component {
             isSearchable: true,
             agglosList: '',
             isDisabled: true,
-            // selectedIndex: 1,
-            // tabIndex: 0
         };
     }
 
@@ -78,14 +76,21 @@ class ExploreContent extends Component {
         }
     }
 
-    filterCountry(data){
+    filterCountry_EN(data){
       const sortedCountryList = data.map((u) => (u)).sort((a, b) => a.Country.localeCompare(b.Country));
       const list = sortedCountryList.map((c, i) => (
       {value: c.ID, label: c.Country }))
       return list
     }
 
-    displayCountry(selectedCountry, data){
+    filterCountry_FR(data){
+        const sortedCountryList = data.map((u) => (u)).sort((a, b) => a.Country.localeCompare(b.Country));
+        const list = sortedCountryList.map((c, i) => (
+        {value: c.ID, label: c.Country_FR }))
+        return list
+      }
+
+    displayCountry_EN(selectedCountry, data){
         const list = data.find(u => u.ID === selectedCountry);
         if(selectedCountry){
             return(
@@ -93,6 +98,17 @@ class ExploreContent extends Component {
             )
         }
     }
+
+    displayCountry_FR(selectedCountry, data){
+        const list = data.find(u => u.ID === selectedCountry);
+        if(selectedCountry){
+            return(
+                ({value: list.ID, label: list.Country_FR})
+            )
+        }
+    }
+
+
 
     displayAgglos(selectedAgglos, data,selectedCountry){
 
@@ -107,12 +123,12 @@ class ExploreContent extends Component {
         }
     }
 
-    singleSelect(countryList, agglosList, displayCountry, displayAgglos){
+    singleSelect(countryList, agglosList, displayCountry, displayAgglos, selectCountry, selectAgglos){
         return(
             <div className="explore_container-wrapper">
                 <div className="explore_search-country">
                     <Select
-                        placeholder="Select country"
+                        placeholder={selectCountry}
                         isClearable={this.state.isClearable}
                         isSearchable={this.state.isSearchable}
                         value={displayCountry}
@@ -132,7 +148,7 @@ class ExploreContent extends Component {
                 </div>
                 <div className="explore_search-agglos">
                     <Select
-                        placeholder= "Select agglomeration"
+                        placeholder= {selectAgglos}
                         isClearable={this.state.isClearable}
                         isSearchable={this.state.isSearchable}
                         value={displayAgglos}
@@ -153,7 +169,7 @@ class ExploreContent extends Component {
                     />
                 </div>
                 <KeyFigure
-                    language={this.props.langauge}
+                    language={this.props.language}
                     timeSliderValue={this.props.timeSliderValue}
                     reveal={this.props.reveal}
                     accordionToggle={this.props.accordionToggle}
@@ -167,12 +183,12 @@ class ExploreContent extends Component {
         )
     }
 
-    compareCountries(countryList, firstCountry, secondCountry){
+    compareCountries(countryList, firstCountry, secondCountry, compareFirst, compareSecond){
         return(
             <div className="explore_container-wrapper">
                 <div className="explore_search-agglos">
                     <Select
-                        placeholder= "Select first country"
+                        placeholder= {compareFirst}
                         options={countryList}
                         value={firstCountry}
                         backspaceRemovesValue={false}
@@ -190,7 +206,7 @@ class ExploreContent extends Component {
                 </div>
                 <div className="explore_search-country">
                     <Select
-                        placeholder= "Select second country" 
+                        placeholder= {compareSecond}
                         options={countryList}
                         value={secondCountry}
                         backspaceRemovesValue={false}
@@ -236,27 +252,41 @@ class ExploreContent extends Component {
             language
         } = this.props;
 
-        const countryList = this.filterCountry(countryData);
+        let compareFirst_EN = 'Select first country';
+        let compareSecond_EN = 'Select second country';
+        let compareFirst_FR = 'Sélectionner le premier pays';
+        let compareSecond_FR = 'Sélectionner le deuxième pays';
+        let selectCountry_EN = 'Select country';
+        let selectCountry_FR = 'Sélectionner un pays';
+        let selectAgglos_EN = 'Select agglomeration';
+        let selectAgglos_FR = 'Sélectionner une agglomération';
+
+        const countryList_EN = this.filterCountry_EN(countryData);
+        const countryList_FR = this.filterCountry_FR(countryData);
         const agglosList = this.filterAgglos(agglosData, selectedCountry);
-        const displayCountry = this.displayCountry(selectedCountry, countryData);
+        const displayCountry_EN = this.displayCountry_EN(selectedCountry, countryData);
+        const displayCountry_FR = this.displayCountry_FR(selectedCountry, countryData);
         const displayAgglos = this.displayAgglos(selectedAgglos, agglosData, selectedCountry);
-        const displayCountry_first = this.displayCountry(firstCompareValue, countryData);
-        const displayCountry_second = this.displayCountry(secondCompareValue, countryData);
+        const displayCountry_first_EN = this.displayCountry_EN(firstCompareValue, countryData);
+        const displayCountry_second_EN = this.displayCountry_EN(secondCompareValue, countryData);
+        const displayCountry_first_FR = this.displayCountry_FR(firstCompareValue, countryData);
+        const displayCountry_second_FR = this.displayCountry_FR(secondCompareValue, countryData);
+
         if(language === 0){
-            return(
+            return( 
                 <div id="explore_content-container-wrapper">
                     <div className="explore_content-container">
                         <Tabs className="tab-wrapper" selectedIndex={this.state.selectedIndex} onSelect={this.handleSelect}>
                             <TabList>
-                                <Tab>Single Select</Tab>
-                                <Tab>Compare</Tab>
+                                <Tab>Select country</Tab>
+                                <Tab>Compare countries</Tab>
                             </TabList>
 
                             <TabPanel>
-                                {this.singleSelect(countryList, agglosList, displayCountry, displayAgglos)}
+                                {this.singleSelect(countryList_EN, agglosList, displayCountry_EN, displayAgglos, selectCountry_EN, selectAgglos_EN)}
                             </TabPanel>
                             <TabPanel>
-                                {this.compareCountries(countryList, displayCountry_first, displayCountry_second)}
+                                {this.compareCountries(countryList_EN, displayCountry_first_EN, displayCountry_second_EN, compareFirst_EN, compareSecond_EN)}
                             </TabPanel>
                         </Tabs>
                     </div>
@@ -268,14 +298,14 @@ class ExploreContent extends Component {
                     <div className="explore_content-container">
                         <Tabs className="tab-wrapper" selectedIndex={this.state.selectedIndex} onSelect={this.handleSelect}>
                             <TabList>
-                                <Tab>French Select</Tab>
-                                <Tab>French Compare</Tab>
+                                <Tab>Sélectionner un pays</Tab>
+                                <Tab>Comparer les pays</Tab>
                             </TabList>
                             <TabPanel>
-                                {this.singleSelect(countryList, agglosList, displayCountry, displayAgglos)}
+                                {this.singleSelect(countryList_FR, agglosList, displayCountry_FR, displayAgglos, selectCountry_FR, selectAgglos_FR)}
                             </TabPanel>
                             <TabPanel>
-                                {this.compareCountries(countryList, displayCountry_first, displayCountry_second)}
+                                {this.compareCountries(countryList_FR, displayCountry_first_FR, displayCountry_second_FR, compareFirst_FR, compareSecond_FR)}
                             </TabPanel>
                         </Tabs>
                     </div>

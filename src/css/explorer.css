@@ -164,16 +164,30 @@ td {
 .explore_country-info {
     display: flex;
     flex-flow: row wrap;
+    
     justify-content: space-between;
 }
 
+.explore_country-info>h3{
+    color:#c5543f;
+}
+
 .info-button {
+    /* color: #E8AE40; */
+    opacity:1;
     width: 100%;
+}
+
+.accordion>h3,
+.accordion>i {
+    color: #E8AE40;
+
 }
 
 .info-button:hover .accordion > h3,
 .info-button:hover .accordion > i {
     color: #E8AE40;
+    opacity: .8;
 }
 
 .material-icons {

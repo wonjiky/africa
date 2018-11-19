@@ -29,7 +29,7 @@ const CountryNotes = props => {
                 </div>
             )
         }
-    }else {
+    }else{
         if(list === undefined){
             return <div></div>
         }else{

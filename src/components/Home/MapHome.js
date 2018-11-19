@@ -149,11 +149,11 @@ class LeafletMap extends Component {
 					if (this.props.triggerAnim > prevProps.triggerAnim)
 					{		//this.placeHolder.removeLayer(this.state.tileLayer);
 							this.placeHolder.addLayer(this.state.tileLayer3);
-						}
+}
 					else if (this.props.triggerAnim < prevProps.triggerAnim)
 					{		this.placeHolder.removeLayer(this.state.tileLayer3);
 							this.placeHolder.addLayer(this.state.tileLayer);
-					}
+}
 			}
 		else if(this.props.treemapFilter === 'narrative' && this.props.treemapValue === 1) {
 
@@ -205,7 +205,7 @@ class LeafletMap extends Component {
 	else if(this.props.treemapFilter === 'treemap') {
 		this.state.map.setView([1.46,18.3],3)
 		this.placeHolder.removeLayer(this.state.tileLayer)
-		this.placeHolder.removeLayer(this.state.tileLayer3)
+		this.placeHolder.removeLayer(this.state.tileLayer3);
 		this.placeHolder.addLayer(this.state.tileLayer2)
 		if(this.props.treemapFilter === 'treemap') {
 			if(this.treemap){

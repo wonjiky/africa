@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Fade from 'react-reveal/Fade';
 import '../../css/aboutus.css'
 
@@ -66,7 +66,7 @@ const AboutWrapper = props => {
                         </div>
                         <div className="about_africapolis-logos">
                             <div className="africapolis_logos">
-                                <img src="assets/images/swac-oecd.png" width="100%"
+                                <img src="assets/images/oecd_fr.png" width="100%"
                                     alt="Africapolis Visualise Urbanisation in Africa"/>
                             </div>
                             <div className="africapolis_logos">

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { BarChart, Cell, Bar, Tooltip } from 'recharts';
 import MaterialIcon from 'material-icons-react';
 
 
@@ -312,9 +311,9 @@ class CompareHistogram extends Component {
                 </div>
                 <div className="compare-wrapper">
                     {this.renderInfo(dataUrbanSurf[0].info, dataUrbanSurf[0].title)}
-                    {this.firstCountry(this.urbanland, dataUrbanSurf, firstCountry)}
-                    {this.compareGreater(this.urbanland, dataUrbanSurf, firstCountry, secondCountry)}
-                    {this.secondCountry(this.urbanland, dataUrbanSurf, secondCountry)}
+                    {this.firstCountry(this.urbanland, urbanSurfData, firstCountry)}
+                    {this.compareGreater(this.urbanland, urbanSurfData, firstCountry, secondCountry)}
+                    {this.secondCountry(this.urbanland, urbanSurfData, secondCountry)}
                 </div>
             </div>
         )

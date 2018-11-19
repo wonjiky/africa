@@ -132,7 +132,6 @@ class LeafletMap extends Component {
 		if(this.props.treemapFilter === 'narrative'){
 			//this.state.map.removeLayer(this.tileLayer)
 			this.placeHolder.removeLayer(this.tileLayer2)
-
 			//this.placeHolder.addLayer(this.state.tileLayer)
 			if(this.treemap)
 			{this.placeHolder.removeLayer(this.treemap)}
@@ -223,10 +222,6 @@ class LeafletMap extends Component {
 			this.state.map.scrollWheelZoom.enable();
 			this.state.map.boxZoom.enable();
 			this.state.map.keyboard.enable();
-
-
-
-
 			this.treemap = L.geoJson(this.props.treemap_buildup, {
 				filter: this.treemap_filter,
 				onEachFeature: this.treemap_onEachFeature,

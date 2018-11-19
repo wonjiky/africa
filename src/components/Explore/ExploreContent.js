@@ -273,7 +273,6 @@ class ExploreContent extends Component {
                                 <Tab>French Select</Tab>
                                 <Tab>French Compare</Tab>
                             </TabList>
-
                             <TabPanel>
                                 {this.singleSelect(countryList, agglosList, displayCountry, displayAgglos)}
                             </TabPanel>

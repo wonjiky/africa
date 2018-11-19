@@ -155,6 +155,7 @@ class ExploreContent extends Component {
                     />
                 </div>
                 <KeyFigure
+                    language={this.props.langauge}
                     timeSliderValue={this.props.timeSliderValue}
                     reveal={this.props.reveal}
                     accordionToggle={this.props.accordionToggle}
@@ -233,7 +234,8 @@ class ExploreContent extends Component {
             selectedCountry,
             countryData,
             firstCompareValue,
-            secondCompareValue
+            secondCompareValue,
+            language
         } = this.props;
 
         const countryList = this.filterCountry(countryData);
@@ -242,26 +244,46 @@ class ExploreContent extends Component {
         const displayAgglos = this.displayAgglos(selectedAgglos, agglosData, selectedCountry);
         const displayCountry_first = this.displayCountry(firstCompareValue, countryData);
         const displayCountry_second = this.displayCountry(secondCompareValue, countryData);
+        if(language === 0){
+            return(
+                <div id="explore_content-container-wrapper">
+                    <div className="explore_content-container">
+                        <Tabs className="tab-wrapper" selectedIndex={this.state.selectedIndex} onSelect={this.handleSelect}>
+                            <TabList>
+                                <Tab>Single Select</Tab>
+                                <Tab>Compare</Tab>
+                            </TabList>
 
-        return(
-            <div id="explore_content-container-wrapper">
-                <div className="explore_content-container">
-                    <Tabs className="tab-wrapper" selectedIndex={this.state.selectedIndex} onSelect={this.handleSelect}>
-                        <TabList>
-                            <Tab>Single Select</Tab>
-                            <Tab>Compare</Tab>
-                        </TabList>
-
-                        <TabPanel>
-                            {this.singleSelect(countryList, agglosList, displayCountry, displayAgglos)}
-                        </TabPanel>
-                        <TabPanel>
-                            {this.compareCountries(countryList, displayCountry_first, displayCountry_second)}
-                        </TabPanel>
-                    </Tabs>
+                            <TabPanel>
+                                {this.singleSelect(countryList, agglosList, displayCountry, displayAgglos)}
+                            </TabPanel>
+                            <TabPanel>
+                                {this.compareCountries(countryList, displayCountry_first, displayCountry_second)}
+                            </TabPanel>
+                        </Tabs>
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        }else{
+            return(
+                <div id="explore_content-container-wrapper">
+                    <div className="explore_content-container">
+                        <Tabs className="tab-wrapper" selectedIndex={this.state.selectedIndex} onSelect={this.handleSelect}>
+                            <TabList>
+                                <Tab>French Select</Tab>
+                                <Tab>French Compare</Tab>
+                            </TabList>
+                            <TabPanel>
+                                {this.singleSelect(countryList, agglosList, displayCountry, displayAgglos)}
+                            </TabPanel>
+                            <TabPanel>
+                                {this.compareCountries(countryList, displayCountry_first, displayCountry_second)}
+                            </TabPanel>
+                        </Tabs>
+                    </div>
+                </div>
+            );
+        }
     }
 }
 

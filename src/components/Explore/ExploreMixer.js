@@ -127,7 +127,7 @@ class ExploreMixer extends Component {
                             <a href="https://www.linkedin.com/company/sahel-and-west-africa-club-club-du-sahel-et-l-afrique-de-l-ouest/" target="_blank" rel="noopener noreferrer"><LinkedinIcon size={32} round={true} /></a>
                         </div>
                         <img src="assets/images/oecd_en.png" width="100%"
-                        alt="Africapolis Visualise Urbanisation in Africa"/>
+                        alt="OECD"/>
                     </div>
                 </div>
             );
@@ -159,7 +159,7 @@ class ExploreMixer extends Component {
                             <a href="https://www.linkedin.com/company/sahel-and-west-africa-club-club-du-sahel-et-l-afrique-de-l-ouest/" target="_blank" rel="noopener noreferrer"><LinkedinIcon size={32} round={true} /></a>
                         </div>
                         <img src="assets/images/oecd_fr.png" width="100%"
-                        alt="Africapolis Visualise Urbanisation in Africa"/>
+                        alt="OCDE"/>
                     </div>
                 </div>
             );

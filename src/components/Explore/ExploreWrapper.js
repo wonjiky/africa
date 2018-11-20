@@ -89,7 +89,7 @@ class ExploreWrapper extends Component {
     }
 
     handlesecondValueFromSearch(a){
-        console.log(a);    
+        console.log(a);
         let selectedValue = a.value;
         this.setState({ secondCompareValue: selectedValue})
     }
@@ -208,6 +208,7 @@ class ExploreWrapper extends Component {
                         handlefirstValueFromSearch={this.handlefirstValueFromSearch}
                         handlesecondValueFromSearch={this.handlesecondValueFromSearch}
                         />
+                        
                 </div>
             </main>
         );

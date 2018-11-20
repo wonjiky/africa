@@ -4,6 +4,9 @@ import AnimateHeight from 'react-animate-height';
 const CountryNotes = props => {
     const {language, countryData, selectedCountry} = props;
     const list = countryData.find(u => u.ID  === selectedCountry);
+    console.log(language)
+    console.log(countryData)
+    console.log(selectedCountry)
     if(language===0){
         if(list === undefined){
             return <div></div>
@@ -13,7 +16,7 @@ const CountryNotes = props => {
                     <div className="info-button">
                         <button className='accordion' onClick={props.handleClick}>
                             <h3 className="material-icons">Country</h3>
-                            {props.height === 0 ? <i className="material-icons">keyboard_arrow_down</i> : 
+                            {props.height === 0 ? <i className="material-icons">keyboard_arrow_down</i> :
                                 <i className="material-icons active">keyboard_arrow_up</i>}
                         </button>
                     </div>
@@ -24,7 +27,7 @@ const CountryNotes = props => {
                             <li>{list.Population}</li>
                             <li>{list.Area}km&sup2;</li>
                             <li>{list.Text_EN}</li>
-                        </ul>	
+                        </ul>
                     </AnimateHeight>
                 </div>
             )
@@ -38,7 +41,7 @@ const CountryNotes = props => {
                     <div className="info-button">
                         <button className='accordion' onClick={props.handleClick}>
                             <h3 className="material-icons">pays</h3>
-                            {props.height === 0 ? <i className="material-icons">keyboard_arrow_down</i> : 
+                            {props.height === 0 ? <i className="material-icons">keyboard_arrow_down</i> :
                                 <i className="material-icons active">keyboard_arrow_up</i>}
                         </button>
                     </div>
@@ -49,7 +52,7 @@ const CountryNotes = props => {
                             <li>{list.Population}</li>
                             <li>{list.Area}km&sup2;</li>
                             <li>{list.Text_FR}</li>
-                        </ul>	
+                        </ul>
                     </AnimateHeight>
                 </div>
             )

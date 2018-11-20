@@ -211,7 +211,7 @@ class ExploreContent extends Component {
                         value={secondCountry}
                         backspaceRemovesValue={false}
                         onChange={this.sendsecondValueToMap.bind(this)}
-                        theme={(theme) => ({  
+                        theme={(theme) => ({
                             ...theme,
                             borderRadius: 0,
                             colors: {

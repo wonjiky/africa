@@ -11,7 +11,7 @@ class KeyFigure extends Component {
 			height:0
 		}
     }
-	
+
 	handleClick = () => {
 		this.setState({
 			height: this.state.height === 0 ? "auto" : 0
@@ -52,7 +52,7 @@ class KeyFigure extends Component {
 								language={language}
 								selectedAgglos={selectedAgglos}
 								selectedCountry={selectedCountry}
-								countryData={countryData} 
+								countryData={countryData}
 								agglosData={agglosData}
 								valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}
 							/>
@@ -76,8 +76,8 @@ class KeyFigure extends Component {
 							/>
 							<CountryHistogram
 								language={language}
-								selectedCountry={selectedCountry} 
-								countryData={countryData} 
+								selectedCountry={selectedCountry}
+								countryData={countryData}
 								valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}
 								timeSliderValue = {this.props.timeSliderValue}
 								selectedAgglos={selectedAgglos}
@@ -89,7 +89,7 @@ class KeyFigure extends Component {
 								language={language} 
 								selectedAgglos={selectedAgglos}
 								selectedCountry={selectedCountry}
-								countryData={countryData} 
+								countryData={countryData}
 								agglosData={agglosData}
 								valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}
 							/>

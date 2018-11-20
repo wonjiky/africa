@@ -2,8 +2,6 @@ import React from 'react';
 import Fade from 'react-reveal/Fade';
 import '../../css/aboutus.css'
 
-
-
 const AboutWrapper = props => {
     const english = props.aboutSwac_EN[0];
     const french = props.aboutSwac_FR[0];

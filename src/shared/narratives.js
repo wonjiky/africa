@@ -23,19 +23,14 @@ export const NARRATIVES = [
 		"story_fr": [
 			{
 			"storyID": 0,
-				"storytitle": "1. Understanding urbanisation dynamics in Africa",
-				"storyText": "Africa is projected to have the fastest urban growth rate in the world - by 2050, Africa’s cities will be home to an additional 950 million people. There is a continuous need to better understand urbanisation, what it looks like today and what this means for the future. "
+				"storytitle": "Informer les politiques pour l’avenir urbain de l’Afrique",
+				"storyText": "D’ici 2050, l’Afrique devrait connaître le taux de croissance urbaine le plus rapide du monde. À cet horizon, les villes africaines devraient abriter 950 millions d’habitants supplémentaires. La planification et la gestion urbaines sont par conséquent des enjeux de développement de premier ordre. Comprendre l’urbanisation, ses moteurs, ses dynamiques et ses impacts est essentiel pour concevoir des politiques – locales,nationales et continentales – ciblées, inclusives et tournées vers l’avenir. Les données et analyses factuelles d’Africapolis aident les villes et les gouvernements à rendre les zones urbaines plus inclusives,productives et durables."
 			},
 			{
 				"storyID": 1,
-				"storytitle": "2. Africapolis: A unique platform on cities and urbanisation in Africa",
-				"storyText": "Africapolis is the only comprehensive and standardised geospatial database on cities and urbanisation dynamics in Africa. It is designed to enable comparative and long-term analyses of urban dynamics - covering 7 500 agglomerations in 50 countries. "
+				"storytitle": "Une base de données sans équivalent",
+				"storyText": "Produite par le Club du Sahel et de l’Afrique de l’Ouest (CSAO/OCDE), Africapolis est la seule base de données géospatiale complète et homogène sur les villes et les dynamiques d’urbanisation en Afrique. Combinant des données nationales sur la population, des images satellitaires et aériennes et d’autres sources cartographiques, elle est conçue pour nourrir des analyses comparatives et à long terme de la dynamique urbaine, couvrant 7 500 agglomérations dans 50 pays."
 			},
-			{
-				"storyID": 2,
-				"storytitle": "3. Planning for Africa’s urban future",
-				"storyText": "Managing urbanisation is one of Africa’s great development challenges. More data and a stronger evidence-base is needed to support cities and governments to make urban areas more inclusive, livable and productive."
-			}
 		]
     },
     {
@@ -225,38 +220,41 @@ export const NARRATIVES = [
 				"storytitle": "Capturing urban growth dynamics – A spatial approach",
 				"storyText" : [
 					{
-						"text": "Africa has the fastest urban growth rate in the world – by 2050, Africa’s urban areas will be home to an additional 950 million people. This growth translates into changes in the size, shape and functional features of the physical built-up area of urban agglomerations. Urban population growth is in most cases accompanied by growth of the built-up area – for housing, but also for industrial and commercial space, administrative and public services (schools, hospitals, parks) and for infrastructure – the facilities and services that keep a city alive.",      
+						"text": "There are only few big cities but many small ones. In Africa, but also globally. Africa has 11 urban areas with more than 5 million inhabitants with a combined population of 95 million people, and it counts 6 740 small urban agglomeration with fewer than 100 000 inhabitants home to 180 million. And yet, these urban agglomerations are absent from most databases and little information as to their number, their size and their location is available.",      
+					},
+					{
+						"text": "The focus on larger cities has resulted in skewing the perception of African cities and in the understanding of urbanisation dynamics. An important, yet often overlooked, driver of urbanisation in Africa is the continued emergence of urban agglomerations. Since 2000 the number of urban agglomerations between 10 000 and 100 000 inhabitants increased by almost 2 000, from 4 770 to 6 740 in 2015.",      
+					},
+					{
+						"text": "Africapolis’ unique methodology allows for the integration of thousands of small towns and agglomerations, home to millions of Africans. The detection of built-up areas from satellite imagery combined with official records allows for the identification of these new agglomerations, whose existence and recognition are sometimes ignored by national statistics.",      
 					}
 				]
 			},
 			{
 				"storyID": 1,
-				"storytitle": "Urban growth, merging and densification",
+				"storytitle": "Bottom-up urbanization: formation and growth of small urban agglomerations",
 				"storyText" : [
 					{
-						"text": "Onitsha, Nigeria, is Africa’s third largest urban agglomeration with 8.5 million inhabitants according to Africapolis. Onitsha illustrates two features of African urbanisation, the fast pace of urbanisation dynamics – 15 years ago it was not figuring in the top 50 largest agglomerations – and the growth of built-up areas in driving the formation of large agglomerations."
+						"text": "Most countries in Africa have seen an increase in the number of urban agglomerations over past decades, though the extent, speed and characteristics of this process vary across countries and regions. The majority of new agglomerations emerge in areas with high rural population densities and in proximity to large metropolitan areas."
 					},
 					{
-						"text": "The city of Onitsha is located on the eastern bank of the Niger River in Nigeria's Anambra State and its population is 1.1 million inhabitants (WUP, 2018). By contrast, the urban agglomeration spreads over an area 80 times larger than the city itself, extending over 100 kilometres with the historical center of Onitsha located on the extreme north. This huge continuously built-up agglomeration formed under the combined effects of growing urban areas, merging of agglomerations, absorption of smaller settlements and densification of rural areas."
+						"text": "The natural growth of rural settlements is one important driver in the increase in the number of urban agglomerations. This in-situ urbanisation is driven by population growth of rural settlements leading over time to a re-classification from rural to urban, once the threshold of 10 000 inhabitants is reached. This form of emergence of urban agglomeration is more common in regions where settlements are clustered, for instance in dry and savannah climates. Yet, regions with dispersed or scattered settlements produce different forms of urbanisation. In dispersed rural settlement areas, populations are located more linearly with respect to some physical or cultural landscape e.g. rivers, valleys, roads. Here, population growth leads to a linear extension of settlements that produces merging and absorption of initially separated rural settlements resulting in the formation of one continuously built-up area with a combined population of more than 10 000 inhabitants. This form of emergence is more common in Africa’s forest and mountain areas, notably Kenya, Nigeria, Rwanda, Uganda."
 					},
 					{
-						"text": "Onitsha emerged in a vast densely populated area with several historic urban areas. Today, it englobes the cities of Aba, Nnewi, Owerri and Umuahia each with populations of more than 500 000 as well as many smaller ones like Ihiala and Nkwerre, all of which are experiencing their own growth. However, one important condition for the formation of Onitsha has been the very high rural density in the periphery and surrounding areas. This mostly scattered and linear settlement, whose expansion was constrained (naturally and/or politically), has, due to the underlying demographic pressure, become so dense as to be considered urban. The vast agglomeration of 2 900 km2 has multiple high-density centres linked by large areas with lower population densities whose urban character and form are not fully perceptible. However, the average density of the urban area reaches 3 000 inhabitants per km2, similar to urban areas in Western Europe.",
+						"text": "The emergence of new urban agglomerations will continue, and so will the growth of today’s small urban agglomerations.",
 					}
 				]
 			},
 			{
 				"storyID": 2,
-				"storytitle": "An emerging urban reality ",
+				"storytitle": "Small towns, rural areas and urbanisation",
 				"storyText" : [
 					{
-						"text": "Although, the Africapolis definition, putting the focus on the built environment in defining urban implies a strict distinction between urban and non-urban and is not providing information on functional aspects and ‘degree of urbanisation’, it reveals dynamics and challenges of urbanisation that will be increasingly important in managing and planning for future trends. The urban agglomeration of Onitsha is expected to reach 25 million inhabitants by 2050 and might in the process merge with Aba, Uyo and Port Harcourt forming a vast urban area of 50 million inhabitants. "
+						"text": "Small urban agglomerations are an important component of urban systems. 125 million Africans live in urban agglomerations with fewer than 50 000 inhabitants. Small urban areas are also the main connection between rural and urban areas. For many rural people, these places are the access points to markets, public services such as health and education, employment opportunities and information. Including small urban agglomerations in urban planning and policy making is essential to making Africa’s urbanisation dynamic more inclusive and sustainable."
 					},
 					{
-						"text": "The example of Onitsha also reveals trends that challenge some of the common perceptions about urbanisation, such as the concept of rural exodus as a driver of urbanisation. Onitsha, for instance, has not grown through the influx of rural populations but instead from the opposite, increasing rural population density in existing settlements that have grown and merged into one bigger agglomeration once the density has reached a certain critical mass."
+						"text": "Africapolis is the only international database that systematically includes small urban agglomerations above 10 000 inhabitants, providing unique information on these areas. In comparison, the UN World Urbanisation Prospects, provide population estimates for 221 urban agglomerations in Africa, only covering cities with more than 300 000 inhabitants. Africapolis covers 7 500 individual urban agglomerations, of which 97% with fewer than 300 000 inhabitants. This data is essential for a better understanding of urbanisation dynamics from the bottom and the linkages between rural and urban areas."
 					},
-					{
-						"text": "Onitsha, not an isolated case in Africa (Rwanda, Uganda, Ethiopia, Cameroon), highlights one urban reality of modern-day Africa that needs to be better understood and planned for. The challenge for researchers, policy makers and citizens is to conceive and design investment, public service, planning strategies and administrative frameworks that are adapted to the reality of these urban areas.",
-					}
 				]
 			}
 		],

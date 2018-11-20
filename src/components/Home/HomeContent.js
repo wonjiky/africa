@@ -82,6 +82,54 @@ class HomeContent extends Component {
                     />
                 )
             }
+        }else{
+            if(storyList.ID === 0 && contentFilter === 'narrative'){
+                return(
+                    <div className="home_content-1" >
+                        <div className="home_content-1-1">
+                            <div>
+                                <h2>{narratives[0].story_fr[0].storytitle}</h2>
+                                <hr id="overview_hr"/>
+                                <p>{narratives[0].story_fr[0].storyText}</p>
+                                <div className="button-wrapper">
+                                <Link containerId="home_content-container-wrapper" activeClass="selectedContent" to="second" spy={true} smooth={true} duration={500}>
+                                    <i className="material-icons scrollTo_next">keyboard_arrow_down</i>
+                                </Link> 
+                                </div>
+                            </div>
+                        </div>
+                        <div id="home_content-container-wrapper" name={'second'} className="home_content-1-2">
+                            <div>
+                                <h2>{narratives[0].story_fr[1].storytitle}</h2>
+                                <hr id="overview_hr"/>
+                                <p>{narratives[0].story_fr[1].storyText}</p>
+                            </div>
+                        </div>
+                    </div>
+                )
+            } else if (storyList.ID !== 0 && contentFilter === 'narrative'){
+                return(
+                    <div className="home_content-2">
+                        <ul className="list-unstyled">
+                            <li className="story_main-title">
+                                <h2>{storyList.title_fr}</h2>
+                                <hr id="b_narrative_hr"/>
+                            </li>
+                            {/* <br/> */}
+                            {this.renderNarrative_Text(storyList.story_fr)}
+                        </ul>
+                    </div>
+                )
+            } else if ((selectedContent === 0 && contentFilter === 'treemap') || (selectedContent && contentFilter === 'treemap')){
+                return(
+                    <RenderTreemap
+                        language={language}
+                        data={treemapList}
+                        receiveValue={this.receiveValue.bind(this)}
+                        receiveValue_click={this.receiveValue_click.bind(this)}
+                    />
+                )
+            }
         }
     }
 

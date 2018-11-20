@@ -119,19 +119,19 @@ const Logos = () => {
                         alt="Belgium"/>
                 </div>
                 <div className="logo-container">
-                    <img src="assets/images/canada.png" width="70%"
+                    <img src="assets/images/canada.png" width="50%"
                         alt="Canada"/>    
                 </div>
                 <div className="logo-container">
-                    <img src="assets/images/cliss.jpg" width="50%"
+                    <img src="assets/images/cliss.jpg" width="35%"
                         alt="Cliss"/>
                 </div>
                 <div className="logo-container">
-                    <img src="assets/images/ECOWAS.jpg" width="40%"
+                    <img src="assets/images/ECOWAS.jpg" width="35%"
                         alt="ECOWAS"/>
                 </div>
                 <div className="logo-container">
-                    <img src="assets/images/EU.jpg" width="50%"
+                    <img src="assets/images/EU.jpg" width="35%"
                         alt="EU"/>
                 </div>
                 <div className="logo-container">

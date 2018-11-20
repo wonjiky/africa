@@ -289,12 +289,9 @@ class LeafletMap extends Component {
 	}
 
 	onEachFeature_f(feature,layer){
-
 		let popupContent = "<tr><td class='title'></td>" + "Name: " + feature.properties.Name + "</tr>";
 		popupContent += "</br><tr><td class='title'></td>" + "Population: " + feature.properties.Population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + "</tr>";
-
 		layer.bindPopup(popupContent).openPopup();
-
 	}
 
 	treemapHighlightStyle(feature){

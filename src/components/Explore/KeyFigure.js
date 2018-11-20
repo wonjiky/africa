@@ -25,7 +25,7 @@ class KeyFigure extends Component {
     render() {
 		const { selectedCountry, countryData, selectedAgglos, agglosData, language } = this.props;
 		const { height } = this.state;
-		if(this.props.language === 0) {
+		if(language === 0) {
 			if((selectedCountry || selectedAgglos) && (selectedCountry !== '')){
 				return(
 					<div className="histogram_container">
@@ -37,7 +37,8 @@ class KeyFigure extends Component {
 								language={language}
 								height={height}
 							/>
-							<CountryHistogram 
+							<CountryHistogram
+								language={language} 
 								selectedCountry={selectedCountry} 
 								countryData={countryData} 
 								valueFromCountryHistogram={this.valueFromCountryHistogram.bind(this)}
@@ -47,7 +48,8 @@ class KeyFigure extends Component {
 							/>
 						</div>
 						<div className="explore_agglos-wrapper">
-							<CityHistogram 
+							<CityHistogram
+								language={language}
 								selectedAgglos={selectedAgglos}
 								selectedCountry={selectedCountry}
 								countryData={countryData} 
@@ -83,7 +85,8 @@ class KeyFigure extends Component {
 							/>
 						</div>
 						<div className="explore_agglos-wrapper">
-							<CityHistogram 
+							<CityHistogram
+								language={language} 
 								selectedAgglos={selectedAgglos}
 								selectedCountry={selectedCountry}
 								countryData={countryData} 

@@ -336,115 +336,11 @@ class LeafletMap extends Component {
 			return L.circleMarker(latlng, geojsonMarker);
 	}
 
-	// placeHolder_filter(feature) {
-	// 	if (feature.properties.Year === "a") {
-	// 		return true
-	// 	}
-	// }
-
 	treemap_filter(feature) {
 		if (feature.properties.treemap_ID === this.props.treemapValue ) {
 			return true
 		}
 	}
-
-	// agglos_cityFilter(feature){
-	// 	if (feature.properties.ID === this.ID){
-	// 		return true
-	// 	}
-	// }
-
-	// agglos_pointToLayer(feature, latlng){
-	// 	const geojsonMarker = this.defaultAgglosStyle(feature);
-	// 	return L.circleMarker(latlng, geojsonMarker);
-	// }
-
-	// highlightAgglosStyle(feature){
-	// 	return({
-	// 		radius: feature.properties.Size_sel*3+6,
-	// 		// fillColor: '#E8AE40',
-	// 		fillOpacity: 1,
-	// 		stroke: true,
-	// 		// color: '#E8AE40',
-	// 		weight: 1,
-	// 	})
-	// }
-
-	// selectedAgglosStyle(){
-	// 	return({
-	// 		radius: 20,
-	// 		fillColor: 'red',
-	// 		fillOpacity: 0.4,
-	// 		stroke: true,
-	// 		color: '#E8AE40',
-	// 		weight: 1,
-	// 	})
-	// }
-
-	// defaultAgglosStyle(feature){
-	// 	return({
-	// 		radius: this.getRadius(feature.properties.Size_sel),
-	// 		fillColor: this.getColor(feature.properties.Size_sel),
-	// 		fillOpacity: 0.4,
-	// 		stroke: true,
-	// 		color: this.getColor(feature.properties.Size_sel),
-	// 		weight: 1,
-	// 	})
-	// }
-
-	// getRadius(d){
-	// 	return(
-	// 		d === 6 ? d*3 :
-	// 		d === 5 ? d*3 :
-	// 		d === 4 ? d*3 :
-	// 		d === 3 ? d*3 :
-	// 		d === 2 ? d*3 :
-	// 		d === 1 ? d*3 : d*10
-	// 	)
-	// }
-
-	// getColor(d){
-	// 	return(
-	// 		d === 6 ? '#E73741' :
-	// 		d === 5 ? '#df521e' :
-	// 		d === 4 ? '#e1b400' :
-	// 		d === 3 ? '#32a674' :
-	// 		d === 2 ? '#0b68af' :
-	// 		d === 1 ? '#993484' : ''
-	// 	)
-	// }
-
-	// agglos_onEachFeature(feature, layer) {
-	// 	layer.on('mouseover', (e) => {
-	// 		e.target.setStyle(this.highlightAgglosStyle())
-	// 	})
-	//
-	// 	layer.on('mouseout', (e) => {
-	// 		e.target.setStyle(this.defaultAgglosStyle(feature))
-	// 		if(feature.properties.clicked=true){this.highlightAgglosStyle()}
-	// 	})
-	//
-	// 	layer.on('change', (e) => {
-	// 		let popupContent = "<table class='tooltip-table'>";
-	// 		popupContent += "<tr><td class='title'>Name:</td><td class='data'>" + feature.properties.cityName + "</td></tr>";
-	// 		popupContent += "<tr><td class='title'>Population:</td><td class='data'>" + feature.properties.cityID + "</td></tr>";
-	// 		popupContent += "</table>";
-	// 		layer.bindPopup(popupContent).openPopup();
-	// 	})
-	//
-	// 	layer.on('click', (e) => {
-	// 		feature.properties.clicked=true;
-	// 		e.target.setStyle(this.highlightAgglosStyle())
-	// 		const cityID = feature.properties.cityID;
-	// 		const cityName = feature.properties.cityName;
-	// 		const a = { value:cityID, label:cityName}
-	// 		this.props.sendAgglosValueToContent(a);
-	// 		if(feature.properties.clicked=true){feature.properties.clicked=false}
-	//
-	// 	})
-	// 	layer._leaflet_id = feature.properties.ID;
-	//
-	// }
 
 	render() {
 		return (

@@ -64,45 +64,35 @@ class CompareHistogram extends Component {
     urbanisationlevel(data, value){
         let d = data.find(u => u.ID === value)
         return(
-            <div className="histogram-value">
                 <p>{Math.round(d.figure*100)+'%'}</p>
-            </div>
         )
     }
 
     numofagglomeration(data,value){
         let d = data.find(u => u.ID === value)
         return(
-            <div className="histogram-value">
                 <p>{d.figure.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</p>
-            </div>
         )
     }
 
     metropolitan(data, value){
         let d = data.find(u => u.ID === value)
         return(
-            <div className="histogram-value">
                 <p>{Math.round(d.figure*100)+'%'}</p>
-            </div>
         )
     }
 
     averagedist(data,value){
         let d = data.find(u => u.ID === value)
         return(
-            <div className="histogram-value">
                 <p>{Math.round(d.figure)}km</p>
-            </div>
         )
     }
 
     urbanland(data,value){
         let d = data.find(u => u.ID === value)
         return(
-            <div className="histogram-value">
                 <p>{Math.round(d.figure*10000)/100}%</p>
-            </div>
         )
     }
 
@@ -110,9 +100,13 @@ class CompareHistogram extends Component {
         return(
             <div className="histogram-title compare">
                 {title}
-                <MaterialIcon icon="info" size={15} className="icon-color"/>
-                <p className="infotext"> {info} </p>
+                <div className="tooltip-country">
+                    <MaterialIcon icon="info" size={15} className="icon-color"/>
+                    <span className="tooltip-country-text">{info}</span>
+                </div>
             </div>
+
+            
         )
     }
     renderFirstCountry(firstCountry){

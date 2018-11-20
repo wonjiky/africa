@@ -227,10 +227,15 @@ button.accordion {
 }
 
 .histogram_country-wrapper,
-.histogram_compare-wrapper {
+.histogram_compare-wrapper,
+.histogram_agglos-wrapper {
     margin-top: 20px;
     display: flex;
     flex-flow: column wrap;
+}
+
+.histogram_agglos-wrapper {
+    margin-bottom: 10%;
 }
 
 .compare-wrapper-titles {
@@ -347,35 +352,106 @@ button.accordion {
         align-items: center;
       }
 
-        .histogram-title .infotext {
-            visibility: hidden;
-            width: 120px;
-            background-color: lightgrey;
-            color: #858585;
-            font-family: 'Merriweather';
-            font-size: 13px;
-            text-align: center;
-            /* border-radius: 6px; */
-            padding: 5px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 75%;
-            left: 50%;
-            margin-left: -60px;
-        }
-        .histogram-title .infotext::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: lightgrey transparent transparent transparent;
-        }
-        .histogram-title:hover .infotext {
+    .tooltip-country,
+    .tooltip-agglos {
+        position: relative;
+        display: inline-block;
+        /* border-bottom: 1px dotted black; */
+    }
+
+    .tooltip-country .tooltip-country-text,
+    .tooltip-agglos .tooltip-agglos-text {
+        visibility: hidden;
+        width: 200px;
+        background-color: #5b5d62;
+        color: #fff;
+        text-align: center;
+        /* border-radius: 6px; */
+        padding: 9px 3px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        font-size:12px;
+        font-weight: 300;
+        left: 50%;
+        margin-left: -100px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .tooltip-country .tooltip-country-text::after,
+    .tooltip-agglos .tooltip-agglos-text::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #5B5D62 transparent transparent transparent;
+    }
+
+    .tooltip-country:hover .tooltip-country-text,
+    .tooltip-agglos:hover .tooltip-agglos-text {
         visibility: visible;
-        }
+        opacity: 1;
+    }
+    
+    .material-icons {
+        cursor: default;
+    }
+
+    .tooltip-country:hover .material-icons.md-dark,
+    .tooltip-agglos:hover .material-icons.md-dark {
+        color:#5B5D62;
+    }
+
+    .recharts-cartesian-axis-line{
+        stroke: none !important;
+      }
+      
+      .recharts-cartesian-axis-tick-line{
+        stroke: none !important;
+      }
+      
+      .recharts-cartesian-axis-tick-value{
+        fill: none !important;
+      }
+      
+      .custom-tooltip-country,
+      .custom-tooltip-agglos{
+        background-color: white;
+        padding:5px;
+        font-size:12px;
+        z-index:1;
+      }
+
+      .custom-tooltip-country{
+          border: 1px solid #E8AE40;
+      }
+
+      .custom-tooltip-agglos{
+        border: 1px solid #c5543f;
+      }
+
+      .custom-tooltip-country>span{
+          font-weight:600;
+      }
+
+      .custom-tooltip-agglos p > span{
+            color:#c5543f;
+      }
+
+      .custom-tooltip-agglos>span{
+          color:#c5543f;
+          font-weight:600;
+      }
+
+      .custom-tooltip-country>p{
+            color: #E8AE40;
+            font-weight: 600;
+      }
+      
 
 .country_hr {
     border-top: 4px solid #E8AE40 !important;
@@ -455,7 +531,8 @@ and (max-width: 768px) {
         display: none;
     }
 
-    .histogram_country-wrapper {
+    .histogram_country-wrapper,
+    .histogram_agglos-wrapper {
         margin-top: 20px;
         display: flex;
         flex-flow: column wrap;
@@ -487,6 +564,7 @@ and (max-width: 768px) {
     .histogram-title {
         flex:1;
         min-width: 70%;
+        width:50px;
         align-items:center;
     }
     .histogram-value {

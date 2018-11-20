@@ -4,9 +4,6 @@ import AnimateHeight from 'react-animate-height';
 const CountryNotes = props => {
     const {language, countryData, selectedCountry} = props;
     const list = countryData.find(u => u.ID  === selectedCountry);
-    console.log(language)
-    console.log(countryData)
-    console.log(selectedCountry)
     if(language===0){
         if(list === undefined){
             return <div></div>

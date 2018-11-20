@@ -37,13 +37,6 @@ class ExploreContent extends Component {
         };
     }
 
-    // componentDidUpdate(prevProps) {
-    //     if(prevProps.selectedCountry !== this.props.selectedCountry){
-    //         // document.getElementById('home_content-container').scrollTo(0,0)
-    //         document.getElementById('explore_content-container-wrapper').scrollTop = 0;
-    //     }
-    // }
-
     sendCountryValueToMap(e){
         this.props.handleCountryValueFromSearch(e);
     }

@@ -56,9 +56,6 @@ class ExploreMixer extends Component {
                         <th>Total</th>
                     </tr>
                     <tr>
-                        {/* {renderCircle.map((circle,i) => (
-                            <td key={i}className="legend-diagram">{circle}</td>
-                        ))} */}
                         <td className="legend-title">Above 2 million</td>
                         <td className="legend-diagram">{renderCircle[0]}</td>
                         <td className="legend-value">{result["6"]}</td>
@@ -98,7 +95,7 @@ class ExploreMixer extends Component {
     }
 
     render() {
-        const renderLenged = this.legend(this.props.sizeArray); 
+        const renderLegend = this.legend(this.props.sizeArray); 
         if(this.props.language === 0) {
             return(
                 <div className="explore_mixer-wrapper">
@@ -116,7 +113,7 @@ class ExploreMixer extends Component {
                             </li>
                             <li>
                                 <h6>Urban Population</h6>
-                                <div className="legend-wrapper">{renderLenged}</div>
+                                <div className="legend-wrapper">{renderLegend}</div>
                             </li>
                         </ul>
                     </div>
@@ -148,7 +145,7 @@ class ExploreMixer extends Component {
                             </li>
                             <li>
                                 <h6>Population urbaine</h6>
-                                <div className="legend-wrapper">{renderLenged}</div>
+                                <div className="legend-wrapper">{renderLegend}</div>
                             </li>
                         </ul>
                     </div>

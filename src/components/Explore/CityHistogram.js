@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BarChart, Cell, Bar, Tooltip, LineChart, Line, XAxis, CartesianGrid } from 'recharts';
-// import MaterialIcon from 'material-icons-react';
+import MaterialIcon from 'material-icons-react';
 
 let params = {
     histogramHeight: 100,
@@ -10,65 +10,119 @@ let params = {
 class CityHistogram extends Component {
     constructor(props){
         super(props);
-        this.state={
-        }
         this.check = this.check.bind(this);
-
+        this.tooltipYOffset = 100;
+        this.tooltipZindex = 1000;
     }
 
     sendValueFromCityHistogram(e){
-        this.props.valueFromCityHistogram(e);
+        // this.props.valueFromCityHistogram(e);
     }
 
     customTooltipOnYourLine_city(e){
         if (e.active && e.payload!=null && e.payload[0]!=null) {
             if(e.payload[0].payload["Population"]){
                 return (
-                    <div className="custom-tooltip">
-                    <p>{e.payload[0].payload["City"]}</p>
-                    {e.payload[0].payload["Population"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
+                    <div className="custom-tooltip-agglos">
+                        <span>{e.payload[0].payload["City"]}</span><br/>
+                        {e.payload[0].payload["Population"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
                     </div>
                 );
             }
             if(e.payload[0].payload["Density"]){
                 return (
-                <div className="custom-tooltip">
-                <p>{e.payload[0].payload["City"]}</p>
-                {Math.round(e.payload[0].payload["Density"]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} inhabitants &frasl; km&sup2;
+                <div className="custom-tooltip-agglos">
+                    <span>{e.payload[0].payload["City"]}</span><br/>
+                    {Math.round(e.payload[0].payload["Density"]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} inhabitants &frasl; km&sup2;
                 </div>)
                 ;
             }
             if(e.payload[0].payload["Dist"]){
                 return (
-                    <div className="custom-tooltip">
-                    <span>{e.payload[0].payload["City"]}</span>
-                    <p>Closest Metro: {e.payload[0].payload["Closest_Metropolitan"]}</p>
-                    {e.payload[0].payload["Dist"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} km
+                    <div className="custom-tooltip-agglos">
+                        <span>{e.payload[0].payload["City"]}</span><br/>
+                        <p>Closest Metro: <span>{e.payload[0].payload["Closest_Metropolitan"]}</span></p>
+                        {e.payload[0].payload["Dist"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} km
                     </div>
                 );
             }
             if(e.payload[0].payload["BuiltUp"]){
                 return (
-                    <div className="custom-tooltip">
-                    <p>{e.payload[0].payload["City"]}</p>
-                    {Math.round(e.payload[0].payload["BuiltUp"]*100)/100} km&sup2;
+                    <div className="custom-tooltip-agglos">
+                        <span>{e.payload[0].payload["City"]}</span><br/>
+                        {Math.round(e.payload[0].payload["BuiltUp"]*100)/100} km&sup2;
                     </div>
                 );
             }
             if(e.payload[0].payload["Voronoi"]){
                 return (
-                    <div className="custom-tooltip">
-                    <p>{e.payload[0].payload["City"]}</p>
-                    {Math.round(e.payload[0].payload["Voronoi"]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} km&sup2;
+                    <div className="custom-tooltip-agglos">
+                        <span>{e.payload[0].payload["City"]}</span><br/>
+                        {Math.round(e.payload[0].payload["Voronoi"]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} km&sup2;
                     </div>
                 );
             }
             if(e.payload[0].payload["name"]){
                 return (
-                    <div className="custom-tooltip">
-                    <p>{e.payload[0].payload["City"]}</p>
-                    Year {Math.round(e.payload[0].payload["name"])}
-                    <p>{e.payload[0].payload["population"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</p>
+                    <div className="custom-tooltip-agglos">
+                        <span>{e.payload[0].payload["City"]}</span><br/>
+                        Year {Math.round(e.payload[0].payload["name"])}
+                        <p>{e.payload[0].payload["population"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</p>
+                    </div>
+                );
+            }
+        }
+    }
+
+    customTooltipOnYourLine_city_FR(e){
+        if (e.active && e.payload!=null && e.payload[0]!=null) {
+            if(e.payload[0].payload["Population"]){
+                return (
+                    <div className="custom-tooltip-agglos">
+                        <span>{e.payload[0].payload["City"]}</span><br/>
+                        {e.payload[0].payload["Population"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
+                    </div>
+                );
+            }
+            if(e.payload[0].payload["Density"]){
+                return (
+                <div className="custom-tooltip-agglos">
+                    <span>{e.payload[0].payload["City"]}</span><br/>
+                    {Math.round(e.payload[0].payload["Density"]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} inhabitants &frasl; km&sup2;
+                </div>)
+                ;
+            }
+            if(e.payload[0].payload["Dist"]){
+                return (
+                    <div className="custom-tooltip-agglos">
+                        <span>{e.payload[0].payload["City"]}</span><br/>
+                        <p>Closest Metro: <span>{e.payload[0].payload["Closest_Metropolitan"]}</span></p>
+                        {e.payload[0].payload["Dist"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} km
+                    </div>
+                );
+            }
+            if(e.payload[0].payload["BuiltUp"]){
+                return (
+                    <div className="custom-tooltip-agglos">
+                        <span>{e.payload[0].payload["City"]}</span><br/>
+                        {Math.round(e.payload[0].payload["BuiltUp"]*100)/100} km&sup2;
+                    </div>
+                );
+            }
+            if(e.payload[0].payload["Voronoi"]){
+                return (
+                    <div className="custom-tooltip-agglos">
+                        <span>{e.payload[0].payload["City"]}</span><br/>
+                        {Math.round(e.payload[0].payload["Voronoi"]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} km&sup2;
+                    </div>
+                );
+            }
+            if(e.payload[0].payload["name"]){
+                return (
+                    <div className="custom-tooltip-agglos">
+                        <span>{e.payload[0].payload["City"]}</span><br/>
+                        Year {Math.round(e.payload[0].payload["name"])}
+                        <p>{e.payload[0].payload["population"].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</p>
                     </div>
                 );
             }
@@ -76,99 +130,195 @@ class CityHistogram extends Component {
     }
 
     renderPopulation(data, selectedAgglos){
-        return(
-            <div className="country-histogram-wrapper">
-                <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
-                        <Bar dataKey='PopulationScaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
-                        {data.map((entry, index) => (
-                            <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#c5543f' : '#e0e0e0'}/>
-                        ))}
-                    </Bar>
-                    <XAxis height={5}/>
-                    <Tooltip content={this.customTooltipOnYourLine_city} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
-                </BarChart>
-            </div>
-        )
+        if(this.props.language === 0){
+            return(
+                <div className="country-histogram-wrapper">
+                    <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
+                            <Bar dataKey='PopulationScaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
+                            {data.map((entry, index) => (
+                                <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#c5543f' : '#e0e0e0'}/>
+                            ))}
+                        </Bar>
+                        <XAxis height={5}/>
+                        <Tooltip content={this.customTooltipOnYourLine_city} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
+                    </BarChart>
+                </div>
+            )
+        }else{
+            return(
+                <div className="country-histogram-wrapper">
+                    <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
+                            <Bar dataKey='PopulationScaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
+                            {data.map((entry, index) => (
+                                <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#c5543f' : '#e0e0e0'}/>
+                            ))}
+                        </Bar>
+                        <XAxis height={5}/>
+                        <Tooltip content={this.customTooltipOnYourLine_city_FR} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
+                    </BarChart>
+                </div>
+            )
+        }
     }
 
     renderDensity(data, selectedAgglos){
-        return(
-            <div className="country-histogram-wrapper">
-                <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
+        if(this.props.language === 0){
+            return(
+                <div className="country-histogram-wrapper">
+                    <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
 
-                    <Bar dataKey='DensityScaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
-                        {data.map((entry, index) => (
-                            <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#c5543f' : '#e0e0e0'}/>
-                        ))}
-                    </Bar>
-                    <XAxis height={5}/>
-                    <Tooltip content={this.customTooltipOnYourLine_city} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
-                </BarChart>
-            </div>
-        )
+                        <Bar dataKey='DensityScaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
+                            {data.map((entry, index) => (
+                                <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#c5543f' : '#e0e0e0'}/>
+                            ))}
+                        </Bar>
+                        <XAxis height={5}/>
+                        <Tooltip content={this.customTooltipOnYourLine_city} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
+                    </BarChart>
+                </div>
+            )
+        }else{
+            return(
+                <div className="country-histogram-wrapper">
+                    <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
+
+                        <Bar dataKey='DensityScaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
+                            {data.map((entry, index) => (
+                                <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#c5543f' : '#e0e0e0'}/>
+                            ))}
+                        </Bar>
+                        <XAxis height={5}/>
+                        <Tooltip content={this.customTooltipOnYourLine_city_FR} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
+                    </BarChart>
+                </div>
+            )
+        }
     }
 
     renderDist(data, selectedAgglos){
-        return(
-            <div className="country-histogram-wrapper">
-                <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
+        if(this.props.language ===0) {
+            return(
+                <div className="country-histogram-wrapper">
+                    <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
 
-                    <Bar dataKey='DistScaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
-                        {data.map((entry, index) => (
-                            <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#c5543f' : '#e0e0e0'}/>
-                        ))}
-                    </Bar>
-                    <XAxis height={5}/>
-                    <Tooltip content={this.customTooltipOnYourLine_city} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
-                </BarChart>
-            </div>
-        )
+                        <Bar dataKey='DistScaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
+                            {data.map((entry, index) => (
+                                <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#c5543f' : '#e0e0e0'}/>
+                            ))}
+                        </Bar>
+                        <XAxis height={5}/>
+                        <Tooltip content={this.customTooltipOnYourLine_city} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
+                    </BarChart>
+                </div>
+            )
+        }else{
+            return(
+                <div className="country-histogram-wrapper">
+                    <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
+    
+                        <Bar dataKey='DistScaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
+                            {data.map((entry, index) => (
+                                <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#c5543f' : '#e0e0e0'}/>
+                            ))}
+                        </Bar>
+                        <XAxis height={5}/>
+                        <Tooltip content={this.customTooltipOnYourLine_city_FR} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
+                    </BarChart>
+                </div>
+            )
+        }
     }
 
     renderBuiltup(data, selectedAgglos){
-        return(
-            <div className="country-histogram-wrapper">
-                <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
+        if(this.props.language===0){
+            return(
+                <div className="country-histogram-wrapper">
+                    <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
 
-                    <Bar dataKey='BuiltUp' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
-                        {data.map((entry, index) => (
-                            <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#c5543f' : '#e0e0e0'}/>
-                        ))}
-                    </Bar>
-                    <XAxis height={5}/>
-                    <Tooltip content={this.customTooltipOnYourLine_city} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
-                </BarChart>
-            </div>
-        )
+                        <Bar dataKey='BuiltUp' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
+                            {data.map((entry, index) => (
+                                <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#c5543f' : '#e0e0e0'}/>
+                            ))}
+                        </Bar>
+                        <XAxis height={5}/>
+                        <Tooltip content={this.customTooltipOnYourLine_city} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
+                    </BarChart>
+                </div>
+            )
+        }else{
+            return(
+                <div className="country-histogram-wrapper">
+                    <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
+    
+                        <Bar dataKey='BuiltUp' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
+                            {data.map((entry, index) => (
+                                <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#c5543f' : '#e0e0e0'}/>
+                            ))}
+                        </Bar>
+                        <XAxis height={5}/>
+                        <Tooltip content={this.customTooltipOnYourLine_city_FR} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
+                    </BarChart>
+                </div>
+            )
+        }
     }
 
     renderVoronoi(data, selectedAgglos){
-        return(
-            <div className="country-histogram-wrapper">
-                <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
+        if(this.props.language === 0){
+            return(
+                <div className="country-histogram-wrapper">
+                    <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
 
-                    <Bar dataKey='Voronoi_Scaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
-                        {data.map((entry, index) => (
-                            <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#c5543f' : '#e0e0e0'}/>
-                        ))}
-                    </Bar>
-                    <XAxis height={5}/>
-                    <Tooltip content={this.customTooltipOnYourLine_city} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
-                </BarChart>
-            </div>
-        )
+                        <Bar dataKey='Voronoi_Scaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
+                            {data.map((entry, index) => (
+                                <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#c5543f' : '#e0e0e0'}/>
+                            ))}
+                        </Bar>
+                        <XAxis height={5}/>
+                        <Tooltip content={this.customTooltipOnYourLine_city} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
+                    </BarChart>
+                </div>
+            )
+        }else{
+            return(
+                <div className="country-histogram-wrapper">
+                    <BarChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
+    
+                        <Bar dataKey='Voronoi_Scaled' onClick={this.sendValueFromCityHistogram.bind(this)} id="color">
+                            {data.map((entry, index) => (
+                                <Cell cursor="pointer" key={`cell-${index}`} fill={data[index].ID === selectedAgglos ? '#c5543f' : '#e0e0e0'}/>
+                            ))}
+                        </Bar>
+                        <XAxis height={5}/>
+                        <Tooltip content={this.customTooltipOnYourLine_city_FR} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
+                    </BarChart>
+                </div>
+            )
+        }
     }
 
     renderPopulation1950(data){
-        return(
-            <div className="country-histogram-wrapper">
-                <LineChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
-                    <Line type="monotone" dataKey="population" stroke="#c5543f" fill="#c5543f"/>
-                    <CartesianGrid strokeDasharray="1 1"/>
-                    <Tooltip content={this.customTooltipOnYourLine_city} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
-                </LineChart>
-            </div>
-        )
+        if(this.props.language === 0){
+            return(
+                <div className="country-histogram-wrapper">
+                    <LineChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
+                        <Line type="monotone" dataKey="population" stroke="#c5543f" fill="#c5543f"/>
+                        <CartesianGrid strokeDasharray="1 1"/>
+                        <Tooltip content={this.customTooltipOnYourLine_city} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
+                    </LineChart>
+                </div>
+            )
+        }else{
+            return(
+                <div className="country-histogram-wrapper">
+                    <LineChart width={params.histogramWidth} height={params.histogramHeight} data={data}>
+                        <Line type="monotone" dataKey="population" stroke="#c5543f" fill="#c5543f"/>
+                        <CartesianGrid strokeDasharray="1 1"/>
+                        <Tooltip content={this.customTooltipOnYourLine_city} position={{y: this.tooltipYOffset}} wrapperStyle={{zIndex: this.tooltipZindex}}/>
+                    </LineChart>
+                </div>
+            )
+        }
     }
 
 
@@ -176,19 +326,19 @@ class CityHistogram extends Component {
         return(e === this.props.selectedAgglos)
     }
 
-    renderRanking(data){
+    renderRanking(data, value){
         let d = data.map(u => u.ID)
         if(data[d.findIndex(this.check)]["Density"]===0||data[d.findIndex(this.check)]["Dist"]===0){
             return(
             <div className="histogram-ranking-agglos">
-                <p>Rank:<br/><span>-</span>/{data.length}</p>
+                <p>{value}:<br/><span>-</span>/{data.length}</p>
             </div>
             )
         }else {
             let rank = data.length - (d.findIndex(this.check) + 1)
             return(
                 <div className="histogram-ranking-agglos">
-                    <p>Rank:<br/><span>{ rank + 1 }</span>/{data.length}</p>
+                    <p>{value}:<br/><span>{ rank + 1 }</span>/{data.length}</p>
                 </div>
             )
         }
@@ -275,17 +425,16 @@ class CityHistogram extends Component {
         return(
             <div className="histogram-title">
                 {title}
-                {/* <MaterialIcon icon="info" size={15} className="icon-color"/>
-                <span className="infotext"> {info} </span> */}
+                <div className="tooltip-agglos">
+                <MaterialIcon icon="info" size={15} className="icon-color"/>
+                    <span className="tooltip-agglos-text">{info}</span>
+                </div>
             </div>
         )
     }
     render() {
-        const {
-            selectedAgglos,
-            agglosData,
-            selectedCountry
-        } = this.props;
+        const { selectedAgglos, agglosData, selectedCountry, language } = this.props;
+        const rank = { EN: 'Rank', FR: 'Rang' };
         const agglos = this.filterAgglosForHistogram(agglosData, selectedCountry);
         const PopulationData = agglos.map((d) => (
             {
@@ -293,8 +442,10 @@ class CityHistogram extends Component {
                 "City": d.cityName,
                 "Population": d.Population,
                 "PopulationScaled": d.Population_Scaled,
-                "title": "Population",
-                "info": "Number of inhabitants living in the agglomeration"
+                "title_EN": "Population",
+                "info_EN": "Number of inhabitants living in the agglomeration",
+                "title_FR": "Population",
+                "info_FR": "Number of inhabitants living in the agglomeration"
             }
         )).sort((a,b) => a.PopulationScaled - b.PopulationScaled);
 
@@ -304,8 +455,10 @@ class CityHistogram extends Component {
                 "City": d.cityName,
                 "Density": d.Density,
                 "DensityScaled": d.Density_Scaled,
-                "title": "Density",
-                "info": "Number of inhabitants per square kilometer in the agglomeration (Only above 100 000 inhabitants agglomeration is calculated)"
+                "title_EN": "Density",
+                "info_EN": "Number of inhabitants per square kilometer in the agglomeration (Only above 100 000 inhabitants agglomeration is calculated)",
+                "title_FR": "Densité",
+                "info_FR": "Number of inhabitants per square kilometer in the agglomeration (Only above 100 000 inhabitants agglomeration is calculated)"
             }
         )).sort((a,b) => a.DensityScaled - b.DensityScaled);
 
@@ -316,8 +469,10 @@ class CityHistogram extends Component {
                 "Dist": Math.round(d.DistToMetro),
                 "DistScaled": d.DistToMetro_Scaled,
                 "Closest_Metropolitan": d.Closest_Metropolitan,
-                "title": "Distance to metropolitan agglomeration",
-                "info": "Distance to nearest metropolitan agglomeration in kilometre and name"
+                "title_EN": "Distance to metropolitan agglomeration",
+                "info_EN": "Distance to nearest metropolitan agglomeration in kilometre and name",
+                "title_FR": "Distance vers la métropole",
+                "info_FR": "Distance to nearest metropolitan agglomeration in kilometre and name"
             }
         )).sort((a,b) => a.DistScaled - b.DistScaled);
 
@@ -327,8 +482,10 @@ class CityHistogram extends Component {
                 "City": d.cityName,
                 "BuiltUp": d.Build_up,
                 "BuiltUp_Scaled": d.Build_up_scale,
-                "title": "Built-up area",
-                "info": "Surface of built-up area in square kilometre"
+                "title_EN": "Built-up area",
+                "info_EN": "Surface of built-up area in square kilometre",
+                "title_FR": "Bâti urbain",
+                "info_FR": "Surface of built-up area in square kilometre"
             }
         )).sort((a,b) => a.BuiltUp - b.BuiltUp);
 
@@ -338,8 +495,10 @@ class CityHistogram extends Component {
                 "City": d.cityName,
                 "Voronoi": d.Voronoi,
                 "Voronoi_Scaled": d.Voronoi_Scaled,
-                "title": "Size of Voronoi cell",
-                "info": "Size of Voronoi cell in Square kilometre "
+                "title_EN": "Size of Voronoi cell",
+                "title_FR": "Taille de la cellule de Voronoï",
+                "info_EN": "Size of Voronoi cell in Square kilometre ",
+                "info_FR": "Size of Voronoi cell in Square kilometre "
             }
         )).sort((a,b) => a.Voronoi_Scaled - b.Voronoi_Scaled);
         const pop1950 = agglos.filter(u => u.City_ID === selectedAgglos)
@@ -348,7 +507,11 @@ class CityHistogram extends Component {
             "ID": d.City_ID,
             "City": d.cityName,
             "data":[
-                { ID: d.City_ID, City: d.cityName, name: "1950", "population": d.P1950, "title": "Population 1950-2015","info": "Historical population of agglomeration"},
+                { ID: d.City_ID, City: d.cityName, name: "1950", "population": d.P1950, 
+                    "title_EN": "Population 1950-2015",
+                    "info_EN": "Historical population of agglomeration",
+                    "title_FR": "Population 1950-2015",
+                    "info_FR": "Historical population of agglomeration"},
                 { ID: d.City_ID, City: d.cityName, name: "1960", "population": d.P1960 },
                 { ID: d.City_ID, City: d.cityName, name: "1970", "population": d.P1970 },
                 { ID: d.City_ID, City: d.cityName, name: "1980", "population": d.P1980 },
@@ -360,51 +523,100 @@ class CityHistogram extends Component {
         }
         )).map(e => e.data);
         // if(selectedAgglos === '') {console.log(' is : ', 'blank');}
-        if(selectedAgglos && PopulationData.find(u => u.ID === selectedAgglos)){
-            return(
-                <div className="histogram_country-wrapper">
-                    <div className="explore_country-info">
-                        <h3>urban agglomeration</h3>
-                        <hr className="agglos_hr"/>
+        if(language === 0) {
+            if(selectedAgglos && PopulationData.find(u => u.ID === selectedAgglos)){
+                return(
+                    <div className="histogram_agglos-wrapper">
+                        <div className="explore_country-info">
+                            <h3>urban agglomeration</h3>
+                            <hr className="agglos_hr"/>
+                        </div>
+                        <div className="indicator-wrapper">
+                            {this.renderInfo(PopulationData[0].info_EN, PopulationData[0].title_EN)}
+                            {this.population(PopulationData, selectedAgglos)}
+                            {this.renderRanking(PopulationData, rank.EN)}
+                            {this.renderPopulation(PopulationData, selectedAgglos)}
+                        </div>
+                        <div className="indicator-wrapper">
+                            {this.renderInfo(DensityData[0].info_EN, DensityData[0].title_EN)}
+                            {this.density(DensityData, selectedAgglos)}
+                            {this.renderRanking(DensityData, rank.EN)}
+                            {this.renderDensity(DensityData, selectedAgglos)}
+                        </div>
+                        <div className="indicator-wrapper">
+                            {this.renderInfo(DistData[0].info_EN, DistData[0].title_EN)}
+                            {this.distance(DistData, selectedAgglos)}
+                            {this.renderRanking(DistData, rank.EN)}
+                            {this.renderDist(DistData, selectedAgglos)}
+                        </div>
+                        <div className="indicator-wrapper">
+                            {this.renderInfo(BuiltupData[0].info_EN, BuiltupData[0].title_EN)}
+                            {this.builtup(BuiltupData, selectedAgglos)}
+                            {this.renderRanking(BuiltupData, rank.EN)}
+                            {this.renderBuiltup(BuiltupData, selectedAgglos)}
+                        </div>
+                        <div className="indicator-wrapper">
+                            {this.renderInfo(VoronoiData[0].info_EN, VoronoiData[0].title_EN)}
+                            {this.voronoi(VoronoiData, selectedAgglos)}
+                            {this.renderRanking(VoronoiData, rank.EN)}
+                            {this.renderVoronoi(VoronoiData, selectedAgglos)}
+                        </div>
+                        <div className="indicator-wrapper">
+                            {this.renderInfo(Pop1950Data[0][0].info_EN, Pop1950Data[0][0].title_EN)}
+                            {this.renderPopulation1950(Pop1950Data[0])} 
+                        </div>
                     </div>
-                    <div className="indicator-wrapper">
-                        {this.renderInfo(PopulationData[0].info, PopulationData[0].title)}
-                        {this.population(PopulationData, selectedAgglos)}
-                        {this.renderRanking(PopulationData)}
-                        {this.renderPopulation(PopulationData, selectedAgglos)}
-                    </div>
-                    <div className="indicator-wrapper">
-                        {this.renderInfo(DensityData[0].info, DensityData[0].title)}
-                        {this.density(DensityData, selectedAgglos)}
-                        {this.renderRanking(DensityData)}
-                        {this.renderDensity(DensityData, selectedAgglos)}
-                    </div>
-                    <div className="indicator-wrapper">
-                        {this.renderInfo(DistData[0].info, DistData[0].title)}
-                        {this.distance(DistData, selectedAgglos)}
-                        {this.renderRanking(DistData)}
-                        {this.renderDist(DistData, selectedAgglos)}
-                    </div>
-                    <div className="indicator-wrapper">
-                        {this.renderInfo(BuiltupData[0].info, BuiltupData[0].title)}
-                        {this.builtup(BuiltupData, selectedAgglos)}
-                        {this.renderRanking(BuiltupData)}
-                        {this.renderBuiltup(BuiltupData, selectedAgglos)}
-                    </div>
-                    <div className="indicator-wrapper">
-                        {this.renderInfo(VoronoiData[0].info, VoronoiData[0].title)}
-                        {this.voronoi(VoronoiData, selectedAgglos)}
-                        {this.renderRanking(VoronoiData)}
-                        {this.renderVoronoi(VoronoiData, selectedAgglos)}
-                    </div>
-                    <div className="indicator-wrapper">
-                        {this.renderInfo(Pop1950Data[0][0].info, Pop1950Data[0][0].title)}
-                        {this.renderPopulation1950(Pop1950Data[0])} 
-                    </div>
-                </div>
-            );
+                );
+            }else{
+                return <div></div>
+            }
         }else{
-            return <div></div>
+            if(selectedAgglos && PopulationData.find(u => u.ID === selectedAgglos)){
+                return(
+                    <div className="histogram_agglos-wrapper">
+                        <div className="explore_country-info">
+                            <h3>Agglomération urbaine</h3>
+                            <hr className="agglos_hr"/>
+                        </div>
+                        <div className="indicator-wrapper">
+                            {this.renderInfo(PopulationData[0].info_FR, PopulationData[0].title_FR)}
+                            {this.population(PopulationData, selectedAgglos)}
+                            {this.renderRanking(PopulationData, rank.FR)}
+                            {this.renderPopulation(PopulationData, selectedAgglos)}
+                        </div>
+                        <div className="indicator-wrapper">
+                            {this.renderInfo(DensityData[0].info_FR, DensityData[0].title_FR)}
+                            {this.density(DensityData, selectedAgglos)}
+                            {this.renderRanking(DensityData, rank.FR)}
+                            {this.renderDensity(DensityData, selectedAgglos)}
+                        </div>
+                        <div className="indicator-wrapper">
+                            {this.renderInfo(DistData[0].info_FR, DistData[0].title_FR)}
+                            {this.distance(DistData, selectedAgglos)}
+                            {this.renderRanking(DistData, rank.FR)}
+                            {this.renderDist(DistData, selectedAgglos)}
+                        </div>
+                        <div className="indicator-wrapper">
+                            {this.renderInfo(BuiltupData[0].info_FR, BuiltupData[0].title_FR)}
+                            {this.builtup(BuiltupData, selectedAgglos)}
+                            {this.renderRanking(BuiltupData, rank.EN)}
+                            {this.renderBuiltup(BuiltupData, selectedAgglos)}
+                        </div>
+                        <div className="indicator-wrapper">
+                            {this.renderInfo(VoronoiData[0].info_FR, VoronoiData[0].title_FR)}
+                            {this.voronoi(VoronoiData, selectedAgglos)}
+                            {this.renderRanking(VoronoiData, rank.FR)}
+                            {this.renderVoronoi(VoronoiData, selectedAgglos)}
+                        </div>
+                        <div className="indicator-wrapper">
+                            {this.renderInfo(Pop1950Data[0][0].info_FR, Pop1950Data[0][0].title_FR)}
+                            {this.renderPopulation1950(Pop1950Data[0])} 
+                        </div>
+                    </div>
+                );
+            }else{
+                return <div></div>
+            }
         }
     }
 }

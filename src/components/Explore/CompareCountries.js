@@ -21,8 +21,7 @@ class CompareCountries extends Component {
 	}
 
     render() {
-        const { firstCountry, secondCountry, countryData } = this.props;
-        // console.log(firstCountry, secondCountry);
+        const { firstCountry, secondCountry, countryData, language } = this.props;
         if((firstCountry || secondCountry)){
 			return(
 				<div className="histogram_container">
@@ -30,7 +29,8 @@ class CompareCountries extends Component {
                         timeSliderValue = {this.props.timeSliderValue}
                         firstCountry={firstCountry}
                         secondCountry={secondCountry}
-                        countryData={countryData}
+						countryData={countryData}
+						language={language}
                     />
 				</div>
 			);

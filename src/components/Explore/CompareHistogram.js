@@ -14,7 +14,6 @@ class CompareHistogram extends Component {
         this.tooltipZindex = 1000;
     }
 
-
     // **** Render Rankings
     checkFirst(e){
         return(e === this.props.firstCountry)
@@ -24,25 +23,40 @@ class CompareHistogram extends Component {
     }
 
     renderFirstRanking(data, value){
-        if(value){
+        if(value && this.props.language === 0){
             let d = data.map(u => u.ID)
             let rank = data.length - (d.findIndex(this.checkFirst) + 1);
-            console.log(rank);
             return(
                 <div className="first-histogram-ranking">
                     <p>Rank: <span>{rank + 1}</span>/{data.length}</p>
+                </div>
+            )
+        }else if (value && this.props.language === 1){
+            let d = data.map(u => u.ID)
+            let rank = data.length - (d.findIndex(this.checkFirst) + 1);
+            return(
+                <div className="first-histogram-ranking">
+                    <p>Rang : <span>{rank + 1}</span>/{data.length}</p>
                 </div>
             )
         }
     }   
 
     renderSecondRanking(data, value){
-        if(value){
+        if(value && this.props.language === 0){
             let d = data.map(u => u.ID)
             let rank = data.length - (d.findIndex(this.checkSecond) + 1);
             return(
                 <div className="second-histogram-ranking">
                     <p>Rank: <span>{ rank + 1 }</span>/{data.length}</p>
+                </div>
+            )
+        }else if(value && this.props.language === 1){
+            let d = data.map(u => u.ID)
+            let rank = data.length - (d.findIndex(this.checkSecond) + 1);
+            return(
+                <div className="second-histogram-ranking">
+                    <p>Rang : <span>{ rank + 1 }</span>/{data.length}</p>
                 </div>
             )
         }
@@ -109,7 +123,7 @@ class CompareHistogram extends Component {
             
         )
     }
-    renderFirstCountry(firstCountry){
+    renderFirstCountry_EN(firstCountry){
         if(firstCountry){
             const country = this.props.countryData.find(u => u.ID === firstCountry);
             return <div className="first-country-label">{country.Country}</div>
@@ -118,7 +132,16 @@ class CompareHistogram extends Component {
         }
     }
 
-    renderSecondCountry(secondCountry){
+    renderFirstCountry_FR(firstCountry){
+        if(firstCountry){
+            const country = this.props.countryData.find(u => u.ID === firstCountry);
+            return <div className="first-country-label">{country.Country_FR}</div>
+        }else{
+            return(<div className="first-country-label"></div>)
+        }
+    }
+
+    renderSecondCountry_EN(secondCountry){
         if(secondCountry){
             const country = this.props.countryData.find(u => u.ID === secondCountry);
             return <div className="second-country-label">{country.Country}</div>
@@ -127,8 +150,16 @@ class CompareHistogram extends Component {
         }
     }
 
+    renderSecondCountry_FR(secondCountry){
+        if(secondCountry){
+            const country = this.props.countryData.find(u => u.ID === secondCountry);
+            return <div className="second-country-label">{country.Country_FR}</div>
+        }else{
+            return <div className="second-country-label"></div>
+        }
+    }
+
     firstCountry(calculation, data, value) {
-        console.log(value)
         if(value){
             return (
                 <div className="first-country-wrapper">
@@ -192,11 +223,14 @@ class CompareHistogram extends Component {
             {
                 "ID":d.ID,
                 "ISO":d.ISO,
-                "Country": d.Country,
+                "Country_EN": d.Country,
+                "Country_FR": d.Country_FR,
                 "figure":d.Upop_sel,
                 "urbanPopulationScaled":d.Upop_sel,
-                "title": "Urban population",
-                "info": "Total number of people living in urban agglomerations"
+                "title_EN": "Urban population",
+                "title_FR": "Population urbaine",
+                "info_EN": "Total number of people living in urban agglomerations",
+                "info_FR": "Nombre total de personnes vivant dans les agglomérations urbaines"
             }
         ))
 
@@ -204,10 +238,13 @@ class CompareHistogram extends Component {
             {
                 "ID":d.ID,
                 "ISO":d.ISO,
-                "Country": d.Country,
+                "Country_EN": d.Country,
+                "Country_FR": d.Country_FR,
                 "figure": d.Ulvl_Scaled_sel,
-                "title": "Urbanisation level",
-                "info": "Share of the urban population in total population"
+                "title_EN": "Urbanisation level",
+                "title_FR": "Niveau d'urbanisation",
+                "info_EN": "Share of the urban population in total population",
+                "info_FR": "Part de la population métropolitaine dans la population totale"
             }
         ))
 
@@ -215,11 +252,14 @@ class CompareHistogram extends Component {
             {
                 "ID":d.ID,
                 "ISO":d.ISO,
-                "Country": d.Country,
+                "Country_EN": d.Country,
+                "Country_FR": d.Country_FR,
                 "figure": d.NumAgglos_sel,
                 "urbanAgglosScaled": d.NumAgglos_sel,
-                "title": "Number of agglomerations",
-                "info": "Total number of urban agglomerations in country"
+                "title_EN": "Number of agglomerations",
+                "title_FR": "Nombre d'agglomérations",
+                "info_EN": "Total number of urban agglomerations in country",
+                "info_FR": "Nombre total d'agglomérations dans le pays"
             }
         ))
 
@@ -227,10 +267,13 @@ class CompareHistogram extends Component {
             {
                 "ID":d.ID,
                 "ISO":d.ISO,
-                "Country": d.Country,
+                "Country_EN": d.Country,
+                "Country_FR": d.Country_FR,
                 "figure": d.Mpop_sel,
-                "title": "Metropolitan population",
-                "info": "Share of metropolitan population in total urban population"
+                "title_EN": "Metropolitan population",
+                "title_FR": "Population métropolitaine",
+                "info_EN": "Share of metropolitan population in total urban population",
+                "info_FR": "Part de la population métropolitaine dans la population totale"
             }
         ))
 
@@ -238,11 +281,14 @@ class CompareHistogram extends Component {
             {
                 "ID":d.ID,
                 "ISO":d.ISO,
-                "Country": d.Country,
+                "Country_EN": d.Country,
+                "Country_FR": d.Country_FR,
                 "AverageDist": d.ADBC_sel,
                 "figure": d.ADBC_sel,
-                "title": "Average distance between agglomerations",
-                "info": "Average distance between urban agglomerations, calculated as average of distance between all pair of cities"
+                "title_EN": "Average distance between agglomerations",
+                "title_FR": "Distance moyenne entre les agglomérations",
+                "info_EN": "Average distance between urban agglomerations, calculated as average of distance between all pairs of cities",
+                "info_FR": "Distance moyenne entre les agglomérations urbaines, calculée comme moyenne de la distance entre toutes les paires de villes"
             }
         ))
 
@@ -250,10 +296,13 @@ class CompareHistogram extends Component {
             {
                 "ID":d.ID,
                 "ISO":d.ISO,
-                "Country": d.Country,
+                "Country_EN": d.Country,
+                "Country_FR": d.Country_FR,
                 "figure": d.Usurf,
-                "title": "Urban land cover",
-                "info": "Share of total surface area covered by urban agglomerations"
+                "title_EN": "Urban land cover",
+                "title_FR":"Couverture terrestre urbaine",
+                "info_EN": "Share of total surface area covered by urban agglomerations",
+                "info_FR": "Part de la surface totale couverte par les agglomérations urbaines"
             }
         ))
 
@@ -264,55 +313,112 @@ class CompareHistogram extends Component {
         const averageDistData = dataAverageDist.sort((a,b) => a.figure - b.figure);
         const urbanSurfData = dataUrbanSurf.sort((a,b) => a.figure - b.figure);
         
-        const { firstCountry, secondCountry } = this.props;
-        return(
-            <div className="histogram_compare-wrapper">
-                <div className="compare-wrapper-titles">
-                    <div className="compare-title-keyfigure"></div>
-                    {this.renderFirstCountry(firstCountry)}
-                    <div className="comparison"></div>
-                    {this.renderSecondCountry(secondCountry)}
+        const { firstCountry, secondCountry, language } = this.props;
+        const keyfigure = {
+            en: 'Key Figures',
+            fr: 'Chiffres clés'
+        }
+        if(language === 0){
+            console.log(language);
+            return(
+                <div className="histogram_compare-wrapper">
+                    <div className="compare-wrapper-titles">
+                        <div className="compare-title-keyfigure">{keyfigure.en}</div>
+                        {this.renderFirstCountry_EN(firstCountry, keyfigure.en)}
+                        <div className="comparison"></div>
+                        {this.renderSecondCountry_EN(secondCountry,keyfigure.en)}
+                    </div>
+                    <div className="compare-wrapper">
+                        {this.renderInfo(dataUrbanPopulation[0].info_EN, dataUrbanPopulation[0].title_EN)}
+                        {this.firstCountry(this.population, urbanPopulationData, firstCountry)}
+                        {this.compareGreater(this.population, urbanPopulationData, firstCountry, secondCountry)}
+                        {this.secondCountry(this.population, urbanPopulationData, secondCountry)}
+                    </div>
+                    <div className="compare-wrapper">
+                        {this.renderInfo(dataUrbanizationLevel[0].info_EN, dataUrbanizationLevel[0].title_EN)}
+                        {this.firstCountry(this.urbanisationlevel, urbanizationLevelData, firstCountry)}
+                        {this.compareGreater(this.urbanisationlevel, urbanizationLevelData, firstCountry, secondCountry)}
+                        {this.secondCountry(this.urbanisationlevel, urbanizationLevelData, secondCountry)}
+                    </div>
+                    <div className="compare-wrapper">
+                        {this.renderInfo(dataAgglomerations[0].info_EN, dataAgglomerations[0].title_EN)}
+                        {this.firstCountry(this.numofagglomeration, agglomerationData, firstCountry)}
+                        {this.compareGreater(this.numofagglomeration, agglomerationData, firstCountry, secondCountry)}
+                        {this.secondCountry(this.numofagglomeration, agglomerationData, secondCountry)}
+                    </div>
+                    <div className="compare-wrapper">
+                        {this.renderInfo(dataMetropolitan[0].info_EN, dataMetropolitan[0].title_EN)}
+                        {this.firstCountry(this.metropolitan, metroPolitanData, firstCountry)}
+                        {this.compareGreater(this.metropolitan, metroPolitanData, firstCountry, secondCountry)}
+                        {this.secondCountry(this.metropolitan, metroPolitanData, secondCountry)}
+                    </div>
+                    <div className="compare-wrapper">
+                        {this.renderInfo(dataAverageDist[0].info_EN, dataAverageDist[0].title_EN)}
+                        {this.firstCountry(this.averagedist, averageDistData, firstCountry)}
+                        {this.compareGreater(this.averagedist, averageDistData, firstCountry, secondCountry)}
+                        {this.secondCountry(this.averagedist, averageDistData, secondCountry)}
+                    </div>
+                    <div className="compare-wrapper">
+                        {this.renderInfo(dataUrbanSurf[0].info_EN, dataUrbanSurf[0].title_EN)}
+                        {this.firstCountry(this.urbanland, urbanSurfData, firstCountry)}
+                        {this.compareGreater(this.urbanland, urbanSurfData, firstCountry, secondCountry)}
+                        {this.secondCountry(this.urbanland, urbanSurfData, secondCountry)}
+                    </div>
                 </div>
-                <div className="compare-wrapper">
-                    {this.renderInfo(dataUrbanPopulation[0].info, dataUrbanPopulation[0].title)}
-                    {this.firstCountry(this.population, urbanPopulationData, firstCountry)}
-                    {this.compareGreater(this.population, urbanPopulationData, firstCountry, secondCountry)}
-                    {this.secondCountry(this.population, urbanPopulationData, secondCountry)}
+            );
+        }else{
+            return(
+                <div className="histogram_compare-wrapper">
+                    <div className="compare-wrapper-titles">
+                        <div className="compare-title-keyfigure">{keyfigure.fr}</div>
+                        {this.renderFirstCountry_FR(firstCountry, keyfigure.fr)}
+                        <div className="comparison"></div>
+                        {this.renderSecondCountry_FR(secondCountry, keyfigure.fr)}
+                    </div>
+                    <div className="compare-wrapper">
+                        {this.renderInfo(dataUrbanPopulation[0].info_FR, dataUrbanPopulation[0].title_FR)}
+                        {this.firstCountry(this.population, urbanPopulationData, firstCountry)}
+                        {this.compareGreater(this.population, urbanPopulationData, firstCountry, secondCountry)}
+                        {this.secondCountry(this.population, urbanPopulationData, secondCountry)}
+                    </div>
+                    <div className="compare-wrapper">
+                        {this.renderInfo(dataUrbanizationLevel[0].info_FR, dataUrbanizationLevel[0].title_FR)}
+                        {this.firstCountry(this.urbanisationlevel, urbanizationLevelData, firstCountry)}
+                        {this.compareGreater(this.urbanisationlevel, urbanizationLevelData, firstCountry, secondCountry)}
+                        {this.secondCountry(this.urbanisationlevel, urbanizationLevelData, secondCountry)}
+                    </div>
+                    <div className="compare-wrapper">
+                        {this.renderInfo(dataAgglomerations[0].info_FR, dataAgglomerations[0].title_FR)}
+                        {this.firstCountry(this.numofagglomeration, agglomerationData, firstCountry)}
+                        {this.compareGreater(this.numofagglomeration, agglomerationData, firstCountry, secondCountry)}
+                        {this.secondCountry(this.numofagglomeration, agglomerationData, secondCountry)}
+                    </div>
+                    <div className="compare-wrapper">
+                        {this.renderInfo(dataMetropolitan[0].info_FR, dataMetropolitan[0].title_FR)}
+                        {this.firstCountry(this.metropolitan, metroPolitanData, firstCountry)}
+                        {this.compareGreater(this.metropolitan, metroPolitanData, firstCountry, secondCountry)}
+                        {this.secondCountry(this.metropolitan, metroPolitanData, secondCountry)}
+                    </div>
+                    <div className="compare-wrapper">
+                        {this.renderInfo(dataAverageDist[0].info_FR, dataAverageDist[0].title_FR)}
+                        {this.firstCountry(this.averagedist, averageDistData, firstCountry)}
+                        {this.compareGreater(this.averagedist, averageDistData, firstCountry, secondCountry)}
+                        {this.secondCountry(this.averagedist, averageDistData, secondCountry)}
+                    </div>
+                    <div className="compare-wrapper">
+                        {this.renderInfo(dataUrbanSurf[0].info_FR, dataUrbanSurf[0].title_FR)}
+                        {this.firstCountry(this.urbanland, urbanSurfData, firstCountry)}
+                        {this.compareGreater(this.urbanland, urbanSurfData, firstCountry, secondCountry)}
+                        {this.secondCountry(this.urbanland, urbanSurfData, secondCountry)}
+                    </div>
                 </div>
-                <div className="compare-wrapper">
-                    {this.renderInfo(dataUrbanizationLevel[0].info, dataUrbanizationLevel[0].title)}
-                    {this.firstCountry(this.urbanisationlevel, urbanizationLevelData, firstCountry)}
-                    {this.compareGreater(this.urbanisationlevel, urbanizationLevelData, firstCountry, secondCountry)}
-                    {this.secondCountry(this.urbanisationlevel, urbanizationLevelData, secondCountry)}
-                </div>
-                <div className="compare-wrapper">
-                    {this.renderInfo(dataAgglomerations[0].info, dataAgglomerations[0].title)}
-                    {this.firstCountry(this.numofagglomeration, agglomerationData, firstCountry)}
-                    {this.compareGreater(this.numofagglomeration, agglomerationData, firstCountry, secondCountry)}
-                    {this.secondCountry(this.numofagglomeration, agglomerationData, secondCountry)}
-                </div>
-                <div className="compare-wrapper">
-                    {this.renderInfo(dataMetropolitan[0].info, dataMetropolitan[0].title)}
-                    {this.firstCountry(this.metropolitan, metroPolitanData, firstCountry)}
-                    {this.compareGreater(this.metropolitan, metroPolitanData, firstCountry, secondCountry)}
-                    {this.secondCountry(this.metropolitan, metroPolitanData, secondCountry)}
-                </div>
-                <div className="compare-wrapper">
-                    {this.renderInfo(dataAverageDist[0].info, dataAverageDist[0].title)}
-                    {this.firstCountry(this.averagedist, averageDistData, firstCountry)}
-                    {this.compareGreater(this.averagedist, averageDistData, firstCountry, secondCountry)}
-                    {this.secondCountry(this.averagedist, averageDistData, secondCountry)}
-                </div>
-                <div className="compare-wrapper">
-                    {this.renderInfo(dataUrbanSurf[0].info, dataUrbanSurf[0].title)}
-                    {this.firstCountry(this.urbanland, urbanSurfData, firstCountry)}
-                    {this.compareGreater(this.urbanland, urbanSurfData, firstCountry, secondCountry)}
-                    {this.secondCountry(this.urbanland, urbanSurfData, secondCountry)}
-                </div>
-            </div>
-        )
+            );
+        }
     }
 
 }
 
 export default CompareHistogram;
+
+
+

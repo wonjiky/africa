@@ -161,13 +161,13 @@
     .scrollTo_next {
         transition: all .2s ease-in-out;
         cursor:pointer;
-        transform:scale(1.2);
+        transform:scale(1.5);
         color:#E8AE40 !important;
-        opacity:.6;
+        /* opacity:.6; */
     }
     .scrollTo_next:hover {
-        transform:scale(1.5);
-        opacity:1;
+        transform:scale(1.7);
+        /* opacity:1; */
     }
 
     .home_content-1-1,

@@ -5,7 +5,7 @@ import {  FacebookIcon,  TwitterIcon,  LinkedinIcon} from 'react-share';
 
 class ExploreMixer extends Component {
 
-    legend(data) {
+    legend(data, size, total, above, million) {
         let Circle = createClass({
             render:function() {
                 var circleStyle = {
@@ -52,21 +52,21 @@ class ExploreMixer extends Component {
             <table className="explore-legend">
                 <tbody>
                     <tr className="legend-category">
-                        <th colSpan="2" >Size</th>
+                        <th colSpan="2" >{size}</th>
                         <th>Total</th>
                     </tr>
                     <tr>
-                        <td className="legend-title">Above 2 million</td>
+                        <td className="legend-title">{above} 2 {million}</td>
                         <td className="legend-diagram">{renderCircle[0]}</td>
                         <td className="legend-value">{result["6"]}</td>
                     </tr>
                     <tr>
-                        <td>1 -2 million</td>
+                        <td>1 -2 {million}</td>
                         <td className="legend-diagram">{renderCircle[1]}</td>
                         <td className="legend-value">{result["5"]}</td>
                     </tr>
                     <tr>
-                        <td>300 000 - 1 million</td>
+                        <td>300 000 - 1 {million}</td>
                         <td className="legend-diagram">{renderCircle[2]}</td>
                         <td className="legend-value">{result["4"]}</td>
                     </tr>
@@ -86,7 +86,7 @@ class ExploreMixer extends Component {
                         <td className="legend-value">{result["1"]}</td>
                     </tr>
                     <tr className="legend-category">
-                        <th colSpan="2" >Total Agglomerations</th>
+                        <th colSpan="2" >{total}</th>
                         <th>{result["7"]}</th>
                     </tr>
                 </tbody>
@@ -95,8 +95,19 @@ class ExploreMixer extends Component {
     }
 
     render() {
-        const renderLegend = this.legend(this.props.sizeArray); 
+        const { sizeArray } = this.props;
+        const label = {
+            size_EN: 'Size',
+            size_FR: 'Taille',
+            total_EN: 'Total Agglomerations',
+            total_FR: 'Total des agglomérations',
+            above_EN: 'Above',
+            above_FR: 'plus de',
+            million_EN: 'million',
+            million_FR: 'millions'
+        }
         if(this.props.language === 0) {
+            const renderLegend = this.legend(sizeArray, label.size_EN, label.total_EN, label.above_EN, label.million_EN);
             return(
                 <div className="explore_mixer-wrapper">
                     <div className="explore_mixer-list">
@@ -129,6 +140,7 @@ class ExploreMixer extends Component {
                 </div>
             );
         }else{
+            const renderLegend = this.legend(sizeArray, label.size_FR, label.total_FR, label.above_FR, label.million_FR);
             return(
                 <div className="explore_mixer-wrapper">
                     <div className="explore_mixer-list">

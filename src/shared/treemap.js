@@ -6,8 +6,8 @@ export const TREEMAP = [
         "content_title_fr": 'Anecdotes et données',
         "title_en": "Largest urban areas by population",
         "title_fr": "Les plus grandes agglomérations par population",
-        "description_en": "Among the five largest urban agglomerations in Africa are four familiar hubs of global business, media and policy making – Cairo, Lagos, Johannesburg and Kinshasa. The continent’s third largest urban area with 8.5 million inhabitants - Onitsha, Nigeria - is however not (yet) a familiar household name. A large urban area is emerging – driven by growth and the merging of built-up areas forming one large agglomeration.",
-        "description_fr": "Among the five largest urban agglomerations in Africa are four familiar hubs of global business, media and policy making – Cairo, Lagos, Johannesburg and Kinshasa. The continent’s third largest urban area with 8.5 million inhabitants - Onitsha, Nigeria - is however not (yet) a familiar household name. A large urban area is emerging – driven by growth and the merging of built-up areas forming one large agglomeration.",
+        "description_en": "Among the five largest urban agglomerations in Africa are four familiar hubs of global business, media and policy making – Cairo, Lagos, Johannesburg and Kinshasa. The continent’s third largest urban area with 8.5 million inhabitants - Onitsha, Nigeria – is, however, not (yet) a familiar household name. A large urban area is emerging – driven by growth and the merging of built-up areas forming one large agglomeration.",
+        "description_fr": "Parmi les cinq plus grandes agglomérations d’Afrique se trouvent quatre centres bien connus de commerce international, de médias et d'élaboration des politiques : Le Caire, Lagos, Johannesburg et Kinshasa. La troisième zone urbaine du continent, Onitsha (Nigéria), qui compte 8.5 millions d’habitants, n’est cependant pas (encore) un nom familier. Une grande zone urbaine émerge, tirée par la croissance et la fusion de zones bâties formant une grande agglomération.",
         "measure": " inhabitants",
         "data":[
   {
@@ -368,7 +368,7 @@ export const TREEMAP = [
         "title_en": "Largest urban areas by built-up area",
         "title_fr": "Les plus grandes agglomerations par bâti urbain",
         "description_en": "Twenty of the 50 largest agglomeration by built-up area are in Nigeria and Kenya. One of the main drivers of urban growth in Africa is the expansion of built-up areas, leading to an absorption of and merging with urban agglomerations and smaller settlements. Environmental characteristics, such as relief and land use, impact urban forms and the size of built-up areas.",
-        "description_fr": "Twenty of the 50 largest agglomeration by built-up area are in Nigeria and Kenya. One of the main drivers of urban growth in Africa is the expansion of built-up areas, leading to an absorption of and merging with urban agglomerations and smaller settlements. Environmental characteristics, such as relief and land use, impact urban forms and the size of built-up areas.",
+        "description_fr": "Vingt des 50 plus grandes agglomérations par surface bâtie se trouvent au Nigéria et au Kenya. L’expansion des zones bâties est l’un des principaux moteurs de la croissance urbaine en Afrique, elle entraîne l’absorption et la fusion d’agglomérations urbaines et de foyers de peuplement plus petits. Les caractéristiques environnementales, telles que le relief et l'utilisation des sols, ont une incidence sur les formes urbaines et la taille des zones bâties.",
         "measure": " km&sup2;",
         "data":[
             {
@@ -729,7 +729,7 @@ export const TREEMAP = [
         "title_en": "Densest urban areas",
         "title_fr": "Les agglomérations les plus denses",
         "description_en": "Forty-five of the 50 urban areas with the highest density in terms of inhabitants per square kilometre are in Egypt. Urban forms are influenced by a variety of factors – history and culture, policy and environment. The aridity of Egypt’s climate drives a particular pattern of land use leading to exceptionally high population densities.",
-        "description_fr": "Forty-five of the 50 urban areas with the highest density in terms of inhabitants per square kilometre are in Egypt. Urban forms are influenced by a variety of factors – history and culture, policy and environment. The aridity of Egypt’s climate drives a particular pattern of land use leading to exceptionally high population densities.",
+        "description_fr": "Quarante-cinq des 50 zones urbaines ayant la plus forte densité d'habitants au kilomètre carré se trouvent en Égypte. Les formes urbaines sont influencées par divers facteurs : l’histoire, la culture, la politique et l’environnement. L’aridité du climat égyptien est à l’origine d’un régime particulier d’utilisation des sols, qui entraîne des densités de population exceptionnellement élevées.",
         "measure": " Inhabitants &frasl; km&sup2;",
         "data":[
   {
@@ -1090,7 +1090,7 @@ export const TREEMAP = [
         "title_en": "Least-connected urban areas",
         "title_fr": "Les agglomérations les moins connectées",
         "description_en": "Ninety percent of the least connected agglomerations are in the Sahara and Kalahari Desert. The map is based on the size of an agglomeration’s Voronoi cell. The Voronoi cell is based on a nearest neighbour calculation – the closest agglomeration is inside the cell. Larger cells indicate a less dense urban network.",
-        "description_fr": "Ninety percent of the least connected agglomerations are in the Sahara and Kalahari Desert. The map is based on the size of an agglomeration’s Voronoi cell. The Voronoi cell is based on a nearest neighbour calculation – the closest agglomeration is inside the cell. Larger cells indicate a less dense urban network.",
+        "description_fr": "Quelques 90% des agglomérations les moins connectées se trouvent dans le Sahara et le désert du Kalahari. La carte fonctionne comme un diagramme de Voronoï dans lequel la taille de chaque cellule dépend de la distance entre deux agglomérations, toutes deux comprises dans la cellule. Les grandes cellules indiquent un réseau urbain moins dense.",
         "measure": " km&sup2;",
         "data":[
   {

@@ -86,7 +86,7 @@
 }
 
 .legend-title {
-    width:50%;
+    width:55%;
 }
 
 .legend-diagram {
@@ -365,9 +365,9 @@ button.accordion {
         width: 200px;
         background-color: #5b5d62;
         color: #fff;
-        text-align: center;
+        /* text-align: center; */
         /* border-radius: 6px; */
-        padding: 9px 3px;
+        padding: 3px 5px;
         position: absolute;
         z-index: 1;
         bottom: 125%;

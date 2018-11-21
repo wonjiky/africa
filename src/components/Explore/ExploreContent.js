@@ -177,7 +177,6 @@ class ExploreContent extends Component {
     }
 
     compareCountries(countryList, firstCountry, secondCountry, compareFirst, compareSecond,language){
-        console.log(language);
         return(
             <div className="explore_container-wrapper">
                 <div className="explore_search-agglos">

@@ -72,6 +72,7 @@ class ExploreWrapper extends Component {
                 this.setState({selectedAgglos: ''})
             }
         }
+     
         let selectedValue = a === null ? '' : a.value;
         this.setState({ selectedCountry: selectedValue})
     }
@@ -83,27 +84,23 @@ class ExploreWrapper extends Component {
     }
 
     handlefirstValueFromSearch(a){
-        console.log(a);
-        let selectedValue = a.value;
-        this.setState({ firstCompareValue: selectedValue})
+        let firstValue = a.value;
+        this.setState({ firstCompareValue: firstValue})
     }
 
     handlesecondValueFromSearch(a){
-        console.log(a);
-        let selectedValue = a.value;
-        this.setState({ secondCompareValue: selectedValue})
+        let secondValue = a.value;
+        this.setState({ secondCompareValue: secondValue})
     }
 
     handleCountryValueFromMap(e){
         this.setState({
-            // origin:'map',
             selectedCountry: e.value,
         })
     }
 
     handleAgglosValueFromMap(d){
         this.setState({
-            // origin:'map',
             selectedAgglos: d.value,
         })
     }
@@ -133,7 +130,6 @@ class ExploreWrapper extends Component {
     }
 
     firstCompareValue(d){
-        console.log(d);
         this.setState({
             origin:'map',
             firstCompareValue:d

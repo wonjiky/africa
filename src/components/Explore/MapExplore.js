@@ -307,7 +307,7 @@ class LeafletMap extends Component {
 			let layer = this.mapOverlay.getLayer(currCountryValue+"con");
 			layer.fire('change')
 		} else if (currCountryValue !== prevCountryValue && currCountryValue === ''){
-			this.placeHolder.removeLayer(this.mapOverlay);
+			this.placeHolder.clearLayers();
 		}
 
 		// ** Single select AGGLOMERATION layer trigger
@@ -325,7 +325,6 @@ class LeafletMap extends Component {
 		// // ** Compare FIRST value trigger
 		if (firstCompareValue) {
 			let layer_selA = this.select1.getLayer(firstCompareValue+"selA");
-			// console.log(layer_selA);
 			layer_selA.fire('change');
 		}
 

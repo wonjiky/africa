@@ -510,8 +510,31 @@ hr{
   -webkit-flex:1;
 }
 
+.drawer-language-toggle{ 
+  display:flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+}
+
+.drawer-language-toggle>ul{
+  flex-direction: row !important;
+  margin: 20px 0;
+  justify-content: flex-start !important;
+}
+
 .language-toggle li{
   color: white;
+  font-size: 15px;
+  width: 25px;
+  text-align: center;
+  cursor: pointer;
+  font-family: 'Open Sans';
+}
+
+.drawer-language-toggle li{
+  color: #5B5D62;
   font-size: 15px;
   width: 25px;
   text-align: center;
@@ -576,11 +599,11 @@ hr{
   display: -ms-flexbox;
   display: -webkit-flex;
   justify-content: space-around;
+    -webkit-justify-content: space-around;
   flex-direction: column;
-    -webkit-flex-direction: column wrap;
-    -moz-box-flex-direction: column wrap;
-    -ms-flexbox-flex-direction: column wrap;
-    -webkit-flex-flex-direction: column wrap;
+    -webkit-flex-direction: column;
+    -moz-box-flex-direction: column;
+    -ms-flexbox-flex-direction: column;
   height: 24px;
   width: 30px;
   background: transparent;

@@ -55,7 +55,7 @@ class App extends Component {
 			<BrowserRouter>
 				<div className="App" style={{height: '100%'}}>
 					<Headers.Header drawerClickHandler={this.drawerToggleClick} languageHandler={this.langHandler} language={this.state.language}/>
-					<Headers.SideDrawer show={this.state.sideDrawerOpen}/>
+					<Headers.SideDrawer show={this.state.sideDrawerOpen} languageHandler={this.langHandler} language={this.state.language}/>
 					{backdrop}
 					<Switch>
 						<Route exact path="/" component={() => <HomeWrapper

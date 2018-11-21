@@ -139,7 +139,17 @@
         justify-content: center;
     }
 
-    .social-icons > a {
+    .drawer-social-icons {
+        justify-content:center;
+            -webkit-justify-content:center;
+        display:flex;
+            display: -webkit-box;
+            display: -webkit-flex;
+        margin-bottom: 20px;
+    }
+
+    .social-icons > a,
+    .drawer-social-icons > a {
         padding: 0 10px;
         transition: all .2s ease-in-out;
     }

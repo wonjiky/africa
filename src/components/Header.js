@@ -1,6 +1,7 @@
 import React from 'react';
 import HamburgerButton from './HamburgerButton';
 import { NavLink } from 'react-router-dom';
+import {  FacebookIcon,  TwitterIcon,  LinkedinIcon} from 'react-share';
 import ReactGA from 'react-ga';
 
 ReactGA.initialize('UA-128268752-1');
@@ -94,9 +95,16 @@ export const SideDrawer = props => {
     if(props.show) {
         drawerClass = 'side-drawer open';
     }
+    console.log(props.language);
     if(props.language === 0){
         return(
             <nav className={drawerClass}>
+                <div className="drawer-language-toggle">
+                    <ul>
+                        <li id={props.language === 0 ? 'selected_language' : ' '} className="language-option" value="0" onClick={props.languageHandler}>EN</li>
+                        <li className="language-option" value="1" onClick={props.languageHandler}>FR</li>
+                    </ul>
+                </div>
                 <ul>
                     <li><NavLink exact to="/" className="side-nav-link">Home</NavLink></li>
                     <li><NavLink exact to="/explore" className="side-nav-link">Explore</NavLink></li>
@@ -104,6 +112,11 @@ export const SideDrawer = props => {
                     <li><NavLink exact to="/aboutus" className="side-nav-link">About Us</NavLink></li>
                 </ul>
                 <div className="side-drawer-download">
+                    <div className="drawer-social-icons">
+                        <a href="https://twitter.com/SWAC_OECD" target="_blank" rel="noopener noreferrer"><TwitterIcon size={32} round={true} /></a>
+                        <a href="http://www.facebook.com/OECDSWAC" target="_blank" rel="noopener noreferrer"><FacebookIcon size={32} round={true}/></a>
+                        <a href="https://www.linkedin.com/company/sahel-and-west-africa-club-club-du-sahel-et-l-afrique-de-l-ouest/" target="_blank" rel="noopener noreferrer"><LinkedinIcon size={32} round={true} /></a>
+                    </div>
                     <img src="assets/images/swac-oecd.png" width="100%"
                                 alt="Africapolis Visualise Urbanisation in Africa"/>
                 </div>
@@ -112,6 +125,13 @@ export const SideDrawer = props => {
     }else{
         return(
             <nav className={drawerClass}>
+                <div className="drawer-language-toggle">
+                    <ul>
+                        <li className="language-option" value="0" onClick={props.languageHandler}>EN</li>
+                        <li id='selected_language' className="language-option" value="1" onClick={props.languageHandler}>FR</li>
+                    </ul>
+                    
+                </div>
                 <ul>
                     <li><NavLink exact to="/" className="side-nav-link">Accueil</NavLink></li>
                     <li><NavLink exact to="/explore" className="side-nav-link">Explorer</NavLink></li>
@@ -119,8 +139,13 @@ export const SideDrawer = props => {
                     <li><NavLink exact to="/aboutus" className="side-nav-link">À propos</NavLink></li>
                 </ul>
                 <div className="side-drawer-download">
+                    <div className="drawer-social-icons">
+                        <a href="https://twitter.com/SWAC_OECD" target="_blank" rel="noopener noreferrer"><TwitterIcon size={32} round={true} /></a>
+                        <a href="http://www.facebook.com/OECDSWAC" target="_blank" rel="noopener noreferrer"><FacebookIcon size={32} round={true}/></a>
+                        <a href="https://www.linkedin.com/company/sahel-and-west-africa-club-club-du-sahel-et-l-afrique-de-l-ouest/" target="_blank" rel="noopener noreferrer"><LinkedinIcon size={32} round={true} /></a>
+                    </div>
                     <img src="assets/images/oecd_fr.png" width="100%"
-                                alt="Africapolis Visualise Urbanisation in Africa"/>
+                            alt="Africapolis Visualise Urbanisation in Africa"/>
                 </div>
             </nav>
         );

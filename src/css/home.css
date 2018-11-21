@@ -1,7 +1,10 @@
 /* Home */
-
 .home_main-wrapper {
     display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     position: fixed;
     margin-top: 80px;
     flex-flow: row wrap;
@@ -19,6 +22,10 @@
 
 .home_map-wrapper {
     flex: 1;
+    -webkit-box:1;
+    -moz-box:1;
+    -ms-flexbox:1;
+    -webkit-flex:1;
     height:100%;
 }
 
@@ -43,7 +50,15 @@
 
 .home_content-wrapper {
     flex: 2;
+    -webkit-box:2;
+        -moz-box:2;
+        -ms-flexbox:2;
+        -webkit-flex:2;
     display:flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     margin-bottom: 0 !important;
     z-index:2;
     box-shadow: -3px 0px 7px rgba(0,0,0,0.2);
@@ -52,8 +67,16 @@
 .home_mixer-wrapper {
     background: #efefef;
     display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     flex-flow: column wrap;
     flex: 1;
+    -webkit-box:1;
+        -moz-box:1;
+        -ms-flexbox:1;
+        -webkit-flex:1;
     align-content: space-between;
     color: #474747;
     min-width:275px;
@@ -62,6 +85,10 @@
 }
     .home_mixer-list {
         flex: 1;
+        -webkit-box:1;
+            -moz-box:1;
+            -ms-flexbox:1;
+            -webkit-flex:1;
         padding: 1.6rem;
     }
 
@@ -92,6 +119,10 @@
 
     .home_mixer-download {
         display: flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
         flex-direction: column;
         align-items: center;
         padding: 1.4rem;
@@ -100,6 +131,10 @@
 
     .social-icons {
         display: flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
         margin-bottom: 20px;
         justify-content: center;
     }
@@ -123,7 +158,15 @@
         /* overflow-y: scroll; */
         width:100%;
         flex:1;
+        -webkit-box:1;
+            -moz-box:1;
+            -ms-flexbox:1;
+            -webkit-flex:1;
         display: flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
         justify-content: center;
         font-size: 15px;
         line-height:27px;
@@ -155,6 +198,10 @@
     .button-wrapper {
         margin-top:40px;
         display:flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
         justify-content:center;
     }
 
@@ -176,11 +223,19 @@
         /* margin-bottom: 300px; */
         height: calc(100vh - 80px);
         display:flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
         align-items:center;
     }
 
     .home_treemap-wrapper {
         display: flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
         flex-direction: column;
         padding: 15% 20px 15% 20px;
         max-width:700px;
@@ -192,16 +247,28 @@
 
         .home_treemap-text {
             flex: 1;
+            -webkit-box:1;
+            -moz-box:1;
+            -ms-flexbox:1;
+            -webkit-flex:1;
             margin: 0px 0px 0px 10px;
         }
 
         .home_treemap-content {
             display:flex;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
             flex-direction: row;
         }
 
         .home_treemap-treemap {
             flex:2;
+            -webkit-box:2;
+            -moz-box:2;
+            -ms-flexbox:2;
+            -webkit-flex:2;
             margin-right: 0px 0px 10px 0px;
             min-height:500px;
         }

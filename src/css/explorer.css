@@ -663,6 +663,13 @@ button.accordion {
 @media only screen
 and (max-width: 768px) {
     /* MAIN */
+
+    #explore_content-container-wrapper {
+        overflow-y: scroll;
+        width: 100%;
+        height: calc(100vh - 356px);
+    }
+
     .explore_main-wrapper {
         margin-top: 56px;
         flex-flow: column wrap;
@@ -676,7 +683,7 @@ and (max-width: 768px) {
 
     .explore_map-wrapper {
         width:100%;
-        max-height: 400px;
+        max-height: 300px;
         display: block;
     }
 

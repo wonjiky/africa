@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import createClass from 'create-react-class';
 import StepRangeSlider from 'react-step-range-slider'
+import MaterialIcon from 'material-icons-react';
 import {  FacebookIcon,  TwitterIcon,  LinkedinIcon} from 'react-share';
 
 class ExploreMixer extends Component {
@@ -85,7 +86,7 @@ class ExploreMixer extends Component {
                         <td className="legend-diagram">{renderCircle[5]}</td>
                         <td className="legend-value">{result["1"]}</td>
                     </tr>
-                    <tr className="legend-category">
+                    <tr>
                         <th colSpan="2" >{total}</th>
                         <th>{result["7"]}</th>
                     </tr>
@@ -126,6 +127,11 @@ class ExploreMixer extends Component {
                                 <h6>Urban Population</h6>
                                 <div className="legend-wrapper">{renderLegend}</div>
                             </li>
+                            <hr />
+                            <li className="home_mixer_lists">
+                                <MaterialIcon icon="add" size={10} color='#585858' />
+                                <a>Download data </a>
+                            </li>
                         </ul>
                     </div>
                     <div className="home_mixer-download">
@@ -158,6 +164,11 @@ class ExploreMixer extends Component {
                             <li>
                                 <h6>Population urbaine</h6>
                                 <div className="legend-wrapper">{renderLegend}</div>
+                            </li>
+                            <hr/>
+                            <li className="home_mixer_lists">
+                                <MaterialIcon icon="add" size={10} color='#585858' />
+                                <a>Download data </a>
                             </li>
                         </ul>
                     </div>

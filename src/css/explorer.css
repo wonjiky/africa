@@ -750,7 +750,7 @@ and (max-width: 768px) {
         -moz-box:1;
         -ms-flexbox:1;
         -webkit-flex:1;
-        min-width: 70%;
+        min-width: none;
         width:50px;
         align-items:center;
     }
@@ -792,5 +792,51 @@ and (max-width: 768px) {
         width:100%;
         padding: 10% 20px 0 20px;
     }
+
+}
+
+/* IPAD PRO */
+@media only screen 
+and (min-width: 1024px) 
+and (max-width: 1024px)
+and (min-height: 1366px)
+and (max-height: 1366px) 
+and (orientation: portrait) 
+and (-webkit-min-device-pixel-ratio: 2) {
+
+    .explore_map-wrapper {
+        width:100%;
+        max-height: 500px;
+        display: block;
+    }
+
+    .explore_main-wrapper {
+        margin-top: 56px;
+        flex-flow: column wrap;
+        -webkit-flex-flow: column wrap;
+        -moz-box-flex-flow: column wrap;
+        -ms-flexbox-flex-flow: column wrap;
+        -webkit-flex-flex-flow: column wrap;
+        height: calc(100vh - 56px);
+        width:100%;
+    }
+    .tab-wrapper {
+        width:80%;
+        padding: 10% 20px 0 20px;
+    }
+    #explore_content-container-wrapper {
+        overflow-y: scroll;
+        width: 100%;
+        height: calc(100vh - 556px);
+    }
+
+    .explore_mixer-wrapper {
+        align-content: space-between;
+        color: #474747;
+        min-width:275px;
+        max-width: 280px;
+        height: calc(100vh - 556px);
+    }
+
 
 }

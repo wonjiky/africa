@@ -13,7 +13,7 @@ const HomeMixer = props => {
                                 <li key={i} className="home_mixer_lists" id={props.selectedContent === story.ID && 
                                         props.contentFilter === story.content ? 'clicked' : ' '}
                                         onClick={() => props.contentSelect(story)}>
-                                    <MaterialIcon icon="arrow_forward" size={15} color='#585858' />
+                                    <MaterialIcon icon="arrow_forward" size={10} color='#585858' />
                                     {story.title_en}
                                 </li>
                             ))}
@@ -23,10 +23,15 @@ const HomeMixer = props => {
                                 <li key={i} className="home_mixer_lists" id={props.selectedContent === treemap.ID && 
                                     props.contentFilter === treemap.content ? 'clicked' : ' '}
                                     onClick={() => props.contentSelect(treemap)}>
-                                    <MaterialIcon icon="arrow_forward" size={15} color='#585858' />
+                                    <MaterialIcon icon="arrow_forward" size={10} color='#585858' />
                                     {treemap.title_en}
                                 </li>
                             ))}
+                        <hr />
+                            <li className="home_mixer_lists">
+                                <MaterialIcon icon="add" size={10} color='#585858' />
+                                <a>Download data </a>
+                            </li>
                     </ul>
                 </div>
                 <div className="home_mixer-download">
@@ -51,7 +56,7 @@ const HomeMixer = props => {
                                 <li key={i} className="home_mixer_lists" id={props.selectedContent === story.ID && 
                                         props.contentFilter === story.content ? 'clicked' : ' '}
                                         onClick={() => props.contentSelect(story)}>
-                                    <MaterialIcon icon="arrow_forward" size={15} color='#585858' />
+                                    <MaterialIcon icon="arrow_forward" size={10} color='#585858' />
                                     {story.title_fr}
                                 </li>
                             ))}
@@ -61,10 +66,15 @@ const HomeMixer = props => {
                                 <li key={i} className="home_mixer_lists" id={props.selectedContent === treemap.ID && 
                                     props.contentFilter === treemap.content ? 'clicked' : ' '}
                                     onClick={() => props.contentSelect(treemap)}>
-                                    <MaterialIcon icon="arrow_forward" size={15} color='#585858' />
+                                    <MaterialIcon icon="arrow_forward" size={10} color='#585858' />
                                     {treemap.title_fr}
                                 </li>
                             ))}
+                        <hr />
+                        <li className="home_mixer_lists">
+                            <MaterialIcon icon="add" size={10} color='#585858' />
+                            <a>Download data </a>
+                        </li>
                     </ul>
                 </div>
                 <div className="home_mixer-download">

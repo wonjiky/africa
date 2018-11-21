@@ -16,7 +16,6 @@ const Footer = () => {
                     </span>
                     </p>
                     <br/>
-                    <p>Developed by Won Jik Yang</p>
                 </div>
                 <div className="disclaimer"> 
                     Any map included herein, are without prejudice to the status of or sovereignty over any territory, to the delimitation of international frontiers and boundaries and to the name of any territory, city or area.
@@ -39,7 +38,6 @@ const FooterFrench = () => {
                         africapolis@oecd.org
                     </span>
                     <br/>
-                    <p>Développé par Won Jik Yang</p>
                 </div>
                 <div className="disclaimer"> 
                     Toutes données et cartes sont sans préjudice du statut de tout territoire, de la souveraineté s’exerçant sur ce dernier, du tracé des frontières et limites internationales, et du nom de tout territoire, ville ou région.

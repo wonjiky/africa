@@ -8,6 +8,10 @@
 
 .about_main-container {
     display:flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     flex-flow: column wrap;
     align-items: center;
     font-size:15px;
@@ -26,6 +30,10 @@
     max-width:70%;
     width:800px;
     display:flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     flex-direction:row;
     justify-content:center;
     margin-top: 30px;
@@ -33,7 +41,15 @@
 
 .africapolis_logos{
     flex:1;
+    -webkit-box:1;
+    -moz-box:1;
+    -ms-flexbox:1;
+    -webkit-flex:1;
     display:flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     justify-content: center;
     align-items: center;
     max-width:50%;
@@ -48,6 +64,10 @@
 
 .about_africapolis-logos-container{
     display:flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     width: 50%;
     flex-flow: row wrap;
 }
@@ -56,7 +76,15 @@
     margin: 10px;
     padding:10px;
     flex:1;
+    -webkit-box:1;
+    -moz-box:1;
+    -ms-flexbox:1;
+    -webkit-flex:1;
     display:flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     justify-content: center;
     align-items: center;
     min-width:24%;
@@ -72,6 +100,10 @@
     width:100%;
     bottom:0;
     display:flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     justify-content:center;
     min-height:150px;
     background:#efefef;
@@ -80,6 +112,10 @@
 
 .footer-container{
     display:flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     width: 70%;
     flex-flow: row wrap;
 }
@@ -87,7 +123,15 @@
 .copyright,
 .footer-logo{
     display:flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     flex:1;
+    -webkit-box:1;
+    -moz-box:1;
+    -ms-flexbox:1;
+    -webkit-flex:1;
     padding: 20px;
     flex-flow:column wrap;
     align-items:center;
@@ -103,7 +147,15 @@
 
 .disclaimer {
     display:flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     flex:3;
+    -webkit-box:3;
+    -moz-box:3;
+    -ms-flexbox:3;
+    -webkit-flex:3;
     padding: 20px 40px;
     align-items:center;
 }

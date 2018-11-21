@@ -7,6 +7,10 @@
     position: fixed;
     margin-top: 80px;
     flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
+    -moz-box-flex-flow: row wrap;
+    -ms-flexbox-flex-flow: row wrap;
+    -webkit-flex-flex-flow: row wrap;
     height: calc(100vh - 80px);
     width:100%;
 }
@@ -51,6 +55,10 @@
     display: -ms-flexbox;
     display: -webkit-flex;
     flex-flow: column wrap;
+    -webkit-flex-flow: column wrap;
+    -moz-box-flex-flow: column wrap;
+    -ms-flexbox-flex-flow: column wrap;
+    -webkit-flex-flex-flow: column wrap;
     flex: 1;
     -webkit-box:1;
     -moz-box:1;
@@ -103,6 +111,10 @@
     display: -ms-flexbox;
     display: -webkit-flex;
     flex-direction: column;
+    -webkit-flex-direction: column wrap;
+    -moz-box-flex-direction: column wrap;
+    -ms-flexbox-flex-direction: column wrap;
+    -webkit-flex-flex-direction: column wrap;
     align-items: center;
     padding: 1.4rem;
     display: block;
@@ -181,6 +193,10 @@ td {
     display: -ms-flexbox;
     display: -webkit-flex;
     flex-direction: column;
+    -webkit-flex-direction: column wrap;
+    -moz-box-flex-direction: column wrap;
+    -ms-flexbox-flex-direction: column wrap;
+    -webkit-flex-flex-direction: column wrap;
     color: #2d2d2d;
     height: inherit;
     letter-spacing: 0px;
@@ -212,7 +228,10 @@ td {
     display: -ms-flexbox;
     display: -webkit-flex;
     flex-flow: row wrap;
-    
+    -webkit-flex-flow: row wrap;
+    -moz-box-flex-flow: row wrap;
+    -ms-flexbox-flex-flow: row wrap;
+    -webkit-flex-flex-flow: row wrap;
     justify-content: space-between;
 }
 
@@ -288,6 +307,10 @@ button.accordion {
     display: -ms-flexbox;
     display: -webkit-flex;
     flex-flow: column wrap;
+    -webkit-flex-flow: column wrap;
+    -moz-box-flex-flow: column wrap;
+    -ms-flexbox-flex-flow: column wrap;
+    -webkit-flex-flex-flow: column wrap;
 }
 
 .histogram_agglos-wrapper {
@@ -302,6 +325,10 @@ button.accordion {
     display: -ms-flexbox;
     display: -webkit-flex;
     flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
+    -moz-box-flex-flow: row wrap;
+    -ms-flexbox-flex-flow: row wrap;
+    -webkit-flex-flex-flow: row wrap;
     padding: 2%;
     text-transform: uppercase;
 }
@@ -366,6 +393,10 @@ button.accordion {
     justify-content: center;
     align-items:center;
     flex-direction: column;
+    -webkit-flex-direction: column wrap;
+    -moz-box-flex-direction: column wrap;
+    -ms-flexbox-flex-direction: column wrap;
+    -webkit-flex-flex-direction: column wrap;
 }
 
 .compare-wrapper {
@@ -381,6 +412,10 @@ button.accordion {
     display: -ms-flexbox;
     display: -webkit-flex;
     flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
+    -moz-box-flex-flow: row wrap;
+    -ms-flexbox-flex-flow: row wrap;
+    -webkit-flex-flex-flow: row wrap;
     padding: 3%;
     margin-bottom: 20px;
     box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
@@ -631,6 +666,10 @@ and (max-width: 768px) {
     .explore_main-wrapper {
         margin-top: 56px;
         flex-flow: column wrap;
+        -webkit-flex-flow: column wrap;
+        -moz-box-flex-flow: column wrap;
+        -ms-flexbox-flex-flow: column wrap;
+        -webkit-flex-flex-flow: column wrap;
         height: calc(100vh - 56px);
         width:100%;
     }
@@ -660,6 +699,10 @@ and (max-width: 768px) {
         display: -ms-flexbox;
         display: -webkit-flex;
         flex-flow: column wrap;
+        -webkit-flex-flow: column wrap;
+        -moz-box-flex-flow: column wrap;
+        -ms-flexbox-flex-flow: column wrap;
+        -webkit-flex-flex-flow: column wrap;
     }
 
     /* EXPLORE */
@@ -670,6 +713,10 @@ and (max-width: 768px) {
         display: -ms-flexbox;
         display: -webkit-flex;
         flex-direction: column;
+        -webkit-flex-direction: column wrap;
+        -moz-box-flex-direction: column wrap;
+        -ms-flexbox-flex-direction: column wrap;
+        -webkit-flex-flex-direction: column wrap;
         color: #2d2d2d;
         height: inherit;
         letter-spacing: 0px;
@@ -686,6 +733,10 @@ and (max-width: 768px) {
         display: -ms-flexbox;
         display: -webkit-flex;
         flex-flow: row wrap;
+        -webkit-flex-flow: row wrap;
+        -moz-box-flex-flow: row wrap;
+        -ms-flexbox-flex-flow: row wrap;
+        -webkit-flex-flex-flow: row wrap;
         padding: 3%;
         margin-bottom: 20px;
         box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),

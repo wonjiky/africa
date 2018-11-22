@@ -95,7 +95,6 @@ export const SideDrawer = props => {
     if(props.show) {
         drawerClass = 'side-drawer open';
     }
-    console.log(props.language);
     if(props.language === 0){
         return(
             <nav className={drawerClass}>

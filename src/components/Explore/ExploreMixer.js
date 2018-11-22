@@ -130,7 +130,7 @@ class ExploreMixer extends Component {
                             <hr />
                             <li className="home_mixer_lists">
                                 <MaterialIcon icon="add" size={10} color='#585858' />
-                                <a>Download data </a>
+                                <a href="assets/download/africapolis2015.xlsx">Download data </a>
                             </li>
                         </ul>
                     </div>

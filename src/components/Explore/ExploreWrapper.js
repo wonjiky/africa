@@ -137,7 +137,6 @@ class ExploreWrapper extends Component {
     }
 
     secondCompareValue(d){
-        console.log(d);
         this.setState({
             origin:'map',
             secondCompareValue:d

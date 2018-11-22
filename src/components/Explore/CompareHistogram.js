@@ -319,7 +319,6 @@ class CompareHistogram extends Component {
             fr: 'Chiffres clés'
         }
         if(language === 0){
-            console.log(language);
             return(
                 <div className="histogram_compare-wrapper">
                     <div className="compare-wrapper-titles">

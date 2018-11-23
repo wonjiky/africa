@@ -25,7 +25,15 @@ class ExploreMixer extends Component {
             }
         });
 
-        let colors = ['#E73741','#df521e','#e1b400','#32a674','#0b68af','#993484'];
+
+        // d === 6 ? '#225ea8' :
+        // d === 5 ? '#1d91c0' :
+        // d === 4 ? '#41b6c4' :
+        // d === 3 ? '#7fcdbb' :
+        // d === 2 ? '#c7e9b4' :
+        // d === 1 ? '#ffffcc' : ''
+        // let colors = ['#E73741','#df521e','#e1b400','#32a674','#0b68af','#993484'];
+        let colors = ['#225ea8','#1d91c0','#41b6c4','#7fcdbb','#c7e9b4','#ffffcc'];
         let sizes = [24,21,18,15,12,9];
         let renderCircle = [];
 
@@ -128,9 +136,18 @@ class ExploreMixer extends Component {
                                 <div className="legend-wrapper">{renderLegend}</div>
                             </li>
                             <hr />
-                            <li className="home_mixer_lists">
+                            <h6>Download</h6>
+                            <li className="explore_mixer-lists">
                                 <MaterialIcon icon="add" size={10} color='#585858' />
-                                <a href="assets/download/africapolis2015.xlsx">Download data </a>
+                                <a href="download/http://www.africapolis.org/download/Africapolis_country.xlsx">Country data</a>
+                            </li>
+                            <li className="explore_mixer-lists">
+                                <MaterialIcon icon="add" size={10} color='#585858' />
+                                <a href="http://www.africapolis.org/download/Africapolis_agglomeration_2015.xlsx">Agglomeration data </a>
+                            </li>
+                            <li className="explore_mixer-lists">
+                                <MaterialIcon icon="add" size={10} color='#585858' />
+                                <a href="http://www.africapolis.org/download/Africapolis_2015_shp.zip">GIS</a>
                             </li>
                         </ul>
                     </div>
@@ -165,10 +182,19 @@ class ExploreMixer extends Component {
                                 <h6>Population urbaine</h6>
                                 <div className="legend-wrapper">{renderLegend}</div>
                             </li>
-                            <hr/>
-                            <li className="home_mixer_lists">
+                            <hr />
+                            <h6>Download</h6>
+                            <li className="explore_mixer-lists">
                                 <MaterialIcon icon="add" size={10} color='#585858' />
-                                <a>Download data </a>
+                                <a href="download/http://www.africapolis.org/download/Africapolis_country.xlsx">Country data</a>
+                            </li>
+                            <li className="explore_mixer-lists">
+                                <MaterialIcon icon="add" size={10} color='#585858' />
+                                <a href="http://www.africapolis.org/download/Africapolis_agglomeration_2015.xlsx">Agglomeration data </a>
+                            </li>
+                            <li className="explore_mixer-lists">
+                                <MaterialIcon icon="add" size={10} color='#585858' />
+                                <a href="http://www.africapolis.org/download/Africapolis_2015_shp.zip">GIS</a>
                             </li>
                         </ul>
                     </div>

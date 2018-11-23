@@ -28,10 +28,19 @@ const HomeMixer = props => {
                                 </li>
                             ))}
                         <hr />
-                            <li className="home_mixer_lists">
-                                <MaterialIcon icon="add" size={10} color='#585858' />
-                                <a>Download data </a>
-                            </li>
+                        <h6>Download</h6>
+                        <li className="home_mixer_lists">
+                            <MaterialIcon icon="add" size={10} color='#585858' />
+                            <a href="download/http://www.africapolis.org/download/Africapolis_country.xlsx">Country data</a>
+                        </li>
+                        <li className="home_mixer_lists">
+                            <MaterialIcon icon="add" size={10} color='#585858' />
+                            <a href="http://www.africapolis.org/download/Africapolis_agglomeration_2015.xlsx">Agglomeration data </a>
+                        </li>
+                        <li className="home_mixer_lists">
+                            <MaterialIcon icon="add" size={10} color='#585858' />
+                            <a href="http://www.africapolis.org/download/Africapolis_2015_shp.zip">GIS</a>
+                        </li>
                     </ul>
                 </div>
                 <div className="home_mixer-download">
@@ -71,10 +80,19 @@ const HomeMixer = props => {
                                 </li>
                             ))}
                         <hr />
+                        <h6>Download</h6>
                         <li className="home_mixer_lists">
-                            <MaterialIcon icon="add" size={10} color='#585858' />
-                            <a>Download data </a>
-                        </li>
+                                <MaterialIcon icon="add" size={10} color='#585858' />
+                                <a href="download/http://www.africapolis.org/download/Africapolis_country.xlsx">Country data</a>
+                            </li>
+                            <li className="home_mixer_lists">
+                                <MaterialIcon icon="add" size={10} color='#585858' />
+                                <a href="http://www.africapolis.org/download/Africapolis_agglomeration_2015.xlsx">Agglomeration data </a>
+                            </li>
+                            <li className="home_mixer_lists">
+                                <MaterialIcon icon="add" size={10} color='#585858' />
+                                <a href="http://www.africapolis.org/download/Africapolis_2015_shp.zip">GIS</a>
+                            </li>
                     </ul>
                 </div>
                 <div className="home_mixer-download">

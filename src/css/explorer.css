@@ -64,7 +64,7 @@
     -moz-box:1;
     -ms-flexbox:1;
     -webkit-flex:1;
-    align-content: space-between;
+    justify-content: space-between;
     color: #474747;
     min-width:275px;
     max-width: 280px;
@@ -72,11 +72,11 @@
 }
 
 .explore_mixer-list {
-    flex: 1;
+    /* flex: 1;
     -webkit-box:1;
     -moz-box:1;
     -ms-flexbox:1;
-    -webkit-flex:1;
+    -webkit-flex:1; */
     padding: 1.6rem;
 }
 
@@ -88,6 +88,11 @@
 
 .explore_mixer-list p{
     margin-bottom:10px;
+}
+
+.explore_mixer-list a{
+    text-decoration: none;
+    color: inherit;
 }
 
 .explore_mixer-list h6 {

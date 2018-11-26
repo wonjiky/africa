@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import KeyFigure from './KeyFigure';
 import CompareCountries from './CompareCountries';
-import Select from "react-select";
+import Select from 'react-select';
 import { FixedSizeList as List } from "react-window";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import "react-tabs/style/react-tabs.css";

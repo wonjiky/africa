@@ -1,7 +1,7 @@
 import React from 'react';
 import MaterialIcon from 'material-icons-react';
 import {  FacebookIcon,  TwitterIcon,  LinkedinIcon} from 'react-share';
-    
+
 const HomeMixer = props => {
     if(props.language === 0 ) {
         return(
@@ -31,7 +31,7 @@ const HomeMixer = props => {
                         <h6>Download</h6>
                         <li className="home_mixer_lists">
                             <MaterialIcon icon="add" size={10} color='#585858' />
-                            <a href="download/http://www.africapolis.org/download/Africapolis_country.xlsx">Country data</a>
+                            <a href="http://www.africapolis.org/download/Africapolis_country.xlsx">Country data</a>
                         </li>
                         <li className="home_mixer_lists">
                             <MaterialIcon icon="add" size={10} color='#585858' />
@@ -83,7 +83,7 @@ const HomeMixer = props => {
                         <h6>Download</h6>
                         <li className="home_mixer_lists">
                                 <MaterialIcon icon="add" size={10} color='#585858' />
-                                <a href="download/http://www.africapolis.org/download/Africapolis_country.xlsx">Country data</a>
+                                <a href="http://www.africapolis.org/download/Africapolis_country.xlsx">Country data</a>
                             </li>
                             <li className="home_mixer_lists">
                                 <MaterialIcon icon="add" size={10} color='#585858' />

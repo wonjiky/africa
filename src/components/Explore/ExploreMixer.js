@@ -139,7 +139,7 @@ class ExploreMixer extends Component {
                             <h6>Download</h6>
                             <li className="explore_mixer-lists">
                                 <MaterialIcon icon="add" size={10} color='#585858' />
-                                <a href="download/http://www.africapolis.org/download/Africapolis_country.xlsx">Country data</a>
+                                <a href="http://www.africapolis.org/download/Africapolis_country.xlsx">Country data</a>
                             </li>
                             <li className="explore_mixer-lists">
                                 <MaterialIcon icon="add" size={10} color='#585858' />
@@ -186,7 +186,7 @@ class ExploreMixer extends Component {
                             <h6>Download</h6>
                             <li className="explore_mixer-lists">
                                 <MaterialIcon icon="add" size={10} color='#585858' />
-                                <a href="download/http://www.africapolis.org/download/Africapolis_country.xlsx">Country data</a>
+                                <a href="http://www.africapolis.org/download/Africapolis_country.xlsx">Country data</a>
                             </li>
                             <li className="explore_mixer-lists">
                                 <MaterialIcon icon="add" size={10} color='#585858' />

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import RenderTreemap from './RenderTreemap';
+import DropDownMixer from './DropDownMixer';
 import { Link, Events } from 'react-scroll'
-
 
 class HomeContent extends Component {
     componentDidMount() {
@@ -29,15 +29,25 @@ class HomeContent extends Component {
         this.props.pageOffset(top, bottom, triggerPoint);
     }
 
+    // handleChangeValue(e){
+        // console.log(e);
+        // this.props.handleChangeValue(e);
+        // this.props.handleChangeValue.bind(this);
+    // }
+
     content(selectedContent, contentFilter, narratives, treemap, language){
         const storyList = narratives.find(s => s.ID === selectedContent);
         const treemapList = treemap.find(t => t.ID === selectedContent);
-
+        
         if(language === 0) {
             //ENGLSISH
             if(storyList.ID === 0 && contentFilter === 'narrative'){
                 return(
                     <div className="home_content-1" >
+                        {/* <DropDownMixer
+                            list={dropdownStory}
+                            changeValue={this.props.handleChangeValue}
+                        /> */}
                         <div className="home_content-1-1">
                             <div>
                                 <h2>{narratives[0].story_en[0].storytitle}</h2>
@@ -62,6 +72,10 @@ class HomeContent extends Component {
             } else if (storyList.ID !== 0 && contentFilter === 'narrative'){
                 return(
                     <div className="home_content-2">
+                        {/* <DropDownMixer
+                            list={dropdownStory}
+                            changeValue={this.props.handleChangeValue}
+                        /> */}
                         <ul className="list-unstyled">
                             <li className="story_main-title">
                                 <h2>{storyList.title_en}</h2>
@@ -173,9 +187,18 @@ class HomeContent extends Component {
     }
 
     render () {
+        const dropdownStory = this.props.narratives.map((c, i) => (
+            {value: c.ID, label: c.title_en }))
+        const storyValue = this.props.narratives.find(s => s.ID === this.props.selectedContent);
+        const value = { value: storyValue.ID, label:storyValue.title_en }            
         return(
             <div id="home_content-container-wrapper">
                 <div id="home_content-container">
+                    <DropDownMixer
+                        list={dropdownStory}
+                        selectedContent={value}
+                        changeValue={this.props.handleChangeValue}
+                    />
                     {this.content(this.props.selectedContent,
                         this.props.contentFilter,
                         this.props.narratives,

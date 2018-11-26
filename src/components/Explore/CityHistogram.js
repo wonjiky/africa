@@ -3,7 +3,7 @@ import { BarChart, Cell, Bar, Tooltip, LineChart, Line, XAxis, CartesianGrid } f
 import MaterialIcon from 'material-icons-react';
 
 let params = {
-    histogramHeight: 100,
+    histogramHeight: 60,
     histogramWidth: 200,
 };
 
@@ -11,7 +11,7 @@ class CityHistogram extends Component {
     constructor(props){
         super(props);
         this.check = this.check.bind(this);
-        this.tooltipYOffset = 100;
+        this.tooltipYOffset = 55;
         this.tooltipZindex = 1000;
     }
 
